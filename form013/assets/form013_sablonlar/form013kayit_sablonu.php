@@ -173,7 +173,7 @@
             </div></td>
         <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
         <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
+        <td width="10%" class="border border-primary"><div align="center">
                 <input class="form-control form-control-sm text-center border-0" name="v142"  type="text" value="0" size="15" id="v142" onchange="topla6();" onkeydown="topla10();" onkeyup="topla10();">
             </div></td>
         <td width="2%" class="border border-primary"><input name="button6" type="button" class="style1"  onclick="topla6();" value=" = " /></td>
