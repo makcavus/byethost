@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<?php
+function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
+
+//mysql baglantisi
+include("con_023.php");
+echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)"><img src="images/iptal.png"></a>';
+echo'<table class="cizgi" bordercolor="black" border="1" align="center" cellpadding="0" cellspacing="0" width="76%">';
+echo '<tr>';
+$sno=trsuz("Sıra No:");
+$kod=trsuz("Kurum Adı:");
+$dr=trsuz("Doktor Adı:");
+$user=trsuz("Kullanıcı Adı:");
+$sifre=trsuz("Şifresi:");
+
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16" align="center"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$sno.'</font></td>';
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16" align="center"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$kod.'</font></td>';
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16" align="center"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$dr.'</font></td>';
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16" align="center"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$user.'</font></td>';
+//echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16" align="center"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$sifre.'</font></td>';
+
+echo '</tr>';  
+$resultuser = @mysql_query("select * from uyeler order by uyekod asc");
+while($rowuser=mysql_fetch_array($resultuser)) {
+$no=$rowuser['uyeno'];
+$kurum=$rowuser['uyekod'];
+$dr=$rowuser['uyekim'];
+$user=$rowuser['uyead'];
+$pass=$rowuser['uyesifre'];
+
+  echo '<tr>';
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16" align="center"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$no.'</font></td>';
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16" align="center"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$kurum.'</font></td>';
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$dr.'</font></td>';
+echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$user.'</font></td>';
+//echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$pass.'</font></td>';
+
+echo '</tr>';
+  
+}
+echo '</table>';
+echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)"><img src="images/iptal.png"></a>';
+
+?>
+</body>
+</html>

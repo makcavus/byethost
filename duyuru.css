@@ -1,0 +1,357 @@
+.renk {
+  background:#CCFFCC; 
+  font:Arial, Helvetica, ; 
+  font:normal; border:#000000;
+  font-size:11pt;color: #000066;
+  font-weight:bold;padding:0 0px;
+  text-align:left;cursor:default;
+  font-family:sans-serif;
+}
+*{padding:0; margin:0;}
+
+body{
+  margin:0 0px;
+  cursor:default;
+  background-color:#000000;
+}
+
+#manset {
+ display: block;
+ max-width: 100%;
+ height: auto!important;
+ border: 1px solid #CCCCCC;
+ background-color: #FFFFFF;
+ padding: 0px;}
+ div {
+ border-radius:5px
+ }
+
+ #manset div{
+  font-family:sans-serif; 
+  width:100%; 
+  height:100%;
+}
+
+ .sayfaxxx{
+  float:left;
+  padding:2px 0;
+  margin:0 2px 0 0;
+  color:#369;
+  cursor:default;
+  font-family:calibri;
+  font-size:11pt;
+  border:solid 1px #369; 
+  width:1374px; 
+  text-align:center;
+}
+
+ .sayfa{
+  float:left;
+  padding:0px 0;
+  margin:0px 1px 0px 1px;
+  color:black;
+  cursor:default;
+  font-family:calibri;
+  font-size:11pt;
+  border:solid 1px orange;  
+  text-align:center;
+  border-radius: 10px; 
+  font-weight:bold; 
+}
+
+ .manset_f{
+  float:left;
+  border:0;
+}
+
+ .manset_h{
+  float:left;
+  background-color: #FFFFCC;
+  color:#333;
+  display: block;
+  max-width: 100%;
+  height: auto!important; 
+  margin:0 0 0px 0; 
+  font-size:11pt;
+  color:#800;
+  font-weight:bold;padding:0 0px;
+}
+
+ .manset_g{
+  float:left;
+  background-color:#CCFFCC;
+  color:#000000;
+  display: block; 
+  max-width: 96%;
+  height: auto!important; 
+  margin:2px 2px 2px 15px; 
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 0px;
+  text-align:left;
+}
+
+ .manset_tarih{
+  float:left;
+  background-color:#CCFFCC;
+  color:#000000;
+  width:100px;
+  margin:0 0 5px 0;
+  height:15px;
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 0px;
+  text-align:left;
+}
+
+ .manset_serit{
+  float:left;
+  background-color:#CCFFCC;
+  color:#000000;
+  display: block; 
+  max-width: 100%; 
+  height: auto!important; 
+  margin:0 0 0px 0;
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;padding:0 0px;
+  text-align:left;
+}
+
+ .manset_resim{
+  float:center;
+  background-color:#CCFFCC;
+  color:#000000;
+  display: block; 
+  max-width: 100%; 
+  height: auto!important; 
+  margin:0 0 0px 0;
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 0px;
+  text-align:center;
+}
+
+ .ara{
+  float:left; 
+  background-color:#CCFFCC; 
+  border:solid 3px; 
+  border-color:#000000;
+  color:#000000;
+  margin:0 0 0px 0;
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 15px;
+  text-align:left;
+  cursor:default;
+  font-family:sans-serif;
+}
+
+ #manset a{
+  text-decoration:none; 
+  cursor:default;
+}
+
+ #hint {
+  cursor:default;
+  font-family:sans-serif; 
+  display: block; 
+  max-width: 100%;
+  height: auto!important; 
+  border:none #ccc; 
+  background-color:#000000; 
+  padding:0px;
+  margin:0 0 0px 0;
+  display:none;
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 0px;
+  text-align:left;
+}
+
+ #hint div{
+  font-family:sans-serif; 
+  display: block; 
+  max-width: 100%; 
+  height: auto!important;
+}
+
+ .sayi{
+  float:center;
+  background-color: #000000;
+  color:#333;
+  display: block; 
+  max-width: 100%; 
+  height: auto!important; 
+  margin:0 0 0 0; 
+  font-size:11pt;
+  color:#800;
+  font-weight:bold;
+  padding:0 0px;
+  text-align:center;
+}
+
+ .bant{
+  float:left;
+  background-color:#000000;
+  color:#000000;
+  display: block; 
+  max-width: 100%; 
+  height: auto!important; 
+  margin:0 0 0px 0; 
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 0px;
+  text-align:left;
+}
+
+ .bantserit{
+  float:left;
+  background-color:#000000;
+  color:#000000;
+  display: block; 
+  max-width: 100%; 
+  height: auto!important; 
+  margin:0px 1px 0px 1px;
+  color:#369;
+  cursor:default;
+  font-size:10pt; 
+  text-align:left;
+}
+
+ .serit_tarih{
+  float:left;
+  background-color:#000000;
+  color:#000000;
+  display: block; 
+  max-width: 100%; 
+  height: auto!important; 
+  margin:0 0 0px 0; 
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 0px;
+  text-align:left;
+}
+
+ .tumduyuru{
+  float:left; 
+  background-color:#CCFFCC; 
+  border:solid 0px; 
+  border-color:#000000;
+  margin:0 0 0px 0;
+  font-size:11pt;
+  color: #000066;
+  font-weight:bold;
+  padding:0 15px;
+  text-align:left;
+  cursor:default;
+  font-family:sans-serif;
+  display: block;
+  max-width: 100%;
+  height: auto!important;
+}
+
+   .tdtarih{
+    float:left; 
+    background-color:#CCFFCC; 
+    border:solid 0px; 
+    border-color:#000000;
+    color:#000000;
+    margin:0 0 0 0;
+    font-size:11pt;
+    color: #000066;
+    font-weight:bold;
+    padding:0 0px;
+    text-align:center;
+    cursor:default;
+    font-family:sans-serif;
+    display: block;
+    max-width: 100%;
+    height: 22px;
+  }
+
+     .tdkonu{
+      float:left; 
+      background-color:#CCFFCC; 
+      border:solid 0px; 
+      border-color:#000000;
+      color:#000000;
+      margin:0 0 0px 5px;
+      font-size:11pt;
+      color: #000066;
+      font-weight:bold;
+      padding:0 0px;
+      text-align:left;
+      cursor:default;
+      font-family:sans-serif;
+      display: block;
+      max-width: 100%;
+      height: auto!important;
+    }
+
+       .tdek{
+        float:left; 
+        background-color:#CCFFCC; 
+        border:solid 0px; 
+        border-color:#000000;
+        color:#000000;
+        margin:0 0 0px 5px;
+        font-size:11pt;
+        color: #000066;
+        font-weight:bold;
+        padding:0 0px;
+        text-align:left;
+        cursor:default;
+        font-family:sans-serif;
+        display: block;
+        max-width: 100%;
+        height: auto!important;
+      }
+
+         .resboyut{float:left;
+          background-color: #FFFFCC;
+          color:#333;display: block;
+          max-width: 440px;
+          min-height: 330px!important;
+        }
+           .ximg{
+             display: block;
+             max-width: 100%;
+             width: 100%;
+             height: auto!important;
+             border: 0px solid #CCCCCC;
+             background-color: #FFFFFF;
+             padding: 0px;
+           }
+           .resimbaslikenboy{
+            width: 30%;
+            height: 10%;
+            border-color: orange;
+            column-span: 1;
+          }
+          .resimkisimenboy{
+            width: 30%;
+            height: 90%;
+            border-color: orange;
+          }
+          .duyurubaslikenboy{
+            width: 70%;
+            height: 10%;
+            border-color: orange;
+            background-color: #CCFFCC;
+          }
+          .duyurukisimenboy{
+            width: 70%;
+            height: 90%;
+            border-color: orange;
+            background-color: #CCFFCC;
+            vertical-align: top;
+          }
+          
