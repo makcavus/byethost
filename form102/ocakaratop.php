@@ -2,7 +2,7 @@
 $countryId=intval($_GET['selectil']);
 $stateId=intval($_GET['selectilce']);
 include("../con_023.php");
-include('frm013alanlari.php');
+include('frm102alanlari.php');
 $query="SELECT ocid,ilinad,ilce,socad FROM ocak WHERE ilinad='$countryId' AND ilce='$stateId' order by socad asc";
 
 $result=mysqli_query($dbh,$query);

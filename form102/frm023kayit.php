@@ -32,7 +32,6 @@ $_SESSION['timeout'] = time();
 <script language="JavaScript" src="toplama.js" type="text/javascript"></script>
 <?php
 include("../con_023.php");
-include("../con_102.php");
 include("tanimveyetkiler.php");
 ?>
 <?php
@@ -119,7 +118,6 @@ echo '<option>'.$katay['ayadi'].'</option>';
 }
 echo $ilcekodu;
 @mysqli_close($dbh);
-@mysqli_close($dbh102);
 ?>
 </select>
 </td>

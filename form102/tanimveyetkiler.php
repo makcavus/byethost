@@ -36,7 +36,7 @@ $bakanlikyetki="GMD";
 $ilyetki="LSM";
 $ilunvan="İl Sağlık Müdürü";
 //Il e Yetkili Kurum Kisaltmasi.  yeler tablosundaki  yekod alaninin son    harfi veya rakami
-$ilceyetki="ISM";
+$ilceyetki="TSM";
 $ilceunvan="İlçe Sağlık Müdürü";
 //Kurum Yetkili Kurum Kisaltmasi.  yeler tablosundaki  yekod alaninin son    harfi veya rakami
 $kurumyetki="TSM";

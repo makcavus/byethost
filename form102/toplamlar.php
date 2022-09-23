@@ -4,24 +4,18 @@ include("../assets/sablon/form013/sidebar.php");
 ?>
 <script type="text/javascript" src="jquery-latest.pack.js"></script>
 <script language="JavaScript" src="toplama.js" type="text/javascript"></script>
-<link rel="stylesheet" href="assets/css/form013style.css">
-
+<link rel="stylesheet" href="assets/css/form102style.css">
 <?php
 include("../con_023.php");
-include('frm013alanlari.php');
-?>
-<?php
+include('frm102alanlari.php');
 //mysqli baglantisi
 $result = @mysqli_query($dbh,"select ilid,ilad from il order by ilad asc");
 ?>
 <div class="height-100 bg-light" id="nav-placeholder">
-<div class="bg-primary
-
-
-">
+<div class="bg-primary">
 <form class="form-inline" action="023kekle.php" method="get" name="kaydet">
 <div class="col-md-2 toplambar">
-<select class="form-control form-control-sm" name="selectil" onChange="getStateTop(this.value)" onclick="toplamil();">
+<select class="form-control form-control-sm" name="selectil" onchange="getilce(this.value)" onclick="toplamil();">
 <option value=""><?php echo "İli Seçiniz";?></option>
 <?php while($row=mysqli_fetch_array($result)) { ?>
 <option value="<?=$row['ilid']?>"><?=$row['ilad']?></option>
@@ -29,12 +23,12 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il order by ilad asc");
 </select>
 </div>
 
-<div class="col-md-2 toplambar" id="statedivtop"><select class="form-control form-control-sm" name="selectilce" >
+<div class="col-md-2 toplambar" id="statediv"><select class="form-control form-control-sm" name="selectilce" >
 <option><?php echo "Önce İli Seçiniz";?></option>
 </select>
 </div>
 
-<div class="col-md-4 toplambar" id="citydivtop"><select class="form-control form-control-sm" id="selectoc" name="selectoc" >
+<div class="col-md-4 toplambar" id="citydiv"><select class="form-control form-control-sm" id="selectoc" name="selectoc" >
 <option><?php echo "Önce İlçeyi Seçiniz";?></option>
 </select>
 </div>

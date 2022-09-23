@@ -290,7 +290,7 @@ function getStateTop(countryId) {
 
 function getilce(countryId) {		
 
-		
+		alert('hello');
 
 		var strURL="ilcearatoplam.php?selectil="+countryId;
 
