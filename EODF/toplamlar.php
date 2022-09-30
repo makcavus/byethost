@@ -1,256 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
-
-<title>EVLİLİK ÖNCESİ DANIŞMANLIK FORMU Toplamları</title>
-
-<link href="Style.css" rel="stylesheet" type="text/css"/>
-
+<?php
+include("../assets/sablon/form013/header.php");
+include("../assets/sablon/form013/sidebar.php");
+?>
+<title>Evlilik Ã–ncesi DanÄ±ÅŸmanlÄ±k Formu</title>
 <script type="text/javascript" src="jquery-latest.pack.js"></script>
-
-<script language="JavaScript" src="toplama.js" type="text/javascript">
-
-</script>	
-
-</head>
-
-<body>
-
-<form action="023kekle.php" method="get" name="kaydet">
-
-
-
+<script language="JavaScript" src="toplama.js" type="text/javascript"></script>
+<link rel="stylesheet" href="assets/css/eodfstyle.css">
 <?php
-
-function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
-
-/*$link = mysql_connect('localhost', 'root', 'malika'); //changet the configuration in required
-
-if (!$link) {
-
-    die('Could not connect: ' . mysql_error());
-
-}
-
-mysql_select_db('frm023');*/
-
-include("con_023.php");
-
+include("../con_023.php");
+include('eodfalanlari.php');
+//mysqli baglantisi
+$result = @mysqli_query($dbh,"select ilid,ilad from il order by ilad asc");
 ?>
-
-<?php
-
-
-
-//mysql baglantisi
-
-$result = @mysql_query("select ilid,ilad from il order by ilad asc");
-
-?>
-
- <table class="cizgi" border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
-
-<tr>
-
-<th width="2%"  align="right" bordercolor="white" bgcolor="yellow">
-
-<label for="selectil" class="style3">İL:</label></th >
-
-<th width="9%" bordercolor="white" bgcolor="yellow">
-
- <select name="selectil" onChange="getilce(this.value)" onclick="toplamil();">
-
-	<option value=""><?php echo "İli Seçiniz";?></option>
-
-<? while($row=mysql_fetch_array($result)) { ?>
-
+<div class="height-100 bg-light" id="nav-placeholder">
+<div class="bg-primary">
+<form class="form-inline" action="023kekle.php" method="get" name="kaydet">
+<div class="col-md-2 toplambar">
+<select class="form-control form-control-sm" name="selectil" onchange="getilce(this.value)" onclick="toplamil();">
+<option value=""><?php echo "Ä°li SeÃ§iniz";?></option>
+<?php while($row=mysqli_fetch_array($result)) { ?>
 <option value="<?=$row['ilid']?>"><?=$row['ilad']?></option>
+<?php } ?>
+</select>
+</div>
 
-<? } ?>
+<div class="col-md-2 toplambar" id="statediv"><select class="form-control form-control-sm" name="selectilce" >
+<option><?php echo "Ã–nce Ä°li SeÃ§iniz";?></option>
+</select>
+</div>
 
-	</select>&nbsp;&nbsp; </th>
-
-<th width="4%"  align="right" bordercolor="white" bgcolor="yellow">
-
-  <label for="selectilce" class="style3" >İLÇE:</label>  </th>
-
-  <th width="11%" bordercolor="white" bgcolor="yellow">
-
- <div id="statediv"><select name="selectilce">
-
-	<option><?php echo "Önce İli Seçiniz";?></option>
-
-      </select>&nbsp;&nbsp;</div> </th> 
-
-<th width="11%" align="right" bordercolor="white" bgcolor="yellow" >
-
-  <label for="selectoc" class="style3">AİLE HEKİMLİĞİ:</label>  </th>
-
-  <th width="13%" bordercolor="white" bgcolor="yellow">
-
- <div id="citydiv"><select id="selectoc" name="selectoc" >
-
-	<option><?php echo "Önce İlçeyi Seçiniz";?></option>
-
-      </select>&nbsp;&nbsp;</div> </th>
-
- <th width="2%"  align="right" bordercolor="white" bgcolor="yellow">
-
+<div class="col-md-4 toplambar" id="citydiv"><select class="form-control form-control-sm" id="selectoc" name="selectoc" >
+<option><?php echo "Ã–nce Ä°lÃ§eyi SeÃ§iniz";?></option>
+</select>
+</div>
 <?php
-
-
-
-//mysql baglantisi
-
-
-
-$resultyil = @mysql_query("select distinct yiladi from yil order by yiladi asc");
-
-
-
+//mysqli baglantisi
+$resultyil = @mysqli_query($dbh,"select distinct yiladi from yil order by yiladi asc");
 ?>
-
-
-
-
-
-  <label for="selectyil" class="style3">YIL:</label>  </th>
-
-  <th width="8%" bordercolor="white" bgcolor="yellow"><input name="selectyil" size="5" type="text" id="selectyil" value="<?php echo date("Y"); ?>" />    &nbsp;&nbsp;  </th>
-
-  <th width="3%" align="right" bordercolor="white" bgcolor="yellow">    
-
+<div class="col-md-2 toplambar">
+<input class="form-control form-control-sm" name="selectyil" type="text" id="selectyil" value="<?php echo date("Y"); ?>">
+</div>
 <?php
-
-
-
-//mysql baglantisi
-
-
-
-$resultay = @mysql_query("select distinct ayadi from ay order by ayid asc");
-
-
-
+//mysqli baglantisi
+$resultay = @mysqli_query($dbh,"select distinct ayadi from ay order by ayid asc");
 ?>
-
-
-
-
-
-  <label for="selectay" class="style3">AY:</label>  </th>
-
-  <th width="9%" bordercolor="white" bgcolor="yellow">
-
- <select name="selectay" id="selectay" onchange="kontrol1();" onclick="toplamay();"/>
-
- 
-
-    <?php
-
-
-
-while ($katay=mysql_fetch_assoc($resultay) ) {
-
+<div class="col-md-2 toplambar">
+<select class="form-control form-control-sm" name="selectay" id="selectay" onchange="kontroltoplam();" onclick="toplamay();">
+<?php
+while ($katay=mysqli_fetch_assoc($resultay) ) {
 echo '<option>'.$katay['ayadi'].'</option>';
-
 }
-
-@mysql_close($dbh);   
-
+//echo $ilcekodu;
+@mysqli_close($dbh);   
 ?>
-
-</select></th>
-
-  <th width="12%" bordercolor="white" bgcolor="yellow"><table class="style6" width="161" height="18">
-
-     <th width="39" height="22"><span class="style7">
-
-       <label>
-
-         <input type="radio" name="sec" value="ilsec" />
-
-         İl</label>
-
-     </span></th>
-
-       <th width="45"><span class="style7">
-
-         <label>
-
-           <input type="radio" name="sec" value="ilcesec" />
-
-           İlçe</label>
-
-       </span></th>
-
-       <th width="60"><span class="style7">
-
-         <label>
-
-           <input type="radio" name="sec" value="aheksec" />
-
-           A.Hek.</label>
-
-       </span></th>
-
-   </table>  </th>
-
-  <th width="18%" bordercolor="white" bgcolor="yellow">
-
-<label  for="donem" class="style3">DÖNEM:</label>
-
-<select name="donem" tabindex="6"  onclick="toplamdonem();">
-
-<option value="">Dönem Seçiniz</option>
-
-<option value="ilk">1.Dönem</option>
-
-<option value="ikinci">2.Dönem</option>
-
-<option value="ucuncu">3.Dönem</option>
-
-<option value="son">4.Dönem</option>
-
-</select></th>
-
-</tr>
-
-</table>
-
-<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">
-
-<tr>  
-
-
-
-
-
-<th class="style6" width="5%" align="center" bordercolor="white" bgcolor="white" colspan="10"><div style="font-family:Arial, Helvetica, sans-serif","font-size:14px,border-style:none" id="sonuc"></div></th>
-
-</tr>
-
-<tr>
-
-<th class="style6" width="5%" align="center" bordercolor="white" bgcolor="white" colspan="10"><div style="font-family:Arial, Helvetica, sans-serif","font-size:14px,border-style:none" id="sonucxxx"></div></th>
-
-</tr>
-
-<tr>
-
-<th class="style6" width="5%" align="center" bordercolor="white" bgcolor="white" colspan="10"><div style="font-family:Arial, Helvetica, sans-serif","font-size:14px,border-style:none" id="sonuckay"></div></th>
-
-</tr>
-
-</table>
-
+</select>
+</div>
 </form>
-
-</body>
-
-</html>
-
+</div>
+<div class="row">
+<div class="col-md-12" align="center" id="sonuc"></div>
+</div>
+</div>
+<!-- Optional JavaScript -->
+<?php
+include("../assets/sablon/form013/footer.php");
+?>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>

@@ -1,137 +1,15 @@
 <?php
-include('con_023.php');
+include('../con_102.php');
 
-
-$ilgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectil']); 
-$ilcegelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectilce']); 
-$ocgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']); 
+$ilgelen=$_GET['selectil']; 
+$ilcegelen=$_GET['selectilce']; 
+$ocgelen=$_GET['selectoc']; 
 $yilgelen=$_GET['selectyil'];
-$aygelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectay']); 
-$ocakyazi=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']);
-?>
-<?php
-$iladi=@mysql_query("select * from il where(ilid='$ilgelen')");
-while($ilsonucum=mysql_fetch_array($iladi)){
-$ilinadi=$ilsonucum['ilad'];
-}
-?>
-<?php
-$ilceadi=@mysql_query("select * from ilce where(ilinad='$ilgelen' and ilceid='$ilcegelen')");
-while($ilcesonucum=mysql_fetch_array($ilceadi)){
-$ilceninadi=$ilcesonucum['ilcead'];
-}
-?>
-<?php
-if($yilgelen==""){
-$devredengebe=0;
-$devredenbebek=0;
-$devredenlohusa=0;
-$devredencocuk=0;
-$devredenimp=0;
+$aygelen=$_GET['selectay']; 
+$ocakyazi=$_GET['selectoc'];
 
-}else{
-//GEBE
-$gebearti = @mysql_query("select sum(v17+v18) as gsonucarti from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($gebearti)) {
-if($kayitlar['gsonucarti']==""){
-$Toplamgarti=0 ;
-}else{
-$Toplamgarti=$kayitlar['gsonucarti'];
-}
-}
-$gebeeksi = @mysql_query("select sum(v19+v20+v21) as gsonuceksi from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($gebeeksi)) {
-if($kayitlar['gsonuceksi']==""){
-$Toplamgeksi=0 ;
-}else{
-$Toplamgeksi=$kayitlar['gsonuceksi'];
-}
-}
-$devredengebe=$Toplamgarti-$Toplamgeksi;
-//BEBEK
-$bebekarti = @mysql_query("select sum(v22+v23) as bsonucarti from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($bebekarti)) {
-if($kayitlar['bsonucarti']==""){
-$Toplambarti=0 ;
-}else{
-$Toplambarti=$kayitlar['bsonucarti'];
-}
-}
-//echo $Toplambarti;
-$bebekeksi = @mysql_query("select sum(v24+v25+v26) as bsonuceksi from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($bebekeksi)) {
-if($kayitlar['bsonuceksi']==""){
-$Toplambeksi=0 ;
-}else{
-$Toplambeksi=$kayitlar['bsonuceksi'];
-}
-}
-//echo $Toplambeksi;
-$devredenbebek=$Toplambarti-$Toplambeksi;
-//LOHUSA
-$lohusaarti = @mysql_query("select sum(v27+v28) as lsonucarti from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($lohusaarti)) {
-if($kayitlar['lsonucarti']==""){
-$Toplamlarti=0 ;
-}else{
-$Toplamlarti=$kayitlar['lsonucarti'];
-}
-}
-//echo $Toplamlarti;
-$lohusaeksi = @mysql_query("select sum(v29+v30+v31) as lsonuceksi from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($lohusaeksi)) {
-if($kayitlar['lsonuceksi']==""){
-$Toplamleksi=0 ;
-}else{
-$Toplamleksi=$kayitlar['lsonuceksi'];
-}
-}
-//echo $Toplamleksi;
-$devredenlohusa=$Toplamlarti-$Toplamleksi;
-//COCUK
-$cocukarti = @mysql_query("select sum(v32+v33) as csonucarti from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($cocukarti)) {
-if($kayitlar['csonucarti']==""){
-$Toplamcarti=0 ;
-}else{
-$Toplamcarti=$kayitlar['csonucarti'];
-}
-}
-//echo $Toplamcarti;
-$cocukeksi = @mysql_query("select sum(v34+v35+v36) as csonuceksi from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($cocukeksi)) {
-if($kayitlar['csonuceksi']==""){
-$Toplamceksi=0 ;
-}else{
-$Toplamceksi=$kayitlar['csonuceksi'];
-}
-}
-//echo $Toplamceksi;
-$devredencocuk=$Toplamcarti-$Toplamceksi;
-
-//IMPLANT
-$imparti = @mysql_query("select sum(v32+v33) as xsonucarti from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($imparti)) {
-if($kayitlar['xsonucarti']==""){
-$Toplamxarti=0 ;
-}else{
-$Toplamxarti=$kayitlar['xsonucarti'];
-}
-}
-//echo $Toplamcarti;
-$impeksi = @mysql_query("select sum(v34+v35+v36) as xsonuceksi from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($impeksi)) {
-if($kayitlar['xsonuceksi']==""){
-$Toplamxeksi=0 ;
-}else{
-$Toplamxeksi=$kayitlar['xsonuceksi'];
-}
-}
-//echo $Toplamceksi;
-$devredenimp=$Toplamxarti-$Toplamxeksi;
-}
 if($yilgelen==""){
-$resultvyil = @mysql_query("select 
+$resultvyil = @mysqli_query($dbh102,"select 
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -303,10 +181,15 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
 from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen')") ;
 }else{
-$resultvyil = @mysql_query("select 
+$resultvyil = @mysqli_query($dbh102,"select 
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -478,20 +361,16 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
 from verib where(ilidi='$ilgelen' and vyiladi='$yilgelen' and ilceidi='$ilcegelen')") ;
 }
-$yili="YILINDA EVLENENLERIN";
-$npbaslik="NÜFUS PIRAMIDI";
-$odbaslik="ÖGRENIM DURUMU GRAFIGI";
-$ygbaslik="YAS GRUBU GRAFIGI";
 
-while($sonucum=mysql_fetch_array($resultvyil)){
-
-$ocakad=$ilinadi.'-'.$ilceninadi.' '.$yilgelen.' '.$yili.' '.$npbaslik;
-$ocakadyg=$ilinadi.'-'.$ilceninadi.' '.$yilgelen.' '.$yili.' '.$ygbaslik;
-$ocakadod=$ilinadi.'-'.$ilceninadi.' '.$yilgelen.' '.$yili.' '.$odbaslik;
-
+while($sonucum=mysqli_fetch_array($resultvyil)){
 $verim1=$sonucum['v1'];
 $verim2=$sonucum['v2'];
 $verim3=$sonucum['v3'];
@@ -664,6 +543,11 @@ $verim169=$sonucum['v169'];
 $verim170=$sonucum['v170'];
 $verim171=$sonucum['v171'];
 $verim172=$sonucum['v172'];
+$verim173=$sonucum['v173'];
+$verim174=$sonucum['v174'];
+$verim175=$sonucum['v175'];
+$verim176=$sonucum['v176'];
+$verim177=$sonucum['v177'];
 }
 
 ?>

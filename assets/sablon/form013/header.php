@@ -17,7 +17,7 @@
   <style>
       body{margin:0 0px;cursor:default;background-color:#000000;}
   </style>
-        <title>Sidebar sub menus</title>
+        <title>Bulaşıcı Hastalıklar ve ÇEKÜS Birimi</title>
     </head>
     <body id="body-pd">
         <nav class="navbar">

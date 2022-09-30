@@ -757,20 +757,20 @@ return false;
 //Kayit Silme
 function sil(ilidi,ilceidi,vocadi,vyiladi,vayadi,komut) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
 {
-$('div#sonuc').html('<br><img src="../images/sil.bmp">');
-$.ajax({ 
+	$('div#sonucsil').html('<br><br><img src="./images/loading.gif"><br>Kayit Siliniyor...');
+	$.ajax({
 
-type: 'GET',//verinin gnderilme yntemini belirliyoruz.
+		type: 'GET',//verinin gnderilme yntemini belirliyoruz.
 
-url :noCache('023sil.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
+		url :noCache('023sil.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
 
-data: $('form').serialize(),//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
+		data: $('form').serialize(),//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
 
-success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
-{
-$('div#sonuc').html(cevap);
-}
-});}
+		success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
+		{
+			$('div#sonucsil').html(cevap);
+		}
+	});}
 //Kayit Grme
 function git(ilidi,ilceidi,vocadi,vyiladi,vayadi,komut) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
 {

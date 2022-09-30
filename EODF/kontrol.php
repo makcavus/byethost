@@ -411,10 +411,10 @@ $yuzdekac=ceil(($yuzdeyuz*$kacverisay)/$kacaheksay);
 </tr>
 <tr>
 <?php
-$eksiktablosu="SELECT ocak.*,veri.*
+$eksiktablosu="SELECT ocak.*,verib.*
 FROM ocak ocak
-LEFT OUTER JOIN veri veri ON ocak.ilinad=veri.ilidi and ocak.ilce=veri.ilceidi and ocak.socad = veri.vocadi and veri.v176 like 'Dr.%' and veri.v177 like '%Nolu A%' and veri.vyiladi='$yil' and veri.vayadi='$ay' or ocak.ilinad=veri.ilidi and ocak.ilce=veri.ilceidi and ocak.socad = veri.vocadi and veri.v176 like 'Uzm.Dr.%' and veri.v177 like '%Nolu A%' and veri.vyiladi='$yil' and veri.vayadi='$ay'
-WHERE left(ocak.socad,5)='$ilcekodx' and veri.vocadi IS NULL order by ocak.socad asc";
+LEFT OUTER JOIN verib verib ON ocak.ilinad=verib.ilidi and ocak.ilce=verib.ilceidi and ocak.socad = verib.vocadi and verib.v176 like 'Dr.%' and verib.v177 like '%Nolu A%' and verib.vyiladi='$yil' and verib.vayadi='$ay' or ocak.ilinad=verib.ilidi and ocak.ilce=verib.ilceidi and ocak.socad = verib.vocadi and verib.v176 like 'Uzm.Dr.%' and verib.v177 like '%Nolu A%' and verib.vyiladi='$yil' and verib.vayadi='$ay'
+WHERE left(ocak.socad,5)='$ilcekodx' and verib.vocadi IS NULL order by ocak.socad asc";
 $etablosu=mysqli_query($dbh102,$eksiktablosu);
 while($eahsonucum=mysqli_fetch_array($etablosu)){
 $eksikahadi=$eahsonucum['socad'];

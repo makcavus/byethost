@@ -112,7 +112,7 @@ if($ilgelen!=$ilsecim and $ilcegelen==$ilcesecim){
           <?php
           echo '</form>';
           ?>
-          <th class="bg-primary text-center" width="50%"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $ocakgorbaslik; ?></strong></h6></th>
+          <th class="bg-primary text-center" width="50%"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $aygorbaslik; ?></strong></h6></th>
           <?php
           echo '</form>';
           ?>

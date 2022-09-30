@@ -1,103 +1,14 @@
 <?php
-//function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
-include('con_023.php');
-
-
-$ilgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectil']); 
-$ilcegelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectilce']); 
-$ocgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']); 
+include('../con_102.php');
+$ilgelen=$_GET['selectil']; 
+$ilcegelen=$_GET['selectilce']; 
+$ocgelen=$_GET['selectoc']; 
 $yilgelen=$_GET['selectyil'];
-$aygelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectay']); 
-$ocakyazi=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']);
+$aygelen=$_GET['selectay']; 
+$ocakyazi=$_GET['selectoc'];
 
-/*if($yilgelen==""){
-$devirgebe=0;
-$devirbebek=0;
-$devirlohusa=0;
-$devircocuk=0;
-}else{
-//GEBE
-$gebearti = @mysql_query("select sum(v19+v20) as gsonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($gebearti)) {
-if($kayitlar['gsonucarti']==""){
-$Toplamgarti=0 ;
-}else{
-$Toplamgarti=$kayitlar['gsonucarti'];
-}
-}
-$gebeeksi = @mysql_query("select sum(v21+v22+v23+v24) as gsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($gebeeksi)) {
-if($kayitlar['gsonuceksi']==""){
-$Toplamgeksi=0 ;
-}else{
-$Toplamgeksi=$kayitlar['gsonuceksi'];
-}
-}
-$devirgebe=$Toplamgarti-$Toplamgeksi;
-//BEBEK
-$bebekarti = @mysql_query("select sum(v28+v29+v30) as bsonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($bebekarti)) {
-if($kayitlar['bsonucarti']==""){
-$Toplambarti=0 ;
-}else{
-$Toplambarti=$kayitlar['bsonucarti'];
-}
-}
-//echo $Toplambarti;
-$bebekeksi = @mysql_query("select sum(v31+v32+v33) as bsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($bebekeksi)) {
-if($kayitlar['bsonuceksi']==""){
-$Toplambeksi=0 ;
-}else{
-$Toplambeksi=$kayitlar['bsonuceksi'];
-}
-}
-//echo $Toplambeksi;
-$devirbebek=$Toplambarti-$Toplambeksi;
-//LOHUSA
-$lohusaarti = @mysql_query("select sum(v37+v38+v39) as lsonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($lohusaarti)) {
-if($kayitlar['lsonucarti']==""){
-$Toplamlarti=0 ;
-}else{
-$Toplamlarti=$kayitlar['lsonucarti'];
-}
-}
-//echo $Toplamlarti;
-$lohusaeksi = @mysql_query("select sum(v40+v41+v42) as lsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($lohusaeksi)) {
-if($kayitlar['lsonuceksi']==""){
-$Toplamleksi=0 ;
-}else{
-$Toplamleksi=$kayitlar['lsonuceksi'];
-}
-}
-//echo $Toplamleksi;
-$devirlohusa=$Toplamlarti-$Toplamleksi;
-//COCUK
-$cocukarti = @mysql_query("select sum(v45+v46+v47) as csonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($cocukarti)) {
-if($kayitlar['csonucarti']==""){
-$Toplamcarti=0 ;
-}else{
-$Toplamcarti=$kayitlar['csonucarti'];
-}
-}
-//echo $Toplamcarti;
-$cocukeksi = @mysql_query("select sum(v48+v49+v50) as csonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($cocukeksi)) {
-if($kayitlar['csonuceksi']==""){
-$Toplamceksi=0 ;
-}else{
-$Toplamceksi=$kayitlar['csonuceksi'];
-}
-}
-//echo $Toplamceksi;
-$devircocuk=$Toplamcarti-$Toplamceksi;
-}*/
-
-if($ilcegelen==iconv("UTF-8", "ISO-8859-9","İlçe Seçiniz")){
-$resultvyil = @mysql_query("select 
+if($ilcegelen==$ilcesecim){
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -269,10 +180,15 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
 from verib where(ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
-}elseif($ocgelen==iconv("UTF-8", "ISO-8859-9","Aile Hekimini Seçiniz")){
-$resultvyil = @mysql_query("select 
+}elseif($ocgelen==$ahsecim){
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -444,10 +360,15 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
 from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
-}elseif($ilcegelen!=iconv("UTF-8", "ISO-8859-9","İlçe Seçiniz") and $ocgelen!=iconv("UTF-8", "ISO-8859-9","Aile Hekimini Seçiniz")){
-$resultvyil = @mysql_query("select 
+}elseif($ilcegelen!=$ilcesecim and $ocgelen!=$ahsecim){
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -619,537 +540,15 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
 from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
-}elseif($ilcegelen==iconv("UTF-8", "ISO-8859-9","İlçe Seçiniz") and $yilgelen==""){
-$resultvyil = @mysql_query("select 
-sum(v1) as v1,
-sum(v2) as v2, 
-sum(v3) as v3,
-sum(v4) as v4, 
-sum(v5) as v5,
-sum(v6) as v6, 
-sum(v7) as v7,
-sum(v8) as v8, 
-sum(v9) as v9,
-sum(v10) as v10, 
-sum(v11) as v11,
-sum(v12) as v12, 
-sum(v13) as v13,
-sum(v14) as v14, 
-sum(v15) as v15,
-sum(v16) as v16,
-sum(v17) as v17,
-sum(v18) as v18, 
-sum(v19) as v19,
-sum(v20) as v20, 
-sum(v21) as v21,
-sum(v22) as v22, 
-sum(v23) as v23,
-sum(v24) as v24,
-sum(v25) as v25,
-sum(v26) as v26, 
-sum(v27) as v27,
-sum(v28) as v28, 
-sum(v29) as v29,
-sum(v30) as v30, 
-sum(v31) as v31,
-sum(v32) as v32,   
-sum(v33) as v33,
-sum(v34) as v34, 
-sum(v35) as v35,
-sum(v36) as v36, 
-sum(v37) as v37,
-sum(v38) as v38, 
-sum(v39) as v39,
-sum(v40) as v40, 
-sum(v41) as v41,
-sum(v42) as v42, 
-sum(v43) as v43,
-sum(v44) as v44, 
-sum(v45) as v45,
-sum(v46) as v46, 
-sum(v47) as v47,
-sum(v48) as v48, 
-sum(v49) as v49,
-sum(v50) as v50, 
-sum(v51) as v51,
-sum(v52) as v52, 
-sum(v53) as v53,
-sum(v54) as v54, 
-sum(v55) as v55,
-sum(v56) as v56, 
-sum(v57) as v57,
-sum(v58) as v58, 
-sum(v59) as v59,
-sum(v60) as v60, 
-sum(v61) as v61,
-sum(v62) as v62, 
-sum(v63) as v63,
-sum(v64) as v64, 
-sum(v65) as v65,
-sum(v66) as v66, 
-sum(v67) as v67,
-sum(v68) as v68, 
-sum(v69) as v69,
-sum(v70) as v70, 
-sum(v71) as v71,
-sum(v72) as v72, 
-sum(v73) as v73,
-sum(v74) as v74, 
-sum(v75) as v75,
-sum(v76) as v76, 
-sum(v77) as v77,
-sum(v78) as v78, 
-sum(v79) as v79,
-sum(v80) as v80, 
-sum(v81) as v81,
-sum(v82) as v82, 
-sum(v83) as v83,
-sum(v84) as v84, 
-sum(v85) as v85,
-sum(v86) as v86, 
-sum(v87) as v87,
-sum(v88) as v88, 
-sum(v89) as v89,
-sum(v90) as v90,
-sum(v91) as v91, 
-sum(v92) as v92,
-sum(v93) as v93, 
-sum(v94) as v94,
-sum(v95) as v95, 
-sum(v96) as v96,
-sum(v97) as v97, 
-sum(v98) as v98,
-sum(v99) as v99,
-sum(v100) as v100, 
-sum(v101) as v101,
-sum(v102) as v102, 
-sum(v103) as v103,
-sum(v104) as v104, 
-sum(v105) as v105,
-sum(v106) as v106, 
-sum(v107) as v107,
-sum(v108) as v108, 
-sum(v109) as v109,
-sum(v110) as v110, 
-sum(v111) as v111,
-sum(v112) as v112, 
-sum(v113) as v113,
-sum(v114) as v114, 
-sum(v115) as v115,
-sum(v116) as v116, 
-sum(v117) as v117,
-sum(v118) as v118, 
-sum(v119) as v119,
-sum(v120) as v120, 
-sum(v121) as v121,
-sum(v122) as v122, 
-sum(v123) as v123,
-sum(v124) as v124, 
-sum(v125) as v125,
-sum(v126) as v126, 
-sum(v127) as v127,
-sum(v128) as v128, 
-sum(v129) as v129,
-sum(v130) as v130, 
-sum(v131) as v131,
-sum(v132) as v132, 
-sum(v133) as v133,
-sum(v134) as v134, 
-sum(v135) as v135,
-sum(v136) as v136, 
-sum(v137) as v137,
-sum(v138) as v138, 
-sum(v139) as v139,
-sum(v140) as v140, 
-sum(v141) as v141,
-sum(v142) as v142, 
-sum(v143) as v143,
-sum(v144) as v144, 
-sum(v145) as v145,
-sum(v146) as v146, 
-sum(v147) as v147,
-sum(v148) as v148, 
-sum(v149) as v149,
-sum(v150) as v150, 
-sum(v151) as v151,
-sum(v152) as v152, 
-sum(v153) as v153,
-sum(v154) as v154, 
-sum(v155) as v155,
-sum(v156) as v156, 
-sum(v157) as v157,
-sum(v158) as v158, 
-sum(v159) as v159,
-sum(v160) as v160,
-sum(v161) as v161,
-sum(v162) as v162, 
-sum(v163) as v163,
-sum(v164) as v164, 
-sum(v165) as v165,
-sum(v166) as v166, 
-sum(v167) as v167,
-sum(v168) as v168, 
-sum(v169) as v169,
-sum(v170) as v170, 
-sum(v171) as v171,
-sum(v172) as v172
-from verib where(ilidi='$ilgelen' and vayadi='$aygelen')") ;
-}elseif($ocgelen==iconv("UTF-8", "ISO-8859-9","Aile Hekimini Seçiniz")and $yilgelen==""){
-$resultvyil = @mysql_query("select 
-sum(v1) as v1,
-sum(v2) as v2, 
-sum(v3) as v3,
-sum(v4) as v4, 
-sum(v5) as v5,
-sum(v6) as v6, 
-sum(v7) as v7,
-sum(v8) as v8, 
-sum(v9) as v9,
-sum(v10) as v10, 
-sum(v11) as v11,
-sum(v12) as v12, 
-sum(v13) as v13,
-sum(v14) as v14, 
-sum(v15) as v15,
-sum(v16) as v16,
-sum(v17) as v17,
-sum(v18) as v18, 
-sum(v19) as v19,
-sum(v20) as v20, 
-sum(v21) as v21,
-sum(v22) as v22, 
-sum(v23) as v23,
-sum(v24) as v24,
-sum(v25) as v25,
-sum(v26) as v26, 
-sum(v27) as v27,
-sum(v28) as v28, 
-sum(v29) as v29,
-sum(v30) as v30, 
-sum(v31) as v31,
-sum(v32) as v32,   
-sum(v33) as v33,
-sum(v34) as v34, 
-sum(v35) as v35,
-sum(v36) as v36, 
-sum(v37) as v37,
-sum(v38) as v38, 
-sum(v39) as v39,
-sum(v40) as v40, 
-sum(v41) as v41,
-sum(v42) as v42, 
-sum(v43) as v43,
-sum(v44) as v44, 
-sum(v45) as v45,
-sum(v46) as v46, 
-sum(v47) as v47,
-sum(v48) as v48, 
-sum(v49) as v49,
-sum(v50) as v50, 
-sum(v51) as v51,
-sum(v52) as v52, 
-sum(v53) as v53,
-sum(v54) as v54, 
-sum(v55) as v55,
-sum(v56) as v56, 
-sum(v57) as v57,
-sum(v58) as v58, 
-sum(v59) as v59,
-sum(v60) as v60, 
-sum(v61) as v61,
-sum(v62) as v62, 
-sum(v63) as v63,
-sum(v64) as v64, 
-sum(v65) as v65,
-sum(v66) as v66, 
-sum(v67) as v67,
-sum(v68) as v68, 
-sum(v69) as v69,
-sum(v70) as v70, 
-sum(v71) as v71,
-sum(v72) as v72, 
-sum(v73) as v73,
-sum(v74) as v74, 
-sum(v75) as v75,
-sum(v76) as v76, 
-sum(v77) as v77,
-sum(v78) as v78, 
-sum(v79) as v79,
-sum(v80) as v80, 
-sum(v81) as v81,
-sum(v82) as v82, 
-sum(v83) as v83,
-sum(v84) as v84, 
-sum(v85) as v85,
-sum(v86) as v86, 
-sum(v87) as v87,
-sum(v88) as v88, 
-sum(v89) as v89,
-sum(v90) as v90,
-sum(v91) as v91, 
-sum(v92) as v92,
-sum(v93) as v93, 
-sum(v94) as v94,
-sum(v95) as v95, 
-sum(v96) as v96,
-sum(v97) as v97, 
-sum(v98) as v98,
-sum(v99) as v99,
-sum(v100) as v100, 
-sum(v101) as v101,
-sum(v102) as v102, 
-sum(v103) as v103,
-sum(v104) as v104, 
-sum(v105) as v105,
-sum(v106) as v106, 
-sum(v107) as v107,
-sum(v108) as v108, 
-sum(v109) as v109,
-sum(v110) as v110, 
-sum(v111) as v111,
-sum(v112) as v112, 
-sum(v113) as v113,
-sum(v114) as v114, 
-sum(v115) as v115,
-sum(v116) as v116, 
-sum(v117) as v117,
-sum(v118) as v118, 
-sum(v119) as v119,
-sum(v120) as v120, 
-sum(v121) as v121,
-sum(v122) as v122, 
-sum(v123) as v123,
-sum(v124) as v124, 
-sum(v125) as v125,
-sum(v126) as v126, 
-sum(v127) as v127,
-sum(v128) as v128, 
-sum(v129) as v129,
-sum(v130) as v130, 
-sum(v131) as v131,
-sum(v132) as v132, 
-sum(v133) as v133,
-sum(v134) as v134, 
-sum(v135) as v135,
-sum(v136) as v136, 
-sum(v137) as v137,
-sum(v138) as v138, 
-sum(v139) as v139,
-sum(v140) as v140, 
-sum(v141) as v141,
-sum(v142) as v142, 
-sum(v143) as v143,
-sum(v144) as v144, 
-sum(v145) as v145,
-sum(v146) as v146, 
-sum(v147) as v147,
-sum(v148) as v148, 
-sum(v149) as v149,
-sum(v150) as v150, 
-sum(v151) as v151,
-sum(v152) as v152, 
-sum(v153) as v153,
-sum(v154) as v154, 
-sum(v155) as v155,
-sum(v156) as v156, 
-sum(v157) as v157,
-sum(v158) as v158, 
-sum(v159) as v159,
-sum(v160) as v160,
-sum(v161) as v161,
-sum(v162) as v162, 
-sum(v163) as v163,
-sum(v164) as v164, 
-sum(v165) as v165,
-sum(v166) as v166, 
-sum(v167) as v167,
-sum(v168) as v168, 
-sum(v169) as v169,
-sum(v170) as v170, 
-sum(v171) as v171,
-sum(v172) as v172
-from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vayadi='$aygelen')") ;
-
-//burdan
-}elseif($ilcegelen!=iconv("UTF-8", "ISO-8859-9","İlçe Seçiniz") and $ocgelen!=iconv("UTF-8", "ISO-8859-9","Aile Hekimini Seçiniz") and $yilgelen==""){
-$resultvyil = @mysql_query("select 
-sum(v1) as v1,
-sum(v2) as v2, 
-sum(v3) as v3,
-sum(v4) as v4, 
-sum(v5) as v5,
-sum(v6) as v6, 
-sum(v7) as v7,
-sum(v8) as v8, 
-sum(v9) as v9,
-sum(v10) as v10, 
-sum(v11) as v11,
-sum(v12) as v12, 
-sum(v13) as v13,
-sum(v14) as v14, 
-sum(v15) as v15,
-sum(v16) as v16,
-sum(v17) as v17,
-sum(v18) as v18, 
-sum(v19) as v19,
-sum(v20) as v20, 
-sum(v21) as v21,
-sum(v22) as v22, 
-sum(v23) as v23,
-sum(v24) as v24,
-sum(v25) as v25,
-sum(v26) as v26, 
-sum(v27) as v27,
-sum(v28) as v28, 
-sum(v29) as v29,
-sum(v30) as v30, 
-sum(v31) as v31,
-sum(v32) as v32,   
-sum(v33) as v33,
-sum(v34) as v34, 
-sum(v35) as v35,
-sum(v36) as v36, 
-sum(v37) as v37,
-sum(v38) as v38, 
-sum(v39) as v39,
-sum(v40) as v40, 
-sum(v41) as v41,
-sum(v42) as v42, 
-sum(v43) as v43,
-sum(v44) as v44, 
-sum(v45) as v45,
-sum(v46) as v46, 
-sum(v47) as v47,
-sum(v48) as v48, 
-sum(v49) as v49,
-sum(v50) as v50, 
-sum(v51) as v51,
-sum(v52) as v52, 
-sum(v53) as v53,
-sum(v54) as v54, 
-sum(v55) as v55,
-sum(v56) as v56, 
-sum(v57) as v57,
-sum(v58) as v58, 
-sum(v59) as v59,
-sum(v60) as v60, 
-sum(v61) as v61,
-sum(v62) as v62, 
-sum(v63) as v63,
-sum(v64) as v64, 
-sum(v65) as v65,
-sum(v66) as v66, 
-sum(v67) as v67,
-sum(v68) as v68, 
-sum(v69) as v69,
-sum(v70) as v70, 
-sum(v71) as v71,
-sum(v72) as v72, 
-sum(v73) as v73,
-sum(v74) as v74, 
-sum(v75) as v75,
-sum(v76) as v76, 
-sum(v77) as v77,
-sum(v78) as v78, 
-sum(v79) as v79,
-sum(v80) as v80, 
-sum(v81) as v81,
-sum(v82) as v82, 
-sum(v83) as v83,
-sum(v84) as v84, 
-sum(v85) as v85,
-sum(v86) as v86, 
-sum(v87) as v87,
-sum(v88) as v88, 
-sum(v89) as v89,
-sum(v90) as v90,
-sum(v91) as v91, 
-sum(v92) as v92,
-sum(v93) as v93, 
-sum(v94) as v94,
-sum(v95) as v95, 
-sum(v96) as v96,
-sum(v97) as v97, 
-sum(v98) as v98,
-sum(v99) as v99,
-sum(v100) as v100, 
-sum(v101) as v101,
-sum(v102) as v102, 
-sum(v103) as v103,
-sum(v104) as v104, 
-sum(v105) as v105,
-sum(v106) as v106, 
-sum(v107) as v107,
-sum(v108) as v108, 
-sum(v109) as v109,
-sum(v110) as v110, 
-sum(v111) as v111,
-sum(v112) as v112, 
-sum(v113) as v113,
-sum(v114) as v114, 
-sum(v115) as v115,
-sum(v116) as v116, 
-sum(v117) as v117,
-sum(v118) as v118, 
-sum(v119) as v119,
-sum(v120) as v120, 
-sum(v121) as v121,
-sum(v122) as v122, 
-sum(v123) as v123,
-sum(v124) as v124, 
-sum(v125) as v125,
-sum(v126) as v126, 
-sum(v127) as v127,
-sum(v128) as v128, 
-sum(v129) as v129,
-sum(v130) as v130, 
-sum(v131) as v131,
-sum(v132) as v132, 
-sum(v133) as v133,
-sum(v134) as v134, 
-sum(v135) as v135,
-sum(v136) as v136, 
-sum(v137) as v137,
-sum(v138) as v138, 
-sum(v139) as v139,
-sum(v140) as v140, 
-sum(v141) as v141,
-sum(v142) as v142, 
-sum(v143) as v143,
-sum(v144) as v144, 
-sum(v145) as v145,
-sum(v146) as v146, 
-sum(v147) as v147,
-sum(v148) as v148, 
-sum(v149) as v149,
-sum(v150) as v150, 
-sum(v151) as v151,
-sum(v152) as v152, 
-sum(v153) as v153,
-sum(v154) as v154, 
-sum(v155) as v155,
-sum(v156) as v156, 
-sum(v157) as v157,
-sum(v158) as v158, 
-sum(v159) as v159,
-sum(v160) as v160,
-sum(v161) as v161,
-sum(v162) as v162, 
-sum(v163) as v163,
-sum(v164) as v164, 
-sum(v165) as v165,
-sum(v166) as v166, 
-sum(v167) as v167,
-sum(v168) as v168, 
-sum(v169) as v169,
-sum(v170) as v170, 
-sum(v171) as v171,
-sum(v172) as v172
-from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vayadi='$aygelen')") ;
 }else{
-$resultvyil = @mysql_query("select 
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -1321,11 +720,16 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
 from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen'and vayadi='$aygelen')") ;
 }
-
-while($sonucum=mysql_fetch_array($resultvyil)){
+while($sonucum=mysqli_fetch_array($resultvyil)){
+$ayadim=$sonucum['vayadi'];    
 $verim1=$sonucum['v1'];
 $verim2=$sonucum['v2'];
 $verim3=$sonucum['v3'];
@@ -1498,9 +902,11 @@ $verim169=$sonucum['v169'];
 $verim170=$sonucum['v170'];
 $verim171=$sonucum['v171'];
 $verim172=$sonucum['v172'];
-/*$verim173=$sonucum['v173'];
+$verim173=$sonucum['v173'];
 $verim174=$sonucum['v174'];
-$verim175=$sonucum['v175'];*/
+$verim175=$sonucum['v175'];
+$verim176=$sonucum['v176'];
+$verim177=$sonucum['v177'];
 }
-
 ?>
+

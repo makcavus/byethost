@@ -73,7 +73,7 @@ if($ocgelen>0 and $say>0){
   <?php
     echo '</form>';
     ?>
-    <th class="bg-primary text-center" width="52%" colspan="7"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $ilcegorbaslik; ?></strong></h6></th>
+    <th class="bg-primary text-center" width="52%" colspan="7"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $ocakgorbaslik; ?></strong></h6></th>
     <th class="bg-warning text-center" width="8%" align="left">
     <?php
   echo '<form action="../excelmysqli/form013ilcexls.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;

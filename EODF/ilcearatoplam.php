@@ -1,5 +1,5 @@
 <?php
-include('frm102alanlari.php');
+include('eodfalanlari.php');
 $country=intval($_GET['selectil']);
 include("../con_023.php");
 $query="SELECT ilceid,ilinad,ilcead FROM ilce WHERE ilinad='$country' order by ilcead asc";

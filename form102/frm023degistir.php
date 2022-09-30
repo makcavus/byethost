@@ -83,6 +83,7 @@ $unvan=$ocgelen.' Nolu Aile Hekimi';
 </tr>
 </thead>
 </table>
+<div id="sonuckay"><form name="girdiekleme" action="javascript:void(0)" method="get">
 <input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilgelen ;?>">
 <input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilcegelen ;?>">
 <input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ocgelen ;?>">

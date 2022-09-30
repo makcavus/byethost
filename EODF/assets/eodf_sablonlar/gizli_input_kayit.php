@@ -1,21 +1,3 @@
-<input type="hidden" name="v43" value="0" size="5"/>
-    <input type="hidden" name="v44" value="0" size="5"/>
-    <input type="hidden" name="v45" value="0" size="5"/>
-    <input name="v46" type="hidden" value="0" size="5"/>
-    <input name="v47" type="hidden" value="0" size="5"/>
-    <input name="v48" type="hidden" value="0" size="5"/>
-    <input name="v49"  type="hidden" value="0" size="5"/>
-    <input name="v50"  type="hidden" value="0" size="5"/>
-    <input name="v51"  type="hidden" value="0" size="5"/>
-    <input name="v52"  type="hidden" value="0" size="5"/>
-    <input name="v53"  type="hidden" value="0" size="5"/>
-    <input name="v54"  type="hidden" value="0" size="5"/>
-    <input name="v55"  type="hidden" value="0" size="5"/>
-    <input name="v56"  type="hidden" value="0" size="5"/>
-    <input name="v57"  type="hidden" value="0" size="5"/>
-    <input name="v58"  type="hidden" value="0" size="5"/>
-    <input name="v59"  type="hidden" value="0" size="5"/>
-    <input name="v60"  type="hidden" value="0" size="5"/>
     <input name="v61"  type="hidden" value="0" size="5"/>
     <input name="v62"  type="hidden" value="0" size="5"/>
     <input name="v63"  type="hidden" value="0" size="5"/>
