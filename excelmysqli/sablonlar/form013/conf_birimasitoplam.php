@@ -444,12 +444,12 @@ $toplamgebetet5=intval($verim112)+intval($verim117);
 $toplamgebetettop=intval($verim108)+intval($verim113)+intval($verim109)+intval($verim114)+intval($verim110)+intval($verim115)+intval($verim111)+intval($verim116)+intval($verim112)+intval($verim117);
 
 $objPHPExcel->setActiveSheetIndex(1)
-/*->setCellValue('B2', $ilinadi)
+->setCellValue('B2', $ilinadi)
 ->setCellValue('B3', $ilceninadi)
 ->setCellValue('B4', $top)
 ->setCellValue('K2', $yilgelen)
 ->setCellValue('K3', $ayadi)
-->setCellValue('K4', $verim119)*/
+->setCellValue('K4', $verim119)
 //DBT            
 ->setCellValue('C8', $verim1)
 ->setCellValue('F8', $verim2)
@@ -635,7 +635,7 @@ $objPHPExcel->setActiveSheetIndex(1)
 			->setCellValue('A65', $verim173)
 			->setCellValue('A66', $verim174)
 			->setCellValue('I65', $verim176)		 
-			->setCellValue('I66', $verim177);		 
+			->setCellValue('I66', $verim177);
  
-//$objPHPExcel->getSheet(1)->setTitle($kurum);
+$objPHPExcel->getSheet(1)->setTitle($kurum);
 ?>

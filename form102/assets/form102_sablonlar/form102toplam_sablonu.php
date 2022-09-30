@@ -164,7 +164,7 @@
     <td class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="2"><div align="left">&nbsp;<?php echo $duzunbaslik;?></div></td>
     <th class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="4"><div align="center"><?php echo $aseunv ; ?></div></th>
     <td class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="2"><div align="left">&nbsp;<?php echo $onunbaslik;?></div></td>
-    <th class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="4"><div align="center"><?php echo $ahkod.' '.$ahno ;?></div></th>
+    <th class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="4"><div align="center"><?php echo $unvan ;?></div></th>
   </tr>
   <tr>
     <?php

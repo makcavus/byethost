@@ -8,6 +8,7 @@ include('frm102alanlari.php');
 include('tanimveyetkiler.php');
 //session_destroy();
 include('sumilce.php');
+include('devirilce.php');
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
@@ -16,7 +17,7 @@ $aygelen=$_GET['selectay'];
 
 if($yilgelen==""){
 $resultvyil = @mysqli_query($dbh102,"select * from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen')") ;
-}elseif($ilgelen>0 and $yilgelen>0){
+}elseif($ilcegelen>0 and $yilgelen>0){
   $resultvyil = @mysqli_query($dbh102,"select * from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen')") ;
 }
 while($sonucum=mysqli_fetch_array($resultvyil)){
@@ -77,7 +78,7 @@ while($yetkililer=mysqli_fetch_array($yetkililer_sorgu)){
   $aseunv=$frm102yetkilisi['ilce_aseunvani'];
   }  
   $drad=$yetkililer['dradi'];
-  $ahkod.' '.$ahno=$ilceninadi.' '.$ilceunvan;
+  $unvan=$ilceninadi.' '.$ilceunvan;
 }
 $aygelen="";
   if($ilcegelen>0 and $say>0){
@@ -121,6 +122,11 @@ $aygelen="";
     ?>	</th>
     </table>	
     <?php
+      $aysonugebemevcudu=$devredengebe+$verim17+$verim18-$verim19-$verim20-$verim21;
+      $aysonubebekmevcudu=$devredenbebek+$verim22+$verim23-$verim24-$verim25-$verim26;
+      $aysonulohusamevcudu=$devredenlohusa+$verim27+$verim28-$verim29-$verim30-$verim31;
+      $aysonucocukmevcudu=$devredencocuk+$verim32+$verim33-$verim34-$verim35-$verim36;
+      $aysonuimpmevcudu=$devredenimp+$verim37+$verim38-$verim39-$verim40-$verim41;
     include("assets/form102_sablonlar/form102toplam_sablonu.php");
    }
 include("../assets/sablon/form013/footer.php");

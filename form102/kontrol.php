@@ -194,13 +194,13 @@ $aseunv=$satir['aseunvan'];
 //@mysqli_close($conn);
 $ahkod=$satir['socad'];
 if(substr($ocgelen,-3,3)==$kurumyetki){
-$ahno='Sorumlu Tabibi';
+$unvan=$ocgelen.' Sorumlu Tabibi';
 }elseif(substr($ocgelen,-3,3)==$ilyetki){
-$ahno='Birim Sorumlusu';
+$unvan=$ilinadi.' İl Sağlık Müdürü';
 }elseif(substr($ocgelen,-3,3)==$bakanlikyetki){
-$ahno='Bakanlık Yetkilisi';
+$unvan='Halk Sağlığı Genel Müdürü';
 }else{
-$ahno='Nolu Aile Hekimi';
+$unvan=$ocgelen.' Nolu Aile Hekimi';
 }
 $asmninadine=$satir['asmadi'];
 $drad=$satir['dradi'];
@@ -220,17 +220,43 @@ $aseunv=$satir['aseunvan'];
 //@mysqli_close($conn);
 $ahkod=$satir['socad'];
 if(substr($ocgelen,-3,3)==$kurumyetki){
-$ahno='Sorumlu Tabibi';
+$unvan=$ocgelen.' Sorumlu Tabibi';
 }elseif(substr($ocgelen,-3,3)==$ilyetki){
-$ahno='Birim Sorumlusu';
+    $unvan=$ilinadi.' İl Sağlık Müdürü';
 }else{
-$ahno='Nolu Aile Hekimi';
+$unvan=$ocgelen.' Nolu Aile Hekimi';
 }
 $asmninadine=$satir['asmadi'];
 $drad=$satir['dradi'];
 $asead=$satir['aseadi'];
 $aseunv=$satir['aseunvan'];
 }
+}elseif(substr($ocgelen,-3,3)==$ilceyetki){
+    //echo "doğru....";
+    $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and right(socad,3)='$ilceyetki')order by dradi asc";
+    $sonucak=mysqli_query($dbh,$sql);
+    while($satir=mysqli_fetch_array($sonucak))
+    {
+        $frm102yetkili=@mysqli_query($dbh102,"select form,ilce_aseadi,ilce_aseunvani from birim where(form='Form102')");
+        while($frm102yetkilisi=mysqli_fetch_array($frm102yetkili)){
+            $asead=$frm102yetkilisi['ilce_aseadi'];
+            $aseunv=$frm102yetkilisi['ilce_aseunvani'];
+        }
+        $asmninadine=$satir['asmadi'];
+        $drad=$satir['dradi'];
+//@mysqli_close($conn);
+        $ahkod=$satir['socad'];
+        if(substr($ocgelen,-3,3)==$kurumyetki){
+            $unvan=$ilceninadi.' İlçe Sağlık Müdürü';
+        }elseif(substr($ocgelen,-3,3)==$ilyetki){
+            $unvan=$ilinadi.' İl Sağlık Müdürü';
+        }else{
+            $unvan=$ocgelen.' Nolu Aile Hekimi';
+        }
+        $asmninadine=$satir['asmadi'];
+        $drad=$satir['dradi'];
+
+    }
 }elseif(substr($ocgelen,-3,3)==$kurumyetki){
 	//echo "doğru....";
 $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and right(socad,3)='$kurumyetki')order by dradi asc";
@@ -244,18 +270,18 @@ $aseunv=$satir['aseunvan'];
 //@mysqli_close($conn);
 $ahkod=$satir['socad'];
 if(substr($ocgelen,-3,3)==$kurumyetki){
-$ahno='Sorumlu Tabibi';
+$unvan=$ocgelen.' Sorumlu Tabibi';
 }elseif(substr($ocgelen,-3,3)==$ilyetki){
-$ahno='Birim Sorumlusu';
+    $unvan=$ilinadi.' İl Sağlık Müdürü';
 }else{
-$ahno='Nolu Aile Hekimi';
+$unvan=$ocgelen.' Nolu Aile Hekimi';
 }
 $asmninadine=$satir['asmadi'];
 $drad=$satir['dradi'];
 $asead=$satir['aseadi'];
 $aseunv=$satir['aseunvan'];
 }
-	}else{	
+	}else{
 $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad='$ocgelen')order by dradi asc";
   $sonucak=mysqli_query($dbh,$sql);
     while($satir=mysqli_fetch_array($sonucak))
@@ -267,11 +293,12 @@ $aseunv=$satir['aseunvan'];
 //@mysqli_close($conn);
 $ahkod=$satir['socad'];
 if(substr($ocgelen,-3,3)==$kurumyetki){
-$ahno='Sorumlu Tabibi';
+
+$unvan=$ocgelen.' Sorumlu Tabibi';
 }elseif(substr($ocgelen,-3,3)==$ilyetki){
-$ahno='Birim Sorumlusu';
+$ocgelen.$unvan=' Birim Sorumlusu';
 }else{
-$ahno='Nolu Aile Hekimi';
+$unvan=$ocgelen.' Nolu Aile Hekimi';
 }
 $asmninadine=$satir['asmadi'];
 $drad=$satir['dradi'];

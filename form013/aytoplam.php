@@ -83,7 +83,7 @@ if($ilgelen!=$ilsecim and $ilcegelen==$ilcesecim){
         <th class="bg-primary text-center" width="52%" colspan="7"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $aygorbaslik; ?></strong></h6></th>
         <th class="bg-warning text-center" width="8%" align="left">
         <?php
-      echo '<form action="../../excelmysqli/form013ayxlsbs.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
+      echo '<form action="../excelmysqli/form013ayxlsbs.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
       echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
       echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
       echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';

@@ -9,6 +9,7 @@ include('frm102alanlari.php');
 include('tanimveyetkiler.php');
 session_destroy();
 include('sum.php');
+include('deviril.php');
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
@@ -70,7 +71,7 @@ while($yetkililer=mysqli_fetch_array($yetkililer_sorgu)){
   $asead=$yetkililer['aseadi'];
   $aseunv=$yetkililer['aseunvan'];
   $drad=$yetkililer['dradi'];
-  $ahkod.' '.$ahno=$ilinadi.' '.$ilunvan;
+  $unvan=$ilinadi.' '.$ilunvan;
   $ocgelen=$ilinadi.' İL TOPLAMI ';
 }
 $aygelen="";
@@ -112,6 +113,11 @@ if($ilgelen!='' and $say>0){
   ?>	</th>
   </table>	
   <?php
+    $aysonugebemevcudu=$devredengebe+$verim17+$verim18-$verim19-$verim20-$verim21;
+    $aysonubebekmevcudu=$devredenbebek+$verim22+$verim23-$verim24-$verim25-$verim26;
+    $aysonulohusamevcudu=$devredenlohusa+$verim27+$verim28-$verim29-$verim30-$verim31;
+    $aysonucocukmevcudu=$devredencocuk+$verim32+$verim33-$verim34-$verim35-$verim36;
+    $aysonuimpmevcudu=$devredenimp+$verim37+$verim38-$verim39-$verim40-$verim41;
   include("assets/form102_sablonlar/form102toplam_sablonu.php");
 ?>
   

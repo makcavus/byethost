@@ -1,4 +1,5 @@
 <?php
+include('../con_102.php');
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
@@ -7,7 +8,7 @@ $aygelen=$_GET['selectay'];
 $ocakyazi=$_GET['selectoc'];
 
 if($ilcegelen==$ilcesecim){
-$resultvyil = @mysqli_query($dbh,"select vayadi,
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -187,7 +188,7 @@ v176,
 v177
 from veri where(ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
 }elseif($ocgelen==$ahsecim){
-$resultvyil = @mysqli_query($dbh,"select vayadi,
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -367,7 +368,7 @@ v176,
 v177
 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
 }elseif($ilcegelen!=$ilcesecim and $ocgelen!=$ahsecim){
-$resultvyil = @mysqli_query($dbh,"select vayadi,
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -547,7 +548,7 @@ v176,
 v177
 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
 }else{
-$resultvyil = @mysqli_query($dbh,"select vayadi,
+$resultvyil = @mysqli_query($dbh102,"select vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,

@@ -1,41 +1,84 @@
-<link rel="stylesheet" href="assets/css/form013style.css">
+<link rel="stylesheet" href="assets/css/form102style.css">
 <script language="JavaScript" src="toplama.js" type="text/javascript"></script>	
 <?php
 include('../con_023.php');
-include('frm013alanlari.php');
+include('../con_102.php');
+include('frm102alanlari.php');
+include('tanimveyetkiler.php');
 include('sumay.php');
+include('deviray.php');
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
 $yilgelen=$_GET['selectyil'];
-$aygelen=$_GET['selectay']; 
+$aygelen=$_GET['selectay'];
 $say="x";
+$iladi=@mysqli_query($dbh,"select * from il where(ilid='$ilgelen')");
+while($ilsonucum=mysqli_fetch_array($iladi)){
+    $ilinadi=$ilsonucum['ilad'];
+}
+$ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilgelen' and ilceid='$ilcegelen')");
+while($ilcesonucum=mysqli_fetch_array($ilceadi)){
+    $ilceninadi=$ilcesonucum['ilcead'];
+}
 if($ilgelen !="" and $ilcegelen == "İlçe Seçiniz"){
   $vtsec="select * from veri where(ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')";
-  $socsorgu=mysqli_query($dbh,$vtsec);
+  $socsorgu=mysqli_query($dbh102,$vtsec);
   $say=mysqli_num_rows($socsorgu);
-}elseif($ilgelen !="" and $ilcegelen != "İlçe Seçiniz" and $ocgelen=="Aile Hekimini Seçiniz"){ 
+    $yetkililer_sorgu=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and substr(socad,-3)='$ilyetki')");
+    while($yetkililer=mysqli_fetch_array($yetkililer_sorgu)){
+        $asmninadine=$yetkililer['asmadi'];
+        $asead=$yetkililer['aseadi'];
+        $aseunv=$yetkililer['aseunvan'];
+        $drad=$yetkililer['dradi'];
+        $unvan=$ilinadi.' '.$ilunvan;
+        $ocgelen=$ilinadi.' İL TOPLAMI ';
+    }
+}elseif($ilgelen !="" and $ilcegelen != "İlçe Seçiniz" and $ocgelen=="Aile Hekimini Seçiniz"){
   $vtsec="select * from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='$aygelen')";
-$socsorgu=mysqli_query($dbh,$vtsec);
+$socsorgu=mysqli_query($dbh102,$vtsec);
 $say=mysqli_num_rows($socsorgu);
+    $yetkililer_sorgu=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and substr(socad,-3)='$ilceyetki')");
+    while($yetkililer=mysqli_fetch_array($yetkililer_sorgu)){
+        $frm102yetkili=@mysqli_query($dbh102,"select form,ilce_aseadi,ilce_aseunvani from birim where(form='Form102')");
+        while($frm102yetkilisi=mysqli_fetch_array($frm102yetkili)){
+            $asead=$frm102yetkilisi['ilce_aseadi'];
+            $aseunv=$frm102yetkilisi['ilce_aseunvani'];
+        }
+        $asmninadine=$yetkililer['asmadi'];
+        $drad=$yetkililer['dradi'];
+        $unvan=$ilceninadi.' '.$ilceunvan;
+    }
 }elseif($ilgelen !="" and $ilcegelen != "İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz"){
 $vtsec="select * from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')";
-$socsorgu=mysqli_query($dbh,$vtsec);
+$socsorgu=mysqli_query($dbh102,$vtsec);
 $say=mysqli_num_rows($socsorgu);
+    $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad='$ocgelen')order by dradi asc";
+    $sonucak=@mysqli_query($dbh, $sql);
+    while($satir=mysqli_fetch_array($sonucak))
+    {
+        $asmninadine=$satir['asmadi'];
+        $ahkod=$satir['socad'];
+        if(substr($ocgelen,-3)==$ilceyetki){
+            $unvan=$ilceninadi.' İlçe Sağlık Müdürü';
+        }elseif(substr($ocgelen,-3)==$ilyetki){
+            $unvan=$ilinadi.' İl Sağlık Müdürü';
+        }elseif(substr($ocgelen,-3)==$bakanlikyetki){
+            $unvan='Halk Sağlığı Genel Müdürü';
+        }else{
+            $unvan='Nolu Aile Hekimi';
+        }
+        $drad=$satir['dradi'];
+        $asead=$satir['aseadi'];
+        $aseunv=$satir['aseunvan'];
+        $unvan=$ahkod.' '.$unvan ;
+    }
 }
 //echo $say;
 echo '<input type="hidden" name="ilsec" id="ilsec" value="'.$ilgelen.'">';
 echo '<input type="hidden" name="yilsec" id="yilsec" value="'.$yilgelen.'">';
 echo '<input type="hidden" name="say" id="say" value="'.$say.'">';
-include('assets/form013_sablonlar/toplamsutunu.php');
-$iladi=@mysqli_query($dbh,"select * from il where(ilid='$ilgelen')");
-while($ilsonucum=mysqli_fetch_array($iladi)){
-$ilinadi=$ilsonucum['ilad'];
-}
-$ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilgelen' and ilceid='$ilcegelen')");
-while($ilcesonucum=mysqli_fetch_array($ilceadi)){
-$ilceninadi=$ilcesonucum['ilcead'];
-}
+
 if($ilgelen!=$ilsecim and $ilcegelen==$ilcesecim){
   $ilceninadi='';
   $ocgelen=$iltopbaslik;
@@ -49,197 +92,56 @@ if($ilgelen!=$ilsecim and $ilcegelen==$ilcesecim){
   }else{
   $ocgelen=$ilcetopbaslik;
   }
-  if($verim1){
+  if($say>0){
   ?>
-  <a id="basadon"></a>
-  <table class="table table-sm table-responsive-sm form013ustaralarenust">
-  <th class="bg-warning text-center" width="12%" align="left">
-  <?php
-      echo '<form action="../pdfmysqli/kurumpdfay.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
-      echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-      echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-      echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-      echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-      echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-      include('assets/form013_sablonlar/gizliinput.php');
-      ?>
-      <button type="SUBMIT" class="btn btn-sm btn-primary form-control form-control-sm" style="width: 120px;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <?php echo $pdfbaslik; ?></button></th>
-      <?php
-        echo '</form>';
-        ?>
-        <th class="bg-warning text-center" width="12%" align="left">
-        <?php
-      echo '<form action="grafikay.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-      echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-      echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-      echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-      echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-      echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-      ?>
-        <button type="SUBMIT" class="btn btn-sm btn-success form-control form-control-sm" style="width: 120px;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <?php echo $aygrafbaslik; ?></button></th>
-        <?php
-      echo '</form>';
-      ?>
-        <th class="bg-primary text-center" width="52%" colspan="7"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $aygorbaslik; ?></strong></h6></th>
-        <th class="bg-warning text-center" width="8%" align="left">
-        <?php
-      echo '<form action="../../excelmysqli/form013ayxlsbs.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-      echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-      echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-      echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-      echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-      echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-      ?>
-      <button type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-light" style="width: 120px;"><i class="fa fa-file-excel-o" aria-hidden="true"></i> <?php echo $excelbaslik; ?></button>
-      <?php
-      echo '</form>';
-      ?>	</th>
-      <th class="bg-warning text-center" width="8%" align="center">
-        <?php
-      echo '<form action="../../excelmysqli/kumasioranxls.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-      echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-      echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-      echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-      echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-      echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-      ?>
-      <input name="SUBMIT" type="SUBMIT" class="btn btn-sm btn-secondary form-control form-control-sm" style="width: 120px;" value="<?php echo $asioranbaslik; ?>"/></th>
-      <?php
-      echo '</form>';
-      ?>
-      <th class="bg-warning text-center" width="8%" align="right">
-        <?php
-      echo '<form action="bar_top_ay.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-      echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-      echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-      echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-      echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-      echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-      ?>
-      <input name="SUBMIT" type="SUBMIT" class="btn btn-sm btn-danger form-control form-control-sm" style="width: 124px;" value="<?php echo $kumgrafbaslik; ?>"/>
-      <?php
-      echo '</form>';
-      ?></th>
+      <a id="basadon"></a>
+      <table class="table table-sm table-responsive-sm form013ustaralarenust">
+          <th class="bg-warning text-center" width="25%">
+              <?php
+              echo '<form action="engel.htm" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
+              echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
+              echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
+              echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
+              echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
+              echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+              echo '<input type="hidden" name="ilceyetki" id="ilceyetki" value="'.$ilceyetki.'">';
+              echo '<input type="hidden" name="ilceunvan" id="ilceunvan" value="'.$ilceunvan.'">';
+              include('assets/form102_sablonlar/gizliinput.php');
+              ?>
+              <button type="SUBMIT" class="btn btn-sm btn-primary form-control form-control-sm" style="width: 120px;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <?php echo $pdfbaslik; ?></button></th>
+          <?php
+          echo '</form>';
+          ?>
+          <th class="bg-primary text-center" width="50%"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $ocakgorbaslik; ?></strong></h6></th>
+          <?php
+          echo '</form>';
+          ?>
+          <th class="bg-warning text-center" width="25%">
+              <?php
+              echo '<form action="../excelmysqli/form102ayxls.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
+              echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
+              echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
+              echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
+              echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
+              echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+              echo '<input type="hidden" name="ilceyetki" id="ilceyetki" value="'.$ilceyetki.'">';
+              echo '<input type="hidden" name="ilceunvan" id="ilceunvan" value="'.$ilceunvan.'">';
+              ?>
+              <button type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-light" style="width: 120px;"><i class="fa fa-file-excel-o" aria-hidden="true"></i> <?php echo $excelbaslik; ?></button>
+              <?php
+              echo '</form>';
+              ?>	</th>
       </table>
-      <?php	     
-  include("assets/form013_sablonlar/form013toplam_sablonu.php");
-?>
-  <table class="table table-responsive-sm table-sm form013ustaralar" style="background-color:#CCFFFF">
-   <thead>
-     <tr>
-       <th  class="border border-primary" align="left" colspan="2">&nbsp;Adı Soyadı</th>
-       <th  class="border border-primary"align="left"  colspan="7"><div align="center"><?php echo $verim173 ; ?></div></th>
-       <th width="27%" rowspan="4" class="border border-0 align-middle text-center">
-       <div class="d-flex  justify-content-center flex-wrap">
-  <?php
-echo '<form action="../pdfmysqli/kurumpdfay.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
-echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-include('assets/form013_sablonlar/gizliinput.php');
-?>
-<button type="SUBMIT" class="btn btn-sm btn-primary form-control form-control-sm" style="width: 120px;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <?php echo $pdfbaslik; ?></button>
-<?php
-  echo '</form>';
-  ?>
-	<?php
-echo '<form action="grafikay.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-?>
-	<button type="SUBMIT" class="btn btn-sm btn-success form-control form-control-sm ml-1" style="width: 120px;"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><?php echo $aygrafbaslik; ?></button>
-	<?php
-echo '</form>';
-?>
-</div>
-<?php
+      <?php
+      $aysonugebemevcudu=$devredengebe+$verim17+$verim18-$verim19-$verim20-$verim21;
+      $aysonubebekmevcudu=$devredenbebek+$verim22+$verim23-$verim24-$verim25-$verim26;
+      $aysonulohusamevcudu=$devredenlohusa+$verim27+$verim28-$verim29-$verim30-$verim31;
+      $aysonucocukmevcudu=$devredencocuk+$verim32+$verim33-$verim34-$verim35-$verim36;
+      $aysonuimpmevcudu=$devredenimp+$verim37+$verim38-$verim39-$verim40-$verim41;
 
-include('assets/form013_sablonlar/toplamsutunu.php');
+      include("assets/form102_sablonlar/form102toplam_sablonu.php");
 ?>
-<?php
-$iladi=@mysqli_query($dbh,"select * from il where(ilid='$ilgelen')");
-while($ilsonucum=mysqli_fetch_array($iladi)){
-$ilinadi=$ilsonucum['ilad'];
-}
-?>
-<?php
-$ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilgelen' and ilceid='$ilcegelen')");
-while($ilcesonucum=mysqli_fetch_array($ilceadi)){
-$ilceninadi=$ilcesonucum['ilcead'];
-}
-?>
-<?php 
-	echo '</form>';
-	?>	
-  <div class="d-flex  justify-content-center flex-wrap">
-	<?php
-echo '<form action="../../excelmysqli/form013ayxlsbs.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-?>
-<button type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-light mt-2" style="width: 120px;"><i class="fa fa-file-excel-o" aria-hidden="true"></i> <?php echo $excelbaslik; ?></button>
-<?php
-echo '</form>';
-?>
-	<?php
-echo '<form action="../../excelmysqli/kumasioranxls.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-?>
-<input name="SUBMIT" type="SUBMIT" class="btn btn-sm btn-secondary form-control form-control-sm mt-2 ml-1" style="width: 120px;" value="<?php echo $asioranbaslik; ?>"/>
-<?php
-echo '</form>';
-?>
-</div>
-<?php
-echo '<form action="bar_top_ay.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
-echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
-echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
-echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
-?>
-<input name="SUBMIT" type="SUBMIT" class="btn btn-sm btn-danger form-control form-control-sm mt-2" style="width: 244px;" value="<?php echo $kumgrafbaslik; ?>"/>
-<?php
-echo '</form>';
-?></th>      
-	   <th  class="border border-primary" align="left" colspan="2">&nbsp;Adı Soyadı</th>
-       <th  class="border border-primary" width="27%"align="left"  colspan="7"><div align="center"><?php echo $verim176 ; ?></div></th>
-     </tr>
-     <tr>
-       <th  class="border border-primary" align="left" colspan="2">&nbsp;Ünvanı</th>
-       <th  class="border border-primary"align="left"  colspan="7"><div align="center"><?php echo $verim174 ; ?></div></th>
-       <th  class="border border-primary" align="left" colspan="2">&nbsp;Ünvanı</th>
-       <th  class="border border-primary" width="27%"align="left"  colspan="7"><div align="center"><?php echo $verim177 ; ?></div></th>
-     </tr>
-     <tr>
-       <?php
-   $a=Date("d/m/Y");
-   ?>
-       <th  class="border border-primary" align="left" colspan="2">&nbsp;Tarih</th>
-       <th  class="border border-primary"align="left"  colspan="7"><div align="center"><?php echo $a; ?></div></th>
-       <th  class="border border-primary" align="left" colspan="2">&nbsp;Tarih</th>
-       <th  class="border border-primary" width="27%"align="left"  colspan="7"><div align="center"><?php echo $a;?></div></th>
-     </tr>
-     <tr>
-       <th  class="border border-primary" align="left" colspan="2">&nbsp;İmza</th>
-       <th  class="border border-primary"align="center"  colspan="7">&nbsp;</th>
-       <th  class="border border-primary" align="left" colspan="2">&nbsp;İmza</th>
-       <th  class="border border-primary" width="27%"align="center"  colspan="7">&nbsp;</th>
-     </tr>
-	   </thead>
-   </table> 
+
    <?php
   }
 include("../assets/sablon/form013/footer.php");

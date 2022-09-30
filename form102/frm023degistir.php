@@ -15,7 +15,7 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 include('../con_102.php');
 include('../con_023.php');
 include('frm102alanlari.php');
-//include("tanimveyetkiler.php");
+include("tanimveyetkiler.php");
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
@@ -45,16 +45,30 @@ $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad
 $asmninadine=$satir['asmadi'];
 //@mysql_close($conn);
 $ahkod=$satir['socad'];
-if(substr($ocgelen,-3)=='TSM'){
-$ahno='Sorumlu Tabibi';
-}elseif(substr($ocgelen,-3)=='HSM'){
-$ahno='Birim Sorumlusu';
+if(substr($ocgelen,-3)==$ilceyetki){
+    $frm102yetkili=@mysqli_query($dbh102,"select form,ilce_aseadi,ilce_aseunvani from birim where(form='Form102')");
+    while($frm102yetkilisi=mysqli_fetch_array($frm102yetkili)){
+        $asead=$frm102yetkilisi['ilce_aseadi'];
+        $aseunv=$frm102yetkilisi['ilce_aseunvani'];
+    }
+    $drad=$satir['dradi'];
+$unvan=$ilceninadi.' İlçe Sağlık Müdürü';
+}elseif(substr($ocgelen,-3)==$ilyetki){
+    $drad=$satir['dradi'];
+    $asead=$satir['aseadi'];
+    $aseunv=$satir['aseunvan'];
+    $unvan=$ilinadi. ' İl Sağlık Müdürü';
+}elseif(substr($ocgelen,-3)==$bakanlikyetki){
+    $unvan='Halk Sağlığı Genel Müdürü';
+    $drad=$satir['dradi'];
+    $asead=$satir['aseadi'];
+    $aseunv=$satir['aseunvan'];
 }else{
-$ahno='Nolu Aile Hekimi';
+$unvan=$ocgelen.' Nolu Aile Hekimi';
+    $drad=$satir['dradi'];
+    $asead=$satir['aseadi'];
+    $aseunv=$satir['aseunvan'];
 }
-$drad=$satir['dradi'];
-$asead=$satir['aseadi'];
-$aseunv=$satir['aseunvan'];
 }
 ?>
 <table class="table table-responsive-sm table-sm form013ustaralar" style="margin-top:-8px;">

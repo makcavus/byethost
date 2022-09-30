@@ -443,13 +443,13 @@ $toplamgebetet5=intval($tverim112)+intval($tverim117);
 $toplamgebetettop=intval($tverim108)+intval($tverim113)+intval($tverim109)+intval($tverim114)+intval($tverim110)+intval($tverim115)+intval($tverim111)+intval($tverim116)+intval($tverim112)+intval($tverim117);
 
 $objPHPExcel->setActiveSheetIndex(0)
-/*
+
 ->setCellValue('B2', $ilinadi)
 ->setCellValue('B3', $kurumt)
 ->setCellValue('B4', $top)
 ->setCellValue('K2', $yilgelen)
 ->setCellValue('K3', $ayadi)
-->setCellValue('K4', $tverim119)*/
+->setCellValue('K4', $tverim119)
 //DBT            
             ->setCellValue('C8', $tverim1)
             ->setCellValue('F8', $tverim2)
@@ -630,12 +630,12 @@ $objPHPExcel->setActiveSheetIndex(0)
 			->setCellValue('H61', $tverim139)
 			->setCellValue('I61', $tverim140)
 			->setCellValue('J61', $tverim141)
-			->setCellValue('K61', '=C61+F61+G61+H61+I61+J61')
+			->setCellValue('K61', '=C61+F61+G61+H61+I61+J61');
 //DÜZENLEYEN-ONAYLAYAN			 
-			/*->setCellValue('A65', $tverim173)
+		/*	->setCellValue('A65', $tverim173)
 			->setCellValue('A66', $tverim174)
-			->setCellValue('I65', $tverim176)		 
-			->setCellValue('I66', $tverim177);	
+			->setCellValue('I65', $tverim176)
+			->setCellValue('I66', $tverim177);	*/
 
-$objPHPExcel->getActiveSheet(0)->setTitle($kurumb);*/
+$objPHPExcel->getActiveSheet(0)->setTitle($kurumb);
 ?>

@@ -1,5 +1,5 @@
 <?php
-include('../con_023.php');
+include('../con_102.php');
 
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
@@ -9,7 +9,7 @@ $aygelen=$_GET['selectay'];
 $ocakyazi=$_GET['selectoc'];
 
 if($yilgelen==""){
-$resultvyil = @mysqli_query($dbh,"select 
+$resultvyil = @mysqli_query($dbh102,"select 
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -189,7 +189,7 @@ v176,
 v177
 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen')") ;
 }else{
-$resultvyil = @mysqli_query($dbh,"select 
+$resultvyil = @mysqli_query($dbh102,"select 
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,

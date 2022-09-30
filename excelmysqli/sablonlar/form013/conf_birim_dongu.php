@@ -1,6 +1,7 @@
 <?php
 $ilcadi=$sonucum['iii'];
 $socadi=$sonucum['vvv'];
+$ayadi=$sonucum['vayadi'];
 $verim1=$sonucum['v1'];
 $verim2=$sonucum['v2'];
 $verim3=$sonucum['v3'];
