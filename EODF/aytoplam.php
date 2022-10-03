@@ -103,6 +103,10 @@ if($ilgelen!=$ilsecim and $ilcegelen==$ilcesecim){
               echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
               echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
               echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+              echo '<input type="hidden" name="bakanlikyetki" id="bakanlikyetki" value="'.$bakanlikyetki.'">';
+              echo '<input type="hidden" name="bakanlikunvan" id="bakanlikunvan" value="'.$bakanlikyetki.'">';
+              echo '<input type="hidden" name="ilyetki" id="ilyetki" value="'.$ilyetki.'">';
+              echo '<input type="hidden" name="ilunvan" id="ilunvan" value="'.$ilunvan.'">';
               echo '<input type="hidden" name="ilceyetki" id="ilceyetki" value="'.$ilceyetki.'">';
               echo '<input type="hidden" name="ilceunvan" id="ilceunvan" value="'.$ilceunvan.'">';
               include('assets/eodf_sablonlar/gizliinput.php');
@@ -123,6 +127,10 @@ if($ilgelen!=$ilsecim and $ilcegelen==$ilcesecim){
               echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
               echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
               echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+              echo '<input type="hidden" name="bakanlikyetki" id="bakanlikyetki" value="'.$bakanlikyetki.'">';
+              echo '<input type="hidden" name="bakanlikunvan" id="bakanlikunvan" value="'.$bakanlikyetki.'">';
+              echo '<input type="hidden" name="ilyetki" id="ilyetki" value="'.$ilyetki.'">';
+              echo '<input type="hidden" name="ilunvan" id="ilunvan" value="'.$ilunvan.'">';
               echo '<input type="hidden" name="ilceyetki" id="ilceyetki" value="'.$ilceyetki.'">';
               echo '<input type="hidden" name="ilceunvan" id="ilceunvan" value="'.$ilceunvan.'">';
               ?>

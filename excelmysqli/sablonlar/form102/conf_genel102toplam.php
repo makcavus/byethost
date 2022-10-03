@@ -154,7 +154,7 @@ $objPHPExcel->getSheet(0)->getColumnDimension('M')->setWidth(15);
 $objPHPExcel->getSheet(0)->getColumnDimension('N')->setWidth(15);
 
 //HÜCRE BİRLEŞTİRMELERİ	  
-$objPHPExcel->getSheet(0)->mergeCells("A1:B2");$objPHPExcel->getSheet(0)->mergeCells("C1:L3");$objPHPExcel->getSheet(0)->mergeCells("B4:C4");
+$objPHPExcel->getSheet(0)->mergeCells("A1:B2");$objPHPExcel->getSheet(0)->mergeCells("C1:L3");$objPHPExcel->getSheet(0)->mergeCells("B4:F4");
 $objPHPExcel->getSheet(0)->mergeCells("A5:B5");$objPHPExcel->getSheet(0)->mergeCells("C5:F5");$objPHPExcel->getSheet(0)->mergeCells("A6:C6");$objPHPExcel->getSheet(0)->mergeCells("A7:A8");
 $objPHPExcel->getSheet(0)->mergeCells("B7:B8");$objPHPExcel->getSheet(0)->mergeCells("C7:C8");$objPHPExcel->getSheet(0)->mergeCells("D7:D8");
 $objPHPExcel->getSheet(0)->mergeCells("E7:E8");$objPHPExcel->getSheet(0)->mergeCells("F7:F8");$objPHPExcel->getSheet(0)->mergeCells("G7:G8");
@@ -268,7 +268,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 
 //->setCellValue('B2', mb_convert_encoding ($ilinadi, "UTF-8", "ISO-8859-9" ))
 ->setCellValue('B3', $kurumt)
-->setCellValue('B4', $asm)
+->setCellValue('B4', $onkurum)
 ->setCellValue('C5', $top)
 ->setCellValue('N1', $yilgelen)
 ->setCellValue('N2', $ayadi)
@@ -317,7 +317,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 			->setCellValue('F11', $tverim16)
 //MALZEME DURUMU
 //HAP		 
-			->setCellValue('D17', '=I15+I16')
+			->setCellValue('D17', $tdevredengebe+$tdevredengebeay)
 
             ->setCellValue('D19', $tverim17)
 			
@@ -329,10 +329,10 @@ $objPHPExcel->setActiveSheetIndex(0)
 			
 			->setCellValue('D27', $tverim21)
 			
-			->setCellValue('D29', '=D17+D19+D21-D23-D25-D27')
+			->setCellValue('D29', $tdevredengebe+$tdevredengebeay+$tverim17+$tverim18-$tverim19-$tverim20-$tverim21)
 
 //KONDOM		 
-			->setCellValue('E17', '=J15+J16')
+			->setCellValue('E17', $tdevredenbebek+$tdevredenbebekay)
 
             ->setCellValue('E19', $tverim22)
 			
@@ -344,10 +344,10 @@ $objPHPExcel->setActiveSheetIndex(0)
 			
 			->setCellValue('E27', $tverim26)
 			
-			->setCellValue('E29', '=E17+E19+E21-E23-E25-E27')
+			->setCellValue('E29', $tdevredenbebek+$tdevredenbebekay+$tverim22+$tverim23-$tverim24-$tverim25-$tverim26)
 			
 //ENJEKSİYON		 
-			->setCellValue('F17', '=K15+K16')
+			->setCellValue('F17', $tdevredenlohusa+$tdevredenlohusaay)
 
             ->setCellValue('F19', $tverim27)
 			
@@ -359,9 +359,9 @@ $objPHPExcel->setActiveSheetIndex(0)
 			
 			->setCellValue('F27', $tverim31)
 			
-			->setCellValue('F29', '=F17+F19+F21-F23-F25-F27')
+			->setCellValue('F29', $tdevredenlohusa+$tdevredenlohusaay+$tverim27+$tverim28-$tverim29-$tverim30-$tverim31)
 //RİA		 
-			->setCellValue('G17', '=L15+L16')
+			->setCellValue('G17', $tdevredencocuk+$tdevredencocukay)
 
             ->setCellValue('G19', $tverim32)
 			
@@ -373,7 +373,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 			
 			->setCellValue('G27', $tverim36)
 			
-			->setCellValue('G29', '=G17+G19+G21-G23-G25-G27')
+			->setCellValue('G29', $tdevredencocuk+$tdevredencocukay+$tverim32+$tverim33-$tverim34-$tverim35-$tverim36)
 //İMPLANT		 
 			->setCellValue('H17', '')
 
@@ -393,11 +393,12 @@ $objPHPExcel->setActiveSheetIndex(0)
 			->setCellValue('N19', $tverim42)
 			
 //DÜZENLEYEN-ONAYLAYAN			 
-			//->setCellValue('B34', $tverim173)
+			->setCellValue('B34', $tverim173)
 			 
-			//->setCellValue('B35', $tverim174)
-			 
-			//->setCellValue('M34', $tverim176)	 
+			->setCellValue('B35', $tverim174)
 
-			//->setCellValue('M35', $tverim177);
+			->setCellValue('M34', $tverim176)
+
+			->setCellValue('M35', $tverim177);
+$objPHPExcel->getActiveSheet(0)->setTitle($kurumb);
 ?>

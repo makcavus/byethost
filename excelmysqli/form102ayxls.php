@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-set_time_limit(600);
+//set_time_limit(600);
 date_default_timezone_set('Europe/London');
 require_once ('phpexcel/Classes/PHPExcel.php');
 require_once ('phpexcel/Classes/PHPExcel/IOFactory.php');
@@ -20,12 +20,16 @@ $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
 
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
-$ocgelenx=$_GET['selectoc']; 
+$ocgelen=$_GET['selectoc'];
 $yilgelen=$_GET['selectyil'];
 $aygelen=$_GET['selectay']; 
-$ocakyazi=$_GET['selectoc'];
-$ocgelen=$ocgelenx;
 $aytoplami='AYI TOPLAMI';
+$bakanlikyetki=$_GET['bakanlikyetki'];
+$bakanlikunvan=$_GET['bakanlikunvan'];
+$ilyetki=$_GET['ilyetki'];
+$ilunvan=$_GET['ilunvan'];
+$ilceyetki=$_GET['ilceyetki'];
+$ilceunvan=$_GET['ilceunvan'];
 /*$subat='ŞUBAT';
 $nisan='NİSAN';
 $haziran='HAZİRAN';
@@ -239,7 +243,7 @@ v176 as v176,
 v177 as v177,
 v178 as v178
 from veri where(ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='$aygelen') group by ilceidi order by ilceidi desc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI"){
 $resultvyil = @mysqli_query($dbh102,"select ilceidi as iii,vocadi as vvv,vayadi as vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
@@ -790,7 +794,7 @@ include("sablonlar/form102/conf_birim_dongu.php");
 
 if($ilcegelen=="İlçe Seçiniz"){
 $gebedevir = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi<'$yilgelen') group by ilceidi order by ilceidi desc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI"){
 $gebedevir = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi<'$yilgelen') group by vocadi order by vocadi desc") ;
 }elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz"){
 $gebedevir = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v12+v13) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and vyiladi<'$yilgelen' and vocadi='$socadi') group by vocadi order by vocadi desc") ;
@@ -823,30 +827,30 @@ $gebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+
 }elseif($ilcegelen=="İlçe Seçiniz" and $aygelen=="ARALIK"){
 $gebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='EYLÜL' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='EKİM' or ilidi='$ilgelen' and ilceidi='$ilcadi' and vyiladi='$yilgelen' and vayadi='KASIM') group by ilceidi order by ilceidi desc") ;
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="OCAK"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="OCAK"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="ŞUBAT"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="ŞUBAT"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK') group by vocadi order by vocadi asc") ;
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="MART"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="MART"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="NİSAN"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="NİSAN"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="MAYIS"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="MAYIS"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="HAZİRAN"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="HAZİRAN"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MAYIS') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="TEMMUZ"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="TEMMUZ"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='HAZİRAN') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="AĞUSTOS"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="AĞUSTOS"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='TEMMUZ') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="EYLÜL"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="EYLÜL"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='AĞUSTOS') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="EKİM"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="EKİM"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='EYLÜL') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="KASIM"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="KASIM"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='EYLÜL' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='EKİM') group by vocadi order by vocadi asc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="ARALIK"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="ARALIK"){
 $gebedeviray = @mysqli_query($dbh102,"select vocadi,sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='EYLÜL' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='EKİM' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='KASIM') group by vocadi order by vocadi asc") ;
 }elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz" and $aygelen=="OCAK"){
 $gebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK') group by vocadi order by vocadi asc") ;
@@ -899,7 +903,7 @@ $devredenlohusaay=0;
 $devredencocukay=0;
 $devredenimpay=0;
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="OCAK"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="OCAK"){
 $devredengebeay=0;
 $devredenbebekay=0;
 $devredenlohusaay=0;
@@ -919,7 +923,7 @@ $ahkod='';
 $socadi=$ilkod.'.'.$ilcekod;
 $verim176=$ilceninadi;
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI"){
 $ilkod=substr(trim($socadi),0,2);
 $ilcekod=substr(trim($socadi),3,2);
 $ahkod=substr(trim($socadi),6,3);
@@ -979,7 +983,6 @@ $ilcetop='İLÇE TOPLAMI';
 $ahektop='TOPLAMI';
 
 if($ilcegelen=="İlçe Seçiniz"){
-$top='İLÇE TOPLAMI';
 $kurum=$ilceninadi;
 $kurumt=$ilinadi.' '.$iltop;
 $ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilgelen' and ilceid='$ilcadi')");
@@ -988,19 +991,19 @@ while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 
 $ilceno=$ilcesonucum['ilceid'];
 
-$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and ilce='$ilceno' and socad like '%TSM' or ilinad='$ilgelen' and ilce='$ilceno' and socad='')");
+$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and ilce='$ilceno' and substr(socad,-3)='$ilceyetki' or ilinad='$ilgelen' and ilce='$ilceno' and socad='')");
 }
 while($sorumlusonucum=mysqli_fetch_array($ilcesorumlulari)){
 $verim173=$sorumlusonucum['aseadi'];
 $verim174=$sorumlusonucum['aseunvan'];
 $verim176=$sorumlusonucum['dradi'];
 $onkurum=$sorumlusonucum['asmadi'];
-$onsor="Sorumlusu";
-$verim177=$onkurum.' '.$onsor;
+$verim177=$ilceninadi.' '.$ilceunvan;
+$top=$ilcetop.' / '.$verim176;
 }
-}elseif($ocgelen=="Aile Hekimini Seçiniz"){
-$kurum=$ahkod;
-$kurumt=$ilceninadi.' '.$ilcetop;
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI"){
+$kurum=substr($socadi,-3);
+$kurum=ltrim($kurum,"0");
 $top=$socadi.' / '.$verim176;
 
 $ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilgelen' and ilceid='$ilcadi')");
@@ -1009,14 +1012,14 @@ while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 
 $ilceno=$ilcesonucum['ilceid'];
 
-$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and ilce='$ilceno' and socad like '%TSM' or ilinad='$ilgelen' and ilce='$ilceno' and socad='$socadi') group by socad order by socad");
+$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and ilce='$ilceno' and substr(socad,-3)='$ilceyetki' or ilinad='$ilgelen' and ilce='$ilceno' and socad='$socadi') group by socad order by socad");
 }
 while($sorumlusonucum=mysqli_fetch_array($ilcesorumlulari)){
 $onkurum=$sorumlusonucum['asmadi'];
-//$verim173=$sorumlusonucum['aseadi'];
-//$verim174=$sorumlusonucum['aseunvan'];
-//$verim176=$sorumlusonucum['dradi'];
-$onsor="Sorumlusu";
+$verim173=$sorumlusonucum['aseadi'];
+$verim174=$sorumlusonucum['aseunvan'];
+$verim176=$sorumlusonucum['dradi'];
+
 }
 }elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz"){
 $top=$socadi.' / '.$verim176;
@@ -1042,11 +1045,12 @@ $onsor="Sorumlusu";
 $kurum='';
 }
 
-include("sablonlar/form102/conf_birim102toplam.php");
+
             
 }
+    include("sablonlar/form102/conf_birim102toplam.php");
 }
-$objPHPExcel->getSheet(1)->setTitle($kurum);
+
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
 //$objPHPExcel->setActiveSheetIndex(1);
 $objPHPExcel->getActiveSheet(1)->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
@@ -1081,7 +1085,7 @@ $ilceninadi=$ilcesonucum['ilcead'];
 }
 
 if($ilcegelen=="İlçe Seçiniz"){
-$tresultvyil = @mysqli_query($dbh102,"select
+$tresultvyil = @mysqli_query($dbh102,"select ilceidi as iii,vocadi as vvv, vayadi as vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -1255,8 +1259,8 @@ sum(v170) as v170,
 sum(v171) as v171,
 sum(v172) as v172
 from veri where(ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='$aygelen') order by ilceidi desc") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz"){
-$tresultvyil = @mysqli_query($dbh102,"select
+}elseif($ilgelen>0 and $ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI"){
+$tresultvyil = @mysqli_query($dbh102,"select ilceidi as iii,vocadi as vvv, vayadi as vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -1432,7 +1436,7 @@ sum(v172) as v172
 
 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='$aygelen') order by vocadi desc") ;
 }elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz"){
-$tresultvyil = @mysqli_query($dbh102,"select
+$tresultvyil = @mysqli_query($dbh102,"select ilceidi as iii,vocadi as vvv, vayadi as vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -1608,7 +1612,7 @@ sum(v172) as v172
 
 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
 }else{
-$tresultvyil = @mysqli_query($dbh102,"select
+$tresultvyil = @mysqli_query($dbh102,"select ilceidi as iii,vocadi as vvv, vayadi as vayadi,
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -1789,7 +1793,7 @@ while($sonucum=mysqli_fetch_array($tresultvyil)){
 include("sablonlar/form102/conf_toplam_dongu.php");
 if($ilcegelen=="İlçe Seçiniz"){
 $tgebedevir = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and vyiladi<'$yilgelen')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI"){
 $tgebedevir = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi<'$yilgelen')") ;
 }elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz"){
 $tgebedevir = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v12+v13) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi<'$yilgelen')") ;
@@ -1822,30 +1826,30 @@ $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22
 }elseif($ilcegelen=="İlçe Seçiniz" and $aygelen=="ARALIK"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='EYLÜL' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='EKİM' or ilidi='$ilgelen' and vyiladi='$yilgelen' and vayadi='KASIM')") ;
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="OCAK"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="OCAK"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="ŞUBAT"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="ŞUBAT"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK')") ;
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="MART"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="MART"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="NİSAN"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="NİSAN"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="MAYIS"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="MAYIS"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="HAZİRAN"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="HAZİRAN"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MAYIS')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="TEMMUZ"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="TEMMUZ"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='HAZİRAN')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="AĞUSTOS"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="AĞUSTOS"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='TEMMUZ')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="EYLÜL"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="EYLÜL"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='AĞUSTOS')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="EKİM"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="EKİM"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='EYLÜL')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="KASIM"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="KASIM"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='EYLÜL' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='EKİM')") ;
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="ARALIK"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="ARALIK"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='OCAK' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='ŞUBAT' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MART' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='NİSAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='MAYIS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='HAZİRAN' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='TEMMUZ' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='AĞUSTOS' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='EYLÜL' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='EKİM' or ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='KASIM')") ;
 }elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz" and $aygelen=="OCAK"){
 $tgebedeviray = @mysqli_query($dbh102,"select sum(v17+v18) as gsonucarti,sum(v22+v23) as bsonucarti,sum(v27+v28) as lsonucarti,sum(v32+v33) as csonucarti,sum(v37+v38) as xsonucarti,sum(v19+v20+v21) as gsonuceksi,sum(v24+v25+v26) as bsonuceksi,sum(v29+v30+v31) as lsonuceksi,sum(v34+v35+v36) as csonuceksi,sum(v39+v40+v41) as xsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$socadi' and vyiladi='$yilgelen' and vayadi='OCAK')") ;
@@ -1898,7 +1902,7 @@ $tdevredenlohusaay=0;
 $tdevredencocukay=0;
 $tdevredenimpay=0;
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz" and $aygelen=="OCAK"){
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI" and $aygelen=="OCAK"){
 $tdevredengebeay=0;
 $tdevredenbebekay=0;
 $tdevredenlohusaay=0;
@@ -1927,24 +1931,21 @@ $ilcetop='İLÇE TOPLAMI';
 $ahektop='TOPLAMI';
 
 if($ilcegelen=="İlçe Seçiniz"){
-$top='';
-
 $kurum=$ilceninadi;
-$kurumt=$ilinadi.' '.$iltop;
+$kurumt='';
 $kurumb=$ilinadi.' '.$iltop;
 $asm='';
-$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and socad like '%HSM' or ilinad='$ilgelen' and socad='')");
+$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and substr(socad,-3)='$ilyetki' or ilinad='$ilgelen' and socad='')");
 while($sorumlusonucum=mysqli_fetch_array($ilcesorumlulari)){
 $tverim173=$sorumlusonucum['aseadi'];
 $tverim174=$sorumlusonucum['aseunvan'];
 $tverim176=$sorumlusonucum['dradi'];
 $onkurum=$sorumlusonucum['asmadi'];
-$onsor="Sorumlusu";
-$tverim177=$onkurum.' '.$onsor;
+$tverim177=$ilinadi.' '.$ilunvan;
+$top=$ilinadi.' '.$iltop.' / '.$tverim176;
 }
 
-}elseif($ocgelen=="Aile Hekimini Seçiniz"){
-$top='İLÇE TOPLAMI';
+}elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen=="İLÇE TOPLAMI"){
 $asm='';
 $kurum=$socadi;
 $kurumt=$ilceninadi;
@@ -1955,25 +1956,30 @@ while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 
 $ilceno=$ilcesonucum['ilceid'];
 
-$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and ilce='$ilceno' and socad like '%TSM' or ilinad='$ilgelen' and ilce='$ilceno' and socad='')");
+$ilcesorumlulari=@mysqli_query($dbh,"select * from ocak where(ilinad='$ilgelen' and ilce='$ilceno' and substr(socad,-3)='$ilceyetki' or ilinad='$ilgelen' and ilce='$ilceno' and socad='')");
 }
 while($sorumlusonucum=mysqli_fetch_array($ilcesorumlulari)){
-$tverim173=$sorumlusonucum['aseadi'];
-$tverim174=$sorumlusonucum['aseunvan'];
+	$frm102yetkili=@mysqli_query($dbh102,"select form,ilce_aseadi,ilce_aseunvani from birim where(form='Form102')");
+        while($frm102yetkilisi=mysqli_fetch_array($frm102yetkili)){
+            $tverim173=$frm102yetkilisi['ilce_aseadi'];
+            $tverim174=$frm102yetkilisi['ilce_aseunvani'];
+        }
+//$tverim173=$sorumlusonucum['aseadi'];
+//$tverim174=$sorumlusonucum['aseunvan'];
 $tverim176=$sorumlusonucum['dradi'];
 $onkurum=$sorumlusonucum['asmadi'];
-$onsor="Sorumlusu";
-$tverim177=$onkurum.' '.$onsor;
+$tverim177=$ilceninadi.' '.$ilceunvan;
+$top=$ilcetop.' / '.$tverim176;
 }
 }elseif($ilcegelen!="İlçe Seçiniz" and $ocgelen!="Aile Hekimini Seçiniz"){
-$top=$socadi.' / '.$verim176;
-$asm=$onkurum;
+$top=$socadi;
+$asm='';
 $kurum=$ilinadi.'-'.$ocgelen;
 $kurumt=$ilceninadi;
 $kurumb=$ocgelen.' '.$ahektop;
-$tresultvyil = @mysqli_query($dbh102,"select v173 as v173,v174 as v174,v176 as v176,v177 as v177 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
+$tresultvyil = @mysqli_query($dbh102,"select socad as asmadi ,v173 as v173,v174 as v174,v176 as v176,v177 as v177 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
 while($sonucum=mysqli_fetch_array($tresultvyil)){
-
+$onkurum=$sonucum['asmadi'];
 $tverim173=$sonucum['v173'];
 $tverim174=$sonucum['v174'];
 $tverim176=$sonucum['v176'];
@@ -1997,9 +2003,9 @@ $tverim177=$sonucum['v177'];
 
 include("sablonlar/form102/conf_genel102toplam.php");
 			}
-			}		 
+			}
 
-$objPHPExcel->getActiveSheet(0)->setTitle($kurumb);
+
 
 $objPHPExcel->getActiveSheet(0)->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
 

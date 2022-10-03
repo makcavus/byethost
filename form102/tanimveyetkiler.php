@@ -86,6 +86,4 @@ echo $bakanlikyetki;
 echo '<br>';
 echo $kurumilkod;*/
 ?>
-</body>
-</html>
 

@@ -1,6 +1,7 @@
 <?php
 $ilcadi=$sonucum['iii'];
 $socadi=$sonucum['vvv'];
+$ayadi=$sonucum['vayadi'];
 $verim1=$sonucum['v1'];
 $verim2=$sonucum['v2'];
 $verim3=$sonucum['v3'];
@@ -178,7 +179,7 @@ $verim174=$sonucum['v174'];
 $verim175=$sonucum['v175'];
 $verim176=$sonucum['v176'];
 $verim177=$sonucum['v177'];
-if($verim1==0){$verim1=""; }else{$verim1=$verim1;}
+/*if($verim1==0){$verim1=""; }else{$verim1=$verim1;}
 if($verim2==0){$verim2=""; }else{$verim2=$verim2;}
 if($verim3==0){$verim3=""; }else{$verim3=$verim3;}
 if($verim4==0){$verim4=""; }else{$verim4=$verim4;}
@@ -213,7 +214,7 @@ if($verim32==0){$verim32=""; }else{$verim32=$verim32;}
 if($verim33==0){$verim33=""; }else{$verim33=$verim33;}
 if($verim34==0){$verim34=""; }else{$verim34=$verim34;}
 if($verim35==0){$verim35=""; }else{$verim35=$verim35;}
-if($verim36==0){$verim36=""; }else{$verim36=$verim36;}
+if($verim36==0){$verim36=""; }else{$verim36=$verim36;}*/
 if($verim37==0){$verim37=""; }else{$verim37=$verim37;}
 if($verim38==0){$verim38=""; }else{$verim38=$verim38;}
 if($verim39==0){$verim39=""; }else{$verim39=$verim39;}
@@ -295,8 +296,8 @@ if($verim114==0){$verim114=""; }else{$verim114=$verim114;}
 if($verim115==0){$verim115=""; }else{$verim115=$verim115;}
 if($verim116==0){$verim116=""; }else{$verim116=$verim116;}
 if($verim117==0){$verim117=""; }else{$verim117=$verim117;}
-//if($verim118==0){$verim118=""; }else{$verim118=$verim118;}
-//if($verim119==0){$verim119=""; }else{$verim119=$verim119;}
+if($verim118==0){$verim118=""; }else{$verim118=$verim118;}
+if($verim119==0){$verim119=""; }else{$verim119=$verim119;}
 if($verim120==0){$verim120=""; }else{$verim120=$verim120;}
 if($verim121==0){$verim121=""; }else{$verim121=$verim121;}
 if($verim122==0){$verim122=""; }else{$verim122=$verim122;}

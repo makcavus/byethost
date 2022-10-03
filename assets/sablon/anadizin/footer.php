@@ -58,7 +58,7 @@ include("altlink.php");
              <td><input name="emailadresi" type="text" id="emailadresi" class="form-control form-control-sm w-100 sm" tabindex="3" required></td>
            </tr>
            <tr>
-             <td><font class="Yazi"><?php $labeldusunce="D���nceleriniz:"; echo $labeldusunce; ?></font></td>
+             <td><font class="Yazi"><?php $labeldusunce="Düşünceleriniz:"; echo $labeldusunce; ?></font></td>
              <td><textarea name="dusunceniz" rows="5" id="dusunceniz" class="form-control w-100" tabindex="4" required></textarea></td>
            </tr>
   </thead>
@@ -68,8 +68,8 @@ include("altlink.php");
  </div>
       </div>
       <div class="modal-footer">
-      <a href="#" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm btn-close" data-dismiss="modal"><i class="fa fa-times-circle fa-lg"></i><?php $labeliptal=" �ptal"; echo $labeliptal; ?></a>
-      <a href="#" onClick="iletiyiekle();" class="btn btn-primary btn-sm ml-3"><i class="fa fa-check fa-lg"></i><?php $labelgonder=" G�nder"; echo $labelgonder; ?></a>  
+      <a href="#" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm btn-close" data-dismiss="modal"><i class="fa fa-times-circle fa-lg"></i><?php $labeliptal=" İptal"; echo $labeliptal; ?></a>
+      <a href="#" onClick="iletiyiekle();" class="btn btn-primary btn-sm ml-3"><i class="fa fa-check fa-lg"></i><?php $labelgonder=" Gönder"; echo $labelgonder; ?></a>  
       </div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

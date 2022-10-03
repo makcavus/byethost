@@ -1,4 +1,7 @@
 <?php
+$ilcadi=$sonucum['iii'];
+$socadi=$sonucum['vvv'];
+$ayadi=$sonucum['vayadi'];
 $tverim1=$sonucum['v1'];
 $tverim2=$sonucum['v2'];
 $tverim3=$sonucum['v3'];
@@ -12,339 +15,173 @@ $tverim10=$sonucum['v10'];
 $tverim11=$sonucum['v11'];
 $tverim12=$sonucum['v12'];
 $tverim13=$sonucum['v13'];
-
 $tverim14=$sonucum['v14'];
-
 $tverim15=$sonucum['v15'];
-
 $tverim16=$sonucum['v16'];
-
 $tverim17=$sonucum['v17'];
-
 $tverim18=$sonucum['v18'];
-
 $tverim19=$sonucum['v19'];
-
 $tverim20=$sonucum['v20'];
-
 $tverim21=$sonucum['v21'];
-
 $tverim22=$sonucum['v22'];
-
 $tverim23=$sonucum['v23'];
-
 $tverim24=$sonucum['v24'];
-
 $tverim25=$sonucum['v25'];
-
 $tverim26=$sonucum['v26'];
-
 $tverim27=$sonucum['v27'];
-
 $tverim28=$sonucum['v28'];
-
 $tverim29=$sonucum['v29'];
-
 $tverim30=$sonucum['v30'];
-
 $tverim31=$sonucum['v31'];
-
 $tverim32=$sonucum['v32'];
-
 $tverim33=$sonucum['v33'];
-
 $tverim34=$sonucum['v34'];
-
 $tverim35=$sonucum['v35'];
-
 $tverim36=$sonucum['v36'];
-
 $tverim37=$sonucum['v37'];
-
 $tverim38=$sonucum['v38'];
-
 $tverim39=$sonucum['v39'];
-
 $tverim40=$sonucum['v40'];
-
 $tverim41=$sonucum['v41'];
-
 $tverim42=$sonucum['v42'];
-
 $tverim43=$sonucum['v43'];
-
 $tverim44=$sonucum['v44'];
-
 $tverim45=$sonucum['v45'];
-
 $tverim46=$sonucum['v46'];
-
 $tverim47=$sonucum['v47'];
-
 $tverim48=$sonucum['v48'];
-
 $tverim49=$sonucum['v49'];
-
 $tverim50=$sonucum['v50'];
-
 $tverim51=$sonucum['v51'];
-
 $tverim52=$sonucum['v52'];
-
 $tverim53=$sonucum['v53'];
-
 $tverim54=$sonucum['v54'];
-
 $tverim55=$sonucum['v55'];
-
 $tverim56=$sonucum['v56'];
-
 $tverim57=$sonucum['v57'];
-
 $tverim58=$sonucum['v58'];
-
 $tverim59=$sonucum['v59'];
-
 $tverim60=$sonucum['v60'];
-
 $tverim61=$sonucum['v61'];
-
 $tverim62=$sonucum['v62'];
-
 $tverim63=$sonucum['v63'];
-
 $tverim64=$sonucum['v64'];
-
 $tverim65=$sonucum['v65'];
-
 $tverim66=$sonucum['v66'];
-
 $tverim67=$sonucum['v67'];
-
 $tverim68=$sonucum['v68'];
-
 $tverim69=$sonucum['v69'];
-
 $tverim70=$sonucum['v70'];
-
 $tverim71=$sonucum['v71'];
-
 $tverim72=$sonucum['v72'];
-
 $tverim73=$sonucum['v73'];
-
 $tverim74=$sonucum['v74'];
-
 $tverim75=$sonucum['v75'];
-
 $tverim76=$sonucum['v76'];
-
 $tverim77=$sonucum['v77'];
-
 $tverim78=$sonucum['v78'];
-
 $tverim79=$sonucum['v79'];
-
 $tverim80=$sonucum['v80'];
-
 $tverim81=$sonucum['v81'];
-
 $tverim82=$sonucum['v82'];
-
 $tverim83=$sonucum['v83'];
-
 $tverim84=$sonucum['v84'];
-
 $tverim85=$sonucum['v85'];
-
 $tverim86=$sonucum['v86'];
-
 $tverim87=$sonucum['v87'];
-
 $tverim88=$sonucum['v88'];
-
 $tverim89=$sonucum['v89'];
-
 $tverim90=$sonucum['v90'];
-
 $tverim91=$sonucum['v91'];
-
 $tverim92=$sonucum['v92'];
-
 $tverim93=$sonucum['v93'];
-
 $tverim94=$sonucum['v94'];
-
 $tverim95=$sonucum['v95'];
-
 $tverim96=$sonucum['v96'];
-
 $tverim97=$sonucum['v97'];
-
 $tverim98=$sonucum['v98'];
-
 $tverim99=$sonucum['v99'];
-
 $tverim100=$sonucum['v100'];
-
 $tverim101=$sonucum['v101'];
-
 $tverim102=$sonucum['v102'];
-
 $tverim103=$sonucum['v103'];
-
 $tverim104=$sonucum['v104'];
-
 $tverim105=$sonucum['v105'];
-
 $tverim106=$sonucum['v106'];
-
 $tverim107=$sonucum['v107'];
-
 $tverim108=$sonucum['v108'];
-
 $tverim109=$sonucum['v109'];
-
 $tverim110=$sonucum['v110'];
-
 $tverim111=$sonucum['v111'];
-
 $tverim112=$sonucum['v112'];
-
 $tverim113=$sonucum['v113'];
-
 $tverim114=$sonucum['v114'];
-
 $tverim115=$sonucum['v115'];
-
 $tverim116=$sonucum['v116'];
-
 $tverim117=$sonucum['v117'];
-
 $tverim118=$sonucum['v118'];
-
 $tverim119=$sonucum['v119'];
-
 $tverim120=$sonucum['v120'];
-
 $tverim121=$sonucum['v121'];
-
 $tverim122=$sonucum['v122'];
-
 $tverim123=$sonucum['v123'];
-
 $tverim124=$sonucum['v124'];
-
 $tverim125=$sonucum['v125'];
-
 $tverim126=$sonucum['v126'];
-
 $tverim127=$sonucum['v127'];
-
 $tverim128=$sonucum['v128'];
-
 $tverim129=$sonucum['v129'];
-
 $tverim130=$sonucum['v130'];
-
 $tverim131=$sonucum['v131'];
-
 $tverim132=$sonucum['v132'];
-
 $tverim133=$sonucum['v133'];
-
 $tverim134=$sonucum['v134'];
-
 $tverim135=$sonucum['v135'];
-
 $tverim136=$sonucum['v136'];
-
 $tverim137=$sonucum['v137'];
-
 $tverim138=$sonucum['v138'];
-
 $tverim139=$sonucum['v139'];
-
 $tverim140=$sonucum['v140'];
-
 $tverim141=$sonucum['v141'];
-
 $tverim142=$sonucum['v142'];
-
 $tverim143=$sonucum['v143'];
-
 $tverim144=$sonucum['v144'];
-
 $tverim145=$sonucum['v145'];
-
 $tverim146=$sonucum['v146'];
-
 $tverim147=$sonucum['v147'];
-
 $tverim148=$sonucum['v148'];
-
 $tverim149=$sonucum['v149'];
-
 $tverim150=$sonucum['v150'];
-
 $tverim151=$sonucum['v151'];
-
 $tverim152=$sonucum['v152'];
-
 $tverim153=$sonucum['v153'];
-
 $tverim154=$sonucum['v154'];
-
 $tverim155=$sonucum['v155'];
-
 $tverim156=$sonucum['v156'];
-
 $tverim157=$sonucum['v157'];
-
 $tverim158=$sonucum['v158'];
-
 $tverim159=$sonucum['v159'];
-
 $tverim160=$sonucum['v160'];
-
 $tverim161=$sonucum['v161'];
-
 $tverim162=$sonucum['v162'];
-
 $tverim163=$sonucum['v163'];
-
 $tverim164=$sonucum['v164'];
-
 $tverim165=$sonucum['v165'];
-
 $tverim166=$sonucum['v166'];
-
 $tverim167=$sonucum['v167'];
-
 $tverim168=$sonucum['v168'];
-
 $tverim169=$sonucum['v169'];
-
 $tverim170=$sonucum['v170'];
-
 $tverim171=$sonucum['v171'];
-
 $tverim172=$sonucum['v172'];
-/*
-$tverim173=$sonucum['v173'];
-$tverim174=$sonucum['v174'];
-$tverim175=$sonucum['v175'];
-$tverim176=$sonucum['v176'];
-$tverim177=$sonucum['v177'];
-*/
-if($tverim1==0){$tverim1=""; }else{$tverim1=$tverim1;}
+/*if($tverim1==0){$tverim1=""; }else{$tverim1=$tverim1;}
 if($tverim2==0){$tverim2=""; }else{$tverim2=$tverim2;}
 if($tverim3==0){$tverim3=""; }else{$tverim3=$tverim3;}
 if($tverim4==0){$tverim4=""; }else{$tverim4=$tverim4;}
 if($tverim5==0){$tverim5=""; }else{$tverim5=$tverim5;}
 if($tverim6==0){$tverim6=""; }else{$tverim6=$tverim6;}
 if($tverim7==0){$tverim7=""; }else{$tverim7=$tverim7;}
-if($tverim8==0){$tverim8=""; }else{$tverim8=$tverim8;}
+if($tverim8==0){$tverim8=""; }else{$tverim8=$tverim8;}*/
 if($tverim9==0){$tverim9=""; }else{$tverim9=$tverim9;}
 if($tverim10==0){$tverim10=""; }else{$tverim10=$tverim10;}
 if($tverim11==0){$tverim11=""; }else{$tverim11=$tverim11;}
@@ -352,14 +189,14 @@ if($tverim12==0){$tverim12=""; }else{$tverim12=$tverim12;}
 if($tverim13==0){$tverim13=""; }else{$tverim13=$tverim13;}
 if($tverim14==0){$tverim14=""; }else{$tverim14=$tverim14;}
 if($tverim15==0){$tverim15=""; }else{$tverim15=$tverim15;}
-if($tverim16==0){$tverim16=""; }else{$tverim16=$tverim16;}
+/*if($tverim16==0){$tverim16=""; }else{$tverim16=$tverim16;}
 if($tverim17==0){$tverim17=""; }else{$tverim17=$tverim17;}
 if($tverim18==0){$tverim18=""; }else{$tverim18=$tverim18;}
 if($tverim19==0){$tverim19=""; }else{$tverim19=$tverim19;}
 if($tverim20==0){$tverim20=""; }else{$tverim20=$tverim20;}
 if($tverim21==0){$tverim21=""; }else{$tverim21=$tverim21;}
 if($tverim22==0){$tverim22=""; }else{$tverim22=$tverim22;}
-if($tverim23==0){$tverim23=""; }else{$tverim23=$tverim23;}
+if($tverim23==0){$tverim23=""; }else{$tverim23=$tverim23;}*/
 if($tverim24==0){$tverim24=""; }else{$tverim24=$tverim24;}
 if($tverim25==0){$tverim25=""; }else{$tverim25=$tverim25;}
 if($tverim26==0){$tverim26=""; }else{$tverim26=$tverim26;}
@@ -367,14 +204,14 @@ if($tverim27==0){$tverim27=""; }else{$tverim27=$tverim27;}
 if($tverim28==0){$tverim28=""; }else{$tverim28=$tverim28;}
 if($tverim29==0){$tverim29=""; }else{$tverim29=$tverim29;}
 if($tverim30==0){$tverim30=""; }else{$tverim30=$tverim30;}
-if($tverim31==0){$tverim31=""; }else{$tverim31=$tverim31;}
+/*if($tverim31==0){$tverim31=""; }else{$tverim31=$tverim31;}
 if($tverim32==0){$tverim32=""; }else{$tverim32=$tverim32;}
 if($tverim33==0){$tverim33=""; }else{$tverim33=$tverim33;}
 if($tverim34==0){$tverim34=""; }else{$tverim34=$tverim34;}
 if($tverim35==0){$tverim35=""; }else{$tverim35=$tverim35;}
 if($tverim36==0){$tverim36=""; }else{$tverim36=$tverim36;}
 if($tverim37==0){$tverim37=""; }else{$tverim37=$tverim37;}
-if($tverim38==0){$tverim38=""; }else{$tverim38=$tverim38;}
+if($tverim38==0){$tverim38=""; }else{$tverim38=$tverim38;}*/
 if($tverim39==0){$tverim39=""; }else{$tverim39=$tverim39;}
 if($tverim40==0){$tverim40=""; }else{$tverim40=$tverim40;}
 if($tverim41==0){$tverim41=""; }else{$tverim41=$tverim41;}
@@ -382,14 +219,14 @@ if($tverim42==0){$tverim42=""; }else{$tverim42=$tverim42;}
 if($tverim43==0){$tverim43=""; }else{$tverim43=$tverim43;}
 if($tverim44==0){$tverim44=""; }else{$tverim44=$tverim44;}
 if($tverim45==0){$tverim45=""; }else{$tverim45=$tverim45;}
-if($tverim46==0){$tverim46=""; }else{$tverim46=$tverim46;}
+/*if($tverim46==0){$tverim46=""; }else{$tverim46=$tverim46;}
 if($tverim47==0){$tverim47=""; }else{$tverim47=$tverim47;}
 if($tverim48==0){$tverim48=""; }else{$tverim48=$tverim48;}
 if($tverim49==0){$tverim49=""; }else{$tverim49=$tverim49;}
 if($tverim50==0){$tverim50=""; }else{$tverim50=$tverim50;}
 if($tverim51==0){$tverim51=""; }else{$tverim51=$tverim51;}
 if($tverim52==0){$tverim52=""; }else{$tverim52=$tverim52;}
-if($tverim53==0){$tverim53=""; }else{$tverim53=$tverim53;}
+if($tverim53==0){$tverim53=""; }else{$tverim53=$tverim53;}*/
 if($tverim54==0){$tverim54=""; }else{$tverim54=$tverim54;}
 if($tverim55==0){$tverim55=""; }else{$tverim55=$tverim55;}
 if($tverim56==0){$tverim56=""; }else{$tverim56=$tverim56;}
@@ -454,8 +291,8 @@ if($tverim114==0){$tverim114=""; }else{$tverim114=$tverim114;}
 if($tverim115==0){$tverim115=""; }else{$tverim115=$tverim115;}
 if($tverim116==0){$tverim116=""; }else{$tverim116=$tverim116;}
 if($tverim117==0){$tverim117=""; }else{$tverim117=$tverim117;}
-//if($tverim118==0){$tverim118=""; }else{$tverim118=$tverim118;}
-//if($tverim119==0){$tverim119=""; }else{$tverim119=$tverim119;}
+if($tverim118==0){$tverim118=""; }else{$tverim118=$tverim118;}
+if($tverim119==0){$tverim119=""; }else{$tverim119=$tverim119;}
 if($tverim120==0){$tverim120=""; }else{$tverim120=$tverim120;}
 if($tverim121==0){$tverim121=""; }else{$tverim121=$tverim121;}
 if($tverim122==0){$tverim122=""; }else{$tverim122=$tverim122;}
@@ -509,4 +346,8 @@ if($tverim169==0){$tverim169=""; }else{$tverim169=$tverim169;}
 if($tverim170==0){$tverim170=""; }else{$tverim170=$tverim170;}
 if($tverim171==0){$tverim171=""; }else{$tverim171=$tverim171;}
 if($tverim172==0){$tverim172=""; }else{$tverim172=$tverim172;}
+/*if($tverim173==0){$tverim173=""; }else{$tverim173=$tverim173;}
+if($tverim174==0){$tverim174=""; }else{$tverim174=$tverim174;}
+if($tverim175==0){$tverim175=""; }else{$tverim175=$tverim175;}
+if($tverim176==0){$tverim176=""; }else{$tverim176=$tverim176;}*/
 ?>
