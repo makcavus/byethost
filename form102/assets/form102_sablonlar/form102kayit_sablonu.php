@@ -181,7 +181,7 @@ include('devir.php');
     <td class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="2"><div align="left">&nbsp;<?php echo $duzunbaslik;?></div></td>
     <td class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="4"><div align="left"><input  class="form-control form-control-sm text-center border-0" name="v174"  type="text" value="<?php echo $aseunv ; ?>" size="40" tabindex="174"/></div></td>
     <td class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="2"><div align="left">&nbsp;<?php echo $onunbaslik;?></div></td>
-    <td class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="4"><div align="left"><input  class="form-control form-control-sm text-center border-0" name="v177"  type="text" value="<?php echo $ahkod.' '.$ahno ;?>" size="40" tabindex="177"/></div></td>
+    <td class="border border-primary align-middle" style="background-color:#CCFFFF" width="5%" colspan="4"><div align="left"><input  class="form-control form-control-sm text-center border-0" name="v177"  type="text" value="<?php echo $unvan ;?>" size="40" tabindex="177"/></div></td>
   </tr>
   <tr>
     <?php

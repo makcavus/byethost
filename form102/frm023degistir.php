@@ -7,6 +7,7 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 ?>
 <link rel="stylesheet" href="assets/css/form102style.css">
 <script type="text/javascript" src="degistir.js"></script>
+<script type="text/javaScript" src="toplama.js"></script>
 <script type="text/javascript" src="jquery-latest.min.js"></script> 
 <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script>
 <script type="text/javascript" src="assets/js/mask_hightlight.js"></script>

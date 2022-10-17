@@ -8,7 +8,7 @@
     </tr>
     <tr>
         <td class="border-0"><div align="center">SAĞLIK BAKANLIĞI </div></td>
-        <td class="border-0" rowspan="2"><div align="right"><h5>AŞI SONUÇLARI ÇİZELGESİ</h5></div></td>
+        <td class="border-0" rowspan="2"><div align="right"><h5>AŞI SONUÇLARI ÇİZELGESİ (SURİYELİLER İÇİN FORM013)</h5></div></td>
         <td class="border-0"><div align="right">AY:</div></td>
         <td class="border-0"><div align="left"><strong><?php echo $aygelen ;?></strong></div></td>
     </tr>

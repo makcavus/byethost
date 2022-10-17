@@ -1,3 +1,3 @@
 <?php
- echo $_GET["sonuc6"]+$_GET["sonuc7"]+$_GET["sonuc8"]+$_GET["sonuc9"];
+ echo $_GET["hapdevir"]+$_GET["v17"]+$_GET["v18"]-$_GET["v19"]-$_GET["v20"]-$_GET["v21"];
  ?>

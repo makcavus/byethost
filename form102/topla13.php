@@ -1,3 +1,3 @@
 <?php
- echo $_GET["v42"]+$_GET["v43"]+$_GET["v44"]+$_GET["v45"]+$_GET["v46"]+$_GET["v47"];
+ echo $_GET["riadevir"]+$_GET["v32"]+$_GET["v33"]-$_GET["v34"]-$_GET["v35"]-$_GET["v36"];
  ?>
