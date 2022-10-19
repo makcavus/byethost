@@ -26,7 +26,7 @@ $baslik=$neresi.' '.$top.' '.$tariharalik.' '.$baslikmetin;
 // INLINE_NO means don't stream it back to the browser.
 $graph = new Graph(1280,768,"auto");	
 $graph->SetScale("textlin",$minimum,$maximum);
-$graph->img->SetMargin(50,20,20,240);
+$graph->img->SetMargin(50,20,20,224);
 $graph->SetMarginColor('white');
 $graph->xaxis->SetFont(FF_ARIAL,FS_BOLD);
 $graph->yaxis->SetFont(FF_ARIAL,FS_BOLD);
@@ -62,7 +62,7 @@ $bplot->SetFillGradient("navy","lightsteelblue",GRAD_MIDVER);
 $bplot->value->Show();
 $graph->Add($bplot);
 $graph->title->Set($baslik.' '.$hedefnuf);
-$graph->xaxis->title->Set("\n\n\n\n\n\n\n\n\n\n\n A Ş I L A R ve D O Z  S A Y I L A R I");
+$graph->xaxis->title->Set("\n\n\n\n\n\n\n\n\n\n\n A Ş I L A R ve D O Z  S A Y I L A R I",'high');
 $graph->yaxis->title->Set(" Y Ü Z D E ");
 $graph->title->SetFont(FF_ARIAL,FS_BOLD,12);
 $graph->yaxis->title->SetFont(FF_ARIAL,FS_BOLD,12);
