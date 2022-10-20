@@ -9,7 +9,7 @@ $yilgelen=$_GET['selectyil'];
 $aygelen=$_GET['selectay']; 
 $dabt=array($dabt1,$dabt2,$dabt3,$dabtr,$kpa1,$kpa2,/*$kpa3,*/$kpar,$opa1,$opa2,$kkk,$bcg,$hepb1,$hepb2,$hepb3,$hepa1,$hepar,$sc);
 $asim=array($asim1,$asim2,$asim3,$asimr,$askpa1,$askpa2,/*$askpa3,*/$askpar,$asopa1,$asopa2,$askkk,$asbcg,$ashepb1,$ashepb2,$ashepb3,$ashepa1,$ashepar,$assc);
-$renk=array("red","red","red","red","yellow","yellow","yellow","yellow","blue","blue","cyan","green","brown","brown","brown","orange","orange","black");
+$renk=array("red","red","red","red","yellow","yellow",/*"yellow",*/"yellow","blue","blue","cyan","green","brown","brown","brown","orange","orange","black");
 $minimum=0;
 $maximum=max($dabt);
 $ayim="AYI";
@@ -25,8 +25,9 @@ $baslik=$neresi.' '.$top.' '.$tariharalik.' '.$baslikmetin;
 // One minute timeout for the cached image
 // INLINE_NO means don't stream it back to the browser.
 $graph = new Graph(1280,768,"auto");	
+$graph->ClearTheme();
 $graph->SetScale("textlin",$minimum,$maximum);
-$graph->img->SetMargin(50,20,20,224);
+$graph->img->SetMargin(50,40,50,220);
 $graph->SetMarginColor('white');
 $graph->xaxis->SetFont(FF_ARIAL,FS_BOLD);
 $graph->yaxis->SetFont(FF_ARIAL,FS_BOLD);
@@ -57,7 +58,7 @@ $bplot->SetFillColor($renk);
 $bplot->SetShadow();
 $bplot->value->SetFormat('%% %d');
 $bplot->value->SetFont(FF_ARIAL,FS_NORMAL,10);
-$bplot->SetFillGradient("navy","lightsteelblue",GRAD_MIDVER);
+//$bplot->SetFillGradient("navy","lightsteelblue",GRAD_MIDVER);
 //$bplot->value->SetColor("blue");
 $bplot->value->Show();
 $graph->Add($bplot);
@@ -67,7 +68,7 @@ $graph->yaxis->title->Set(" Y Ü Z D E ");
 $graph->title->SetFont(FF_ARIAL,FS_BOLD,12);
 $graph->yaxis->title->SetFont(FF_ARIAL,FS_BOLD,12);
 $graph->xaxis->title->SetFont(FF_ARIAL,FS_BOLD,12);
-$graph->SetBox(true);
+//$graph->SetBox(true);
 // Send back the HTML page which will call this script again
 // to retrieve the image.
 $graph->Stroke();

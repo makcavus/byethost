@@ -1017,63 +1017,63 @@ echo $ay;
 echo '<br>';*/
 /******************* KARMA 1.AŞI **************************/
 $dabt1=round(($tverim1*100)/((($tverim119/$ay)/12)*$ay),0);
-$asim1="DaBT-1 (". $tverim1." - %".$dabt1.")";
+$asim1="DaBT-1 (". $tverim1.")";
 /*echo $dabt;
 echo '<br>';
 echo 'xxxxxxxxxxx';
 echo '<br>';
 echo $tayadi;*/
 $dabt2=round(($tverim5*100)/((($tverim119/$ay)/12)*$ay),0);
-$asim2="DaBT-2 (". $tverim5." - %".$dabt2.")";
+$asim2="DaBT-2 (". $tverim5.")";
 /******************* KARMA 3.AŞI **************************/
 $dabt3=round(($tverim9*100)/((($tverim119/$ay)/12)*$ay),0);
-$asim3="DaBT-3 (". $tverim9." - %".$dabt3.")";
+$asim3="DaBT-3 (". $tverim9.")";
 /******************* KARMA RAPEL AŞI **************************/
 $dabtr=round(($tverim13*100)/((($tverim119/$ay)/12)*$ay),0);
-$asimr="DaBT-Rapel (". $tverim13." - %".$dabtr.")";
+$asimr="DaBT-Rapel (". $tverim13.")";
 /******************* KPA 1.AŞI **************************/
 $kpa1=round(($tverim19*100)/((($tverim119/$ay)/12)*$ay),0);
-$askpa1="KPA-1 (". $tverim19." - %".$kpa1.")";
+$askpa1="KPA-1 (". $tverim19.")";
 /******************* KPA 2.AŞI **************************/
 $kpa2=round(($tverim22*100)/((($tverim119/$ay)/12)*$ay),0);
-$askpa2="KPA-2 (". $tverim22." - %".$kpa2.")";
+$askpa2="KPA-2 (". $tverim22.")";
 /******************* KPA 3.AŞI **************************/
 $kpa3=round(($tverim25*100)/((($tverim119/$ay)/12)*$ay),0);
-$askpa3="KPA-3 (". $tverim25." - %".$kpa3.")";
+$askpa3="KPA-3 (". $tverim25.")";
 /******************* KPA RAPEL AŞI **************************/
 $kpar=round(($tverim28*100)/((($tverim119/$ay)/12)*$ay),0);
-$askpar="KPA-Rapel (". $tverim28." - %".$kpar.")";
+$askpar="KPA-Rapel (". $tverim28.")";
 /******************* POLİO 1.AŞI **************************/
 $opa1=round(($tverim30*100)/((($tverim119/$ay)/12)*$ay),0);
-$asopa1="OPA-1 (". $tverim30." - %".$opa1.")";
+$asopa1="OPA-1 (". $tverim30.")";
 /******************* POLİO 2.AŞI **************************/
 $opa2=round(($tverim37*100)/((($tverim119/$ay)/12)*$ay),0);
-$asopa2="OPA-Rapel (". $tverim37." - %".$opa2.")";
+$asopa2="OPA-Rapel (". $tverim37.")";
 /******************* KKK AŞISI **************************/
 $kkk=round(($tverim53*100)/((($tverim119/$ay)/12)*$ay),0);
-$askkk="KKK (". $tverim53." - %".$kkk.")";
+$askkk="KKK (". $tverim53.")";
 /******************* BCG AŞISI **************************/
 $bcg=round(($tverim69*100)/((($tverim119/$ay)/12)*$ay),0);
-$asbcg="BCG (". $tverim69." - %".$bcg.")";
+$asbcg="BCG (". $tverim69.")";
 /******************* HEPATİT-B 1.AŞI **************************/
 $toplamhepbid=$tverim74+$tverim75+$btverim49;
 $hepb1=round(($toplamhepbid*100)/((($tverim119/$ay)/12)*$ay),0);
-$ashepb1="Hepatit B-1 (". $toplamhepbid." - %".$hepb1.")";
+$ashepb1="Hepatit B-1 (". $toplamhepbid.")";
 /******************* HEPATİT-B 2.AŞI **************************/
 $hepb2=round(($tverim82*100)/((($tverim119/$ay)/12)*$ay),0);
-$ashepb2="Hepatit B-2 (". $tverim82." - %".$hepb2.")";
+$ashepb2="Hepatit B-2 (". $tverim82.")";
 /******************* HEPATİT-B 3.AŞI **************************/
 $hepb3=round(($tverim88*100)/((($tverim119/$ay)/12)*$ay),0);
-$ashepb3="Hepatit B-3 (". $tverim88." - %".$hepb3.")";
+$ashepb3="Hepatit B-3 (". $tverim88.")";
 /******************* HEPATİT-A 1.AŞI **************************/
 $hepa1=round(($tverim120*100)/((($tverim119/$ay)/12)*$ay),0);
-$ashepa1="Hepatit A-1 (". $tverim120." - %".$hepa1.")";
+$ashepa1="Hepatit A-1 (". $tverim120.")";
 /******************* HEPATİT-A 2.AŞI **************************/
 $hepar=round(($tverim126*100)/((($tverim119/$ay)/12)*$ay),0);
-$ashepar="Hep. A-Rapel (". $tverim126." - %".$hepar.")";
+$ashepar="Hep. A-Rapel (". $tverim126.")";
 /******************* SU ÇİÇEĞİ AŞISI **************************/
 $sc=round(($tverim130*100)/((($tverim119/$ay)/12)*$ay),0);
-$assc="Su Çiçeği (". $tverim130." - %".$sc.")";
+$assc="Su Çiçeği (". $tverim130.")";
 
 }
 }
