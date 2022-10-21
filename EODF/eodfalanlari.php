@@ -11,6 +11,7 @@ $ilgorbaslik="İl Toplamı Görüntüleme Ekranı";
 $ilcegorbaslik="İlçe Toplamı Görüntüleme Ekranı";
 $ocakgorbaslik="Kurum/Aile Hek.Toplamı Görüntüleme Ekranı";
 $aygorbaslik="Aylık Toplam Görüntüleme Ekranı";
+$donemgorbaslik="Dönem Toplamı Görüntüleme Ekranı";
 $kayitekle="Kayıt Ekle";
 $kayitgorbaslik="Kayıt Görüntüleme Ekranı";
 $pdfbaslik="PDF Yazdır";
@@ -967,7 +968,7 @@ BrowserDetect.init();
 
 
 */
-
+/*
 $env = getenv( "HTTP_USER_AGENT" );
 if (strpos($env, 'Edge') !== FALSE){
    //$browser="Edge";
@@ -1003,7 +1004,7 @@ if (strpos($env, 'Edge') !== FALSE){
 //echo "<br />" . $env;
 function trsuz($str){ $str=mb_convert_encoding($str, "utf-8","iso-8859-9");  return $str;   }
 }
-
+*/
 ?>
 
 

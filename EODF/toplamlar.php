@@ -15,7 +15,7 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il order by ilad asc");
 <div class="height-100 bg-light" id="nav-placeholder">
 <div class="bg-primary">
 <form class="form-inline" action="023kekle.php" method="get" name="kaydet">
-<div class="col-md-2 toplambar">
+<div class="col-md-1 toplambar">
 <select class="form-control form-control-sm" name="selectil" onchange="getilce(this.value)" onclick="toplamil();">
 <option value=""><?php echo "İli Seçiniz";?></option>
 <?php while($row=mysqli_fetch_array($result)) { ?>
@@ -29,7 +29,7 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il order by ilad asc");
 </select>
 </div>
 
-<div class="col-md-4 toplambar" id="citydiv"><select class="form-control form-control-sm" id="selectoc" name="selectoc" >
+<div class="col-md-2 toplambar" id="citydiv"><select class="form-control form-control-sm" id="selectoc" name="selectoc" >
 <option><?php echo "Önce İlçeyi Seçiniz";?></option>
 </select>
 </div>
@@ -37,8 +37,8 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il order by ilad asc");
 //mysqli baglantisi
 $resultyil = @mysqli_query($dbh,"select distinct yiladi from yil order by yiladi asc");
 ?>
-<div class="col-md-2 toplambar">
-<input class="form-control form-control-sm" name="selectyil" type="text" id="selectyil" value="<?php echo date("Y"); ?>">
+<div class="col-md-1 toplambar">
+<input class="form-control form-control-sm" name="selectyil" type="text" id="selectyil" value="<?php echo date("Y"); ?>" size="5">
 </div>
 <?php
 //mysqli baglantisi
@@ -51,8 +51,33 @@ while ($katay=mysqli_fetch_assoc($resultay) ) {
 echo '<option>'.$katay['ayadi'].'</option>';
 }
 //echo $ilcekodu;
-@mysqli_close($dbh);   
 ?>
+</select>
+</div>
+<div class="col-md-2 toplambar">
+<div class="col-md-4">
+       <label>
+         <input type="radio" class="form-control" name="sec" value="ilsec">
+          &nbsp;&nbsp;İl</label>
+          </div>
+<div class="col-md-4">
+         <label>
+           <input type="radio" name="sec" value="ilcesec" />
+           &nbsp;&nbsp;İlçe</label>
+           </div>
+           <div class="col-md-4">
+         <label>
+           <input type="radio" name="sec" value="aheksec" />
+           &nbsp;&nbsp;A.Hek.</label>
+           </div>
+</div>
+<div class="col-md-2 toplambar">
+<select class="form-control form-control-sm" name="donem" tabindex="6"  onclick="toplamdonem();">
+<option value="">Dönem Seçiniz</option>
+<option value="ilk">1.Dönem</option>
+<option value="ikinci">2.Dönem</option>
+<option value="ucuncu">3.Dönem</option>
+<option value="son">4.Dönem</option>
 </select>
 </div>
 </form>
@@ -63,6 +88,7 @@ echo '<option>'.$katay['ayadi'].'</option>';
 </div>
 <!-- Optional JavaScript -->
 <?php
+@mysqli_close($dbh);   
 include("../assets/sablon/form013/footer.php");
 ?>
 <script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
