@@ -58,6 +58,8 @@ $onunbaslik="Ünvanı:";
 $onimzabaslik="İmza:";
 $aygrafbaslik="Aylık Grafik";
 $kumgrafbaslik="Kümulatif Grafik";
+$yasgrbaslik="Yaş Grafiği";
+$odbaslik="Öğrenim Grafiği";
 //echo $frmbaslik;
 //************************************************ K O N T R O L  M E N � *******************************************************
 $ilsecbaslik="İl Seçilmedi.";
