@@ -25,9 +25,10 @@ $q = str_replace ("__","_",$q);
 require('sum.php');
 // create a blank image
 if($_GET['selectyil']=="TÜM YILLAR TOPLAMI"){
-       $graphname=$_GET["selectyil"].' YILINDA';
-}else{
        $graphname="TÜM YILLARDA";
+}else{
+       
+       $graphname=$_GET["selectyil"].' YILINDA';
 }
 $baslik=$_GET['ilinadi'].' İLİ '.$graphname.trsil(' EVLENENLERİN YAŞ ve CİNS GRUPLARINA GÖRE DAĞILIMI');
 $baslikfont=3 ;
