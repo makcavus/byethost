@@ -24,9 +24,14 @@ $q = str_replace ("__","_",$q);
 <?php
 require('sum.php');
 // create a blank image
-$baslik=$_GET['ilinadi'].' İLİ '.$_GET['selectyil'].trsil(' YILINDA EVLENENLERİN YAŞ ve CİNS GRUPLARINA GÖRE DAĞILIMI');
+if($_GET['selectyil']=="TÜM YILLAR TOPLAMI"){
+       $graphname=$_GET["selectyil"].' YILINDA';
+}else{
+       $graphname="TÜM YILLARDA";
+}
+$baslik=$_GET['ilinadi'].' İLİ '.$graphname.trsil(' EVLENENLERİN YAŞ ve CİNS GRUPLARINA GÖRE DAĞILIMI');
 $baslikfont=3 ;
-$graphname=$_GET["selectyil"];
+
 $boslukleft=(785-(($baslikfont+3)*strlen("$baslik")))/2;
 $bosluktop=(630+(5*strlen("$graphname")))/2;
 $yataygrid=6 ;
