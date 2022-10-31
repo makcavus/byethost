@@ -84,7 +84,7 @@ $aygelen="";
     ?>
     <a id="basadon"></a>
     <table class="table table-sm table-responsive-sm form013ustaralarenust">
-    <th class="bg-warning text-center" width="25%">
+    <th class="bg-warning text-center" width="12%">
     <?php
     echo '<form action="../pdfmysqli/ilcepdf.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
     echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
@@ -100,11 +100,51 @@ $aygelen="";
     <?php
       echo '</form>';
       ?>
+      </th>
+      <th class="bg-warning text-center" width="13%">
+<?php
+echo '<form action="nufpirilceyg.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
+echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
+echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
+echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
+echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
+echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+echo '<input type="hidden" name="ilceninadi" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilceninadi.'" />';
+?>
+<button type="SUBMIT" class="btn btn-sm btn-success form-control form-control-sm" style="width: 120px;"><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $yasgrbaslik; ?></button></th>
+
+<?php
+
+  echo '</form>';
+
+  ?>
+
+</th>
       <th class="bg-primary text-center" width="50%"><h6 style="color:#FFFF00;padding-top: 8px;"><strong><?php echo $ilcegorbaslik; ?></strong></h6></th>
       <?php 
       echo '</form>';
       ?>	
-      <th class="bg-warning text-center" width="25%">
+      </th>
+      <th class="bg-warning text-center" width="13%">
+<?php
+echo '<form action="nufpirilceod.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
+echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';
+echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilcegelen.'" />';
+echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocgelen.'" />';
+echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
+echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+echo '<input type="hidden" name="ilceninadi" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilceninadi.'" />';
+?>
+<button type="SUBMIT" class="btn btn-sm btn-danger form-control form-control-sm" style="width: 150px;"><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $odbaslik; ?></button></th>
+
+<?php
+
+  echo '</form>';
+
+  ?>
+
+</th>
+      <th class="bg-warning text-center" width="12%">
       <?php
     echo '<form action="../excelmysqli/form013ilcexls.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
     echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ilgelen.'" />';

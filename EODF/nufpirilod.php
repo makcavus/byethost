@@ -25,7 +25,13 @@ $q = str_replace ("__","_",$q);
 <?php
 require('sum.php');
 // create a blank image
-$baslik=$_GET['ilinadi'].' İLİ '.$_GET['selectyil'].trsil(' YILINDA EVLENENLERİN ÖĞRENİM DURUMUNA GÖRE DAĞILIMI');
+if($_GET['selectyil']=="TÜM YILLAR TOPLAMI"){
+       $graphname="TÜM YILLARDA";
+}else{
+       
+       $graphname=$_GET["selectyil"].' YILINDA';
+}
+$baslik=$_GET['ilinadi'].' İLİ '.$graphname.trsil(' EVLENENLERİN ÖĞRENİM DURUMUNA GÖRE DAĞILIMI');
 $baslikfont=3 ;
 $graphname=$_GET["selectyil"];
 $boslukleft=(785-(($baslikfont+3)*strlen("$baslik")))/2;

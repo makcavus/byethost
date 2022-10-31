@@ -7,7 +7,7 @@ $yilgelen=$_GET['selectyil'];
 $aygelen=$_GET['selectay']; 
 $ocakyazi=$_GET['selectoc'];
 
-if($yilgelen=="TÜM YILLAR TOPLAMI"){
+if($yilgelen=="" or $yilgelen=="TÜM YILLAR TOPLAMI"){
 $resultvyil = @mysqli_query($dbh102,"select 
 sum(v1) as v1,
 sum(v2) as v2, 

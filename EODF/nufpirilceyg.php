@@ -1,4 +1,4 @@
-<?
+<?php
 function trsil($q) { 
 $q = str_replace("Ç","C",$q);
 $q = str_replace ("ç","c",$q); 
@@ -21,12 +21,17 @@ $q = str_replace ("__","_",$q);
 }  
 
 ?>
-<?
+<?php
 require('sumilce.php');
 // create a blank image
-$baslik=$ocakadyg;
+if($_GET['selectyil']=="TÜM YILLAR TOPLAMI"){
+       $graphname="TÜM YILLARDA";
+}else{
+       
+       $graphname=$_GET["selectyil"].' YILINDA';
+}
+$baslik=$_GET['ilceninadi'].' İLÇESİ '.$graphname.trsil(' EVLENENLERİN YAŞ ve CİNS GRUPLARINA GÖRE DAĞILIMI');
 $baslikfont=3 ;
-$graphname=$yilim;//$_GET["yil"];
 $boslukleft=(785-(($baslikfont+3)*strlen("$baslik")))/2;
 $bosluktop=(630+(5*strlen("$graphname")))/2;
 $yataygrid=6 ;
@@ -51,16 +56,28 @@ imagepolygon($image,
              ),
              4,
              $col_poly);
-imagepolygon($image,
+             imagepolygon($image,
              array (
-                    357, 10,
-                    357,560,
-                    775, 10,
-                    775,560
+                    358, 560,
+                    358,10,
+                    358,10,
+                    358,10
+                    
              ),
-             2,
+             4,
              $col_poly1);
-imagepolygon($image,
+             imagepolygon($image,
+             array (
+                    429, 560,
+                    429,10,
+                    429,10,
+                    429,10
+                    
+             ),
+             4,
+             $col_poly2);
+
+/*imagepolygon($image,
              array (
                     429, 10,
                     429, 560,
@@ -68,7 +85,7 @@ imagepolygon($image,
                     270,280
              ),
              2,
-             $col_poly2);
+             $col_poly2);*/
 
 $Veri[0]     = $verim23;
 $Veri[1]     = $verim22;
@@ -209,8 +226,8 @@ imagestring($image,50,370,32,"50-+",$kirmizi);
 imagestring($image,50,20,570,trsil("KADIN NÜFUSU:"),$kirmizi);
 imagestring($image,50,580,570,trsil("ERKEK NÜFUSU:"),$kirmizi);
 imagestring($image,50,300,570,trsil("TOPLAM NÜFUS:"),$kirmizi);
-imagestring($image,5,150,600,trsil("$baslik"),$kirmizi);
-imagestring($image,5,500,600,"$graphname",$kirmizi);
+imagestring($image,5,60,600,trsil("$baslik"),$kirmizi);
+//imagestring($image,5,500,600,"$graphname",$kirmizi);
 imagestring($image,50,150,570,"$Top",$Kirmiz);
 imagestring($image,50,710,570,"$Top1",$Mavi);
 imagestring($image,50,430,570,"$GTop",$Yesil);
