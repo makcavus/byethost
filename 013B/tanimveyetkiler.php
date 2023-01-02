@@ -11,7 +11,7 @@ $ilsec="İli Seçiniz";
 $onceilsec="Önce İli Seçiniz";
 $birimsec="Birimi Seçiniz";
 //echo $_SESSION["uye"];
-$kim=$_SESSION["uye"];
+$kim=@$_SESSION["uye"];
 $resultx = @mysqli_query($dbh,"select uyekod from uyeler where(uyekim='$kim') order by uyekod asc");
 while($xkod=mysqli_fetch_array($resultx)) {
 $hamkod=$xkod['uyekod'];
@@ -42,7 +42,7 @@ $ilceunvan="İlçe Sağlık Müdürü";
 $kurumyetki="TSM";
 $kurumunvan="İlçe Sağlık Müdürü";
 //Kurum Yetkili Kurum Kisaltmasi.  yeler tablosundaki  yekod alaninin son    harfi veya rakami
-$kulyetki=$koddokuz;
+$kulyetki=@$koddokuz;
 //S LME ONAYI ETKETLER ...........................................................................
 $silmeonay="Kayıt Silme Onayı";
 $silemin="Bu Kaydı Silmek İstediğinize Emin misiniz?";
@@ -63,7 +63,7 @@ $oncekiuye="Kurumuna ait Kullanıcı Bilgileri";
 $sonraki="Değiştirildi...";
 $ait="ait";
 $kullanici="adlı kullanıcıyı";
-$kim=$hamkod;
+$kim=@$hamkod;
 $silindi="Kurumuna ait Kullanıcı Kaydı Silindi...";
 // LET LEN MESAJLARA  L  K N ET KETLER
 $tarih='Tarih:';

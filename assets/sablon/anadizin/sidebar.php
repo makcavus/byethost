@@ -18,7 +18,10 @@
                             <ion-icon name="reader-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Çalışma Formları</span>
                         </a>
-
+                        <a href="birimler.php" class="nav__link">
+                            <ion-icon name="documents-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">Gerekli Dökümanlar</span>
+                        </a>
                         <div  class="nav__link collapse">
                             <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Projects</span>

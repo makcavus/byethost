@@ -1,0 +1,52 @@
+.toplamenust{
+  margin-top: -13px;
+}
+.form013ustaralarenust{
+  margin-top: 2px;
+}
+.toplambar{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  }  
+  .form013ustaralar{
+    margin-top: -12px;
+  }
+  /* Veri bölümü */
+.form013veriust {
+  margin-top: -33px !important;
+}
+.form013veriustaralar {
+  margin-top: -8px !important;
+}
+.form013veriustaralarenust {
+  margin-top: -16px !important;
+}
+.form013veritdaralar {
+  margin-top: -19px !important;
+}
+/* Veri Kayıt bölümü */
+.form013kayitust {
+  margin-top: -16px !important;
+}
+.form013kayitustaralar {
+  margin-top: -8px !important;
+}
+.form013kayittdaralar {
+  margin-top: -19px !important;
+}
+/* Veri Değiştir bölümü */
+.form013degistirust {
+  margin-top: -16px !important;
+}
+.form013degistirustaralar {
+  margin-top: -8px !important;
+}
+.form013degistirtdaralar {
+  margin-top: -19px !important;
+}
+input{
+  font-weight: bold;
+}

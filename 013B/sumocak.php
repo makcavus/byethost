@@ -1,101 +1,14 @@
 <?php
-include('con_023.php');
-
-
-$ilgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectil']); 
-$ilcegelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectilce']); 
-$ocgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']); 
+include('../con_023.php');
+$ilgelen=$_GET['selectil']; 
+$ilcegelen=$_GET['selectilce']; 
+$ocgelen=$_GET['selectoc']; 
 $yilgelen=$_GET['selectyil'];
-$aygelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectay']); 
-$ocakyazi=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']);
+$aygelen=$_GET['selectay']; 
+$ocakyazi=$_GET['selectoc'];
 
-/*if($yilgelen==""){
-$devirgebe=0;
-$devirbebek=0;
-$devirlohusa=0;
-$devircocuk=0;
-}else{
-//GEBE
-$gebearti = @mysql_query("select sum(v119+v120) as gsonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($gebearti)) {
-if($kayitlar['gsonucarti']==""){
-$Toplamgarti=0 ;
-}else{
-$Toplamgarti=$kayitlar['gsonucarti'];
-}
-}
-$gebeeksi = @mysql_query("select sum(v121+v122+v123+v124) as gsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($gebeeksi)) {
-if($kayitlar['gsonuceksi']==""){
-$Toplamgeksi=0 ;
-}else{
-$Toplamgeksi=$kayitlar['gsonuceksi'];
-}
-}
-$devirgebe=$Toplamgarti-$Toplamgeksi;
-//BEBEK
-$bebekarti = @mysql_query("select sum(v128+v129+v130) as bsonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($bebekarti)) {
-if($kayitlar['bsonucarti']==""){
-$Toplambarti=0 ;
-}else{
-$Toplambarti=$kayitlar['bsonucarti'];
-}
-}
-//echo $Toplambarti;
-$bebekeksi = @mysql_query("select sum(v131+v132+v133) as bsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($bebekeksi)) {
-if($kayitlar['bsonuceksi']==""){
-$Toplambeksi=0 ;
-}else{
-$Toplambeksi=$kayitlar['bsonuceksi'];
-}
-}
-//echo $Toplambeksi;
-$devirbebek=$Toplambarti-$Toplambeksi;
-//LOHUSA
-$lohusaarti = @mysql_query("select sum(v137+v138+v139) as lsonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($lohusaarti)) {
-if($kayitlar['lsonucarti']==""){
-$Toplamlarti=0 ;
-}else{
-$Toplamlarti=$kayitlar['lsonucarti'];
-}
-}
-//echo $Toplamlarti;
-$lohusaeksi = @mysql_query("select sum(v140+v141+v142) as lsonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($lohusaeksi)) {
-if($kayitlar['lsonuceksi']==""){
-$Toplamleksi=0 ;
-}else{
-$Toplamleksi=$kayitlar['lsonuceksi'];
-}
-}
-//echo $Toplamleksi;
-$devirlohusa=$Toplamlarti-$Toplamleksi;
-//COCUK
-$cocukarti = @mysql_query("select sum(v145+v146+v147) as csonucarti from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($cocukarti)) {
-if($kayitlar['csonucarti']==""){
-$Toplamcarti=0 ;
-}else{
-$Toplamcarti=$kayitlar['csonucarti'];
-}
-}
-//echo $Toplamcarti;
-$cocukeksi = @mysql_query("select sum(v148+v149+v150) as csonuceksi from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi<'$yilgelen')") ;
-while ($kayitlar = mysql_fetch_array($cocukeksi)) {
-if($kayitlar['csonuceksi']==""){
-$Toplamceksi=0 ;
-}else{
-$Toplamceksi=$kayitlar['csonuceksi'];
-}
-}
-//echo $Toplamceksi;
-$devircocuk=$Toplamcarti-$Toplamceksi;
-}*/
 if($yilgelen==""){
-$resultvyil = @mysql_query("select 
+$resultvyil = @mysqli_query($dbh,"select 
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -267,10 +180,15 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
 from verib where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen')") ;
 }else{
-$resultvyil = @mysql_query("select 
+$resultvyil = @mysqli_query($dbh,"select 
 sum(v1) as v1,
 sum(v2) as v2, 
 sum(v3) as v3,
@@ -442,11 +360,17 @@ sum(v168) as v168,
 sum(v169) as v169,
 sum(v170) as v170, 
 sum(v171) as v171,
-sum(v172) as v172
+sum(v172) as v172,
+v173,
+v174,
+v175,
+v176,
+v177
+
 from verib where(ilidi='$ilgelen' and vyiladi='$yilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen')") ;
 }
 
-while($sonucum=mysql_fetch_array($resultvyil)){
+while($sonucum=mysqli_fetch_array($resultvyil)){
 $verim1=$sonucum['v1'];
 $verim2=$sonucum['v2'];
 $verim3=$sonucum['v3'];
@@ -619,9 +543,11 @@ $verim169=$sonucum['v169'];
 $verim170=$sonucum['v170'];
 $verim171=$sonucum['v171'];
 $verim172=$sonucum['v172'];
-/*$verim173=$sonucum['v173'];
+$verim173=$sonucum['v173'];
 $verim174=$sonucum['v174'];
-$verim175=$sonucum['v175'];*/
+$verim175=$sonucum['v175'];
+$verim176=$sonucum['v176'];
+$verim177=$sonucum['v177'];
 }
 
 ?>

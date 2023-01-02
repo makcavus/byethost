@@ -1,0 +1,26 @@
+<html> 
+<head> 
+    <title></title> 
+</head> 
+<body> 
+    <input id="masktest" type="text" value="<?php
+   $a=Date("d/m/Y"); echo $a ;
+   ?>" /> 
+    <br /> 
+    <input id="focustest" type="text" value="on focus will select all contents..." /> 
+ 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 
+    <script type="text/javascript" src="http://jquery-joshbush.googlecode.com/files/jquery.maskedinput-1.2.1.pack.js"></script> 
+    <script type="text/javascript"> 
+        $(function() { 
+            $("#masktest").mask("99/99/9999"); 
+ 
+            // Contents of textboxes will be selected when receiving focus. 
+            $("input[type=text]") 
+                .focus(function() { 
+                    $(this).select(); 
+                }); 
+        }); 
+    </script> 
+</body> 
+</html> 
