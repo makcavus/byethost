@@ -1,251 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Duyuru İşlemleri</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!--<link rel="stylesheet" type="text/css" href="duyuru.css">-->
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css">
-
 <script type="text/javascript" src="jquery.js"></script><!--JQUEY K�t�phanemizi dahil ediyoruz.-->
-
-
 <script type="text/javascript">
-
-
-function noCache(
-
-
-uri 
-
-
-
-
-
-){
-
-
-
-
-
+function noCache(uri){
 return uri.concat( 
-
-
-
-
-
-
-
-
 /\?/.test(uri) ?
-
-
-
-
-
-
-
-
 "&"
-
-
-
-
-
 :
-
-
-
-
-
-
-
-
 "?",
-
-
-
-
-
-
-
-
 "noCache=",
-
-
-
-
-
-
-
-
 (new Date).getTime(),
-
-
-
-
-
-
-
-
 ".",
-
-
-
-
-
-
-
-
 Math.random()*1234567
-
-
-
-
-
 );
-
-
-
-
-
-
-
-
 };
-
-
 function islem(id,komut) // islem  fonksiyomuzda id ve komut isimli iki de�i�ken kullanaca��z.id de�i�keni ile verileri id de�erini ta��mak i�in, komut de�i�kenini ise g�ncelleme i�in kullan�ca��z.
-
-
 {
-
-
-
-
-
 $.ajax({ 
-
-
-
-
-
-type: 'GET',//verinin g�nderilme y�ntemini belirliyoruz.
-
-
-
-
-
+type: 'POST',//verinin g�nderilme y�ntemini belirliyoruz.
 url :noCache('adresislem.php?adrid='+id+'&komut='+komut),//islem yap�lacak dosyay� belirtiyoruz.fonksiyonumuzdan gelen de�i�kenleri islem.php sayfas�na get methodu ile g�nderiyoruz.
-
-
-
-
-
 data: $('form').serialize(),//g�nderilecek veri olarak formdan elamlar�n�n de�erleri al�yoruz.
-
-
-
-
-
 success: function(cevap) // i�lem.php sayfas�ndan gelen sonu�lar� id �zniteli�i liste olan bir div'de g�r�nt�lyouz.
-
-
 {
-
-
 $('div#liste').html(cevap);
-
-
 }
-
-
 });}
-
-
-
-
-
-
-
-
 </script>
-
-
-
-
-<!-- onload="islem('','') sayfa y�klendi�inde fonksiyonumuzu bo� de�erlerle otamatik olarak �al��t�r�yoruz.-->
-<!--
-
-<style type="text/css">
-
-
-
-
-
-.style1 {font-family: Arial, Helvetica, sans-serif}
-
-
-.style3 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
-
-
-.style4 {color: #000000}
-
-
-.style5 {
-
-
-	font-family: Arial, Helvetica, sans-serif;
-
-
-	color: #000000;
-
-
-	font-weight: bold;
-
-
-}
-
-
-
-
-
-</style>
--->
-
-</head>
-
-
-
-
-
-<?
-function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
+<?php
 	
-$tipi=$_GET["selecttip"];
+$tipi=$_POST["selecttip"];
 
-$ili=$_GET["selectil"];
+$ili=$_POST["selectil"];
 
-$ilcesi=$_GET["selectilce"];
+$ilcesi=$_POST["selectilce"];
 
-$konu=$_GET["konu"];
+$konu=$_POST["konu"];
 
-$icerik=$_GET["icerik"];
+$icerik=$_POST["icerik"];
 
-$dosya=$_GET["dosya"];
+$dosya=$_POST["dosya"];
 
-$bilgi=$_GET["bilgi"];
+$bilgi=$_POST["bilgi"];
 
-$email=$_GET["email"];
+$email=$_POST["email"];
 
-$web=$_GET["web"];
+$web=$_POST["web"];
 
-$harita=$_GET["harita"];
+$harita=$_POST["harita"];
 
-$vtkonu=trsuz($konu);
-$vticerik=trsuz($icerik);
+$vtkonu=$konu;
+$vticerik=$icerik;
 //echo $tipi;
 //echo $ili;
 //echo $ilcesi;
@@ -255,14 +57,14 @@ $vticerik=trsuz($icerik);
 //echo $bilgi;
 //echo $harita;
 
-include("../../connect.php");
+include("../connect.php");
 
 if($tipi>0 and $ili>0 and $ilcesi>0 and $konu<>NULL){
 
-$SQLInsert="insert into adres (tipi,ilid,ilceid,adi,adres,telefon,fax,email,web,harita) values('$tipi','$ili','$ilcesi','$vtkonu','$vticerik','$dosya','$bilgi','$email','$web','$harita')";
+$SQLInsert=mysqli_query($dbh, "insert into adres (tipi,ilid,ilceid,adi,adres,telefon,fax,email,web,harita) values('$tipi','$ili','$ilcesi','$vtkonu','$vticerik','$dosya','$bilgi','$email','$web','$harita')");
 
 }else{
-//echo mysql_error($SQLInsert);
+//echo mysqli_error($SQLInsert);
 echo '<table class="table table-sm table-responsive-lg table-stripped table-bordered table-hover">';
 
 echo '<div class="alert alert-info text-dark">'."Eksik Bilgi Girdiniz.".'</div>';
@@ -271,8 +73,8 @@ echo '</table>';
 
 }
 
-if(mysql_query($SQLInsert)){
-//echo mysql_error($SQLInsert);
+if(@$SQLInsert){
+//echo mysqli_error($SQLInsert);
 
 echo '<table class="table table-sm table-responsive-lg table-stripped table-bordered table-hover">';
 
@@ -290,19 +92,19 @@ echo '</table>';
 
 }
 
-@mysql_close($dbh);
+@mysqli_close($dbh);
 
-/* $conn=mysql_connect("localhost","root","malika");
+/* $conn=mysqli_connect("localhost","root","malika");
 
 if($conn){
 
-if(mysql_select_db("etf",$conn)){
+if(mysqli_select_db("etf",$conn)){
 
 $idara="select SOCID from soc where(SOC='".$_GET["soca"]."')";
 
-$idsorgu=mysql_query($idara);
+$idsorgu=mysqli_query($dbh,$idara);
 
-while($Haber=mysql_fetch_array($idsorgu)){
+while($Haber=mysqli_fetch_array($idsorgu)){
 
 $idi=$Haber["SOCID"];
 
@@ -317,7 +119,7 @@ $YILDA="INSERT INTO yil (OCID,YIL) VALUES ('$idi','".$_GET["yili"]."')";
 }
 
 
-if(mysql_query($YILDA)){
+if(mysqli_query($dbh,$YILDA)){
 
 
 //echo "<br><br>Yil Kaydi Yapildi.<br><br>";
@@ -338,28 +140,28 @@ if(mysql_query($YILDA)){
  }
 
 
-@mysql_close($conn);
+@mysqli_close($conn);
 
 
  include("con_023.php");
 
 
-$conn=mysql_connect("localhost","root","malika");
+$conn=mysqli_connect("localhost","root","malika");
 
 
 if($conn){
 
 
-if(mysql_select_db("etf",$conn)){
+if(mysqli_select_db("etf",$conn)){
 
 
 $soidara="select * from soc where(SOC='".$_GET["soca"]."')" ;
 
 
-$soidsorgu=mysql_query($soidara);
+$soidsorgu=mysqli_query($dbh,$soidara);
 
 
-while($soHaber=mysql_fetch_array($soidsorgu)){
+while($soHaber=mysqli_fetch_array($soidsorgu)){
 
 
 $socidi=$soHaber["SOCID"];
@@ -377,10 +179,10 @@ $socadi=$soHaber["SOC"];
 $yilidara="select * from yil where(YIL='".$_GET["yili"]."')" ;
 
 
-$yilidsorgu=mysql_query($yilidara);
+$yilidsorgu=mysqli_query($dbh,$yilidara);
 
 
-while($yilHaber=mysql_fetch_array($yilidsorgu)){
+while($yilHaber=mysqli_fetch_array($yilidsorgu)){
 
 
 $yilidi=$yilHaber["YIL"];
@@ -392,10 +194,10 @@ $yilidi=$yilHaber["YIL"];
 $say="select * from yg where(SOC='$socadi' and YIL='$yilidi')" ;
 
 
-$ssonuc=mysql_query($say);
+$ssonuc=mysqli_query($dbh,$say);
 
 
-$sonuc=mysql_num_rows($ssonuc);
+$sonuc=mysqli_num_rows($ssonuc);
 
 
 //echo "$sonuc";
@@ -461,7 +263,7 @@ echo '</form>';
 }
 
 
-if(mysql_query($YGR)){
+if(mysqli_query($dbh,$YGR)){
 
 
 echo "<br><br><span class='style3'>Veriler Kaydedildi.Te�ekk�r ederiz.</span><br><br>";
@@ -485,25 +287,25 @@ echo "<br><br><span class='style3'>Veriler Kaydedildi.Te�ekk�r ederiz.</span
  }
 
 
- @mysql_close($conn);
+ @mysqli_close($conn);
 
 
-$conn=mysql_connect("localhost","root","malika");
+$conn=mysqli_connect("localhost","root","malika");
 
 
 if($conn){
 
 
-if(mysql_select_db("etf",$conn)){
+if(mysqli_select_db("etf",$conn)){
 
 
 $silsec="select * from soc";
 
 
-$socsil=mysql_query($silsec);
+$socsil=mysqli_query($dbh,$silsec);
 
 
-while($silsonuc=mysql_fetch_array($socsil)){
+while($silsonuc=mysqli_fetch_array($socsil)){
 
 
 }
@@ -512,7 +314,7 @@ while($silsonuc=mysql_fetch_array($socsil)){
 $SILInsert="delete from soc where(SOC='' || SOC='NULL')";
 
 
-if(mysql_query($SILInsert)){
+if(mysqli_query($dbh,$SILInsert)){
 
 
 //echo "<br><br>Bos veriler silindi.<br><br>";

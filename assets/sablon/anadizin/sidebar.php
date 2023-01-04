@@ -22,7 +22,11 @@
                             <ion-icon name="documents-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Gerekli Dökümanlar</span>
                         </a>
-                        <div  class="nav__link collapse">
+                        <a href="sss.php" class="nav__link">
+                        <ion-icon name="help-circle-outline"  class="nav__icon"></ion-icon>
+                            <span class="nav__name">Sık Sorulanlar</span>
+                        </a>
+                      <!--  <div  class="nav__link collapse">
                             <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Projects</span>
 
@@ -61,8 +65,8 @@
                         </a>
                     </div>
                 </div>
-
-                <a href="#" class="nav__link">
+-->
+                <a href="admin/admin.php" class="nav__link">
                     <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Log Out</span>
                 </a>

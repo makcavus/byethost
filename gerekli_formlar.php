@@ -1,3 +1,4 @@
+<?php ob_start();?>
 <?php
 $tum_birim_adim='TÜM BİRİMLERE AİT FORM/DÖKÜMANLAR';
 $icerigi='İçeriği:';
@@ -6,6 +7,14 @@ include("assets/sablon/anadizin/header.php");
 include("assets/sablon/anadizin/sidebar.php");
 ?>
 <link rel="stylesheet" href="assets/css/tablo_form_styles.css"> 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115962978-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-115962978-1');
+</script>
 <?php
 	function ext($file)
 {
@@ -229,7 +238,11 @@ if($form_say==0){
 <table class="table table-sm table-responsive-sm table-bordered" style="background-color: black">
 <thead style="background-color: #ccffcc" align="center">
 <tr>
-<th width="100%" class="text-warning" style="background-color: black;font-weight:bold; border-color:#ccffcc;" align="center" colspan="3"><?php echo $birim_adim." 'ne ait form bulunamadı."; ?></th>
+<th width="100%" class="text-warning" style="background-color: black;font-weight:bold; border-color:#ccffcc;" align="center" colspan="3">
+<?php echo $birim_adim." 'ne ait form bulunamadı.";
+$url = htmlspecialchars($_SERVER['HTTP_REFERER']);  // hangi sayfadan gelindigi degerini verir.
+header("refresh:3; url=$url");
+?></th>
 </tr>
 </thead>
 </table>
@@ -393,6 +406,7 @@ echo '<li class="page-item"><a class="page-link" href="?birim_idi='.$yaziid.'&sa
 }
   include("assets/sablon/anadizin/footer.php");
 ?>
+<?php ob_end_flush();?>
 <!-- Optional JavaScript -->
 
 <script type="text/javascript" src="iletikaydet.js">

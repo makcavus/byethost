@@ -1,4 +1,4 @@
-<?
+<?php
 
 session_start();
 
@@ -36,19 +36,19 @@ echo "";//"Bu sayfay� g�r�nt�leme yetkiniz yoktur.";
 
 <?php
 
-function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
+//function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
 //include('../frm013alanlari.php');
 
 
 
 //mysql baglantisi
 
-include("../../con_023.php");
-include("../../connect.php");
+include("../con_023.php");
+include("../connect.php");
 //echo $_SESSION["uye"];
 $kim=$_SESSION["uye"];
-$resultx = @mysql_query("select uyekod from uyeler where(uyekim='$kim') order by uyekod asc");
-while($xkod=mysql_fetch_array($resultx)) {
+$resultx = @mysqli_query($dbh,"select uyekod from uyeler where(uyekim='$kim') order by uyekod asc");
+while($xkod=mysqli_fetch_array($resultx)) {
 $hamkod=$xkod['uyekod'];
 $kod=substr($xkod['uyekod'],0,5);
 $kodiki=substr($xkod['uyekod'],0,2);
@@ -57,12 +57,12 @@ $kodiki=substr($xkod['uyekod'],0,2);
 
 } 
 if(substr($hamkod,-3,3)=="TSM" or "HSM"){
-$resultuser = @mysql_query("select * from birim order by birim_ad asc");
-//$say=mysql_num_rows($resultuser);
+$resultuser = @mysqli_query($dbh,"select * from birim order by birim_ad asc");
+//$say=mysqli_num_rows($resultuser);
 //echo $say;
 }
 $say=0;
-$iletisayisi=mysql_num_rows($resultuser);
+$iletisayisi=mysqli_num_rows($resultuser);
 if($iletisayisi==0){
 $tamam="Tamam";
 $yetkikayityok="Birim Kaydı yoktur.";
@@ -97,7 +97,7 @@ echo '</tr>';
   
 echo '</thead>';
 
-while($rowuser=mysql_fetch_array($resultuser)) {$say++;
+while($rowuser=mysqli_fetch_array($resultuser)) {$say++;
 
 $no=$rowuser['birim_id'];
 

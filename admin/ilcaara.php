@@ -6,7 +6,7 @@ session_start();
 
 if(!isset($_SESSION["uye"])){
 
-echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
+echo "";//"Bu sayfayï¿½ gï¿½rï¿½ntï¿½leme yetkiniz yoktur.";
 
 }else{
 
@@ -21,7 +21,7 @@ $session_life = time() - $_SESSION['timeout'];
 if($session_life > $inactive)
 
 { 
-unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+unset($_SESSION['uye']); // oturumda olan deï¿½iï¿½kenimiz siliniyor
 
 session_destroy(); header("Location: cikis.php"); }
 
@@ -40,7 +40,7 @@ $_SESSION['timeout'] = time();
 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1254" />
 
-<title>Form 013 Kayıt Girişi</title>
+<title>Form 013 Kayï¿½t Giriï¿½i</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="duyuru.css">
   <!-- Bootstrap CSS -->
@@ -66,20 +66,20 @@ $_SESSION['timeout'] = time();
 #### fell free to visit my blog http://roshanbh.com.np
 ?>
 
-<? $country=intval($_GET['selectil']);
-include("../../con_023.php");
-include("tanimveyetkiler.php");
-function trsuz($str){ $str=mb_convert_encoding($str, "utf-8","iso-8859-9");  return $str;   } 
+<?php $country=intval($_GET['selectil']);
+include("../con_023.php");
+include("../form013/tanimveyetkiler.php");
+//function trsuz($str){ $str=mb_convert_encoding($str, "utf-8","iso-8859-9");  return $str;   } 
 
-/*$link = mysql_connect('localhost', 'root', 'malika'); //changet the configuration in required
+/*$link = mysqli_connect('localhost', 'root', 'malika'); //changet the configuration in required
 if (!$link) {
-    die('Could not connect: ' . mysql_error());
+    die('Could not connect: ' . mysqli_error());
 }
-mysql_select_db('frm023');*/
+mysqli_select_db('frm023');*/
 $solilce=substr($_SESSION["uyekodu"],0,5);
 
-$resultocakilce = @mysql_query("select * from ocak where left(socad,5)='$solilce' order by socad asc");
-while($rowilcekod=mysql_fetch_array($resultocakilce)) {
+$resultocakilce = @mysqli_query("select * from ocak where left(socad,5)='$solilce' order by socad asc");
+while($rowilcekod=mysqli_fetch_array($resultocakilce)) {
 $ilcekodu=$rowilcekod['ilce'];
 }
 	
@@ -94,28 +94,25 @@ $query="SELECT ilceid,ilinad,ilcead FROM ilce WHERE(ilceid='$ilcekodu' and ilina
 }
 
 //$query="SELECT ilceid,ilinad,ilcead FROM ilce WHERE ilinad='$country' order by ilcead asc";
-$result=mysql_query($query);
+$result=mysqli_query($dbh,$query);
 
 ?>
 <select class="form-control form-control-sm mt-1 mb-1 w-50" name="selectilce" onchange="getCity(<?=$country?>,this.value)">
-<option><?php echo trsuz("İlçe Seçiniz"); ?></option>
-<? while($row=mysql_fetch_array($result)) { ?>
-<option value=<?=$row['ilceid']?>><?=trsuz($row['ilcead'])?></option>
-<? } ?>
+<option><?php echo "Ä°lÃ§e SeÃ§iniz"; ?></option>
+<?php while($row=mysqli_fetch_array($result)) { ?>
+<option value=<?=$row['ilceid']?>><?=$row['ilcead']?></option>
+<?php } ?>
 </select>
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-<script src="../../bootstrap-4/popper.js"></script>
-<script src="../../bootstrap-4/js/bootstrap.min.js"></script>
-</body>
+<?php
+include("../assets/sablon/form013/footer.php");
+?>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
+<?php
 
-</html>
-<?
+//unset($_SESSION['uye']); // oturumda olan deï¿½iï¿½kenimiz siliniyor
 
-//unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
-
-//session_destroy(); // oturumları siler
+//session_destroy(); // oturumlarï¿½ siler
 
 }
 

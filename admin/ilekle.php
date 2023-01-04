@@ -1,55 +1,12 @@
-<?
-
+<?php
 session_start();
-
+include("../assets/sablon/form013/header.php");
+include("../assets/sablon/form013/sidebar.php");
 if(!isset($_SESSION["uye"])){
-
-echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
-
+echo "";//"Bu sayfayï¿½ gï¿½rï¿½ntï¿½leme yetkiniz yoktur.";
 }else{
-
-
-
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
-
-<title>Kullanıcı Düzenleme Paneli</title>
-
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css">
-  
-<!--<link href="Style.css" rel="stylesheet" type="text/css"/>
-
-<link href="solmenu.css" rel="stylesheet" type="text/css"/>
-
-<style type="text/css">
-.cizgi{
-border:double #000000;
-}
-
-.adminpanelarka{
-background-color:#FFFFCC;
-
-}
-.divarkaplan{
-background-color:#CCFFFF;
-
-}
-.menuarkaplan{
-background-color:#FFCC99;
-
-}-->
-</style>
 
 
 <script type="text/javascript" src="jquery-latest.pack.js"></script>
@@ -62,7 +19,6 @@ background-color:#FFCC99;
 
 <script type="text/JavaScript">
 
-<!--
 
 function reloadPage(id) {    document.location.href = location.href + '?id=' + id.value; } 
 
@@ -70,7 +26,7 @@ function reloadPage(id) {    document.location.href = location.href + '?id=' + i
 
 <script type="text/JavaScript">
 
-<!--
+
 
 function timedRefresh(timeoutPeriod) {
 
@@ -84,7 +40,7 @@ function timedRefresh(timeoutPeriod) {
 
 </script>
 
-</head>
+
 
 <body style="background-color:#000000" onload="JavaScript:timedRefresh(10000000);">
 <form method="GET" name="form4" action="ilekle.php" class="form-group form-inline">
@@ -96,24 +52,24 @@ function timedRefresh(timeoutPeriod) {
 <div class="container mt-3">
 <div class="panel-group" id="accordion">
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#kayit" data-toggle="collapse" data-parent="#accordion"><strong>Kayıt İşlemleri</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#kayit" data-toggle="collapse" data-parent="#accordion"><strong>Kayï¿½t ï¿½ï¿½lemleri</strong></a></h6></div>
 </div>
 <div id="kayit" class="panel-collapse collapse in">
 <div class="row bg-primary">
-<div class="col-md-4 ml-auto mt-1 mb-1" align="center"><a href="duyurukayit.php" target="sag"  class="btn btn-sm btn-success">Duyuru Kaydı</a></div>
-<div class="col-md-4 ml-auto mt-1 mb-1" align="center"><a href="adreskayit.php" target="sag" class="btn btn-sm btn-success">Adres Kaydı</a></div>
-<div class="col-md-4 mr-auto mt-1 mb-1" align="center"><a href="gereklikayit.php" target="sag" class="btn btn-sm btn-success">Döküman-Form Yükleme</a></div>
+<div class="col-md-4 ml-auto mt-1 mb-1" align="center"><a href="duyurukayit.php" target="sag"  class="btn btn-sm btn-success">Duyuru Kaydï¿½</a></div>
+<div class="col-md-4 ml-auto mt-1 mb-1" align="center"><a href="adreskayit.php" target="sag" class="btn btn-sm btn-success">Adres Kaydï¿½</a></div>
+<div class="col-md-4 mr-auto mt-1 mb-1" align="center"><a href="gereklikayit.php" target="sag" class="btn btn-sm btn-success">Dï¿½kï¿½man-Form Yï¿½kleme</a></div>
 </div>
 </div>
 </div>
 <br>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#birim" data-toggle="collapse" data-parent="#accordion"><strong>Şube-Birim Girişi</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#birim" data-toggle="collapse" data-parent="#accordion"><strong>ï¿½ube-Birim Giriï¿½i</strong></a></h6></div>
 </div>
 <div id="birim" class="panel-collapse collapse in">
 <div class="row bg-warning">
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
-<input type="text" name="birimgir" id="birimgir" value="" class="form-control form-control-sm mr-1 w-50 mt-1 mb-1" placeholder="Şube/Birim adını giriniz...">
+<input type="text" name="birimgir" id="birimgir" value="" class="form-control form-control-sm mr-1 w-50 mt-1 mb-1" placeholder="ï¿½ube/Birim adï¿½nï¿½ giriniz...">
 <input name="submit4" type="button" onclick="kontrolbirim();" value="Kontrol" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-danger mr-1">
 <input name="submit32" type="button" value="Listele" onclick="listelebirim();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success ml-1">
 </div>
@@ -127,7 +83,7 @@ function timedRefresh(timeoutPeriod) {
 </div>
 <br>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#tip" data-toggle="collapse" data-parent="#accordion"><strong>Kurum Tipi Girişi</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#tip" data-toggle="collapse" data-parent="#accordion"><strong>Kurum Tipi Giriï¿½i</strong></a></h6></div>
 </div>
 <div id="tip" class="panel-collapse collapse in">
 <div class="row bg-warning">
@@ -146,14 +102,14 @@ function timedRefresh(timeoutPeriod) {
 </div>
 <br>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#ilgir" data-toggle="collapse" data-parent="#accordion"><strong>İl Girişi</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#ilgir" data-toggle="collapse" data-parent="#accordion"><strong>ï¿½l Giriï¿½i</strong></a></h6></div>
 </div>
 <div id="ilgir" class="panel-collapse collapse in">
 <div class="row bg-warning">
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
-<input type="text" name="ilgir" id="ilgir" value="" class="form-control form-control-sm mr-1 w-25 mt-1 mb-1" placeholder="İl adını giriniz...">
-<input name="button" type="button" onclick="kontrolil();" value="İl Kaydı Kontrol" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-danger mr-1">
-<input name="submit33" type="button" value="İl Listele" onclick="listeleil();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1">
+<input type="text" name="ilgir" id="ilgir" value="" class="form-control form-control-sm mr-1 w-25 mt-1 mb-1" placeholder="ï¿½l adï¿½nï¿½ giriniz...">
+<input name="button" type="button" onclick="kontrolil();" value="ï¿½l Kaydï¿½ Kontrol" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-danger mr-1">
+<input name="submit33" type="button" value="ï¿½l Listele" onclick="listeleil();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1">
 </div>
 </div>
 </div>
@@ -166,33 +122,33 @@ function timedRefresh(timeoutPeriod) {
 
 <br>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#ilcegir" data-toggle="collapse" data-parent="#accordion"><strong>İlçe Girişi</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#ilcegir" data-toggle="collapse" data-parent="#accordion"><strong>ï¿½lï¿½e Giriï¿½i</strong></a></h6></div>
 </div>
 <div id="ilcegir" class="panel-collapse collapse in">
 <div class="row bg-warning">
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
-<?
+<?php
 
-include("../../con_023.php");
-include("tanimveyetkiler.php");
+include("../con_023.php");
+include("../form013/tanimveyetkiler.php");
 $solil=substr($_SESSION["uyekodu"],0,2);
 
-$resultocak = @mysql_query("select * from ocak where left(socad,2)='$solil' order by socad asc");
-while($rowilkod=mysql_fetch_array($resultocak)) {
+$resultocak = @mysqli_query( $dbh , "select * from ocak where left(socad,2)='$solil' order by socad asc");
+while($rowilkod=mysqli_fetch_array($resultocak)) {
 $ilkodu=$rowilkod['ilinad'];
 }
-//mysql baglantisi
+//mysqli baglantisi
 if(substr($hamkod,-3,3)==$bakanlikyetki){
-$result = @mysql_query("select ilid,ilad from il order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il order by ilad asc");
 }else if(substr($hamkod,-3,3)==$ilyetki){
-$result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
 }else if(substr($hamkod,-3,3)==$kurumyetki){
-$result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
 }else if(substr($hamkod,-9,9)==$koddokuz){
-$result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
 }
 ?>
-<script language="JavaScript"><!--
+<script language="JavaScript">
 
 function ilce(){
 
@@ -204,9 +160,9 @@ document.form1.ilno.value=document.form1.selectilno.options[document.form1.selec
 </script>
 <select name="selectilno" id="selectilno" onchange="javascript:ilce()" onselect="javascript:reloadPage(this)" class="form-control form-control-sm w-25" style="font-size:14px;">
 
-  <option value=""><?php echo "İli Seçiniz";?></option>
+  <option value=""><?php echo "ï¿½li Seï¿½iniz";?></option>
 
-  <? while($row=mysql_fetch_array($result)) { ?>
+  <?php while($row=mysqli_fetch_array($result)) { ?>
 
   <option value="<?=$row['ilid']?>">
 
@@ -214,9 +170,9 @@ document.form1.ilno.value=document.form1.selectilno.options[document.form1.selec
 
   </option>
 
-  <? }
+  <?php }
 
-@mysql_close($dbh);
+@mysqli_close($dbh);
 
  
 
@@ -224,9 +180,9 @@ document.form1.ilno.value=document.form1.selectilno.options[document.form1.selec
 
 </select>
 <input type="hidden" name="ilno" id="ilno">
-<input type="text" name="ilcegir" id="ilcegir" value="" class="form-control form-control-sm mr-1 w-25 mt-1 mb-1" placeholder="İlce adını giriniz...">
-<input name="submit2" type="button" value="İlçe Kaydı Kontrol" onclick="kontrolilce();" class="form-control btn btn-sm btn-danger mr-1">
-<input name="submit34" type="button" value="İlçe Listele" onclick="listeleilce();" class="form-control btn btn-sm btn-success mr-1">
+<input type="text" name="ilcegir" id="ilcegir" value="" class="form-control form-control-sm mr-1 w-25 mt-1 mb-1" placeholder="ï¿½lce adï¿½nï¿½ giriniz...">
+<input name="submit2" type="button" value="ï¿½lï¿½e Kaydï¿½ Kontrol" onclick="kontrolilce();" class="form-control btn btn-sm btn-danger mr-1">
+<input name="submit34" type="button" value="ï¿½lï¿½e Listele" onclick="listeleilce();" class="form-control btn btn-sm btn-success mr-1">
 </div>
 </div>
 </div>
@@ -246,30 +202,30 @@ document.form1.ilno.value=document.form1.selectilno.options[document.form1.selec
 
 <?php
 
-//mysql baglantisi
+//mysqli baglantisi
 
-include("../../con_023.php");
-include("tanimveyetkiler.php");
+include("../con_023.php");
+include("../form013/tanimveyetkiler.php");
 $solil=substr($_SESSION["uyekodu"],0,2);
 
-$resultocak = @mysql_query("select * from ocak where left(socad,2)='$solil' order by socad asc");
-while($rowilkod=mysql_fetch_array($resultocak)) {
+$resultocak = @mysqli_query( $dbh , "select * from ocak where left(socad,2)='$solil' order by socad asc");
+while($rowilkod=mysqli_fetch_array($resultocak)) {
 $ilkodu=$rowilkod['ilinad'];
 }
-//mysql baglantisi
+//mysqli baglantisi
 if(substr($hamkod,-3,3)==$bakanlikyetki){
-$result = @mysql_query("select ilid,ilad from il order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il order by ilad asc");
 }else if(substr($hamkod,-3,3)==$ilyetki){
-$result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
 }else if(substr($hamkod,-3,3)==$kurumyetki){
-$result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
 }else if(substr($hamkod,-9,9)==$koddokuz){
-$result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
+$result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
 }
 ?>
 
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#kurumgir" data-toggle="collapse" data-parent="#accordion"><strong>Kurum Girişi</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#kurumgir" data-toggle="collapse" data-parent="#accordion"><strong>Kurum Giriï¿½i</strong></a></h6></div>
 </div>
 <div id="kurumgir" class="panel-collapse collapse in">
 <div class="row bg-warning">
@@ -277,18 +233,18 @@ $result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by i
 <div class="row" align="left">
   <div class="col-6"><select name="selectil" id="selectil" onchange="ilcegoster();" onselect="javascript:reloadPage(this)" class="form-control form-control-sm mt-1 mb-1 w-50" style="font-size:14px;">
 
-  <option value=""><?php echo "İli Seçiniz";?></option>
+  <option value=""><?php echo "ï¿½li Seï¿½iniz";?></option>
 
-  <? while($row=mysql_fetch_array($result)) { ?>
+  <?php while($row=mysqli_fetch_array($result)) { ?>
 
   <option value="<?=$row['ilid']?>">
 
   <?=$row['ilad']?>
   </option>
 
-  <? } 
+  <?php } 
 
- @mysql_close($dbh);
+ @mysqli_close($dbh);
 
  
 
@@ -298,22 +254,22 @@ $result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by i
   <div class="col-6"><div id="statediv">
 <select name="selectilce" id="selectilce" onselect="javascript:reloadPage(this)" class="form-control form-control-sm mt-1 mb-1 w-50" style="font-size:14px;"> 
 
-	<option><?php echo "Önce İli Seçiniz";?></option>
+	<option><?php echo "ï¿½nce ï¿½li Seï¿½iniz";?></option>
 
         </select>
 		</div></div>
 		</div>
 		<div class="row" align="left">
   <div class="col-6"><input type="text" name="kurumgir" id="kurumgir" value="" class="form-control form-control-sm mr-1 mb-1 is-valid w-50" placeholder="Birim kodunu giriniz..."></div>
-  <div class="col-6"><input type="text" name="asmgir"  id="asmgir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Kurum adını giriniz..."></div>
+  <div class="col-6"><input type="text" name="asmgir"  id="asmgir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Kurum adï¿½nï¿½ giriniz..."></div>
 </div>
 <div class="row" align="left">
-  <div class="col-6"><input type="text" name="drgir" id="drgir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Doktor adını giriniz..."></div>
-  <div class="col-6"><input type="text" name="asegir" id="asegir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Görevli adını giriniz..."></div>
+  <div class="col-6"><input type="text" name="drgir" id="drgir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Doktor adï¿½nï¿½ giriniz..."></div>
+  <div class="col-6"><input type="text" name="asegir" id="asegir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Gï¿½revli adï¿½nï¿½ giriniz..."></div>
 </div>
 <div class="row" align="left">
-  <div class="col-6"><input type="text" name="aseungir" id="aseungir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Görevli Ünvanını giriniz..."></div>
-  <div class="col-6"><input name="submit35" type="button" value="Kurum Kaydı Kontrol" onclick="kontrolkurum();" onsubmit="javascript:reloadPage(this)"  class="form-control btn btn-sm btn-danger mr-1">
+  <div class="col-6"><input type="text" name="aseungir" id="aseungir" value="" class="form-control form-control-sm mr-1 mb-1 w-50" placeholder="Gï¿½revli ï¿½nvanï¿½nï¿½ giriniz..."></div>
+  <div class="col-6"><input name="submit35" type="button" value="Kurum Kaydï¿½ Kontrol" onclick="kontrolkurum();" onsubmit="javascript:reloadPage(this)"  class="form-control btn btn-sm btn-danger mr-1">
 <input name="submit32" type="button" value="Kurum Listele" onclick="listelekurum();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1"></div>
 </div>
 </div>
@@ -327,17 +283,17 @@ $result = @mysql_query("select ilid,ilad from il WHERE ilid='$ilkodu' order by i
 </div>
 </div>
 <?php
-//mysql baglantisi
-include("../../con_023.php");
-include("tanimveyetkiler.php");
+//mysqli baglantisi
+include("../con_023.php");
+include("../form013/tanimveyetkiler.php");
 
 
 if($koduc==$bakanlikyetki){
-$resultkod = @mysql_query("select socad from ocak order by socad asc");
+$resultkod = @mysqli_query( $dbh , "select socad from ocak order by socad asc");
 }else if($koduc==$ilyetki){
-$resultkod = @mysql_query("select socad from ocak where(select left(socad,2)='$kodiki') order by socad asc");
+$resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(socad,2)='$kodiki') order by socad asc");
 }else if($koduc==$kurumyetki){
-$resultkod = @mysql_query("select socad from ocak where(select left(socad,5)='$kod') order by socad asc");
+$resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(socad,5)='$kod') order by socad asc");
 }else{
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$yetkiuyar.'</h6></div>' ;
 echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
@@ -346,31 +302,31 @@ echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloa
 ?>
 <br>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#kulgir" data-toggle="collapse" data-parent="#accordion"><strong>Kullanıcı Girişi</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#kulgir" data-toggle="collapse" data-parent="#accordion"><strong>Kullanï¿½cï¿½ Giriï¿½i</strong></a></h6></div>
 </div>
 <div id="kulgir" class="panel-collapse collapse in">
 <div class="row bg-warning">
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
 <select name="uyekodum" id="uyekodum" onchange="kontroluye();" onclick="kontroluye();" onselect="javascript:reloadPage(this)" class="form-control form-control-sm w-25 mb-1 mt-1" style="font-size:14px;">
 
-      <option value=""><?php echo "Üye Kodu Seçiniz";?></option>
+      <option value=""><?php echo "ï¿½ye Kodu Seï¿½iniz";?></option>
 
-      <? while($rowkod=mysql_fetch_array($resultkod)) { ?>
+      <?php while($rowkod=mysqli_fetch_array($resultkod)) { ?>
 
       <option value="<?=$rowkod['socad']?>">
 
         <?=$rowkod['socad']?>
         </option>
 
-      <? } 
+      <?php } 
 
- @mysql_close($dbh);
+ @mysqli_close($dbh);
 
  
 
   ?>
     </select>
-<input name="submit3" type="button" value="Kullanıcıları Listele" onclick="kontroluser();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1">	
+<input name="submit3" type="button" value="Kullanï¿½cï¿½larï¿½ Listele" onclick="kontroluser();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1">	
 </div>
 </div>
 </div>
@@ -382,12 +338,12 @@ echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloa
 </div>
 <br>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#msggir" data-toggle="collapse" data-parent="#accordion"><strong>İletilere Cevap Girişi</strong></a></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;" href="#msggir" data-toggle="collapse" data-parent="#accordion"><strong>ï¿½letilere Cevap Giriï¿½i</strong></a></h6></div>
 </div>
 <div id="msggir" class="panel-collapse collapse in">
 <div class="row bg-warning">
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
-<input name="submit36" type="button" value="İletileri Listele" onclick="kontrolmsg();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1 mt-1 mb-1">
+<input name="submit36" type="button" value="ï¿½letileri Listele" onclick="kontrolmsg();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1 mt-1 mb-1">
 </div>
 </div>
 </div>
@@ -401,17 +357,17 @@ echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloa
 <br>
 <br>
  
-<?
+<?php
 
-$apc='Admin Panelden Çık';
+$apc='Admin Panelden ï¿½ï¿½k';
 
-$cikis='Proğramdan Çık';
+$cikis='Proï¿½ramdan ï¿½ï¿½k';
 
 ?>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><strong>Admin Paneli Çıkışı</strong></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center"><h6><strong>Admin Paneli ï¿½ï¿½kï¿½ï¿½ï¿½</strong></h6></div>
 <div class="col-md-12 bg-primary" align="center">
-<a href="../frm023kayit.php" class="btn btn-outline-success btn-sm text-warning mr-3"><h6><i class="fa fa-reply-all"></i> Admin Panelden Çık</h6></a>
+<a href="../frm023kayit.php" class="btn btn-outline-success btn-sm text-warning mr-3"><h6><i class="fa fa-reply-all"></i> Admin Panelden ï¿½ï¿½k</h6></a>
 <button type="button" class="btn btn-outline-dark mt-1 mb-1 mr-3"><span class="badge badge-light mr-1"><i class="fa fa-user" fa-lg></i></span><span class="sr-only">unread messages</span><strong><?php echo $_SESSION["uye"]; ?></strong>
 </button>
 <a href="../cikis.php" class="btn btn-outline-danger btn-sm text-warning mr-3"><h6><i class="fa fa-sign-out"></i> Oturumu Kapat</h6></a></div>
@@ -419,11 +375,11 @@ $cikis='Proğramdan Çık';
 </div>
 <?php
 
-@mysql_close($dbh);
+@mysqli_close($dbh);
 
-//unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+//unset($_SESSION['uye']); // oturumda olan deï¿½iï¿½kenimiz siliniyor
 
-//session_destroy(); // oturumları siler
+//session_destroy(); // oturumlarï¿½ siler
 
 }
 
@@ -431,7 +387,7 @@ $cikis='Proğramdan Çık';
 
 function toUpperCase( $input ){	
 
-return strtoupper( strtr( $input,'ğüşıiöç', 'ĞÜŞIİÖÇ') );
+return strtoupper( strtr( $input,'ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½', 'ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½') );
 
 }
 
@@ -475,13 +431,13 @@ function ucwords_tr($deger)
 
 
 
-$ilgelenx=$_GET['ilgir']; // get metodu ile formdan gelen geğer alınıyor
+$ilgelenx=$_GET['ilgir']; // get metodu ile formdan gelen geï¿½er alï¿½nï¿½yor
 
 $ilgelen=toUpperCase($ilgelenx);
 
-$ilsecgelen=$_GET['ilno']; // get metodu ile formdan gelen geğer alınıyor
+$ilsecgelen=$_GET['ilno']; // get metodu ile formdan gelen geï¿½er alï¿½nï¿½yor
 
-$ilcegelen=toUpperCase($_GET['ilcegir']); // get metodu ile formdan gelen geğer alınıyor
+$ilcegelen=toUpperCase($_GET['ilcegir']); // get metodu ile formdan gelen geï¿½er alï¿½nï¿½yor
 
 $kilgelen=$_GET['selectil'];
 
@@ -539,9 +495,9 @@ $aseungelen=ucwords_tr($_GET['aseungir']);
 
 $ilsec="select * from il where(ilad='$ilgelen')";
 
-$socsorgu=mysql_query($ilsec);
+$socsorgu=mysqli_query( $dbh , $ilsec);
 
-$say=mysql_num_rows($socsorgu);
+$say=mysqli_num_rows($socsorgu);
 
 //echo $say;
 
@@ -549,7 +505,7 @@ if($say<1 AND $ilgelen !=""){
 
 $kayit="INSERT INTO il(ilad) VALUES ('$ilgelen')";
 
-if(mysql_query($kayit)){
+if(mysqli_query( $dbh , $kayit)){
 
 echo '<br>';
 
@@ -561,7 +517,7 @@ echo '</tr>';
 
 echo '<th bgcolor="yellow" bgcolor="yellow">';
 
-echo '<label><font style="color:green">İl Kaydedildi...</font></th></table>';
+echo '<label><font style="color:green">ï¿½l Kaydedildi...</font></th></table>';
 
 }else{
 
@@ -575,21 +531,21 @@ echo '</tr>';
 
 echo '<th bgcolor="yellow" bgcolor="yellow">';
 
-echo '<label><font style="color:Red">İl Kaydedilemedi...</font></th></table>';
+echo '<label><font style="color:Red">ï¿½l Kaydedilemedi...</font></th></table>';
 
 }
 
 }
 
-while($sonucum=mysql_fetch_array($socsorgu)){
+while($sonucum=mysqli_fetch_array($socsorgu)){
 
 $ilno=$sonucum['ilid'];
 
 $iladi=$sonucum['ilad'];
 
- // ekrana md5 kodu yazdırılıyor
+ // ekrana md5 kodu yazdï¿½rï¿½lï¿½yor
 
-//print("<b>Girilen İl : </b> ".$ilno."<br>".$iladi);				
+//print("<b>Girilen ï¿½l : </b> ".$ilno."<br>".$iladi);				
 
 }
 
@@ -603,17 +559,17 @@ $iladi=$sonucum['ilad'];
 
 $ilcesec="select * from ilce where(ilcead='$ilcegelen')";
 
-$socsorgu1=mysql_query($ilcesec);
+$socsorgu1=mysqli_query( $dbh , $ilcesec);
 
-$say1=mysql_num_rows($socsorgu1);
+$say1=mysqli_num_rows($socsorgu1);
 
-//echo "Sayı:".$say1;
+//echo "Sayï¿½:".$say1;
 
 if($say1<1 AND $ilcegelen !=""){
 
 $kayit1="INSERT INTO ilce (ilinad,ilcead) VALUES ('$ilsecgelen','$ilcegelen')";
 
-if(mysql_query($kayit1)){
+if(mysqli_query( $dbh , $kayit1)){
 
 echo '<br>';
 
@@ -625,7 +581,7 @@ echo '</tr>';
 
 echo '<th bgcolor="yellow" bgcolor="yellow">';
 
-echo '<label><font style="color:green">İlçe Kaydedildi...</font></th></table>';
+echo '<label><font style="color:green">ï¿½lï¿½e Kaydedildi...</font></th></table>';
 
 }else{
 
@@ -639,13 +595,13 @@ echo '</tr>';
 
 echo '<th bgcolor="yellow" bgcolor="yellow">';
 
-echo '<label><font style="color:Red">İlçe Kaydedilemedi...</font></th></table>';
+echo '<label><font style="color:Red">ï¿½lï¿½e Kaydedilemedi...</font></th></table>';
 
 }
 
 }
 
-while($sonucum1=mysql_fetch_array($socsorgu1)){
+while($sonucum1=mysqli_fetch_array($socsorgu1)){
 
 $ilceno=$sonucum1['ilceid'];
 
@@ -655,9 +611,9 @@ $ilceadi=$sonucum1['ilcead'];
 
 
 
- // ekrana md5 kodu yazdırılıyor
+ // ekrana md5 kodu yazdï¿½rï¿½lï¿½yor
 
-//print("<b>Girilen İl : </b> ".$ilceno."<br>".$ilsecadi."<br>".$ilceadi);				
+//print("<b>Girilen ï¿½l : </b> ".$ilceno."<br>".$ilsecadi."<br>".$ilceadi);				
 
 }
 
@@ -671,17 +627,17 @@ $ilceadi=$sonucum1['ilcead'];
 
 $kurumsec="select * from ocak where(socad='$kurumgelen')";
 
-$socsorgu2=mysql_query($kurumsec);
+$socsorgu2=mysqli_query( $dbh , $kurumsec);
 
-$say2=mysql_num_rows($socsorgu2);
+$say2=mysqli_num_rows($socsorgu2);
 
-//echo "Sayı:".$say2;
+//echo "Sayï¿½:".$say2;
 
 if($say2<1 AND $kurumgelen!=""){
 
 $kayit2="INSERT INTO ocak (ilinad,ilce,socad,asmadi,dradi,aseadi,aseunvan) VALUES ('$kilgelen','$kilcegelen','$kurumgelen','$asmgelen','$drgelen','$asegelen','$aseungelen')";
 
-if(mysql_query($kayit2)){
+if(mysqli_query( $dbh , $kayit2)){
 
 echo '<br>';
 
@@ -713,7 +669,7 @@ echo '<label><font style="color:Red">Kurum Kaydedilemedi...</font></th></table>'
 
 }
 
-while($sonucum2=mysql_fetch_array($socsorgu2)){
+while($sonucum2=mysqli_fetch_array($socsorgu2)){
 
 $kilceno=$sonucum2['ocid'];
 
@@ -733,9 +689,9 @@ $kaseunadi=$sonucum2['aseunvan'];
 
 
 
- // ekrana md5 kodu yazdırılıyor
+ // ekrana md5 kodu yazdï¿½rï¿½lï¿½yor
 
-//print("<b>Girilen İl : </b> ".$kilceno."<br>".$kilsecadi."<br>".$kilceadi."<br>".$kkurumadi."<br>".$kasmadi."<br>".$kdradi."<br>".$kaseadi."<br>".$kaseunadi);				
+//print("<b>Girilen ï¿½l : </b> ".$kilceno."<br>".$kilsecadi."<br>".$kilceadi."<br>".$kkurumadi."<br>".$kasmadi."<br>".$kdradi."<br>".$kaseadi."<br>".$kaseunadi);				
 
 }
 

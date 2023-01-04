@@ -1,58 +1,26 @@
-<?
-include("../index.php");
+<?php
+include("index.php");
 session_start();
 if(!isset($_SESSION["uye"])){
 echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 }else{
-
+// timeout periyodu, sn olarak
+$inactive = 1300;
+if(isset($_SESSION['timeout']) ) {
+$session_life = time() - $_SESSION['timeout'];
+if($session_life > $inactive)
+{
+unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+session_destroy(); header("Location: cikis.php"); }
+}
+$_SESSION['timeout'] = time();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Duyuru Kaydı</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css">
-<!--<style type="text/css">
-<!--
-body {
-	background-color: #000000;
-}
-body,td,th {
-font-family: Arial, Helvetica, sans-serif;
-color: #0000FF;
-}
-a:link {
-color: #000000;
-text-decoration: none;
-}
-a:hover {
-color: #FF0000;
-text-decoration: none;
-}
-a:visited {
-text-decoration: none;
-}
-a:active {
-text-decoration: none;
-}
-.style2 {color: #00FF00}
-.style5 {
-font-family: Arial, Helvetica, sans-serif;
-color: #000000;
-font-weight: bold;
-}
-</style>-->
 <script language="JavaScript" src="toplama.js" type="text/javascript">
 </script>
-</head>
-<body style="background-color: black">
-<?php include('tanimveyetkiler.php');
-include('../form013alanlari.php');
+<?php include('../form013/tanimveyetkiler.php');
+include('../form013/form013alanlari.php');
  ?>
-<form class="form-group" id="form1" name="form1" method="get" action="adreskaydet.php">
+<form class="form-group" id="form1" name="form1" method="POST" action="adreskaydet.php">
 <div class="row">
   <div class="col-md-8 offset-md-2 mt-1 mb-auto">
     <div class="card" style="background-color: black;">
@@ -69,36 +37,36 @@ include('../form013alanlari.php');
 <tr>
 <td colspan="2">
 <?php
-include("../../connect.php");
+include("../connect.php");
 //mysql baglantisi
-$result = @mysql_query("select tipid,tipi from kurumtipi order by tipi asc");
+$result = @mysqli_query( $dbh,"select tipid,tipi from kurumtipi order by tipi asc");
 ?>
 
 <select tabindex="1" name="selecttip" id="selecttip" onclick="adresgittip();" class="form-control form-control-sm" required><!--required-->
-	<option value="0"><?php echo trsuz($kurumtipi);?></option>
-    <option value="0"><?php echo trsuz($tumu);?></option>
-<? while($row=mysql_fetch_array($result)) { ?>
-<option value="<?=$row['tipid']?>"><?=trsuz($row['tipi'])?></option>
-<? } ?>
+	<option value="0"><?php echo $kurumtipi;?></option>
+    <option value="0"><?php echo $tumu;?></option>
+<?php while($row=mysqli_fetch_array($result)) { ?>
+<option value="<?=$row['tipid']?>"><?=$row['tipi']?></option>
+<?php } ?>
 	</select></td>
  </tr>
  <tr>
  
 <?php
-include("../../con_023.php");
+include("../con_023.php");
 //mysql baglantisi
-$result = @mysql_query("select ilid,ilad from il order by ilad asc");
+$result = @mysqli_query( $dbh,"select ilid,ilad from il order by ilad asc");
 ?>
 <td>
 <select tabindex="2" name="selectil" id="selectil" onChange="getStateSon(this.value)" class="form-control form-control-sm mt-1 mb-1 w-50">
-	<option value=""><?php echo trsuz($ilsec);?></option>
-<? while($row=mysql_fetch_array($result)) { ?>
-<option value="<?=$row['ilid']?>"><?=trsuz($row['ilad'])?></option>
-<? } ?>
+	<option value=""><?php echo $ilsec;?></option>
+<?php while($row=mysqli_fetch_array($result)) { ?>
+<option value="<?=$row['ilid']?>"><?=$row['ilad']?></option>
+<?php } ?>
 	</select>
 	</td>
 	<td><div id="statedivson"><select tabindex="3" name="selectilce" class="form-control form-control-sm mt-1 mb-1 w-50">
-	<option><?php echo trsuz($onceilsec);?></option>
+	<option><?php echo $onceilsec;?></option>
         </select></div>
         </td>
  </tr>

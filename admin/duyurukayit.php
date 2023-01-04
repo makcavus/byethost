@@ -1,23 +1,21 @@
-<?
-include("../index.php");
+<?php
+include("index.php");
 session_start();
 if(!isset($_SESSION["uye"])){
 echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 }else{
-
+// timeout periyodu, sn olarak
+$inactive = 1300;
+if(isset($_SESSION['timeout']) ) {
+$session_life = time() - $_SESSION['timeout'];
+if($session_life > $inactive)
+{
+unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+session_destroy(); header("Location: cikis.php"); }
+}
+$_SESSION['timeout'] = time();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Duyuru Kaydı</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css">
-
-  <script language="javascript" type="text/javascript" src="../../../form013/admin/jscripts/tiny_mce/tiny_mce.js"></script>
+<script language="javascript" type="text/javascript" src="assets/js/tiny_mce/tiny_mce.js"></script>
 <script language="javascript" type="text/javascript">
 tinyMCE.init({
     // General options
@@ -51,46 +49,7 @@ tinyMCE.init({
     }
 });
 </script>
-
-  <!--
-<style type="text/css">
-<!--
-body {
-	background-color: #000000;
-
-}
-body,td,th {
-	font-family: Arial, Helvetica, sans-serif;
-	color: #0000FF;
-}
-a:link {
-	color: #000000;
-	text-decoration: none;
-}
-a:hover {
-	color: #FF0000;
-	text-decoration: none;
-}
-a:visited {
-	text-decoration: none;
-}
-a:active {
-	text-decoration: none;
-}
-.style2 {color: #00FF00}
-.style3 {color: #FF0000}
-.style5 {
-	font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-weight: bold;
-}
-
-</style>
--->
-</head>
-
-<body style="background-color: black;">
-<?php include('tanimveyetkiler.php'); ?>
+<?php include('../form013/tanimveyetkiler.php'); ?>
 <form class="form-group" id="form1" name="form1" method="POST" action="duyurukaydet.php" enctype="multipart/form-data">
 <div class="row">
   <div class="col-md-8 offset-md-2 mt-1 mb-auto">
