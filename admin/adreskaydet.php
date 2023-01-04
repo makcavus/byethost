@@ -24,8 +24,10 @@ $('div#liste').html(cevap);
 }
 });}
 </script>
+<a id="basadon"></a>
 <?php
-	
+	include("../assets/sablon/form013/header.php");
+  include("../assets/sablon/form013/sidebar.php");
 $tipi=$_POST["selecttip"];
 
 $ili=$_POST["selectil"];
