@@ -29,356 +29,61 @@ $('div#liste').html(cevap);
 	include("../assets/sablon/form013/header.php");
   include("../assets/sablon/form013/sidebar.php");
 $tipi=$_POST["selecttip"];
-
 $ili=$_POST["selectil"];
-
 $ilcesi=$_POST["selectilce"];
-
 $konu=$_POST["konu"];
-
 $icerik=$_POST["icerik"];
-
 $dosya=$_POST["dosya"];
-
 $bilgi=$_POST["bilgi"];
-
 $email=$_POST["email"];
-
 $web=$_POST["web"];
-
 $harita=$_POST["harita"];
-
 $vtkonu=$konu;
 $vticerik=$icerik;
-//echo $tipi;
-//echo $ili;
-//echo $ilcesi;
-//echo $konu;
-//echo $icerik;
-//echo $dosya;
-//echo $bilgi;
-//echo $harita;
-
 include("../connect.php");
-
 if($tipi>0 and $ili>0 and $ilcesi>0 and $konu<>NULL){
-
 $SQLInsert=mysqli_query($dbh, "insert into adres (tipi,ilid,ilceid,adi,adres,telefon,fax,email,web,harita) values('$tipi','$ili','$ilcesi','$vtkonu','$vticerik','$dosya','$bilgi','$email','$web','$harita')");
-
 }else{
 //echo mysqli_error($SQLInsert);
 echo '<table class="table table-sm table-responsive-lg table-stripped table-bordered table-hover">';
-
 echo '<div class="alert alert-info text-dark">'."Eksik Bilgi Girdiniz.".'</div>';
-
 echo '</table>';
-
 }
-
 if(@$SQLInsert){
 //echo mysqli_error($SQLInsert);
-
 echo '<table class="table table-sm table-responsive-lg table-stripped table-bordered table-hover">';
-
 echo '<div class="alert alert-info text-dark">'."Adres Kaydı Yapıldı.".'</div>';
-
 echo '</table>';
-
 }else{
-
 echo '<table class="table table-sm table-responsive-lg table-stripped table-bordered table-hover">';
-
 echo '<div class="alert alert-info text-dark">'."Adres Kaydı Yapılamadı.Tekrar deneyiniz.Silme veya Düzeltme Yapılabilir.".'</div>';
-
 echo '</table>';
-
 }
-
 @mysqli_close($dbh);
-
-/* $conn=mysqli_connect("localhost","root","malika");
-
-if($conn){
-
-if(mysqli_select_db("etf",$conn)){
-
-$idara="select SOCID from soc where(SOC='".$_GET["soca"]."')";
-
-$idsorgu=mysqli_query($dbh,$idara);
-
-while($Haber=mysqli_fetch_array($idsorgu)){
-
-$idi=$Haber["SOCID"];
-
-}
-
-if('".$_GET["yili"]."'<>'NULL'){
-
-$YILDA="INSERT INTO yil (OCID,YIL) VALUES ('$idi','".$_GET["yili"]."')";  
-
-}else{echo "Piramidi yapilacak yili Girmediniz.";
-
-}
-
-
-if(mysqli_query($dbh,$YILDA)){
-
-
-//echo "<br><br>Yil Kaydi Yapildi.<br><br>";
-
-
-}else{
-
-
-//echo "<br><br>Yil Kaydi Yapilamadi.Tekrar deneyiniz.<br><br>";
-
-
- }
-
-
- }
-
-
- }
-
-
-@mysqli_close($conn);
-
-
- include("con_023.php");
-
-
-$conn=mysqli_connect("localhost","root","malika");
-
-
-if($conn){
-
-
-if(mysqli_select_db("etf",$conn)){
-
-
-$soidara="select * from soc where(SOC='".$_GET["soca"]."')" ;
-
-
-$soidsorgu=mysqli_query($dbh,$soidara);
-
-
-while($soHaber=mysqli_fetch_array($soidsorgu)){
-
-
-$socidi=$soHaber["SOCID"];
-
-
-$socadi=$soHaber["SOC"];
-
-
-//echo "$socidi";
-
-
-//echo "$socadi";
-
-
-$yilidara="select * from yil where(YIL='".$_GET["yili"]."')" ;
-
-
-$yilidsorgu=mysqli_query($dbh,$yilidara);
-
-
-while($yilHaber=mysqli_fetch_array($yilidsorgu)){
-
-
-$yilidi=$yilHaber["YIL"];
-
-
-//echo "$yilidi";
-
-
-$say="select * from yg where(SOC='$socadi' and YIL='$yilidi')" ;
-
-
-$ssonuc=mysqli_query($dbh,$say);
-
-
-$sonuc=mysqli_num_rows($ssonuc);
-
-
-//echo "$sonuc";
-
-
-}
-
-
-if('".$_GET["soca"]."'<>'NULL' and '".$_GET["yili"]."'<>'NULL' and $sonuc==0){
-
-
-$YGR="INSERT INTO yg (SOC,SOCID,YIL,0K,5K,10K,15K,20K,25K,30K,35K,40K,45K,50K,55K,60K,65K,70K,75K,80K,85K,0E,5E,10E,15E,20E,25E,30E,35E,40E,45E,50E,55E,60E,65E,70E,75E,80E,85E) VALUES ('$socadi','$socidi','$yilidi','".$_GET["0k"]."','".$_GET["5k"]."','".$_GET["10k"]."','".$_GET["15k"]."','".$_GET["20k"]."','".$_GET["25k"]."','".$_GET["30k"]."','".$_GET["35k"]."','".$_GET["40k"]."','".$_GET["45k"]."','".$_GET["50k"]."','".$_GET["55k"]."','".$_GET["60k"]."','".$_GET["65k"]."','".$_GET["70k"]."','".$_GET["75k"]."','".$_GET["80k"]."','".$_GET["85k"]."','".$_GET["0e"]."','".$_GET["5e"]."','".$_GET["10e"]."','".$_GET["15e"]."','".$_GET["20e"]."','".$_GET["25e"]."','".$_GET["30e"]."','".$_GET["35e"]."','".$_GET["40e"]."','".$_GET["45e"]."','".$_GET["50e"]."','".$_GET["55e"]."','".$_GET["60e"]."','".$_GET["65e"]."','".$_GET["70e"]."','".$_GET["75e"]."','".$_GET["80e"]."','".$_GET["85e"]."')";  
-
-
-}else{echo "<span class='style3'>Bu Kay�t daha �nce Girilmi�</span>";
-
-
-echo "<br><br>";
-
-
-echo '<form action="yasgrubudegistir.php" method="get" name="degistir">';
-
-
-
-
-
-echo '<input type="hidden" name="ilgelen" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$socadi.'" />';
-
-
-echo '<input type="hidden" name="ilcegelen" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilidi.'" />';
-
-
-
-
-
-echo '<input type="submit" name="degistir" class="style3" value="Veri De�i�tir"/>';
-
-
-echo '</form>';
-
-
-echo '<form action="yasgrubusil.php" method="get" name="sil">';
-
-
-
-
-
-echo '<input type="hidden" name="ilgelen" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$socadi.'" />';
-
-
-echo '<input type="hidden" name="ilcegelen" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilidi.'" />';
-
-
-echo '<input type="hidden" name="idgelen" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$socidi.'" />';
-
-
-echo '<span class="style3"><input type="submit" name="sil" class="style3" value="Verileri Sil  !"/></span>';
-
-
-echo '</form>';
-
-
-}
-
-
-if(mysqli_query($dbh,$YGR)){
-
-
-echo "<br><br><span class='style3'>Veriler Kaydedildi.Te�ekk�r ederiz.</span><br><br>";
-
-
-}else{
-
-
- echo "<br><br><span class='style3'>Veriler Kaydedilemedi.<br>De�i�tirmek ve Silmek i�in yukar�daki D��meleri kullan�n.<br>Veya Tekrar deneyiniz.</span><br><br>";
-
-
- }
-
-
- }
-
-
- }
-
-
- }
-
-
- @mysqli_close($conn);
-
-
-$conn=mysqli_connect("localhost","root","malika");
-
-
-if($conn){
-
-
-if(mysqli_select_db("etf",$conn)){
-
-
-$silsec="select * from soc";
-
-
-$socsil=mysqli_query($dbh,$silsec);
-
-
-while($silsonuc=mysqli_fetch_array($socsil)){
-
-
-}
-
-
-$SILInsert="delete from soc where(SOC='' || SOC='NULL')";
-
-
-if(mysqli_query($dbh,$SILInsert)){
-
-
-//echo "<br><br>Bos veriler silindi.<br><br>";
-
-
-}else{
-
-
- echo "<br><br>Islem Tamam.<br><br>";
-
-
- }
-
-
- }
-
-
- }*/
-
-
- ?>
-
-
- <body onload="islem('','')">
-
-
-<table class="table table-sm table-responsive-sm table-stripped table-bordered table-hover">
+?>
+<body onload="islem('','')">
+<table class="table table-sm table-responsive-sm table-stripped table-bordered table-hover" style="background-color: orange;">
 <thead>
 <tr>
-
-<td width="150px"><?php echo "Kurumun Adı"; ?></td>
-
-<td width="300px">Kurumun Adresi</td>
-
-<td width="120px">Kurum Telefonu</td>
-
-<td width="120px"><?php echo "Kurum Faksı";?></td>
-
-<td width="150px"><?php echo "Kurum E-Postası";?></td>
-
-<td width="150px">Kurum Web Adresi</td>
-
+<td class="border border-success rounded" width="150px"><?php echo "Kurumun Adı"; ?></td>
+<td class="border border-success rounded" width="300px">Kurumun Adresi</td>
+<td class="border border-success rounded" width="120px">Kurum Telefonu</td>
+<td class="border border-success rounded" width="120px"><?php echo "Kurum Faksı";?></td>
+<td class="border border-success rounded" width="150px"><?php echo "Kurum E-Postası";?></td>
+<td class="border border-success rounded" width="150px">Kurum Web Adresi</td>
 <!--<td><?php echo "Haritada Göster";?></td>-->
-
-<td width="100px"><?php echo "İşlemler";?></td>
-
-</tr>
-
-<tr>
-<td align="center" colspan="8">
-<div id="liste" align="left"></div> 
-</td>
+<td class="border border-success rounded" width="100px"><?php echo "İşlemler";?></td>
 </tr>
 </thead>
 </table>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../../../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-<script src="../../../bootstrap-4/popper.js"></script>
-<script src="../../../bootstrap-4/js/bootstrap.min.js"></script>
-</body>
+<div id="liste" align="left"></div> 
 
-</html>
+<!-- Optional JavaScript -->
+<?php
+include("../assets/sablon/form013/footer.php");
+?>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
+
+
 
  

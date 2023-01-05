@@ -35,16 +35,16 @@ islem('','');
 }
 if ($_GET['komut']=="duzelt") // g�ncelle komutunu geldi ise veri g�ncellenecek.
 {
-$tipi=$_GET['tipi'];
-$ilid=$_GET['ilid'];
-$ilceid=$_GET['ilceid'];
-$adi=$_GET['adi'];
-$adres=$_GET['adres'];
-$telefon=$_GET['telefon'];
-$fax=$_GET['fax'];
-$email=$_GET['email'];
-$web=$_GET['web'];
-$harita=$_GET['harita'];
+$tipi=$_POST['tipi'];
+$ilid=$_POST['ilid'];
+$ilceid=$_POST['ilceid'];
+$adi=$_POST['adi'];
+$adres=$_POST['adres'];
+$telefon=$_POST['telefon'];
+$fax=$_POST['fax'];
+$email=$_POST['email'];
+$web=$_POST['web'];
+$harita=$_POST['harita'];
 $adi=$adi;
 $adres=$adres;
 echo '<div class="alert alert-info text-center">'."Kayıt Değiştirildi.".'</div>';
@@ -92,17 +92,17 @@ else //ID de�eri bo� gelmi� ise liste normal olarak g�r�nt�leniyor.
 $adi=$adi;
 $adres=$adres;
 ?>
-<table class="table table-sm table-responsive-lg table-stripped table-bordered table-hover">
+<table class="table table-sm table-responsive-lg table-stripped table-bordered table-hover" style="background-color: #CCFFCC;">
 <tbody>
 <tr>
-<td width="150px"><?php echo $adi?></td>
-<td width="300px"><?php echo $adres?></td>
-<td width="120px"><?php echo $telefon?></td>
-<td width="120px"><?php echo $fax?></td>
-<td width="150px"><?php echo $email?></td>
-<td width="150px"><?php echo $web?></td>
+<td class="border border-warning rounded" width="150px"><?php echo $adi?></td>
+<td class="border border-warning rounded" width="300px"><?php echo $adres?></td>
+<td class="border border-warning rounded" width="120px"><?php echo $telefon?></td>
+<td class="border border-warning rounded" width="120px"><?php echo $fax?></td>
+<td class="border border-warning rounded" width="150px"><?php echo $email?></td>
+<td class="border border-warning rounded" width="150px"><?php echo $web?></td>
 <!--<td width="200px"><?php echo $harita?></td>-->
-<td width="100px">
+<td class="border border-warning rounded" width="100px">
 <div align="center">
 <a href="javascript:islem('<?php echo $Id?>','')" class="btn btn-sm btn-success" style="width:100px"><i class="fa fa-reply-all" aria-hidden="true"></i> <?php echo "Düzenle"; ?></a> <!--islem fonksiyonunu veritan�ndan e�itlenen id de�ikeni ile �a��r�yoruz.-->
 </div>
@@ -116,11 +116,10 @@ $adres=$adres;
 }
 ?>
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../../../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-<script src="../../../bootstrap-4/popper.js"></script>
-<script src="../../../bootstrap-4/js/bootstrap.min.js"></script>
-</body>
+<?php
+include("../assets/sablon/form013/footer.php");
+?>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
 
-</html>
+
 

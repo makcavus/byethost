@@ -302,7 +302,7 @@ echo '<div class="alert alert-info text-dark">'."Konuyu Girmediniz.".'</div>';
                             echo '<div class="alert alert-info text-dark">'."Bu Konu Daha Önce Eklenmiş...".'</div>';
                         }else{
 
-$SQLInsert=mysqli_query($dbh, "insert into duyuru (tarih,konu,icerik,dosya,bilgi,resim,foto1,foto2,foto3,foto4,foto5,foto6,foto7,foto8,foto9,foto10) values('$tarih','$vtkonu','$vticerik','$dosya','$vtbilgi','$resim','$foto1','$foto2','$foto3','$foto4','$foto5','$foto6','$foto7','$foto8','$foto9','$foto10')");
+$SQLInsert=@mysqli_query($dbh, "insert into duyuru (tarih,konu,icerik,dosya,bilgi,resim,foto1,foto2,foto3,foto4,foto5,foto6,foto7,foto8,foto9,foto10) values('$tarih','$vtkonu','$vticerik','$dosya','$vtbilgi','$resim','$foto1','$foto2','$foto3','$foto4','$foto5','$foto6','$foto7','$foto8','$foto9','$foto10')");
 
 }
 

@@ -166,34 +166,33 @@ islem('','');
 if ($_GET['komut']=="duzelt") // güncelle komutunu geldi ise veri güncellenecek.
 {
 //Burada formdan ajax ile gelen veriler değişkenlere atanıyor.
-$tarih=$_GET['tarih'];
-$konu=$_GET['konu'];
-$icerik=$_GET['icerik'];
-$dosya=$_GET['dosya'];
-$bilgi=$_GET['bilgi'];
-$resim=$_GET['resim'];
-$foto1=$_GET['foto1'];
-$foto2=$_GET['foto2'];
-$foto3=$_GET['foto3'];
-$foto4=$_GET['foto4'];
-$foto5=$_GET['foto5'];
-$foto6=$_GET['foto6'];
-$foto7=$_GET['foto7'];
-$foto8=$_GET['foto8'];
-$foto9=$_GET['foto9'];
-$foto10=$_GET['foto10'];
+$tarih=$_POST['tarih'];
+$konu=$_POST['konu'];
+$icerik=$_POST['icerik'];
+$dosya=$_POST['dosya'];
+$bilgi=$_POST['bilgi'];
+$resim=$_POST['resim'];
+$foto1=$_POST['foto1'];
+$foto2=$_POST['foto2'];
+$foto3=$_POST['foto3'];
+$foto4=$_POST['foto4'];
+$foto5=$_POST['foto5'];
+$foto6=$_POST['foto6'];
+$foto7=$_POST['foto7'];
+$foto8=$_POST['foto8'];
+$foto9=$_POST['foto9'];
+$foto10=$_POST['foto10'];
 	$konu=$konu;
 	$icerik=$icerik;
 	$dosya=$dosya;  
 	$bilgi=$bilgi;
 	$resim=$resim;
-	/*echo $konu;
+	echo $konu;
 	echo $icerik;
-	echo $bilgi;*/
+	echo $bilgi;
 echo '<div class="alert alert-info text-center">Kayıt Değiştirildi.</div>';
 mysqli_query($dbh,"Update duyuru set tarih='$tarih',konu='$konu',icerik='$icerik',dosya='$dosya',bilgi='$bilgi',resim='$resim',foto1='$foto1',foto2='$foto2'
 ,foto3='$foto3',foto4='$foto4',foto5='$foto5',foto6='$foto6',foto7='$foto7',foto8='$foto8',foto9='$foto9',foto10='$foto10' where yaziid='$Id'"); //  Kaydın id değerine göre formda ajax ile gelen veriler veritabanındakiler ile değiştiriliyorr.
-
 ?>
 
 <!--Güncelleme işleminden sonra listenin eksi halini alması için fonsiyonumuz boş değerlerle çalıştırlıyor.-->
@@ -346,17 +345,10 @@ $cumle=$liste['tarih1'];
 }
 }
 ?>
-
-
-
-
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../../../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-<script src="../../../bootstrap-4/popper.js"></script>
-<script src="../../../bootstrap-4/js/bootstrap.min.js"></script>
-<script src="../../../bootstrap-4/sweetalert2/sweetalert2.min.js"></script>
-</body>
+<?php
+include("../assets/sablon/form013/footer.php");
+?>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
 
-</html>
 

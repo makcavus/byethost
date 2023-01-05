@@ -30,7 +30,7 @@ include("assets/sablon/anadizin/sidebar.php");
 ��kt�:
 jpg
 */
-$path="Formlar/";
+$path="admin/";
 include('connect.php');
 //$sayfa=$_SERVER['PHP_SELF'];
 
@@ -154,20 +154,20 @@ else if(ext($form_dosyaadyolsuz)=="ppt" or ext($form_dosyaadyolsuz)=="pptx"){
 //echo $form_icerik;
 ?>
 <tr bgcolor="#CCFFCC" onMouseover="this.bgColor='#dcdcdc';" onMouseout="this.bgColor='#CCFFCC';">
-<td width="12%" style="border-color:black;" class="text-center"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="Formlar/'.$form_dosyaad.'"
+<td width="12%" style="border-color:black;" class="text-center"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="admin/'.$form_dosyaad.'"
  style="display:block; text-decoration:none;"><font color="red" style="font-weight:bold"><i class="fa fa-download" aria-hidden="true">
  </i>&nbsp;&nbsp;'.$form_dosyatar.'</font></a>';
 } else { //echo "Bu dosya silinmiş";
 $url = htmlspecialchars($_SERVER['HTTP_REFERER']);  // hangi sayfadan gelindigi degerini verir.
 echo "<a href='$url' style='display:block; text-decoration:none;'>Bu dosya silinmiş</a>"; // dugmeye o degeri atiyoruz.
 } ?></td>
-<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="Formlar/'.$form_dosyaad.'" 
+<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="admin/'.$form_dosyaad.'" 
 style="display:block; text-decoration:none;"><font color="black" style="font-weight:bold">&nbsp;&nbsp;'.$form_icerik.'</font> '.$yeni.'</a>'; 
 } else { //echo "Bu dosya silinmiş";
 	$url = htmlspecialchars($_SERVER['HTTP_REFERER']);  // hangi sayfadan gelindigi degerini verir.
 	echo "<a href='$url' style='display:block; text-decoration:none;'>&nbsp;&nbsp;$form_icerik</a>"; // dugmeye o degeri atiyoruz.
 	} ?></td>
-<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="Formlar/'.$form_dosyaad.'"
+<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="admin/'.$form_dosyaad.'"
 style="display:block; text-decoration:none;"><font color="blue" style="font-weight:bold">'
 .$icon.'&nbsp;&nbsp;'.$form_dosyaadyolsuz.'</font></a>';
 } else { //echo "Bu dosya silinmiş";
@@ -341,20 +341,20 @@ else if(ext($form_dosyaadyolsuz)=="ppt" or ext($form_dosyaadyolsuz)=="pptx"){
 
 ?>
 <tr bgcolor="#CCFFCC" onMouseover="this.bgColor='#dcdcdc';" onMouseout="this.bgColor='#CCFFCC';">
-<td width="12%" style="border-color:black;" class="text-center"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="Formlar/'.$form_dosyaad.'"
+<td width="12%" style="border-color:black;" class="text-center"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="admin/'.$form_dosyaad.'"
  style="display:block; text-decoration:none;"><font color="red" style="font-weight:bold"><i class="fa fa-download" aria-hidden="true">
  </i>&nbsp;&nbsp;'.$form_dosyatar.'</font></a>';
 } else { //echo "Bu dosya silinmiş";
 $url = htmlspecialchars($_SERVER['HTTP_REFERER']);  // hangi sayfadan gelindigi degerini verir.
 echo "<a href='$url' style='display:block; text-decoration:none;'>Bu dosya silinmiş</a>"; // dugmeye o degeri atiyoruz.
 } ?></td>
-<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="Formlar/'.$form_dosyaad.'" 
+<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="admin/'.$form_dosyaad.'" 
 style="display:block; text-decoration:none;"><font color="black" style="font-weight:bold">&nbsp;&nbsp;'.$form_icerik.'</font> '.$yeni.'</a>'; 
 } else { //echo "Bu dosya silinmiş";
 	$url = htmlspecialchars($_SERVER['HTTP_REFERER']);  // hangi sayfadan gelindigi degerini verir.
 	echo "<a href='$url' style='display:block; text-decoration:none;'>&nbsp;&nbsp;$form_icerik</a>"; // dugmeye o degeri atiyoruz.
 	} ?></td>
-<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="Formlar/'.$form_dosyaad.'"
+<td width="44%" style="border-color:black;"><?php if (file_exists($dosya_yol_ad)) { echo '<a href="admin/'.$form_dosyaad.'"
 style="display:block; text-decoration:none;"><font color="blue" style="font-weight:bold">'
 .$icon.'&nbsp;&nbsp;'.$form_dosyaadyolsuz.'</font></a>';
 } else { //echo "Bu dosya silinmiş";

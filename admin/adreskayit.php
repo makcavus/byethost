@@ -134,13 +134,11 @@ $result = @mysqli_query( $dbh,"select ilid,ilad from il order by ilad asc");
 }
 ?>
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-<script src="../bootstrap-4/popper.js"></script>
-<script src="../bootstrap-4/js/bootstrap.min.js"></script>
-
-</body>
-</html>
+<?php
+include("../assets/sablon/form013/footer.php");
+?>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
 
 
 
+ 
