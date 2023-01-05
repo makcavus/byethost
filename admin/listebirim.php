@@ -1,50 +1,22 @@
 <?php
-
+//include("index.php");
 session_start();
-
 if(!isset($_SESSION["uye"])){
-
 echo "";//"Bu sayfay� g�r�nt�leme yetkiniz yoktur.";
-
 }else{
-
-
-
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<title>Untitled Document</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css">
-
-</head>
-
-
-
-<body>
-
-<?php
-
-//function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
-//include('../frm013alanlari.php');
-
-
-
-//mysql baglantisi
-
+// timeout periyodu, sn olarak
+$inactive = 1300;
+if(isset($_SESSION['timeout']) ) {
+$session_life = time() - $_SESSION['timeout'];
+if($session_life > $inactive)
+{
+unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+session_destroy(); header("Location: cikis.php"); }
+}
+$_SESSION['timeout'] = time();
 include("../con_023.php");
 include("../connect.php");
+include('../form013/tanimveyetkiler.php');
 //echo $_SESSION["uye"];
 $kim=$_SESSION["uye"];
 $resultx = @mysqli_query($dbh,"select uyekod from uyeler where(uyekim='$kim') order by uyekod asc");
@@ -110,7 +82,7 @@ echo '<tr>';
 
 echo '<td align="center"><h6>'.$say.'</h6></td>';
 
-echo '<td><h6 class="ml-2">'.iconv("iso-8859-9","utf-8",$kurum).'</h6></td>';
+echo '<td><h6 class="ml-2">'.$kurum.'</h6></td>';
 
 //echo '<td bordercolor="black" border="1" bgcolor="yellow" colspan="16"><font color="blue" size="4" style="font-family:Arial, Helvetica, sans-serif">'.$pass.'</font></td>';
 

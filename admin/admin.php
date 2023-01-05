@@ -73,10 +73,8 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il WHERE ilid='$ilkodu' orde
 <form method="GET" name="form1" action="admin.php" class="form-group form-inline"> 
 <form method="GET" name="form2" action="ilkaydet.php">
 <form method="GET" name="form3" action="ilkaydet.php">
-
-
 <div class="panel-group mt-1 mb-1" id="accordion">
-  
+ 
 <div class="row bg-warning">
 <div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;padding-top:5px;" href="#kayit" data-toggle="collapse" data-parent="#accordion"><strong>Kayıt İşlemleri</strong></a></h6></div>
 </div>
