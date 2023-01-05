@@ -56,7 +56,7 @@ tinyMCE.init({
     <div class="card" style="background-color: black;">
       <div class="card-body">
 	  <div class="card-header bg-success" align="left" style="max-height: 3rem;">
-        <h5 class="card-title bg-success" align="left">Duyuru Ekleme<a href="ilekle.php" style="text-decoration:none" tabindex="6"  class="close close-lg" aria-label="Close">
+        <h5 class="card-title bg-success" align="left">Duyuru Ekleme<a href="admin.php" style="text-decoration:none" tabindex="6"  class="close close-lg" aria-label="Close">
           <span aria-hidden="true"><h4>&times;</h4></span>
         </a></h5>
 		</div>
@@ -93,11 +93,11 @@ tinyMCE.init({
           <input type="text" name="bilgi" class="form-control form-control-md" placeholder="Yüklenen Dosyanın Açıklamasını Giriniz.">
           </td>
     </tr>
-    <tr>
+    <tr>      
+      <td>
+      <input type="text" name="resimaaciklama" class="form-control form-control-md text-danger bg-dark" placeholder="Ana Sayfa Resmini yükleyiniz..." disabled></td>
       <td>
       <input type="file" name="resim" class="form-control form-control-sm btn-dark text-danger bg-dark"></td>
-      <td>
-      <input type="text" name="resimaaciklama" class="form-control form-control-md text-danger bg-dark" placeholder="Ana Sayfa Resmini Giriniz..." disabled></td>
     </tr>
     <tr>
       <td>

@@ -23,7 +23,7 @@ $result_birim = @mysqli_query($dbh,"SELECT birim_id,birim_ad from birim order by
     <div class="card" style="background-color: black;">
       <div class="card-body">
 	  <div class="card-header bg-success" align="left" style="max-height: 3rem;">
-        <h5 class="card-title bg-success" align="left">Belge-Form Ekleme<a href="ilekle.php" style="text-decoration:none" tabindex="6"  class="close close-lg" aria-label="Close">
+        <h5 class="card-title bg-success" align="left">Belge-Form Ekleme<a href="admin.php" style="text-decoration:none" tabindex="6"  class="close close-lg" aria-label="Close">
           <span aria-hidden="true"><h4>&times;</h4></span>
         </a></h5>
 		</div>
@@ -49,6 +49,9 @@ $result_birim = @mysqli_query($dbh,"SELECT birim_id,birim_ad from birim order by
 	</div>
  </td>
  </tr>
+ <td>
+      <input type="text" name="formbaslik" class="form-control form-control-md text-danger bg-dark" placeholder="Form/Belge yükle..." disabled></td>
+    </tr>
  <tr>
 <td>
 <input type="file" name="dosya" id="dosya" class="form-control form-control-sm btn-dark text-danger bg-dark" tabindex="3">
@@ -62,6 +65,10 @@ $result_birim = @mysqli_query($dbh,"SELECT birim_id,birim_ad from birim order by
    ?> " tabindex="4">
 </td>
 </tr>
+<tr>
+<td>
+      <input type="text" name="resimbaslik" class="form-control form-control-md text-danger bg-dark" placeholder="Resim dosyası yükle..." disabled></td>
+    </tr>
 <tr bordercolor="#FFFF00">
 <td>
 <input type="file" name="resim" id="resim" class="form-control form-control-sm btn-dark text-danger bg-dark" tabindex="5">
