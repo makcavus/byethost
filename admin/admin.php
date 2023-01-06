@@ -58,7 +58,7 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il WHERE ilid='$ilkodu' orde
 <a class="btn btn-outline-danger text-danger btn-sm mb-1" href="cikis.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'"><i class="fa fa-sign-out"></i> Oturumu Kapat</a>
 <a class="btn btn-outline-info text-info btn-sm mb-1 mr-1" href="../form013/sifredegistir.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'" ><i class="fa fa-key" aria-hidden="true"></i> <?php echo $sd ; ?> </a>
 <?php /*if($sagdanadmin==$bakanlikyetki or $sagdanadmin==$ilyetki or $sagdanadmin==$kurumyetki){ ?>
-<a class="btn btn-outline-success text-success btn-sm mb-1" href="ilekle.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'">
+<a class="btn btn-outline-success text-success btn-sm mb-1" href="admin.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'">
 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Admin Panel</a>
 <?php } */?>
 </div>
@@ -320,7 +320,7 @@ $resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(soc
 $resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(socad,5)='$kod') order by socad asc");
 }else{
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$yetkiuyar.'</h6></div>' ;
-echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
+echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
 }
 
 ?>
