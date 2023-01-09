@@ -33,7 +33,7 @@ echo '<tr>';
 echo '<th>Durum</th>';
 echo '</tr>';
 echo '<tr>';
-echo '<th class="bg-light">'.$ilgelen.' '.$ilok.' <a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>
+echo '<th class="bg-light">'.$ilgelen.' '.$ilok.' <a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>
  Geridön </a></th></tr></thead></table></div>';
 }else{
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
@@ -41,7 +41,7 @@ echo '<table class="table table-striped table-primary table-sm table-responsive-
 echo '<thead align="center">';
 echo '<th>Durum</th>';
 echo '</tr>';
-echo '<th class="bg-info">İl Kaydedilemedi... <a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>
+echo '<th class="bg-info">İl Kaydedilemedi... <a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>
  '.$geridon.'</a></th></thead></table></div>';
 }
 }else{

@@ -63,7 +63,7 @@ echo '</tr>';
 echo '<tbody>'; 
 }
 echo '</table>';
-echo '<a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm mb-1"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
+echo '<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm mb-1"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
 }
 }
 include("../assets/sablon/form013/footer.php");
