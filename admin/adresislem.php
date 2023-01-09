@@ -6,6 +6,7 @@ if(!isset($_SESSION["uye"])){
 echo "";//"Bu sayfay� g�r�nt�leme yetkiniz yoktur.";
 }else{
 include("../connect.php");
+include("../fonksiyonlar.php");
 $sorgu=mysqli_query($dbh,"select * from adres order by tipi,adi asc");//veritaban�n� se�iyor ve liste genel sorgumuzu olu�tuyoruz.
 while($liste=mysqli_fetch_array($sorgu)) //Kay�tlar�n listelenmesi
 {
@@ -39,6 +40,7 @@ $tipi=$_POST['tipi'];
 $ilid=$_POST['ilid'];
 $ilceid=$_POST['ilceid'];
 $adi=$_POST['adi'];
+$adi=replace_tr($adi);
 $adres=$_POST['adres'];
 $telefon=$_POST['telefon'];
 $fax=$_POST['fax'];

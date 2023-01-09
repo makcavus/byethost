@@ -53,7 +53,7 @@ $birimadim=$sonucum['birim_ad'];
 <tr>
 <th class="bg-success">
 <input type="hidden" name="selectbirim" id="selectbirim" class="form-control form-control-sm" value="<?php echo $birimadim; ?>" placeholder="Yeni Birimi Giriniz...">
-<input id="birimgir" name="birimgir"  class="form-control form-control-sm w-50"  type="text" placeholder="Yeni Birimi Giriniz...">
+<input id="birimgir" name="birimgir"  class="form-control form-control-sm w-50"  type="text" placeholder="Yeni Birimi Giriniz..." required>
 </th>
 </tr>
 </thead>

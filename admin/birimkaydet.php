@@ -4,6 +4,7 @@ include("../form013/frm013alanlari.php");
 include("../fonksiyonlar.php");
 //include("../../tanimlaranadizin.php");
 $birimgelen=$_GET['birimgir'];
+$birimgelen=replace_tr($birimgelen);
 //$birimsecgelen=$_GET['birimno']; // get metodu ile formdan gelen geğer alınıyor
 $birimsec="select * from birim where(birim_ad='$birimgelen')";
 $socsorgu=mysqli_query($dbh,$birimsec);

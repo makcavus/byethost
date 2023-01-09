@@ -28,6 +28,7 @@ $('div#liste').html(cevap);
 <?php
 	include("../assets/sablon/form013/header.php");
   include("../assets/sablon/form013/sidebar.php");
+  include("../fonksiyonlar.php");
 $tipi=$_POST["selecttip"];
 $ili=$_POST["selectil"];
 $ilcesi=$_POST["selectilce"];
@@ -38,7 +39,7 @@ $bilgi=$_POST["bilgi"];
 $email=$_POST["email"];
 $web=$_POST["web"];
 $harita=$_POST["harita"];
-$vtkonu=$konu;
+$vtkonu=replace_tr($konu);
 $vticerik=$icerik;
 include("../connect.php");
 if($tipi>0 and $ili>0 and $ilcesi>0 and $konu<>NULL){

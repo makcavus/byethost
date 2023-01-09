@@ -1,47 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kayıt Değiştirildi</title>
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css"></head>
-
-<body>
-<?
-include("../../con_023.php");
-include("../frm013alanlari.php");
-include("../../fonksiyonlar.php");
-include("../../tanimlaranadizin.php");
-	
+<?php
+session_start();
+if(!isset($_SESSION["uye"])){
+echo "";//"Bu sayfay� g�r�nt�leme yetkiniz yoktur.";
+}else{
+  $inactive = 1300;
+  if(isset($_SESSION['timeout']) ) {
+  $session_life = time() - $_SESSION['timeout'];
+  if($session_life > $inactive)
+  {
+  unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+  session_destroy(); header("Location: cikis.php"); }
+  }
+  $_SESSION['timeout'] = time();
+include("../con_023.php");
+include("../form013/frm013alanlari.php");
+include("../fonksiyonlar.php");
+//include("../../tanimlaranadizin.php");
+include("../form013/tanimveyetkiler.php");
 $ilgelen=$_GET['ilgir'];
 $ilgelen=replace_tr($ilgelen);
-$ilgelenvt=iconv("utf-8","iso-8859-9",$ilgelen);
-
-//echo $ilgelen;
-//echo $ilgelenvt;
-
-//echo $ilgelenz;
-//echo $ilsecgelen;
-//echo $ilcegelen;
-//echo $kilgelen;
-//echo $kilcegelen;
-//echo $kurumgelen;
-//echo $asmgelen;
-//echo $drgelen;
-//echo $asegelen;
-//echo $aseungelen;
-
-
-$ilsec="select * from il where(ilad='$ilgelenvt')";
-$socsorgu=mysql_query($ilsec);
-$say=mysql_num_rows($socsorgu);
+$ilsec="select * from il where(ilad='$ilgelen')";
+$socsorgu=mysqli_query($dbh,$ilsec);
+$say=mysqli_num_rows($socsorgu);
 //echo $say;
-if($say<1 AND $ilgelenvt !=""){
-$kayit="INSERT INTO il(ilad) VALUES ('$ilgelenvt')";
-if(mysql_query($kayit)){
+if(substr($hamkod,-3,3)==$bakanlikyetki AND $say<1 AND $ilgelen !=""){
+$kayit="INSERT INTO il(ilad) VALUES ('$ilgelen')";
+if(mysqli_query($dbh,$kayit)){
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
 echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
 echo '<thead align="center">';
@@ -60,20 +44,19 @@ echo '</tr>';
 echo '<th class="bg-info">İl Kaydedilemedi... <a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>
  '.$geridon.'</a></th></thead></table></div>';
 }
+}else{
+  $yetkikayityok="İl Kaydetme Yetkiniz yoktur.";
+  echo '<div class="alert alert-primary text-danger">'.$yetkikayityok.'</div>';
+  echo '<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm mb-1"><i class="fa fa-times-circle fa-lg"></i> Tamam</a>';
 }
-while($sonucum=mysql_fetch_array($socsorgu)){
+while($sonucum=mysqli_fetch_array($socsorgu)){
 $ilno=$sonucum['ilid'];
 $iladi=$sonucum['ilad'];
- 	
 }
+@mysqli_close($dbh);
 
-
-@mysql_close($dbh);
- ?>
+include("../assets/sablon/form013/footer.php");
+}
+?>
 <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="../../../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-      <script src="../../../bootstrap-4/popper.js"></script>
-      <script src="../../../bootstrap-4/js/bootstrap.min.js"></script>
- </body>
-</html>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>

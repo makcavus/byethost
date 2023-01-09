@@ -1,70 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kay�t De�i�tirildi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css">
-  </head>
-
-<body>
-<?
-
-include("../../connect.php");
-include("../frm013alanlari.php");
-include("../../fonksiyonlar.php");
-//include("../../tanimlaranadizin.php");
-	
+<?php
+include("../connect.php");
+include("../form013/frm013alanlari.php");
+include("../fonksiyonlar.php");
 $tipgelen=$_GET['tipgir'];
-$tipgelenconv=trsuz($tipgelen);
-$tipgelenx=replace_tr($tipgelenconv);
-$tipgelenvt=$tipgelenx;
-$tipgelenvt=iconv("utf-8","iso_8859-9",$tipgelenvt);
-	
+$tipgelen=replace_tr($tipgelen);
 $tipdeggelen=$_GET['selecttip'];
-//$tipdeggelen=replace_tr($tipdeggelen);
-$tipdeggelenvt=$tipdeggelen;
-//echo $ilno;
-/*echo '0-'.$tipgelen.'<br>';
-echo '1-'.$tipgelenx.'<br>';
-echo '2-'.$tipgelenvt.'<br>';*/
-//echo '3-'.$tipdeggelenvt;
-
-//echo $ildeggelen;
-//echo $ildeggelenx;
-//$vtsec="select * from il where(ilad='$ildeggelen')";
-//$socsorgu=mysql_query($vtsec);
-//$say=mysql_num_rows($socsorgu);
-//if($say<1){
-$kayit="UPDATE kurumtipi SET  tipi='$tipgelenvt' where(tipi='$tipdeggelenvt')";
+$tipdeggelen=replace_tr($tipdeggelen);
+$kayit_kontrol=mysqli_query($dbh,"SELECT * from kurumtipi where tipi='$tipgelen'");
+$kayit_say=mysqli_num_rows($kayit_kontrol);
+//echo $kayit_say;
+if($tipgelen==NULL){
+  echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
+  echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
+  echo '<thead align="center">';
+  echo '<tr>';
+  echo '<th>Durum</th>';
+  echo '</tr>';
+  echo '<tr>';
+  echo '<th class="bg-light">Yeni Şube-Birim adını girmediniz.<a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table>';
+  echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';
+}elseif($tipgelen!=NULL and $kayit_say>=1){
+  echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
+  echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
+  echo '<thead align="center">';
+  echo '<tr>';
+  echo '<th>Durum</th>';
+  echo '</tr>';
+  echo '<tr>';
+  echo '<th class="bg-light">Bu kurum tipi önceden kaydedilmiş.<a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table>';
+  echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';  
+}else{
+$kayit="UPDATE kurumtipi SET  tipi='$tipgelen' where(tipi='$tipdeggelen')";
 //}
-if(mysql_query($kayit)){
+if(mysqli_query($dbh,$kayit)){
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
 echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
 echo '<thead align="center">';
+'<tr>';
 echo '<th>Durum</th>';
 echo '</tr>';
-echo '<th class="bg-light">'.trsuz($tipdeggelenx).' '.trsuz($oncekitip).' '.$tipgelenx.' '.trsuz($sonraki).'<a href="ilekle.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></font></label></th></table></div>';
+'<tr>';
+echo '<th class="bg-light">'.$tipdeggelen.' '.$oncekitip.' '.$tipgelen.' '.$sonraki.'<a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></font></label></th></table></div>';
+echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';  
 }else{
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
 echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
 echo '<thead align="center">';
+echo '<tr>';
 echo '<th>Durum</th>';
 echo '</tr>';
-echo '<th class="bg-light">'.trsuz($tipdegismedi).'</label><a href=# onClick="kontroltip();"><a href="ilekle.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>'.$geridon.'</a></font></label></th></table></div>';
-echo mysql_error();
+echo '<tr>';
+echo '<th class="bg-light">'.$tipdegismedi.'</label><a href=# onClick="kontroltip();"><a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>'.$geridon.'</a></font></label></th></table></div>';
+echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';  
+echo mysqli_error();
  }
-
-@mysql_close($dbh);
- ?>
+}
+@mysqli_close($dbh);
+include("../assets/sablon/form013/footer.php");
+?>
 <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="../../../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-      <script src="../../../bootstrap-4/popper.js"></script>
-      <script src="../../../bootstrap-4/js/bootstrap.min.js"></script>
-
- </body>
-</html>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>

@@ -85,7 +85,6 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il WHERE ilid='$ilkodu' orde
 <div class="col-md-4 mr-auto mt-1 mb-1" align="center"><a href="gereklikayit.php" class="btn btn-sm btn-success">Döküman-Form Yükleme</a></div>
 </div>
 </div>
-
 <br>
 <div class="row bg-warning">
 <div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;padding-top:5px;" href="#birim" data-toggle="collapse" data-parent="#accordion"><strong>Şube-Birim Girişi</strong></a></h6></div>
