@@ -48,11 +48,14 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il WHERE ilid='$ilkodu' orde
 }
 ?>
 <a id="basadon"></a>
+<?php
+if(substr($hamkod,-3,3)==$ilyetki or substr($hamkod,-3,3)==$bakanlikyetki){
+?>
 <div class="height-100 renk" id="nav-placeholder">
 <div class="border-0">
 <!-- row fixed-top" style="margin-left:90px; margin-top:0px; padding-top:3px;-->
 <div class="row">
-<div class="col-md-12 text-success" align="center" style="background-color: black" colspan="10">
+<div class="col-md-12 text-success" align="center" style="background-color: black">
 <span class="text-success mb-1" align="center"><?php echo $hosgeldin ;?></span>
 <span class="text-light mb-1 mr-5"><strong><?php echo $_SESSION["uye"]/*.' '.$cikis*/;?></strong></span>
 <a class="btn btn-outline-danger text-danger btn-sm mb-1" href="cikis.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'"><i class="fa fa-sign-out"></i> Oturumu Kapat</a>
@@ -65,14 +68,16 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il WHERE ilid='$ilkodu' orde
 </div>
 </div>
 </div>
-<div class="height-100 renk" id="nav-placeholder">
-<div class="border-0">
-<div class="container">
+
+<div class="height-100 renk d-flex justify-content-center" id="nav-placeholder">
 <form method="GET" name="form4" action="admin.php" class="form-group form-inline">
 <form method="GET" name="form0" action="admin.php" class="form-group form-inline">
 <form method="GET" name="form1" action="admin.php" class="form-group form-inline"> 
 <form method="GET" name="form2" action="ilkaydet.php">
 <form method="GET" name="form3" action="ilkaydet.php">
+<div class="border-0">
+<div class="container">
+
 <div class="panel-group mt-1 mb-1" id="accordion">
  
 <div class="row bg-warning">
@@ -216,11 +221,7 @@ document.form1.ilno.value=document.form1.selectilno.options[document.form1.selec
 </div>
 </div>
 
-</form>
-</form>
-</form>
-</form>
-</form>
+
 <br>
 
 <?php
@@ -304,7 +305,13 @@ $result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' o
 <div class="bg-warning mb-1" id="sonuc2">
 </div>
 </div>
+</form>
+</form>
+</form>
+</form>
+</form>
 </div>
+
 <?php
 //mysqli baglantisi
 include("../con_023.php");
@@ -399,6 +406,13 @@ $cikis='Proğramdan Çık';
       </div>
       </div>
 <?php
+
+  
+  }else{    
+echo '<div class="height-100 bg-light" id="nav-placeholder">';
+echo '<div class="alert-info text-danger text-center mt-2"><strong>Yönetici Paneline girme yetkiniz yoktur. Anasayfaya yönlendiliyorsunuz....</strong></font></label><meta http-equiv=refresh content="3; url=../index.php"><a href="../index.php" _fcksavedurl="../index.php"></a></div>'; // index.php sayfasına yönlendiriliyorsunuz
+echo '</div>';
+  }
 @mysqli_close($dbh);
 }
 ?>

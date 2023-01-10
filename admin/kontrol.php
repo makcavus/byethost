@@ -29,14 +29,14 @@ if($ilgelen == "" and $say<1){
 $uyar="İl İsmi Girilmedi";
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$uyar.'</h6></div>' ;
 $iptal="İptal";
-echo '<a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
+echo '<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
 }elseif($ilgelen != "" and $say<1){
 $uyar="Bu İli Kaydedebilirsiniz.";
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$uyar.'</h6></div>'  ;?>
-<form method="GET" name="form0" action="ilekle.php">
+<form method="GET" name="form0" action="admin.php">
 <input type="hidden" name="ilgir" id="ilgir" value="<?php echo $ilgelen; ?>">
 <a href=# onclick="kayit();" onsubmit="javascript:reloadPage(this)" class="btn btn-primary btn-sm"><i class="fa fa-floppy-o fa-lg"></i> Kaydet</a>
-<a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>
+<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>
 </form>
 <?php
 //echo '<a href=# onClick="ykay();"><img src="images/kekle.png"></a>';
@@ -50,11 +50,11 @@ echo '<a href=# onClick="deg();"  onclick="history.back();" onsubmit="javascript
 echo'&nbsp;&nbsp;&nbsp;&nbsp;';
 echo '<a href=# onClick="onay();"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-danger btn-sm"><i class="fa fa-eraser fa-lg"></i> Sil</a>';
 echo'&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
+echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
 }
 }else{
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$yetkiuyar.'</h6></div>' ;
-echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
+echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> İptal</a>';
 }
 }
 @mysqli_close($dbh) ;

@@ -41,7 +41,7 @@ $tipadim=$sonucum['tipi'];
 ?>
 <div class="row mt-1">
 <div class="col-md-4 bg-info text-dark" align="center">
-<a href=# onClick="kontroltip();" class="btn btn-success btn-sm mt-1 mb-1""><i class="fa fa-times-circle fa-lg"></i> <?php echo $iptal;?></a>
+<a href=# onClick="kontroltip();" class="btn btn-danger btn-sm mt-1 mb-1""><i class="fa fa-times-circle fa-lg"></i> <?php echo $iptal;?></a>
 </div>
 <div class="col-md-4 bg-warning text-dark" align="center" style="padding-top:5px;">
 <strong><?php echo $tipkaydeg; ?></strong>
