@@ -147,7 +147,6 @@ if(substr($hamkod,-3,3)==$ilyetki or substr($hamkod,-3,3)==$bakanlikyetki){
 </div>
 </div>
 </div>
-
 <br>
 <div class="row bg-warning">
 <div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;padding-top:5px;" href="#ilcegir" data-toggle="collapse" data-parent="#accordion"><strong>İlçe Girişi</strong></a></h6></div>
@@ -156,11 +155,9 @@ if(substr($hamkod,-3,3)==$ilyetki or substr($hamkod,-3,3)==$bakanlikyetki){
 <div class="row bg-warning">
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
 <?php
-
 include("../con_023.php");
 include("../form013/tanimveyetkiler.php");
 $solil=substr($_SESSION["uyekodu"],0,2);
-
 $resultocak = @mysqli_query( $dbh , "select * from ocak where left(socad,2)='$solil' order by socad asc");
 while($rowilkod=mysqli_fetch_array($resultocak)) {
 $ilkodu=$rowilkod['ilinad'];
@@ -177,35 +174,20 @@ $result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' o
 }
 ?>
 <script language="JavaScript">
-
 function ilce(){
-
 document.form1.ilno.value=document.form1.selectilno.options[document.form1.selectilno.selectedIndex].value;
-
 //metin.value=menu.options[menu.selectedIndex].text;
 }
-
 </script>
 <select name="selectilno" id="selectilno" onchange="javascript:ilce()" onselect="javascript:reloadPage(this)" class="form-control form-control-sm w-25" style="font-size:14px;">
-
   <option value=""><?php echo "İli Seçiniz";?></option>
-
   <?php while($row=mysqli_fetch_array($result)) { ?>
-
   <option value="<?=$row['ilid']?>">
-
   <?=$row['ilad']?>
-
   </option>
-
   <?php }
-
 @mysqli_close($dbh);
-
- 
-
    ?>
-
 </select>
 <input type="hidden" name="ilno" id="ilno">
 <input type="text" name="ilcegir" id="ilcegir" value="" class="form-control form-control-sm mr-1 w-25 mt-1 mb-1" placeholder="İlçe adını giriniz...">
@@ -220,18 +202,12 @@ document.form1.ilno.value=document.form1.selectilno.options[document.form1.selec
 </div>
 </div>
 </div>
-
-
 <br>
-
 <?php
-
 //mysqli baglantisi
-
 include("../con_023.php");
 include("../form013/tanimveyetkiler.php");
 $solil=substr($_SESSION["uyekodu"],0,2);
-
 $resultocak = @mysqli_query( $dbh , "select * from ocak where left(socad,2)='$solil' order by socad asc");
 while($rowilkod=mysqli_fetch_array($resultocak)) {
 $ilkodu=$rowilkod['ilinad'];
@@ -247,7 +223,6 @@ $result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' o
 $result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' order by ilad asc");
 }
 ?>
-
 <div class="row bg-warning">
 <div class="col-md-12 bg-warning text-dark" align="center"><h6><a class="btn-block text-primary" style="text-decoration:none;padding-top:5px;" href="#kurumgir" data-toggle="collapse" data-parent="#accordion"><strong>Kurum Girişi</strong></a></h6></div>
 </div>
@@ -256,30 +231,18 @@ $result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' o
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
 <div class="row" align="left">
   <div class="col-6"><select name="selectil" id="selectil" onchange="ilcegoster();" onselect="javascript:reloadPage(this)" class="form-control form-control-sm mt-1 mb-1 w-50" style="font-size:14px;">
-
   <option value=""><?php echo "İli Seçiniz";?></option>
-
   <?php while($row=mysqli_fetch_array($result)) { ?>
-
   <option value="<?=$row['ilid']?>">
-
   <?=$row['ilad']?>
   </option>
-
   <?php } 
-
  @mysqli_close($dbh);
-
- 
-
   ?>
-
 </select></div>
   <div class="col-6"><div id="statediv">
 <select name="selectilce" id="selectilce" onselect="javascript:reloadPage(this)" class="form-control form-control-sm mt-1 mb-1 w-50" style="font-size:14px;"> 
-
-	<option><?php echo "�nce �li Se�iniz";?></option>
-
+	<option><?php echo "Önce İli Seçiniz";?></option>
         </select>
 		</div></div>
 		</div>
@@ -299,7 +262,6 @@ $result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' o
 </div>
 </div>
 </div>
-
 <div class="row bg-warning">
 <div class="col-md-12 bg-warning text-dark" align="center">
 <div class="bg-warning mb-1" id="sonuc2">
@@ -311,13 +273,10 @@ $result = @mysqli_query( $dbh , "select ilid,ilad from il WHERE ilid='$ilkodu' o
 </form>
 </form>
 </div>
-
 <?php
 //mysqli baglantisi
 include("../con_023.php");
 include("../form013/tanimveyetkiler.php");
-
-
 if($koduc==$bakanlikyetki){
 $resultkod = @mysqli_query( $dbh , "select socad from ocak order by socad asc");
 }else if($koduc==$ilyetki){
@@ -326,9 +285,8 @@ $resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(soc
 $resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(socad,5)='$kod') order by socad asc");
 }else{
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$yetkiuyar.'</h6></div>' ;
-echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
+echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-light btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
 }
-
 ?>
 <br>
 <div class="row bg-warning">
@@ -338,22 +296,13 @@ echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reload
 <div class="row bg-warning">
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
 <select name="uyekodum" id="uyekodum" onchange="kontroluye();" onclick="kontroluye();" onselect="javascript:reloadPage(this)" class="form-control form-control-sm w-25 mb-1 mt-1" style="font-size:14px;">
-
       <option value=""><?php echo "Üye Kodu Seçiniz";?></option>
-
       <?php while($rowkod=mysqli_fetch_array($resultkod)) { ?>
-
       <option value="<?=$rowkod['socad']?>">
-
         <?=$rowkod['socad']?>
         </option>
-
       <?php } 
-
  @mysqli_close($dbh);
-
- 
-
   ?>
     </select>
 <input name="submit3" type="button" value="Kullanıcıları Listele" onclick="kontroluser();" onsubmit="javascript:reloadPage(this)" class="form-control btn btn-sm btn-success mr-1">	
@@ -383,16 +332,11 @@ echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reload
 </div>
 </div>
 </div>
-
 <br>
 <br>
- 
 <?php
-
 $apc='Admin Panelden Çık';
-
 $cikis='Proğramdan Çık';
-
 ?>
 <div class="row bg-warning">
 <div class="col-md-12 bg-warning text-dark" align="center"><h6><strong>Admin Paneli Çıkışı</strong></h6></div>
@@ -406,8 +350,6 @@ $cikis='Proğramdan Çık';
       </div>
       </div>
 <?php
-
-  
   }else{    
 echo '<div class="height-100 bg-light" id="nav-placeholder">';
 echo '<div class="alert-info text-danger text-center mt-2"><strong>Yönetici Paneline girme yetkiniz yoktur. Anasayfaya yönlendiliyorsunuz....</strong></font></label><meta http-equiv=refresh content="3; url=../index.php"><a href="../index.php" _fcksavedurl="../index.php"></a></div>'; // index.php sayfasına yönlendiriliyorsunuz

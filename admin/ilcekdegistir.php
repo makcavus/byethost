@@ -1,75 +1,77 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Kay�t De�i�tirildi</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../../../bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap-4/font-awesome/css/font-awesome.min.css">
-  </head>
-
-<body>
-<?
-include("../../con_023.php");
-include("../frm013alanlari.php");
-include("../../fonksiyonlar.php");
+<?php
+include("../con_023.php");
+include("../form013/frm013alanlari.php");
+include("../fonksiyonlar.php");
 //include("../../tanimlaranadizin.php");
 $ilsecgelen=$_GET['selectilno'];
 $ilcedeggelen=$_GET['ilcegirgelen'];
-//$ilcegelen=trsuz($ilcegelenx);
-
 $ilcegelen=$_GET['ilcegir'];
-$ilcegelenconv=trsuz($ilcegelen);
-$ilcegelenx=replace_tr($ilcegelenconv);
-$ilcegelenvt=$ilcegelenx;
-$ilcegelenvt=iconv("utf-8","iso_8859-9",$ilcegelenvt);
-
+$ilcegelen=replace_tr($ilcegelen);
 $onceki="ilçesi";
 $sonraki="olarak değiştirildi...";
 $geridon="Geri Dön";
-
-//echo $ilno;
-//echo $ilsecgelen;
-//echo $ilcegelenx;
-//echo $ilcegelenvt;
-//echo $ilcedeggelen;
-//exit;
-//echo $ilcegelenx;
-//echo $ilcedeggelen;
-//echo $ilcedeggelenx;
-//$vtsec="select * from il where(ilad='$ildeggelen')";
-//$socsorgu=mysql_query($vtsec);
-//$say=mysql_num_rows($socsorgu);
-//if($say<1){
-$kayit="UPDATE ilce SET  ilcead='$ilcegelenvt' where(ilinad='$ilsecgelen' and ilcead='$ilcedeggelen')";
+$kayit_kontrol=mysqli_query($dbh,"SELECT * from ilce where ilcead='$ilcegelen'");
+$kayit_say=mysqli_num_rows($kayit_kontrol);
+if($ilcegelen==NULL){
+  echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
+  echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
+  echo '<thead align="center">';
+  echo '<tr>';
+  echo '<th>Durum</th>';
+  echo '</tr>';
+  echo '<tr>';
+  echo '<th class="bg-light">Yeni İlçe adını girmediniz.<a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table>';
+  echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';
+}elseif($ilcegelen!=NULL and $kayit_say>=1){
+  echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
+  echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
+  echo '<thead align="center">';
+  echo '<tr>';
+  echo '<th>Durum</th>';
+  echo '</tr>';
+  echo '<tr>';
+  echo '<th class="bg-light">Bu ilçe önceden kaydedilmiş.<a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table>';
+  echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';  
+}else{
+$kayit="UPDATE ilce SET  ilcead='$ilcegelen' where(ilinad='$ilsecgelen' and ilcead='$ilcedeggelen')";
 //}
-if(mysql_query($kayit)){
+if(mysqli_query($dbh,$kayit)){
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
 echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
 echo '<thead align="center">';
+echo '<tr>';
 echo '<th>Durum</th>';
 echo '</tr>';
-echo '<th class="bg-light">'.trsuz($ilcedeggelen).' '.trsuz($onceki).' '.$ilcegelenx.' '.trsuz($sonraki).' <a href="ilekle.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.trsuz($geridon).'</a></th></thead></table></div>';
+echo '<tr>';
+echo '<th class="bg-light">'.$ilcedeggelen.' '.$onceki.' '.$ilcegelen.' '.$sonraki.' <a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table></div>';
+echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';  
 }else{
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
 echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
 echo '<thead align="center">';
+echo '<tr>';
 echo '<th>Durum</th>';
 echo '</tr>';
-echo '<th bordercolor="white" bgcolor="yellow" bgcolor="yellow">';
-echo '<th class="bg-light">�l�e De�i�tirilemedi...<a href="ilekle.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>'.trsuz($geridon).'</a></th></thead></table>';
-echo '</div>';
-echo mysql_error();
+echo '<tr>';
+echo '<th class="bg-light">İlçe Adı Değiştirilemedi...<a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>'.trsuz($geridon).'</a></th></thead></table>';
+echo '</tr>';
+  echo '</thead>';
+  echo '</table>';
+  echo '</div>';  
+echo mysqli_error();
  }
-
-@mysql_close($dbh);
- ?>
+}
+@mysqli_close($dbh);
+include("../assets/sablon/form013/footer.php");
+?>
 <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="../../../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-      <script src="../../../bootstrap-4/popper.js"></script>
-      <script src="../../../bootstrap-4/js/bootstrap.min.js"></script>
- </body>
-</html>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>

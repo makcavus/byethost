@@ -312,7 +312,7 @@ $degilismi="Değiştirilecek İlin Adı:";
 
 $ilkaydeg="İl Kayıt Değiştirme Ekranı";
 
-$oncekiil="ili";
+$oncekiil="il adı";
 
 $sonraki="olarak Değiştirildi...";
 
