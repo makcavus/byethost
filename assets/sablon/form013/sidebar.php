@@ -26,10 +26,24 @@
                         <ion-icon name="help-circle-outline"  class="nav__icon"></ion-icon>
                             <span class="nav__name">Sık Sorulanlar</span>
                         </a>
-                        <a href="../admin/admin.php" id="yonetim" class="nav__link" data-toggle="tooltip" title="Yönetim Paneli" style="text-decoration:none;">
+                        <?php
+                        if(isset($_SESSION['uye'])){
+                            ?>
+<a href="../admin/admin.php" id="yonetim" class="nav__link" data-toggle="tooltip" title="Yönetim Paneli - Oturum açık" style="text-decoration:none;">
                       <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
                       <span class="nav__name">Yönetim Paneli</span>
                      </a>
+<?php
+}else{
+    ?>
+    <a href="../admin/admin.php" id="yonetim" class="nav__link" data-toggle="tooltip" title="Yönetim Paneli - Oturum kapalı" style="text-decoration:none;">
+                      <ion-icon name="log-in-outline" class="nav__icon"></ion-icon>
+                      <span class="nav__name">Yönetim Paneli</span>
+                     </a>
+    <?php
+}
+                        ?>
+                        
                         <!--
                         <div  class="nav__link collapse">
                             <ion-icon name="folder-outline" class="nav__icon"></ion-icon>

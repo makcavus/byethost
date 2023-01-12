@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION["uye"])){
+echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
+}
 include("assets/sablon/anadizin/header.php");
 include("assets/sablon/anadizin/sidebar.php");
 ?>
