@@ -48,15 +48,7 @@ if($kurumgelen==NULL or $drgelen==NULL or $asmgelen==NULL){
   echo '</thead>';
   echo '</table>';
   echo '</div>';
-
 }else{
-
-
-
-
-
-
-
 $kayit="UPDATE ocak SET  socad='$kurumgelen',asmadi='$asmgelen',dradi='$drgelen',aseadi='$asegelen',aseunvan='$aseungelen' where(ilinad='$ilseckrgelen' and ilce='$ilceseckrgelen' and socad='$degkurumgelen')";
 //}
 if(mysqli_query($dbh,$kayit)){
