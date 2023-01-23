@@ -1,10 +1,26 @@
-<?php 
+<?php
+//include("index.php");
+error_reporting(0);
+session_start();
+if(!isset($_SESSION["uye"])){
+    echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
+}else{
+// timeout periyodu, sn olarak
+$inactive = 1300;
+if(isset($_SESSION['timeout']) ) {
+    $session_life = time() - $_SESSION['timeout'];
+    if($session_life > $inactive)
+    {
+        unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+        session_destroy(); header("Location: cikis.php"); }
+}
+$_SESSION['timeout'] = time();
 header("Cache-Control: no-cache,no-store");
 include("../con_023.php");
 include("../form013/tanimveyetkiler.php");
 include('../form013/frm013alanlari.php');
 $kodgelen=$_GET['uyekodum'];
-$secim=trsuz("Üye Kodu Seçiniz");
+$secim="Üye Kodu Seçiniz";
 //KURUM KONTROLU
 $vtsec2="select * from uyeler where(uyekod='$kodgelen')";
 $socsorgu2=mysqli_query($dbh,$vtsec2);
@@ -41,6 +57,7 @@ echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reload
 }
 @mysqli_close($dbh) ;
 include("../assets/sablon/form013/footer.php");
+}
 ?>
 <!-- Optional JavaScript -->
 <script src="../assets/js/sayfa_linkleri_altdizin.js"></script>

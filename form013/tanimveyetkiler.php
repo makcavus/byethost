@@ -53,6 +53,7 @@ $iptal="İptal";
 $degistir="Değiştir";
 $sil="Sil";
 $kaydet="Kaydet";
+$kulmevcut="--- Bu kullanıcı Adı Mevcut. Lütfen Yeni Kullanıcı Adı Belirleyiniz.";
 //KAYDET/DE   T R VE S LE A T UYARILAR
 $kurumok='Kurumu Kaydedildi...';
 $uyekayitok='Kurumuna ait Kullanıcı Kaydedildi...';
