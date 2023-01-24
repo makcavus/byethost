@@ -52,7 +52,7 @@ $asmadi=$sonucum3['uyekod'];
 ?>
 <div class="row mt-1">
 <div class="col-md-4 bg-warning text-dark" align="center">
-<a href=# onClick="kontroluye();" class="btn btn-success btn-sm mb-1"><i class="fa fa-times-circle fa-lg"></i> İptal</a>
+<a href=# onClick="kontroluye();" class="btn btn-danger btn-sm mb-1"><i class="fa fa-times-circle fa-lg"></i> İptal</a>
 </div>
 <div class="col-md-4 bg-info text-dark mb-1" align="center" style="padding-top:5px;">
 <strong><?php $ilcekaydeg="Kullanıcı Kayıt Değiştirme Ekranı"; echo $ilcekaydeg; ?></strong>
@@ -67,15 +67,15 @@ $asmadi=$sonucum3['uyekod'];
 <th>
 <div class="form-row">
 <input type="hidden" name="krselectilno" id="krselectilno" value="<?php echo $asmadi ;?>">
-    <div class="col-4 text-dark" align="center">	
-	<input type="text" class="form-control form-control-sm w-100" name="kurumgirdeg" id="kurumgirdeg" value="<?php echo $ilcenom ; ?>">
+    <div class="col-6 text-dark" align="center">	
+	<input type="text" class="form-control form-control-sm w-100" name="kurumgirdeg" id="kurumgirdeg" value="<?php echo $ilcenom ; ?>" readonly>
     </div>
-    <div class="col-4 text-dark" align="center">
+    <div class="col-6 text-dark" align="center">
       <input type="text" name="asmgir" id="asmgir" class="form-control form-control-sm w-100" value="<?php echo $ilnom ; ?>" required>
 	  <div class="invalid-feedback">Lütfen yeni kullanıcı adı belirleyiniz</div>
     </div>
-	<div class="col-4 text-dark" align="center">
-      <input type="text" name="tbbgir" id="tbbgir" class="form-control form-control-sm w-100" value="<?php echo $kurumadi ; ?>" required>
+	<div class="col-0 text-dark" align="center">
+      <input type="hidden" name="tbbgir" id="tbbgir" class="form-control form-control-sm w-100" value="<?php echo $kurumadi ; ?>" required>
      <div class="invalid-feedback">Lütfen yeni kullanıcı şifresi oluşturun</div>
 	 </div>	  
    </div>

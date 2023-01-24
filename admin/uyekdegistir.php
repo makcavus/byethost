@@ -48,7 +48,7 @@ $sha2=sha1cevir($sha1); // fonksiyon çağırılıor
 $sha3=sha1cevir($sha2); // fonksiyon çağırılıor
  // ekrana md5 kodu yazdırılıyor
 //print("<b>Sifre : </b> ".$ksigelen." <b> ------> </b>".$sha3);				
-$kayit="UPDATE uyeler SET  uyead='$uyeadtrkrt',uyekim='$dradtrkrt',uyesifre='$sha3' where(uyekod='$uyekodu')";
+$kayit="UPDATE uyeler SET  uyead='$uyeadtrkrt',uyekim='$dradtrkrt' where(uyekod='$uyekodu')";
 //}
 if(mysqli_query($dbh,$kayit)){
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';

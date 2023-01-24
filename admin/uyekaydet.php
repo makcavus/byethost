@@ -40,7 +40,17 @@ $sha3=sha1cevir($sha2); // fonksiyon �a��r�l�or
 $ilsec="select * from uyeler where(uyekod='$ilgelen')";
 $socsorgu=mysqli_query($dbh,$ilsec);
 $say=mysqli_num_rows($socsorgu);
-if($say==0 AND $ilgelen !=""){
+if($kadigelen==NULL){
+    echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
+    echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
+    echo '<thead align="center">';
+    echo '<tr>';
+    echo '<th>Durum</th>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<th class="bg-light">Kullanıcı adı boş olamaz... <a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i>
+     '.$geridon.'</a></th></tr></thead></table></div>';
+}elseif($say==0 AND $ilgelen !="" and $kadigelen!=NULL){
 $kayit="INSERT INTO uyeler(uyead,uyekim,uyesifre,uyekod) VALUES ('$kadigelen','$drgelen','$sha3','$ilgelen')";
 if(mysqli_query($dbh,$kayit)){
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';

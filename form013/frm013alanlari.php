@@ -382,7 +382,7 @@ $kulolmadi="Kullanıcı Değiştirilemedi.";
 
 $kulsilindi="Nolu AHB / Kurumuna ait Kullanıcı Kaydı Silindi...";
 
-
+$virgul=",";
 
 /* *****************************************************  Excele D�k�me ait Uyar�lar   *********************************************** */
 

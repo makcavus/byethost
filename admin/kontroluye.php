@@ -49,7 +49,7 @@ echo '<a href=# onClick="deguye();"  onclick="history.back();" onsubmit="javascr
 echo'&nbsp;&nbsp;&nbsp;&nbsp;';
 echo '<a href=# onClick="onayuye();"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-danger btn-sm"><i class="fa fa-eraser fa-lg"></i> '.$sil.'</a>';
 echo'&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
+echo '<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-light btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
 }
 }else{
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$yetkiuyar.'</h6></div>' ;

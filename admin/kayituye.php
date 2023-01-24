@@ -60,14 +60,14 @@ $dradim=$rowkod['dradi'];
 <div class="form-row">
 <input type="hidden" name="kulkay" id="kulkay" value="<?php echo $uyekodu; ?>">
     <div class="col-4 text-dark" align="center">
-	<input type="text" class="form-control form-control-sm w-100" name="doktoradi" id="doktoradi" value="<?php echo $dradim; ?>">
+	<input type="text" class="form-control form-control-sm w-100" name="doktoradi" id="doktoradi" value="<?php echo $dradim; ?>" readonly>
     </div>
     <div class="col-4 text-dark" align="center">
       <input type="text" name="kuladi" id="kuladi" class="form-control form-control-sm w-100" placeholder="Kullanıcı Adı Belirleyin" required>
 	  <div class="invalid-feedback">Lütfen bir kullanıcı adı belirleyiniz</div>
     </div>
 	<div class="col-4 text-dark" align="center">
-      <input type="text" name="kulsifre" id="kulsifre" class="form-control form-control-sm w-100" placeholder="Kullanıcı Şifresi Belirleyin" required>
+      <input type="text" name="kulsifre" id="kulsifre" class="form-control form-control-sm w-100" placeholder="Kullanıcı Şifresi Belirleyin" value="<?php echo $varsayilan_sifre;?>" required>
      <div class="invalid-feedback">Lütfen bir kullanıcı şifresi oluşturun</div>
 	 </div>
 	 

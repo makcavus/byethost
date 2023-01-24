@@ -28,6 +28,8 @@ $kurumililcekod=substr($rowocak['socad'],0,5);
 $kurumilkod=substr($rowocak['socad'],0,2);
 //echo $ilno;
 }
+//KULLANICILARIN VARSAYILAN ŞİFRESİ...............................................................
+$varsayilan_sifre="123";
 //KULLANICI YETK  SEV YELER .....................................................................
 $yetkiuyar="Bu kayda müdahale etmeye yetkiniz yoktur.";
 //Bakanlik Yetkili Kurum Kisaltmasi.  yeler tablosundaki  yekod alaninin son    harfi veya rakami
