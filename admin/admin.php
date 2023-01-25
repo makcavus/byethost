@@ -339,7 +339,7 @@ $apc='Admin Panelden Çık';
 $cikis='Proğramdan Çık';
 ?>
 <div class="row bg-warning">
-<div class="col-md-12 bg-warning text-dark" align="center"><h6><strong>Admin Paneli Çıkışı</strong></h6></div>
+<div class="col-md-12 bg-warning text-dark" align="center" style="padding-top:5px;"><h6><strong>Admin Paneli Çıkışı</strong></h6></div>
 <div class="col-md-12 bg-primary" align="center">
 <a href="../index.php" class="btn btn-outline-success btn-sm text-warning mr-3 mt-1 mb-1"><span class="py-lg-5"><i class="fa fa-reply-all"></i> Admin Panelden Çık</span></a>
 <button type="button" class="btn btn-outline-dark mt-1 mb-1 mr-3"><span class="badge badge-light mr-1"><i class="fa fa-user" fa-lg></i></span><span class="sr-only">unread messages</span><strong><?php echo $_SESSION["uye"]; ?></strong>

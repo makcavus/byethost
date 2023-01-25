@@ -110,7 +110,4 @@ $link10='';
 }
 $medya='<a href="https://www.youtube.com/c/RadyoAkdeniz95/live" title="Radyo Akdeniz" target="_blank">Radyo Akdeniz Canlı</a><br>';
 $telif='<font class="SiteYazi">&copy; 2011 Kaya Web Tasarım</font>';
-include("assets/sablon/form013/footer.php");
 ?>
-<!-- Optional JavaScript -->
-<script src="assets/js/sayfa_linkleri_altdizin.js"></script>

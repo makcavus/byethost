@@ -67,9 +67,7 @@ $kriter="select * from adres order by adrid";
 $sorgu=mysqli_query($dbh,$kriter);
 $sonuc=mysqli_num_rows($sorgu);
 include("assets/sablon/anadizin/adres_tablo_sorgu.php");
-?>
-
-      <div id="sonuciletiyaz"></div>
+?>     
     </div>
   </div>
 </div>  

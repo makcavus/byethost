@@ -1,7 +1,5 @@
 // JavaScript Document
-function noCache(
-uri 
-){
+function noCache(uri){
 return uri.concat( 
 /\?/.test(uri) ?
 "&"

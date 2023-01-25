@@ -270,8 +270,7 @@ echo '</div>';
 ?>
 </tr>
 </table>
-      <div id="sonuciletiyaz"></div>
-    </div>
+          </div>
   </div>
 </div>  
 <!-- Optional JavaScript -->

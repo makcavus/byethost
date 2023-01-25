@@ -54,8 +54,7 @@ $vctarihn=$gun.'.'.$ay.'.'.$yil;
 </p>
 <?php } ?>
 </div>
-</div>
-     <div id="sonuciletiyaz"></div>
+</div>    
     </div>
   </div>
 </div>  

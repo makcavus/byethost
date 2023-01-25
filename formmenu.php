@@ -103,7 +103,7 @@ include("assets/sablon/anadizin/sidebar.php");
 </th>
 </tr>
 </table>
-     <div id="sonuciletiyaz"></div>
+     
     </div>
   </div>
 </div>  

@@ -50,7 +50,7 @@ $adi='Gönderenin Adı Soyadı:';
 $telefon="Telefonu:";
 $email="E-mail Adresi:";
 $ileti="İletisi:";
-$vercevap="Verilen Cevap:";
+$vercevap=" Yayın durumu, Verilen Cevap, İşlem :";
 $mailto="mailto:";
 $ctarihi="Cevap Tarihi:";
 echo '<th class="align-middle">'.$tarih.'</th>';
@@ -59,8 +59,7 @@ echo '<th class="align-middle">'.$telefon.'</th>';
 echo '<th class="align-middle">'.$email.'</th>';
 echo '<th class="align-middle">'.$ileti.'</th>';
 echo '<th class="align-middle">'.$ctarihi.'</th>';
-echo '<th class="align-middle">'.$vercevap.'</th>';
-echo '<th colspan="3" class="align-middle">'."İşlem:".'</th>';
+echo '<th colspan="2" class="align-middle">'.$vercevap.'</th>';
 echo '</tr>';  
 echo '</thead>';  
 while($rowuser=mysqli_fetch_array($resultuser)) {$say++;
@@ -93,23 +92,24 @@ echo '<td class="align-middle"><h6>'.$vileti.'</h6></td>';
 echo '<td class="align-middle"><h6>'.$vctarihn.'</h6></td>';
 echo '<td class="align-middle"><h6>'.$vcevap.'</h6></td>';
 if($vyayinda==0){
-echo '<td class="align-middle text-center"><i class="fa fa-ban fa-2x text-danger" aria-hidden="true"></i></td>';
+echo '<td class="align-middle text-center"><i class="fa fa-ban fa-2x text-danger" aria-hidden="true"></i><p>';
 }else{
-echo '<td class="align-middle text-center"><i class="fa fa-rss fa-2x text-success" aria-hidden="true"></i></td>';
+echo '<td class="align-middle text-center"><i class="fa fa-rss fa-2x text-success" aria-hidden="true"></i><p>';
 }
-echo '<td class="align-middle text-center"><h6><a href="onayileti.php?iltiid='.$viletiid.'" class="btn btn-danger btn-sm"><i class="fa fa-eraser fa-lg"></i> '."Sil".'</a></h6></td>';
+echo '<h6><a href="onayileti.php?iltiid='.$viletiid.'" class="btn btn-danger btn-sm"><i class="fa fa-eraser fa-lg"></i> '."Sil".'</a></h6><p>';
 //Eğer önceden cevap verilmişse DEĞİŞTİR, yeni cevap verilecekse CEVAPLA butonu gözüksün........
 if(isset($vcevap)){
 	?>
-<td class="align-middle text-center"><h6><a href="cevapla.php?iltiid=<?php echo $viletiid ; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit fa-lg"></i> Değiştir</a></h6></td>
+<h6><a href="cevapla.php?iltiid=<?php echo $viletiid ; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit fa-lg"></i> Değiştir</a></h6>
 <?php }else{ ?>
-<td class="align-middle text-center"><h6><a href="cevapla.php?iltiid=<?php echo $viletiid ; ?>" class="btn btn-primary btn-sm"><i class="fa fa-floppy-o fa-lg"></i> Cevapla</a></h6></td>
+<h6><a href="cevapla.php?iltiid=<?php echo $viletiid ; ?>" class="btn btn-primary btn-sm"><i class="fa fa-floppy-o fa-lg"></i> Cevapla</a></h6></td>
 <?php 
 } 
 echo '</tr>';
 echo '</tbody>';
 }
 echo '</table>';
+echo '<div style="clear:both;"></div>';
 $iptal="İptal";
 echo '<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm mb-1"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
 }

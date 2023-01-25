@@ -71,7 +71,7 @@ include("altlink.php");
       <a href="#" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm btn-close" data-dismiss="modal"><i class="fa fa-times-circle fa-lg"></i><?php $labeliptal=" İptal"; echo $labeliptal; ?></a>
       <a href="#" onClick="iletiyiekle();" class="btn btn-primary btn-sm ml-3"><i class="fa fa-check fa-lg"></i><?php $labelgonder=" Gönder"; echo $labelgonder; ?></a>  
       </div>
-
+      <div id="sonuciletiyaz"></div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="assets/bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>

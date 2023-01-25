@@ -87,8 +87,7 @@ $sayy='<i class="fa fa-lg fa-hacker-news" aria-hidden="true"></i>';
 ?>
 </tbody>
 </table>
-</div>
-      <div id="sonuciletiyaz"></div>
+</div>      
     </div>
   </div>
 </div>  
