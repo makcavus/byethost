@@ -70,8 +70,8 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il WHERE ilid='$ilkodu' orde
 <a class="btn btn-outline-danger text-danger btn-sm mb-1" href="cikis.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'"><i class="fa fa-sign-out"></i> Oturumu Kapat</a>
 <a class="btn btn-outline-info text-info btn-sm mb-1 mr-1" href="sifredegistir.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'" ><i class="fa fa-key" aria-hidden="true"></i> <?php echo $sd ; ?> </a>
 <?php if($sagdanadmin==$bakanlikyetki or $sagdanadmin==$ilyetki or $sagdanadmin==$kurumyetki){ ?>
-<a class="btn btn-outline-success text-success btn-sm mb-1" href="admin/ilekle.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'">
-<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Admin Panel</a>
+	<a class="btn btn-outline-success text-success btn-sm mb-1" href="form_102_tanzim.php" style="color:#00FF00; text-decoration:none;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'">
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Tanzim Bilgileri</a>
 <?php } ?>
 </div>
 <form class="form-control form-inline border-0" action="023kekle.php" method="get" name="kaydet" style="background-color: black">
