@@ -25,7 +25,7 @@
                         <a href="sss.php" id="sss" class="nav__link" data-toggle="tooltip" title="Sık Sorulanlar" style="text-decoration:none;">
                         <ion-icon name="help-circle-outline"  class="nav__icon"></ion-icon>
                             <span class="nav__name">Sık Sorulanlar</span>
-                        </a>
+                                       
                         <?php
                         if(isset($_SESSION['uye'])){                            
                             ?>
@@ -43,6 +43,11 @@
     <?php
 }
                         ?>
+                        </a>
+                        <a href="javascript:goster();" data-toggle="modal" data-target="#iletiyaz" id="ulasin" class="nav__link" data-toggle="tooltip" title="Bize Ulaşın" style="text-decoration:none;">
+                        <ion-icon name="chatbubble-ellipses-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">Bize Ulaşın</span>
+                        </a>         
                       <!--  <div  class="nav__link collapse">
                             <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Projects</span>
@@ -87,9 +92,9 @@
                 </div>
             </nav>
         </div>
+        <!-- Optional JavaScript -->
 <script src="./jquery-1.3.2.js"></script>
 <script>
-
     //$(".nav__link").click(function(){
        // var index=$(".nav a").index();
       //  $(".nav__list a").removeClass("active");
