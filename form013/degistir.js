@@ -242,6 +242,28 @@ function cevapFonksiyonu() {
  }
 }
 
+//TANZÄ°M BÄ°LGÄ°LERÄ° DEÄžÄ°ÅžTÄ°RME
+function tanzimidegistir() {
+	var selectil = document.tanzim_update.aheilad.value;
+	var selectilce = document.tanzim_update.aheilunvan.value;
+	var selectoc = document.tanzim_update.aseilad.value;
+	var selectyil = document.tanzim_update.aseilunvan.value;
+	var selectil = document.tanzim_update.aheilcead.value;
+	var selectilce = document.tanzim_update.aheilceunvan.value;
+	var selectoc = document.tanzim_update.aseilcead.value;
+	var selectyil = document.tanzim_update.aseilceunvan.value;
+
+http.open('get', noCache('tanzimdegistir.php?aheilad='+aheilad+'&aheilunvan='+aheilunvan+'&aseilad='+aseilad+'&aseilunvan='+aseilunvan));
+    http.onreadystatechange = cevapTanzim;
+    http.send(null);
+}
+
+function cevapTanzim() {
+    if(http.readyState == 4){
+        document.getElementById('sonuctanzim').innerHTML = http.responseText;
+ }
+}
+//------------------------------------------------//
 //Tarih girisi
 var mm;
 var dd;
@@ -306,12 +328,12 @@ function setDaysInMonth(month){
 }
 function hoppa() {
 	if
-(screen.width==1280||screen.height==1024){ // Çözünürlük 1280*1024 Ise
+(screen.width==1280||screen.height==1024){ // ï¿½ï¿½zï¿½nï¿½rlï¿½k 1280*1024 Ise
  window.open("","hoppa","width=1200,height=900,left=0,top=0,resizable=1,menubar=1,scrollbars=1")
 }else if 
-(screen.width==1280||screen.height==960){ // Çözünürlük 1280*960 Ise
+(screen.width==1280||screen.height==960){ // ï¿½ï¿½zï¿½nï¿½rlï¿½k 1280*960 Ise
  window.open("","hoppa","width=1000,height=800,left=0,top=0,resizable=1,menubar=1,scrollbars=1")
-}else{ // Çözünürlük Bunlardan Hiçbiri Degil veya Farkli Ise
+}else{ // ï¿½ï¿½zï¿½nï¿½rlï¿½k Bunlardan Hiï¿½biri Degil veya Farkli Ise
 window.open("","hoppa","width=1000,height=800,left=0,top=0,resizable=1,menubar=1,scrollbars=1")
 }
  }
