@@ -241,29 +241,6 @@ function cevapFonksiyonu() {
         document.getElementById('sonuckay').innerHTML = http.responseText;
  }
 }
-
-//TANZİM BİLGİLERİ DEĞİŞTİRME
-function tanzimidegistir() {
-	var selectil = document.tanzim_update.aheilad.value;
-	var selectilce = document.tanzim_update.aheilunvan.value;
-	var selectoc = document.tanzim_update.aseilad.value;
-	var selectyil = document.tanzim_update.aseilunvan.value;
-	var selectil = document.tanzim_update.aheilcead.value;
-	var selectilce = document.tanzim_update.aheilceunvan.value;
-	var selectoc = document.tanzim_update.aseilcead.value;
-	var selectyil = document.tanzim_update.aseilceunvan.value;
-
-http.open('get', noCache('tanzimdegistir.php?aheilad='+aheilad+'&aheilunvan='+aheilunvan+'&aseilad='+aseilad+'&aseilunvan='+aseilunvan));
-    http.onreadystatechange = cevapTanzim;
-    http.send(null);
-}
-
-function cevapTanzim() {
-    if(http.readyState == 4){
-        document.getElementById('sonuctanzim').innerHTML = http.responseText;
- }
-}
-//------------------------------------------------//
 //Tarih girisi
 var mm;
 var dd;
