@@ -17,6 +17,7 @@ include('../con_102.php');
 include('../con_023.php');
 include('frm102alanlari.php');
 include("tanimveyetkiler.php");
+$form_klasoru=basename(dirname(__FILE__));
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
@@ -47,7 +48,7 @@ $asmninadine=$satir['asmadi'];
 //@mysql_close($conn);
 $ahkod=$satir['socad'];
 if(substr($ocgelen,-3)==$ilceyetki){
-    $frm102yetkili=@mysqli_query($dbh102,"select form,ilce_aseadi,ilce_aseunvani from birim where(form='Form102')");
+    $frm102yetkili=@mysqli_query($dbh102,"select form,ilce_aseadi,ilce_aseunvani from birim where(form='$form_klasoru')");
     while($frm102yetkilisi=mysqli_fetch_array($frm102yetkili)){
         $asead=$frm102yetkilisi['ilce_aseadi'];
         $aseunv=$frm102yetkilisi['ilce_aseunvani'];
