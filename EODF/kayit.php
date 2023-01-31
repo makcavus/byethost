@@ -1,4 +1,8 @@
 <?php
+function ilkBuyukTR($str){
+	$str = mb_strtolower($str);
+return str_replace('i̇','i',ltrim(mb_convert_case(str_replace(array('i','I'),array('İ','ı'),$str),MB_CASE_TITLE,'UTF-8')));
+}
 //include("index.php");
 session_start();
 if(!isset($_SESSION["uye"])){
@@ -67,7 +71,7 @@ if(substr($ocgelen,-3,3)==$bakanlikyetki){
           $asead=$frm102yetkilisi['il_aseadi'];
           $aseunv=$frm102yetkilisi['il_aseunvani'];
           $drad=$frm102yetkilisi['il_aheadi'];
-          $unvan=$frm102yetkilisi['il_aheunvani'];
+          $unvan=ilkBuyukTR($ilinadine).' '.$frm102yetkilisi['il_aheunvani'];
       }
         $asmninadine=$satir['asmadi'];
         /*$drad=$satir['dradi'];
@@ -101,7 +105,7 @@ if(substr($ocgelen,-3,3)==$bakanlikyetki){
             $asead=$frm102yetkilisi['ilce_aseadi'];
             $aseunv=$frm102yetkilisi['ilce_aseunvani'];
             $drad=$frm102yetkilisi['ilce_aheadi'];
-            $unvan=$ilceninadine." ".$frm102yetkilisi['ilce_aheunvani'];
+            $unvan=ilkBuyukTR($ilceninadine)." ".$frm102yetkilisi['ilce_aheunvani'];
         }
         $asmninadine=$satir['asmadi'];
         //$drad=$satir['dradi'];
