@@ -78,14 +78,14 @@ $vercevap="Verilen Cevap:";
 $mailto="mailto:";
 $ctarihi="Cevap Tarihi:";
 //FORM İSMİ TANIMLA//
-$form1="Form013";
+/*$form1="Form013";
 $form2="Form013B";
 $form3="SForm013";
 $form4="Form102";
 $form5="EOD";
 $form6="ABE";
 $form7="EU";
-$form8="NP";
+$form8="NP";*/
 
 /*
 echo $kod;

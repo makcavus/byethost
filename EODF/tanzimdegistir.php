@@ -2,7 +2,7 @@
 ob_start();
 
 include("../con_102.php");
-include('frm013alanlari.php');
+include('eodfalanlari.php');
 $form_say=$_GET['form_say'];
 $formad=$_GET['formad'];
 $aheilad=$_GET['aheilad']; 

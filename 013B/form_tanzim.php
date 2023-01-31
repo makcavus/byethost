@@ -18,7 +18,8 @@ include("../assets/sablon/form013/header.php");
 include("../assets/sablon/form013/sidebar.php");
 include('../con_102.php');
 include('tanimveyetkiler.php');
-$sorgu_tanzim=mysqli_query($dbh102, "SELECT * from birim where form='$form1'");
+$form_klasoru=basename(dirname(__FILE__));
+$sorgu_tanzim=mysqli_query($dbh102, "SELECT * from birim where form='$form_klasoru'");
 $form_say=mysqli_num_rows($sorgu_tanzim);
 if($form_say>0){
 while($sonuc_tanzim=mysqli_fetch_array($sorgu_tanzim)){ 
@@ -83,7 +84,7 @@ while($sonuc_tanzim=mysqli_fetch_array($sorgu_tanzim)){
             <input name="aheilad" type="hidden" id="aheilad" class="form-control form-control-sm w-100 sm" tabindex="2" value="">
             <input name="aheilunvan" type="hidden" id="aheilunvan" class="form-control form-control-sm w-100 sm" value="" tabindex="3">
             <input name="aseilad" type="hidden" id="aseilad" class="form-control form-control-sm w-100 sm" tabindex="4" value="">
-            <input name="aseilunvan" type="text" id="aseilunvan" class="form-control form-control-sm w-100 sm" value="" tabindex="5">
+            <input name="aseilunvan" type="hidden" id="aseilunvan" class="form-control form-control-sm w-100 sm" value="" tabindex="5">
             <th colspan="2" class="bg-warning text-center">İLÇE SEVİYESİ</th></tr>
            <tr>
              <td><font class="Yazi">İlçe Kullanıcı Onaylayan Adı:</font></td>
@@ -138,7 +139,7 @@ style="padding:10px;display:block;text-decoration:none;"><i class="fa fa-pencil-
 <tr>
            <td><font class="Yazi">Form Adı:</font></td>
            <td>             
-             <input name="formad" type="text" id="formad" class="form-control form-control-sm w-100 sm" tabindex="1" placeholder="Form adını giriniz."  autofocus required></td>
+             <input name="formad" type="text" id="formad" class="form-control form-control-sm w-100 sm" tabindex="1" placeholder="Form adını giriniz." value="<?php  echo $form_klasoru; ?>" readonly></td>
            </tr>           
            <tr>
             <?php
@@ -148,7 +149,7 @@ style="padding:10px;display:block;text-decoration:none;"><i class="fa fa-pencil-
 </tr>
            <tr>
              <td><font class="Yazi">İl Kullanıcı Onaylayan Adı:</font></td>
-             <td><input name="aheilad" type="text" id="aheilad" class="form-control form-control-sm w-100 sm" tabindex="2"  placeholder="İl onaylayan adını giriniz."></td>
+             <td><input name="aheilad" type="text" id="aheilad" class="form-control form-control-sm w-100 sm" tabindex="2"  placeholder="İl onaylayan adını giriniz."  autofocus></td>
            </tr>
            <tr>
              <td><font class="Yazi">İl Kullanıcı Onaylayan Ünvanı:</font></td>
@@ -185,11 +186,11 @@ style="padding:10px;display:block;text-decoration:none;"><i class="fa fa-pencil-
             <input name="aheilad" type="hidden" id="aheilad" class="form-control form-control-sm w-100 sm" tabindex="2" value="">
             <input name="aheilunvan" type="hidden" id="aheilunvan" class="form-control form-control-sm w-100 sm" value="" tabindex="3">
             <input name="aseilad" type="hidden" id="aseilad" class="form-control form-control-sm w-100 sm" tabindex="4" value="">
-            <input name="aseilunvan" type="text" id="aseilunvan" class="form-control form-control-sm w-100 sm" value="" tabindex="5">
+            <input name="aseilunvan" type="hidden" id="aseilunvan" class="form-control form-control-sm w-100 sm" value="" tabindex="5">
             <th colspan="2" class="bg-warning text-center">İLÇE SEVİYESİ</th></tr>
             <tr>
              <td><font class="Yazi">İlçe Kullanıcı Onaylayan Adı:</font></td>
-             <td><input name="aheilcead" type="text" id="aheilcead" class="form-control form-control-sm w-100 sm" placeholder="İlçe onaylayan adını giriniz." tabindex="6"></td>
+             <td><input name="aheilcead" type="text" id="aheilcead" class="form-control form-control-sm w-100 sm" placeholder="İlçe onaylayan adını giriniz." tabindex="6" autofocus></td>
            </tr>
            <tr>
              <td><font class="Yazi">İlçe Kullanıcı Onaylayan Ünvanı:</font></td>
@@ -223,7 +224,6 @@ style="padding:10px;display:block;text-decoration:none;"><i class="fa fa-pencil-
 }
 }
 include("../assets/sablon/form013/footer.php");
-
 ?>
 
 <script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
