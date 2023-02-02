@@ -1,0 +1,226 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root{
+  --nav-width: 92px;
+
+  /*===== Colores =====*/
+  --first-color: #0C5DF4;
+  --bg-color: #12192C;
+  --sub-color: #B6CEFC;
+  --white-color: #FFF;
+  
+  /*===== Fuente y tipografia =====*/
+  --body-font: 'Poppins', sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: .875rem;
+  
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+body{
+  position: relative;
+  margin: 0;
+  padding: 2rem 0 0 6.75rem;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  transition: .5s;
+}
+.navbar{
+  margin-top: -32px;
+  margin-left: -15px;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  height: 72px;
+}
+.navbar-nav{
+  display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+flex-wrap: wrap;
+}
+.navbar a{
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 6px 6px;
+  text-decoration: none;
+  font-size: 0px;
+  border-radius: .5rem;
+}
+.navbar a img{
+  width: 78px;
+  height: 52px;
+  border-radius: .3rem;
+}
+.navbar ul{
+  margin: 4px 4px 4px 4px;
+  list-style: none;
+}
+.navbar a:hover{
+  background-color: var(--first-color);
+  color: #f2f2f2;
+}
+#baslik{
+  margin-top: -5px;
+}
+h1{
+  margin: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+/*===== l NAV =====*/
+.l-navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--white-color);
+  padding: 1.5rem 1.5rem 2rem;
+  transition: .5s;
+  z-index: var(--z-fixed);
+}
+
+/*===== NAV =====*/
+.nav{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.nav__brand{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: top;
+  margin-bottom: 2rem;
+}
+.nav__toggle{
+  font-size: 1.25rem;
+  padding: .75rem;
+  cursor: pointer;
+}
+.nav__logo{
+  color: var(--white-color);
+  font-weight: 600;
+}
+
+.nav__link{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: .75rem;
+  padding: .75rem;
+  color: var(--white-color);
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  transition: .3s;
+  cursor: pointer;
+}
+.nav__link:hover{
+  background-color: var(--first-color);
+}
+.nav__icon{
+  font-size: 1.25rem;
+}
+.nav__name{
+  font-size: var(--small-font-size);
+}
+
+/*Expander menu*/
+.expander{
+  width: calc(var(--nav-width) + 9.25rem);
+}
+
+/*Add padding body*/
+.body-pd{
+  padding: 2rem 0 0 16rem;
+}
+
+/*Active links menu*/
+.active{
+  background-color: var(--first-color);
+}
+
+/*===== COLLAPSE =====*/
+.collapse{
+  grid-template-columns: 20px max-content 1fr;
+}
+.collapse__link{
+  justify-self: flex-end;
+  transition: .5s;
+}
+.collapse__menu{
+  display: none;
+  padding: .75rem 2.25rem;
+}
+.collapse__sublink{
+  color: var(--sub-color);
+  font-size: var(--small-font-size);
+}
+.collapse__sublink:hover{
+  color: var(--white-color);
+}
+
+/*Show collapse*/
+.showCollapse{
+  display: block;
+}
+
+/*Rotate icon*/
+.rotate{
+  transform: rotate(180deg);
+}
+.renk {
+  background:#CCFFCC;
+   font:Arial, Helvetica, sans-serif; 
+   font:normal; 
+   border:#000000;
+   font-size:11pt;
+   color: #000066;
+   font-weight:bold;
+   padding:0 0px;
+   text-align:left;
+   cursor:default;
+   font-family:trebuchet ms;
+  }
+@media (min-width:1045px) and (max-width:1912px) {
+    .navbar{
+      height: 144px;
+    }
+    }
+    @media (min-width:701px) and (max-width:1044px) {
+      .navbar{
+        height: 204px;
+      }
+      }
+    @media (min-width:501px) and (max-width:700px) {
+      .navbar{
+        height: 272px;
+      }
+      }
+    @media only screen and (max-width:500px) {
+      .navbar{
+        height: 330px;
+      }
+      }
+ 
