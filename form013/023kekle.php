@@ -31,10 +31,10 @@ echo '<div class="alert-light"><button type="button" class="btn btn-primary btn-
 }else{
 echo '<div class="alert-light"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="kontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 	
-	echo'<meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/site-bs/form013/index.php" /><a href="http://'.$siteadresi.'/site-bs/form013/index.php" _fcksavedurl="http://'.$siteadresi.'/site-bs/form013/index.php">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</a>';
+	echo'<meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/form013/index.php" /><a href="http://'.$siteadresi.'/byethost/form013/index.php" _fcksavedurl="http://'.$siteadresi.'/byethost/form013/index.php">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</a>';
 
  }
-}else{ echo '<label><font style="color:Red">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</font></label><meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/site-bs/form013/index.php" /><a href="http://'.$siteadresi.'/site-bs/form013/index.php" _fcksavedurl="http://'.$siteadresi.'/site-bs/form013/index.php"></a>';
+}else{ echo '<label><font style="color:Red">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</font></label><meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/form013/index.php" /><a href="http://'.$siteadresi.'/byethost/form013/index.php" _fcksavedurl="http://'.$siteadresi.'/byethost/form013/index.php"></a>';
 echo'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 ?>
 <?php
@@ -48,14 +48,6 @@ $ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilgelen' and ilce
 while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 $ilceninadi=$ilcesonucum['ilcead'];
 }
-?>
-<?php
-echo '<label>'.$ilinadi.'  ili  '.$ilceninadi.'  ilçesi  '.$ocgelen.' '.$yilgelen.'  yili  '.$aygelen.' ayi....     </label>';
-$degsayfa="http://localhost/form023/frm023degistir.php?ilgelen=".$ilgelen."&ilcegelen=".$ilcegelen."&ocgelen=".$ocgelen."&yilgelen=".$yilgelen."&aygelen=".$aygelen."";
-$baksayfa="http://localhost/form023/cerceve1.php?ilgelen=".$ilgelen."&ilcegelen=".$ilcegelen."&ocgelen=".$ocgelen."&yilgelen=".$yilgelen."&aygelen=".$aygelen."";
-echo '<a href="'.$degsayfa.'">Değiştir</a>';
-echo'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<a href="'.$baksayfa.'">Göster</a>';
 }
 @mysqli_close($dbh);
  ?>

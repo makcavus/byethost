@@ -1,4 +1,11 @@
 <?php
+// Form Buton Yazıları..........................................
+	
+$kayitekle="Kayıt Ekle";
+$degistir="Değiştir";
+$goster="Göster";
+$hayir="Hayır";	
+	
 $ilsecim="İli Seçiniz";
 $onceilsecim="Önce İli Seçiniz";
 $ilcesecim="İlçe Seçiniz";
