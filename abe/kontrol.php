@@ -303,7 +303,6 @@ $kachast="select * from ocak where(ilinad='$countryId' and ilce='$stateId' and d
 $hastsorgula=mysqli_query($dbh,$kachast);
 $kachastsay=mysqli_num_rows($hastsorgula);
 //echo $kachastsay;
-echo '<br>';
 $kacverihast="select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and v176 like '%Dr.%' and v177 like '%Hastane%' and vayadi='$ay')";
 $hastverisorgula=mysqli_query($dbhabe,$kacverihast);
 while($hasteksiksonucum=mysqli_fetch_array($hastverisorgula)){
@@ -314,7 +313,6 @@ $hastkacverisay=mysqli_num_rows($hastverisorgula);
 //echo $hastkacverisay;
 if($hastkacverisay==0 and $countryId !="" and $stateId != $ilcesecim and $ocak != $ahsecim){
 $boshast=$hastverigirilmedi;
-echo "<br>";
 //echo "<br>";
 ?>
 <table width="100%" class="table table-responsive-sm table-bordered">
@@ -327,7 +325,6 @@ echo "<br>";
 $girilmeyenhast=$kachastsay-$hastkacverisay;
 $ahast="Hastaneden";
 $bhast=$hastveriyok;
-echo "<br>";
 ?>
 <table witdth="100%" class="table table-responsive-sm table-bordered">
   <thead>
@@ -341,7 +338,7 @@ $tamamhast=$hastveritamam;
 ?>
 <table width="100%" class="table table-responsive-sm table-bordered">
   <thead>
-<th width="100%" align="center"><font size='2px' face='tahoma'><?php echo $tamamhast;?></font></th>
+<th width="100%" align="center"><?php echo $tamamhast;?></font></th>
 </thead>
 </table>
 <?php
@@ -363,7 +360,6 @@ $kacverisay=mysqli_num_rows($verisorgula);
 //echo $kacverisay;
 if($kacverisay==0 and $countryId !="" and $stateId != $ilcesecim and $ocak != $ahsecim){
 $bos=$bosbaslik;
-echo "<br>";
 //echo "<br>";
 ?>
 <table width="100%" class="table table-responsive-sm table-bordered">
@@ -380,11 +376,10 @@ $girilmeyenahek=$kacaheksay-$kacverisay;
 }
 $a=$ahbirbaslik;
 $b=$ahvgbaslik;
-echo "<br>";
 ?>
-<table width="100%" class="table table-responsive-sm table-bordered">
+<table width="100%" class="table table-responsive-sm table-bordered table-success">
   <thead>
-<th width="100%" align="center"><font size='2px' face='tahoma' color='red'><?php echo $kacaheksay." ".$a." ".$girilmeyenahek." ".$b;?></font></th>
+<th width="100%" class="border-1"><div align="center"><?php echo $kacaheksay." ".$a." ".$girilmeyenahek." ".$b;?></div></th>
 </thead>
 </table>
 <?php
@@ -392,7 +387,7 @@ $gelmeyenler=$gelmeyenbaslik;
 ?>
 <table width="100%" class="table table-responsive-sm table-bordered">
   <thead>
-<th width="100%" align="center"><font size='2px' face='tahoma' color='blue'><?php echo $gelmeyenler;?></font></th>
+<th width="100%" align="center"><?php echo $gelmeyenler;?></th>
 </thead>
 </table>
 <?php
@@ -407,8 +402,8 @@ $eksikdradi=$eahsonucum['dradi'];
 ?>
 <table width="100%" class="table table-responsive-sm table-bordered">
   <thead>
-<th width="50%" align="right"><font size='2px' face='tahoma'><?php echo $eksikahadi.'--'; ?></font></th>
-<th width="50%" align="left"><font size='2px' face='tahoma'><?php echo '--'.$eksikdradi; ?></font></th>
+<th width="50%"><div class="text-right"><?php echo $eksikahadi.'--'; ?></div></th>
+<th width="50%"><?php echo '--'.$eksikdradi; ?></th>
 </thead>
 </table>
 <?php
@@ -419,7 +414,7 @@ $tamam=$tamambaslik;
 ?>
 <table width="100%" class="table table-responsive-sm table-bordered">
   <thead>
-<th width="100%" align="center"><font size='2px' face='tahoma'><?php echo $tamam;?></font></th>
+<th width="100%" align="center"><?php echo $tamam;?></th>
 </thead>
 </table>
 <?php
