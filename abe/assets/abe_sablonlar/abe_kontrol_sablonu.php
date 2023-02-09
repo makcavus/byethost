@@ -126,18 +126,25 @@
   </tr>
   <?php
 include('../con_023.php');
+include('../form013/tanimveyetkiler.php');
 $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad='$ocgelen')order by dradi asc";
   $sonucak=mysqli_query($dbh,$sql);
     while($satir=mysqli_fetch_array($sonucak))
 {
 //@mysql_close($conn);
 $ahkod=$satir['socad'];
-if(substr($ocgelen,-3)=='TSM'){
+$asmadi=$satir['asmadi'];
+if(substr($ocgelen,-3)==$kurumyetki){
+  $ahkod=$satir['asmadi'];
 $ahno='Sorumlu Tabibi';
-}elseif(substr($ocgelen,-3)=='HSM'){
+}elseif(substr($ocgelen,-3)==$ilceyetki){
+  $ahkod=$satir['asmadi'];
+  $ahno='İlçe Sorumlusu';
+}elseif(substr($ocgelen,-3)==$ilyetki){
 $ahno='Birim Sorumlusu';
-}elseif(substr($ocgelen,-9)=='Hastanesi'){
-$ahno='Kurum Sorumlusu';
+}elseif(substr($asmadi,-9)=='Hastanesi'){
+  $ahkod=$satir['asmadi'];
+$ahno='Baştabibi';
 }else{
 $ahno='Nolu Aile Hekimi';
 }

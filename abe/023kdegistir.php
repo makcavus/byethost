@@ -59,7 +59,7 @@ $kayit="UPDATE veri SET  v1='$_GET[v1]',v2='$_GET[v2]',v3='$_GET[v3]',v4='$_GET[
 if(mysql_query($kayit)){
 echo '<label>'.trsuz($kayitdegistirildi).'</label><a href="#" onClick="kontrol();">'.trsuz($geridon).'</a>';
 }else{
-echo '<label><font style="color:Red">Verileriniz Deðiþtirilemedi...</font>Ýl-Ýlçe-Ocak-Yýl Alanlarýna Dikkat Ederek...</label><meta http-equiv=refresh content="100; url=http://malika.byethost12.com/abe/frm023kayit.php" /><a href="http://malika.byethost12.com/abe/frm023kayit.php" _fcksavedurl="http://malika.byethost12.com/abe/frm023kayit.php">Tekrar deneyiniz.</a>';
+echo '<label><font style="color:Red">Verileriniz Deï¿½iï¿½tirilemedi...</font>ï¿½l-ï¿½lï¿½e-Ocak-Yï¿½l Alanlarï¿½na Dikkat Ederek...</label><meta http-equiv=refresh content="100; url=http://malika.byethost12.com/abe/frm023kayit.php" /><a href="http://malika.byethost12.com/abe/frm023kayit.php" _fcksavedurl="http://malika.byethost12.com/abe/frm023kayit.php">Tekrar deneyiniz.</a>';
 echo mysql_error();
  }
 

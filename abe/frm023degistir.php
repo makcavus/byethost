@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/css/form013style.css">
 <script language="JavaScript" src="kaydet.js" type="text/javascript">
 <script language="JavaScript" src="degistir.js" type="text/javascript">
 </script>	
@@ -40,14 +41,18 @@ $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad
 $asmninadine=$satir['asmadi'];
 //@mysql_close($conn);
 $ahkod=$satir['socad'];
+$asmadi=$satir['asmadi'];
 if(substr($ocgelen,-3)==$kurumyetki){
+  $ahkod=$satir['asmadi'];
 $ahno='Sorumlu Tabibi';
 }elseif(substr($ocgelen,-3)==$ilceyetki){
-  $ahno='İlçe Sağlık Müdürü';
+  $ahkod=$satir['asmadi'];
+  $ahno='İlçe Sorumlusu';
 }elseif(substr($ocgelen,-3)==$ilyetki){
 $ahno='Birim Sorumlusu';
-}elseif(substr($ocgelen,-9)=='Hastanesi'){
-  $ahno='Kurum Sorumlusu';
+}elseif(substr($asmadi,-9)=='Hastanesi'){
+  $ahkod=$satir['asmadi'];
+$ahno='Baştabibi';
 }else{
 $ahno='Nolu Aile Hekimi';
 }
@@ -74,8 +79,6 @@ if($ocgelen=="" or substr($ocgelen,-9)=="Hastanesi"){
 </thead>
 </table>
 <?php
-include('assets/abe_sablonlar/abedegistir_sablonu.php');	
-include('assets/abe_sablonlar/gizli_input_degistir.php');
 $duzgelentarih=$verim175; 
 $duzgelentarihgun=substr($duzgelentarih,8,2);
 $duzgelentarihay=substr($duzgelentarih,5,2);
@@ -85,8 +88,10 @@ $ongelentarih=$verim178;
 $ongelentarihgun=substr($ongelentarih,8,2);
 $ongelentarihay=substr($ongelentarih,5,2);
 $ongelentarihyil=substr($ongelentarih,0,4);
-$ontarih=$ongelentarihgun.'.'.$ongelentarihay.'.'.$ongelentarihyil; 
-   ?>
+$ontarih=$ongelentarihgun.'.'.$ongelentarihay.'.'.$ongelentarihyil;
+include('assets/abe_sablonlar/abedegistir_sablonu.php');	
+include('assets/abe_sablonlar/gizli_input_degistir.php');
+?>
 
   </form>
 
