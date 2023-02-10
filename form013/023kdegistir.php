@@ -26,7 +26,7 @@ if(mysqli_query($dbh,$kayit)){
 echo '<div class="alert-dark"><button type="button" class="btn btn-primary btn-sm mt-3 mb-2" data-dismiss="modal" onclick="kontrol();">'."Kayıt Değiştirildi...". '<i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 }else{
 echo '<div class="alert-dark"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="kontrol();">Kayıt Değiştirilemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
-echo'<meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/site-bs/form013/frm023kayit.php" /><a href="http://'.$siteadresi.'/site-bs/form013/frm023kayit.php" _fcksavedurl="http://'.$siteadresi.'/site-bs/form013/frm023kayit.php">Tekrar deneyiniz.</a>';
+echo'<meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/form013/frm023kayit.php" /><a href="http://'.$siteadresi.'/byethost/form013/frm023kayit.php" _fcksavedurl="http://'.$siteadresi.'/byethost/form013/frm023kayit.php">Tekrar deneyiniz.</a>';
 echo mysqli_error();
  }
 @mysqli_close($dbh);

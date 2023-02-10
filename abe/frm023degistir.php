@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="assets/css/form013style.css">
-<script language="JavaScript" src="kaydet.js" type="text/javascript">
-<script language="JavaScript" src="degistir.js" type="text/javascript">
-</script>	
+<script type="text/javascript" src="jquery-1.3.2.js"></script>
 <script type="text/javascript" src="jquery-latest.min.js"></script> 
     <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
     <script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
+    <script language="JavaScript" src="kaydet.js" type="text/javascript">
+<script language="JavaScript" src="degistir.js" type="text/javascript">
+</script>	
 <div id="sonuckay"><form name="girdiekleme" action="javascript:void(0)" method="get">
 <?php
 include('../con_023.php');
@@ -70,10 +71,10 @@ if($ocgelen=="" or substr($ocgelen,-9)=="Hastanesi"){
 <thead>
   <tr>
   <th class="bg-warning text-center" width="30%" colspan="3">
-  <a class="btn btn-sm btn-success" style="width:100px" href=# onClick="kontrol();"title="İptal"><i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a>
+  <a class="btn btn-sm btn-success" style="width:100px" href="#" onClick="kontrol();"title="İptal"><i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a>
   </th>
 <th class="bg-primary text-center" width="40%" colspan="3"><h6 style="color:#FFFF00;">Kayıt Değiştirme Ekranı</h6></th>
-<th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-primary" style="width:100px" href=# onClick="girdiyidegistir();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Değiştir</a>
+<th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-primary" style="width:100px" href="#" onClick="girdiyidegistir();"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Değiştir</a>
 </th>
 </tr>
 </thead>
@@ -92,10 +93,4 @@ $ontarih=$ongelentarihgun.'.'.$ongelentarihay.'.'.$ongelentarihyil;
 include('assets/abe_sablonlar/abedegistir_sablonu.php');	
 include('assets/abe_sablonlar/gizli_input_degistir.php');
 ?>
-
   </form>
-
-</body>
-
-</html>
-
