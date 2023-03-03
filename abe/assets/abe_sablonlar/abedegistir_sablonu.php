@@ -1,5 +1,5 @@
 <table class="table table-responsive-sm table-sm form013kayitustaralar" style="background-color:#CCFFFF">
-<tdead>
+<thead>
    <tr>
     <td  width="100%"  class="border-0" colspan="12"><div align="center"><h5><?php echo $frmbaslik; ?></h5></div></td>
   </tr>
@@ -157,5 +157,8 @@
     <td  width="8%" align="left"  class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $onimzabaslik; ?></td>
     <td  width="16%" align="center"  class="border border-primary" bgcolor="#FFFFCC" colspan="2">&nbsp;</td>
 	</tr>
-</tdead>
+  <tr>
+    <td>&nbsp;</td>
+</tr>
+</thead>
 </table>

@@ -124,7 +124,6 @@ $verim117=$sonucum['v117'];
 $verim118=$sonucum['v118'];
 $verim119=$sonucum['v119'];
 $verim120=$sonucum['v120'];
-
 $verim121=$sonucum['v121'];
 $verim122=$sonucum['v122'];
 $verim123=$sonucum['v123'];

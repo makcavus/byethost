@@ -9,140 +9,347 @@
 // If you have any problem contact me at http://roshanbh.com.np
 
 function noCache(
-uri){
+
+uri 
+
+
+
+){
+
+
+
 return uri.concat( 
+
+
+
+
+
 /\?/.test(uri) ?
+
+
+
+
+
 "&"
+
+
+
 :
+
+
+
+
+
 "?",
+
+
+
+
+
 "noCache=",
+
+
+
+
+
 (new Date).getTime(),
+
+
+
+
+
 ".",
+
+
+
+
+
 Math.random()*1234567
+
+
+
 );
+
+
+
+
+
 };
+
 function getXMLHTTP() { //fuction to return the xml http object
+
 		var xmlhttp=false;	
+
 		try{
+
 			xmlhttp=new XMLHttpRequest();
+
 		}
+
 		catch(e)	{		
+
 			try{			
+
 				xmlhttp= new ActiveXObject("Microsoft.XMLHTTP");
+
 			}
+
 			catch(e){
+
 				try{
+
 				xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+
 				}
+
 				catch(e1){
+
 					xmlhttp=false;
+
 				}
+
 			}
+
 		}
+
+		 	
+
 		return xmlhttp;
+
     }
+
+	
+
 	function getState(countryId) {		
+
+		
+
 		var strURL="ilcaara.php?selectil="+countryId;
+
 		var req = getXMLHTTP();
+
+		
+
 		if (req) {
+
+			
+
 			req.onreadystatechange = function() {
+
 				if (req.readyState == 4) {
+
 					// only if "OK"
+
 					if (req.status == 200) {						
+
 						document.getElementById('statediv').innerHTML=req.responseText;						
+
 					} else {
+
 						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+
 					}
+
 				}				
+
 			}			
+
 			req.open("GET", strURL, true);
+
 			req.send(null);
+
 		}		
+
 	}
+
 	function getCity(countryId,stateId) {		
+
 		var strURL="ocakara.php?selectil="+countryId+"&selectilce="+stateId;
+
 		var req = getXMLHTTP();
+
+		
+
 		if (req) {
+
+			
+
 			req.onreadystatechange = function() {
+
 				if (req.readyState == 4) {
+
 					// only if "OK"
+
 					if (req.status == 200) {						
+
 						document.getElementById('citydiv').innerHTML=req.responseText;						
+
 					} else {
+
 						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+
 					}
+
 				}				
+
 			}			
+
 			req.open("GET", strURL, true);
+
 			req.send(null);
+
 		}
+
+				
+
 	}
+
 function getilce(countryId) {		
+
+		
+
 		var strURL="ilcearatoplam.php?selectil="+countryId;
+
 		var req = getXMLHTTP();
+
+		
+
 		if (req) {
+
+			
+
 			req.onreadystatechange = function() {
+
 				if (req.readyState == 4) {
+
 					// only if "OK"
+
 					if (req.status == 200) {						
+
 						document.getElementById('statediv').innerHTML=req.responseText;						
+
 					} else {
+
 						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+
 					}
+
 				}				
+
 			}			
+
 			req.open("GET", strURL, true);
+
 			req.send(null);
+
 		}		
+
 	}
+
 function getocak(countryId,stateId) {		
+
 		var strURL="ocakaratoplam.php?selectil="+countryId+"&selectilce="+stateId;
+
 		var req = getXMLHTTP();
+
+		
+
 		if (req) {
+
+			
+
 			req.onreadystatechange = function() {
+
 				if (req.readyState == 4) {
+
 					// only if "OK"
+
 					if (req.status == 200) {						
+
 						document.getElementById('citydiv').innerHTML=req.responseText;						
+
 					} else {
+
 						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+
 					}
+
 				}				
+
 			}			
+
 			req.open("GET", strURL, true);
+
 			req.send(null);
+
 		}
+
+				
+
 	}
+
  //browser ie ise true degil ise undefined
+
  var IS_IE = document.all && window.ActiveXObject &&
+
  navigator.userAgent.toLowerCase().indexOf("msie") > -1 ; 
+
  // browser gecko ise true degil ise undefined
+
  var IS_GECKO = document.implementation && document.implementation.createDocument
+
  && window.XMLHttpRequest && true;
+
  function topla(){ 
+
         var v4 = parseInt(document.getElementById("v4").value);
+
 	    var v5 = parseInt(document.getElementById("v5").value) ;
+
 	 if(isNaN(v4) || isNaN(v5)){ alert("sayi girmelisiniz,bossa 0 giriniz!"); return false;} 
+
 	 if (IS_GECKO) {  
+
 			         XHRO = new XMLHttpRequest();
+
 					     } else if(IS_IE) { 
+
 						         XHRO = new ActiveXObject("Microsoft.XMLHTTP"); 
+
 								    }else{ alert("browseriniz XMLHttpRequest yntemini desteklemiyor!"); return false; } 
+
    XHRO.open("GET","topla.php?v4="+v4+"&v5="+v5,true);
+
    XHRO.onreadystatechange = function(){ 
+
        if(XHRO.readyState == 4){
+
      if(XHRO.status == 200){  
+
 	      document.getElementById("sonucu").value = XHRO.responseText;
+
      }else{  
+
 	      alert("XHR : request status 200 degil! , bilinmeyen bir cisim!");    
+
      }   
+
 	   }
+
    }   
+
    XHRO.send(null);     
+
   }   
+
  function topla1(){ 
+
         var v1 = parseInt(document.getElementById("v1").value);
+
 	    var v2 = parseInt(document.getElementById("v2").value);
+
+		
+
 	    		   if(isNaN(v1) || isNaN(v2)){ alert("sayi girmelisiniz,bossa 0 giriniz!"); return false;} 
 
 		      if (IS_GECKO) {  
@@ -1040,17 +1247,31 @@ $(':submit').click( sonucAl );
 });
 
 function kontrol()
+
 {
+
+
+
 $('div#sonuc').html('<br><br><img src="../images/loading.gif"><br>Kontrol ediliyor...');
+
 $.ajax({
+
 type: 'GET',
+
 url: noCache('kontrol.php'),
+
 data: $('form').serialize(),
+
 success: function(ajaxCevap) {
+
 $('div#sonuc').html(ajaxCevap);
+
 }
+
 });
+
 return false;
+
 }
 
 //Yeni Kayit Ekleme
@@ -1117,7 +1338,7 @@ success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi li
 
 {
 
-$('div#sonuc').html(cevap);
+$('div#sonucsil').html(cevap);
 
 }
 

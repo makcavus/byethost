@@ -1,12 +1,16 @@
+<?php
+error_reporting(0);
+session_start();
+if(!isset($_SESSION["uye"])){
+echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
+}
+?>
 <link rel="stylesheet" href="assets/css/form013style.css">
-<script type="text/javascript" src="jquery-1.3.2.js"></script>
+<script type="text/javascript" src="degistir.js"></script>
 <script type="text/javascript" src="jquery-latest.min.js"></script> 
-    <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
-    <script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
-    <script language="JavaScript" src="kaydet.js" type="text/javascript">
-<script language="JavaScript" src="degistir.js" type="text/javascript">
-</script>	
-<div id="sonuckay"><form name="girdiekleme" action="javascript:void(0)" method="get">
+<script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script>
+<script type="text/javascript" src="assets/js/mask_hightlight.js"></script>
+<div id="sonuckay"><form class="form" name="girdiekleme" action="javascript:void(0)" method="get" onKeyUp="highlight(event)" onClick="highlight(event)">
 <?php
 include('../con_023.php');
 include('../con_abe.php');
@@ -79,6 +83,11 @@ if($ocgelen=="" or substr($ocgelen,-9)=="Hastanesi"){
 </tr>
 </thead>
 </table>
+<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilgelen ;?>">
+<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilcegelen ;?>">
+<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ocgelen ;?>">
+<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $yilgelen ;?>">
+<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $aygelen ;?>">
 <?php
 $duzgelentarih=$verim175; 
 $duzgelentarihgun=substr($duzgelentarih,8,2);
@@ -94,3 +103,4 @@ include('assets/abe_sablonlar/abedegistir_sablonu.php');
 include('assets/abe_sablonlar/gizli_input_degistir.php');
 ?>
   </form>
+</div>

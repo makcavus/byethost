@@ -105,7 +105,6 @@ $uyar=$uyarbaslik;
 //echo '<font style="color:red"  size="2px" face="tahoma">'.$uyar.'</font>' ;
 $ocakyazi=$_GET['selectoc'];
 ?>
-<script language="JavaScript" src="arkakara.js" type="text/javascript">
 </script>
 <script language="JavaScript" src="degistir.js" type="text/javascript">
 </script>	
@@ -165,7 +164,7 @@ $sonucak=mysqli_query($dbh,$sql);
 $asmninadine=$satir['asmadi'];
 //@mysql_close($conn);
 }
-if($ilcetsm==$bakanlikyetki or $ilcetsm==$ilyetki or $ilcekod==$ilcekodx and $ilcetsm==$kurumyetki or $ahekkodu==$ocak){
+if($bakanlik==$bakanlikyetki or $ilhsm==$ilyetki or $ilcetsm==$ilceyetki or $ilcetsm==$kurumyetki or $ahekkodu==$ocak){
 ?>
 <table class="table table-responsive-sm table-sm" style="margin-top:-24px;">
 <thead class="bg-dark" align="center">
@@ -217,17 +216,12 @@ echo '</form>';
 </table>
 	<?php
 }
-  ?>
-<?php
+include('assets/abe_sablonlar/abe_kontrol_sablonu.php');
 include('assets/abe_sablonlar/silme_onay_modal.php');
-include('assets/abe_sablonlar/abe_kontrol_sablonu.php')
 ?>
-</form>
-</body>
-</html>
 <?php
 echo '</form>';
-if($ilcetsm==$bakanlikyetki or $ilcetsm==$ilyetki or $ilcekod==$ilcekodx and $ilcetsm==$kurumyetki or $ahekkodu==$ocak){
+if($bakanlik==$bakanlikyetki or $ilhsm==$ilyetki or $ilcetsm==$ilceyetki or $ilcetsm==$kurumyetki or $ahekkodu==$ocak){
   ?>
   <table class="table table-responsive-sm table-sm form013ustaralar" style="margin-top:-24px;">
   <thead class="bg-dark" align="center">
@@ -236,11 +230,10 @@ if($ilcetsm==$bakanlikyetki or $ilcetsm==$ilyetki or $ilcekod==$ilcekodx and $il
   <th width="12%" class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 100px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form></th>
   <th width="48%" class="bg-primary text-center" width="50%" colspan="3"><h6 class="mb-2" style="color:#FFFF00;"><strong><?php echo $kayitgorbaslik;?></strong></h6></th>
   <?php
-    if($kachastsay==$hastkacverisay and $countryId !="" and $stateId != $ilcesecim and $ocak != $ahsecim){
-  $rapor="Rapor";
-  echo '<th class="style6" width="2%"align="center" bordercolor="#FFCC00" bgcolor="#FFCC00""><a href="../c3c4/frm023kayit.php" style="color:#000000;font-weight:bold;background:#66FF00" onMouseOver="this.style.color="orange"" onMouseOut="this.style.color="black""><img src="../images/rapor.PNG" /></a></th>';
-  }
-  ?>
+  if($kachastsay==$hastkacverisay and $countryId !="" and $stateId != $ilcesecim and $ocak != $ahsecim){
+echo '<th class="bg-warning text-center"><a class="btn btn-sm btn-dark mb-1" href="../c3c4/frm023kayit.php" style="width: 100%"><i class="fa fa-file-text-o" aria-hidden="true"></i> Rapor</a></th>';
+}
+?>
   <th width="8%" class="bg-warning text-center">
   <?php
   echo '<form class="form-control-sm" action="verikurumpdf.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
@@ -283,8 +276,7 @@ if($ilcetsm==$bakanlikyetki or $ilcetsm==$ilyetki or $ilcekod==$ilcekodx and $il
     ?>
 	  </form>
 </div>
-	<div id="fon" class="arka_fon"></div>
-  <?php
+	  <?php
 //echo '<BUTTON TYPE=SUBMIT><IMG SRC="images/yazdir.PNG"></BUTTON>';
 echo '</form>';
 }
