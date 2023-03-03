@@ -1,7 +1,19 @@
 <a id="basadon"></a>
+<?php header("Cache-Control: no-cache,no-store");
+session_start();
+$inactive = 1300;
+if(isset($_SESSION['timeout']) ) {
+$session_life = time() - $_SESSION['timeout'];
+if($session_life > $inactive)
+{ 
+unset($_SESSION['uye']); // oturumda olan de�i�kenimiz siliniyor
+session_destroy(); header("Location: cikis.php"); }
+}
+$_SESSION['timeout'] = time();
+?>
 <style>
 	table {
-		margin-top: -22px !important;
+		margin-top: -8px !important;
     }
 	.tableahek {
  		margin-top: -18px !important;
@@ -10,18 +22,8 @@
  		height: 0px;
     
     }
-    table.table-bordered{
-    border:1px solid black;
-    margin-top:20px;
-  }
-table.table-bordered > thead > tr > th{
-    border:1px solid black;
-}
-table.table-bordered > tbody > tr > td{
-    border:1px solid black;
-}
 	</style>
-<?php header("Cache-Control: no-cache,no-store");
+<?php
 include("../con_023.php");
 include("../con_abe.php");
 include('abealanlari.php');

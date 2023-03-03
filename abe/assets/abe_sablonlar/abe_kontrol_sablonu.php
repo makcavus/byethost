@@ -1,5 +1,5 @@
 <table class="table table-responsive-sm table-sm form013kayitustaralar" style="background-color:#CCFFFF">
-<tdead>
+<thead>
    <tr>
     <td width="100%"  class="border-0" colspan="12"><div align="center"><h5><?php echo $frmbaslik; ?></h5></div></td>
   </tr>  

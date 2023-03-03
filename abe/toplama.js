@@ -1316,7 +1316,7 @@ function sil(ilidi,ilceidi,vocadi,vyiladi,vayadi,komut) // islem  fonksiyomuzda 
 
 {
 
-$('div#sonuc').html('<br><img src="../images/sil.bmp">');
+$('div#sonucsil').html('<br><br><img src="./images/loading.gif"><br>Kayit Siliniyor...');
 
 $.ajax({ 
 
@@ -1459,7 +1459,7 @@ function onay()
 
 
 
-$('div#sonuc').html('<br><img src="../images/sil.jpg">');
+$('div#sonuc').html('<br><br><img src="./images/loading.gif"><br>Silme Onayi Isteniyor...');
 
 $.ajax({
 
@@ -1480,6 +1480,7 @@ $('div#sonuc').html(ajaxCevap);
 return false;
 
 }
+
 
  //Toplam Alma
 

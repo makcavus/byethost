@@ -263,11 +263,6 @@ include("../assets/sablon/form013/footer.php");
 
 </script>
 
-</body>
-
-</html>
-
-
 
 
 
