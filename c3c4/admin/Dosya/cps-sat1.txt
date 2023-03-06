@@ -1,0 +1,127 @@
+############################################
+If you like and want                  ######
+to subscribe to our  Premium  server  ######
+contact us at :                       ######
+                                      ######
+MSN : fes-sat@hotmail.fr              ######
+                                      ######
+SKYPE : tousleserver                  ######
+                                      ######
+N° : 00212675865105                   ######
+                                      ######
+############################################
+
+# CCcam  : 
+
+
+
+host : ps-sat.zapto.org
+
+port : 18000
+
+
+Exmple  : 
+
+C: ps-sat.zapto.org 18000 eess1 ps-sat.com
+
+
+F: eess1 ps-sat.com
+F: eess2 ps-sat.com
+F: eess3 ps-sat.com
+F: eess4 ps-sat.com
+F: eess5 ps-sat.com
+F: eess6 ps-sat.com
+F: eess7 ps-sat.com
+F: eess8 ps-sat.com
+F: eess9 ps-sat.com
+F: eess10 ps-sat.com
+F: eess11 ps-sat.com
+F: eess12 ps-sat.com
+F: eess13 ps-sat.com
+F: eess14 ps-sat.com
+F: eess15 ps-sat.com
+F: eess16 ps-sat.com
+F: eess17 ps-sat.com
+F: eess18 ps-sat.com
+F: eess19 ps-sat.com
+F: eess20 ps-sat.com
+F: eess21 ps-sat.com
+F: eess22 ps-sat.com
+F: eess23 ps-sat.com
+F: eess24 ps-sat.com
+F: eess25 ps-sat.com
+F: eess26 ps-sat.com
+F: eess27 ps-sat.com
+F: eess28 ps-sat.com
+F: eess29 ps-sat.com
+F: eess30 ps-sat.com
+F: eess31 ps-sat.com
+F: eess32 ps-sat.com
+F: eess33 ps-sat.com
+F: eess34 ps-sat.com
+F: eess35 ps-sat.com
+F: eess36 ps-sat.com
+F: eess37 ps-sat.com
+F: eess38 ps-sat.com
+F: eess39 ps-sat.com
+F: eess40 ps-sat.com
+F: eess41 ps-sat.com
+F: eess42 ps-sat.com
+F: eess43 ps-sat.com
+F: eess44 ps-sat.com
+F: eess45 ps-sat.com
+F: eess46 ps-sat.com
+F: eess47 ps-sat.com
+F: eess48 ps-sat.com
+F: eess49 ps-sat.com
+F: eess50 ps-sat.com
+F: eess51 ps-sat.com
+F: eess52 ps-sat.com
+F: eess53 ps-sat.com
+F: eess54 ps-sat.com
+F: eess55 ps-sat.com
+F: eess56 ps-sat.com
+F: eess57 ps-sat.com
+F: eess58 ps-sat.com
+F: eess59 ps-sat.com
+F: eess60 ps-sat.com
+F: eess61 ps-sat.com
+F: eess62 ps-sat.com
+F: eess63 ps-sat.com
+F: eess64 ps-sat.com
+F: eess65 ps-sat.com
+F: eess66 ps-sat.com
+F: eess67 ps-sat.com
+F: eess68 ps-sat.com
+F: eess69 ps-sat.com
+F: eess70 ps-sat.com
+F: eess71 ps-sat.com
+F: eess72 ps-sat.com
+F: eess73 ps-sat.com
+F: eess74 ps-sat.com
+F: eess75 ps-sat.com
+F: eess76 ps-sat.com
+F: eess77 ps-sat.com
+F: eess78 ps-sat.com
+F: eess79 ps-sat.com
+F: eess80 ps-sat.com
+F: eess81 ps-sat.com
+F: eess82 ps-sat.com
+F: eess83 ps-sat.com
+F: eess84 ps-sat.com
+F: eess85 ps-sat.com
+F: eess86 ps-sat.com
+F: eess87 ps-sat.com
+F: eess88 ps-sat.com
+F: eess89 ps-sat.com
+F: eess90 ps-sat.com
+F: eess91 ps-sat.com
+F: eess92 ps-sat.com
+F: eess93 ps-sat.com
+F: eess94 ps-sat.com
+F: eess95 ps-sat.com
+F: eess96 ps-sat.com
+F: eess97 ps-sat.com
+F: eess98 ps-sat.com
+F: eess99 ps-sat.com
+F: eess100 ps-sat.com
