@@ -182,4 +182,46 @@ $verim175=$sonucum['v175'];
 $verim176=$sonucum['v176'];
 $verim177=$sonucum['v177'];
 $verim178=$sonucum['v178'];
+if($verim42==0){$verim42=""; }else{$verim42=$verim42;}
+if($verim44==0){$verim44=""; }else{$verim44=$verim44;}
+if($verim46==0){$verim46=""; }else{$verim46=$verim46;}
+if($verim48==0){$verim48=""; }else{$verim48=$verim48;}
+if($verim50==0){$verim50=""; }else{$verim50=$verim50;}
+if($verim52==0){$verim52=""; }else{$verim52=$verim52;}
+if($verim54==0){$verim54=""; }else{$verim54=$verim54;}
+if($verim56==0){$verim56=""; }else{$verim56=$verim56;}
+if($verim58==0){$verim58=""; }else{$verim58=$verim58;}
+if($verim60==0){$verim60=""; }else{$verim60=$verim60;}
+if($verim62==0){$verim62=""; }else{$verim62=$verim62;}
+if($verim64==0){$verim64=""; }else{$verim64=$verim64;}
+if($verim66==0){$verim66=""; }else{$verim66=$verim66;}
+if($verim68==0){$verim68=""; }else{$verim68=$verim68;}
+if($verim70==0){$verim70=""; }else{$verim70=$verim70;}
+if($verim72==0){$verim72=""; }else{$verim72=$verim72;}
+if($verim74==0){$verim74=""; }else{$verim74=$verim74;}
+if($verim76==0){$verim76=""; }else{$verim76=$verim76;}
+if($verim78==0){$verim78=""; }else{$verim78=$verim78;}
+if($verim80==0){$verim80=""; }else{$verim80=$verim80;}
+
+if($verim83==0){$verim83=""; }else{$verim83=$verim83;}
+if($verim84==0){$verim84=""; }else{$verim84=$verim84;}
+if($verim85==0){$verim85=""; }else{$verim85=$verim85;}
+if($verim87==0){$verim87=""; }else{$verim87=$verim87;}
+if($verim88==0){$verim88=""; }else{$verim88=$verim88;}
+if($verim89==0){$verim89=""; }else{$verim89=$verim89;}
+if($verim91==0){$verim91=""; }else{$verim91=$verim91;}
+if($verim92==0){$verim92=""; }else{$verim92=$verim92;}
+if($verim93==0){$verim93=""; }else{$verim93=$verim93;}
+if($verim95==0){$verim95=""; }else{$verim95=$verim95;}
+if($verim96==0){$verim96=""; }else{$verim96=$verim96;}
+if($verim97==0){$verim97=""; }else{$verim97=$verim97;}
+if($verim99==0){$verim99=""; }else{$verim99=$verim99;}
+if($verim100==0){$verim100=""; }else{$verim100=$verim100;}
+if($verim101==0){$verim101=""; }else{$verim101=$verim101;}
+if($verim103==0){$verim103=""; }else{$verim103=$verim103;}
+if($verim104==0){$verim104=""; }else{$verim104=$verim104;}
+if($verim105==0){$verim105=""; }else{$verim105=$verim105;}
+if($verim106==0){$verim106=""; }else{$verim106=$verim106;}
+if($verim107==0){$verim107=""; }else{$verim107=$verim107;}
+if($verim108==0){$verim108=""; }else{$verim108=$verim108;}
 ?>

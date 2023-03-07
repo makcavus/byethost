@@ -196,7 +196,6 @@ echo '</form>';
 ?>
 	</th>
 <th class="bg-warning text-center">
-
 <?php
 echo '<form class="form-control-sm" action="../excelmysqli/form013ayxls.php" method="get" name="gor">' ;
 echo '<input class="form-control-sm" type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
@@ -206,7 +205,6 @@ echo '<input class="form-control-sm" type="hidden" name="selectoc" width="0" hei
 echo '<input class="form-control-sm" type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 echo '<input class="form-control-sm" type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ay.'" />';
 ?>
-
 <button name="SUBMIT" type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-primary" style="width: 100px"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
  Excel</button>
 <?php
