@@ -149,44 +149,19 @@ $asead=$satir['aseadi'];
 $aseunv=$satir['aseunvan'];
 }
 ?>
-<table class="cizgi" align="center" cellpadding="0" cellspacing="0" width="100%">
-<th class="style6" width="12%"align="left" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onclick="deg();"><img src="../images/degistir.PNG" /></a></th>
-<th class="style6" width="12%" align="left" bordercolor="#FFCC00" bgcolor="#FFCC00"><input TYPE="SUBMIT" value="<?php echo $wordbaslik ; ?>"  style="color:#000000;font-weight:bold;background:#66FF00" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'"/>
-
-  <th class="style6" width="50%" align="center" bordercolor="#FFCC00" bgcolor="blue"><font size="4" color="#FFFFCC"><?php echo $kayitgorbaslik;?></font></th>
-	<th class="style6" width="12%"align="right" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onClick="listele();"><img src="images/listele.PNG"></a></th>	
-	<th class="style6" width="20%" align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href="javascript:goster();"><img src="images/sil.PNG"></a></th>
-<th class="style6" width="20%" align="center" bordercolor="#FFCC00" bgcolor="#FFCC00">
-		<div id="sifre" class="giris_zemin">
-		  
-		  <form action="onay.php" method="post" name="giris" id="giris">
-		    <table width="100" border="0">
-              
-<?php 
-echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
-echo '<tr>';
-echo '<th height="50" class="style6"><strong><font size="3px" style="color:blue" face="tahoma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></strong></th>';
-echo '<th height="50" class="style6"><strong><font size="3px" style="color:blue" face="tahoma">'.$silmeonay.'</font></strong></th>';	
-echo '</tr>';
-echo '</table>';	
-echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
-echo '<tr>';
-echo '<th class="style6" rowspan="2" align="center"><img src="images/siluyar.jpg"></th>';
-echo '<th class="style6" align="center" height="30" colspan="2"><font size="2px" style="color:red" face="tahoma">'.$silemin.'</font></th>';
-echo '</tr>';
-echo '<tr>';
-echo '<th class="style6" align="center"><a href="#" tabindex="1" title="hayir" onClick="kontrol();"><img src="images/hayir.PNG"></a></th>';
-echo '<th class="style6" align="center"><a href="#" tabindex="2" title="evet" onClick="sil();"><img src="images/evet.PNG"></a></th>';
-echo '</tr>';
-
+<?php
+echo '<form action="phpword/samples/results/AGE_RAPORU.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 ?>
-              
-           </table>
-	
-		  </form>
-		</div>
-	<div id="fon" class="arka_fon"></div>
-
+<table class="table table-responsive-sm table-sm tableahek">
+<thead class="bg-dark" align="center">
+<tr>
+<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success" href=# onClick="deg();" style="width: 100px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Değiştir</a></form></th>
+<th class="bg-warning text-center"><input class="btn btn-primary btn-sm mb-1" TYPE="SUBMIT" value="<?php echo $wordbaslik ; ?>" style="width: 100px">
+<th class="bg-primary text-center" width="50%" colspan="3"><h6 class="mb-2" style="color:#FFFF00;"><strong><?php echo $kayitgorbaslik;?></strong></h6></th>
+<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-light" href=# onClick="listele();" style="width: 100px"><i class="fa fa-list-alt" aria-hidden="true"></i> Listele</a></form></th>	
+<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 100px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form></th>
+</tr>
+</thead>
 </table>
 	
 <table class="cizgi" border="0" bordercolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -817,7 +792,7 @@ $tamam="Bütün Aile Hekimliği Birimlerine ait veri girişi yapılmıştır.";
 </table>
 <?php
 }
-
+include('assets/c3c4_sablonlar/silme_onay_modal.php');
 @mysqli_close($dbhabe) ;
 ?>
 <script src="../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>

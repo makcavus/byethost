@@ -3,8 +3,8 @@
 //function trsuz($str){ $str=mb_convert_encoding($str, "utf-8","iso-8859-9");  return $str;   } 
 
 ?>
-<?
-include("connect.php");
+<?php
+include("../con_023.php");
 include("c3c4alanlari.php");
 $countryId=$_GET['selectil']; 
 $stateId=$_GET['selectilce']; 
@@ -24,7 +24,7 @@ echo $yil ;
 echo $ay ;*/
 ?>
 <?php
-$iladi=@mysqli_query($dbh,"select * from il where(ilid='$countryId')");
+$iladi=@mysqli_query($dbh,"SELECT * from il where(ilid='$countryId')");
 while($ilsonucum=mysqli_fetch_array($iladi)){
 $ilinadi=$ilsonucum['ilad'];
 }
@@ -116,6 +116,7 @@ echo '</form>';
 </table>
 <br>
 <?php 
+include("../con_abe.php");
 $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
@@ -149,7 +150,7 @@ echo '</form>';*/
 echo '<table class="cizgi" align="center" cellpadding="0" cellspacing="0" width="100%">';
 echo '<th width="6%" align="center" bordercolor="white" class="style5">Tarih:</th><th width="6%" align="center" bordercolor="white" class="style5">'.$il.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$ilce.'</th><th width="15%" align="center" bordercolor="white" class="style5">Kurum</th><th width="4%" align="center" bordercolor="white" class="style5">Sinyal Türü</th><th width="4%" align="center" bordercolor="white" class="style5">'.$topabe.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$hastabe.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$esasabe.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$verihat.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$mukkay.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$kumvar.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$topvar.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$aynaile.'</th><th width="6%" align="center" bordercolor="white" class="style5">Meslek Grubu Belli mi ?</th><th width="6%" align="center" bordercolor="white" class="style5">'.$yattedgor.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$duraghasta.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$munvakavar.'</th>';
 echo '</table>';
-$resultvyil = @mysqli_query($dbh,"select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$xaygelentarihyil') order by vayadi desc") ;
+$resultvyil = @mysqli_query($dbhabe,"select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$xaygelentarihyil') order by vayadi desc") ;
 while($sonucum=mysqli_fetch_array($resultvyil)){
 $ilim=$sonucum['ilidi'];
 $ilcem=$sonucum['ilceidi'];
@@ -451,7 +452,7 @@ echo '</table>';
 }
 
 
-@mysqli_close($dbh) ;
+@mysqli_close($dbhabe) ;
 ?>
 </body>
 </form>

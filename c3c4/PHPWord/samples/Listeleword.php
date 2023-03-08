@@ -1,6 +1,6 @@
 <?php
 include_once 'Liste_Header.php';
-include('con_023.php');
+include('../../../con_023.php');
 $ilgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectil']); 
 $ilcegelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectilce']); 
 $ocgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']); 
@@ -18,8 +18,9 @@ $ocakyazi=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']);
 
 
 <?php
-$resultvyil = @mysql_query("select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen') order by vayadi asc") ;
-while($sonucum=mysql_fetch_array($resultvyil)){
+include('../../../con_abe.php');
+$resultvyil = @mysqli_query($dbhabe,"select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen') order by vayadi asc") ;
+while($sonucum=mysqli_fetch_array($resultvyil)){
 $ilim=$sonucum['ilidi'];
 $ilcem=$sonucum['ilceidi'];
 $socadi=$sonucum['vocadi'];
@@ -307,9 +308,9 @@ $table->addCell(1500, $styleCell)->addText(htmlspecialchars('Meslek Grubu Belli 
 $table->addCell(1500, $styleCell)->addText(htmlspecialchars('Yatarak Tedavi Gören ve Durumu Ağır Olan Hasta Var mı ?'), $soru, $cellHCentered, $noSpace);
 $table->addCell(1500, $styleCell)->addText(htmlspecialchars('Münferit Vakalar mı ?'), $soru, $cellHCentered, $noSpace);
 
-$hresultveri = @mysql_query("select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen') order by vayadi asc") ;
-while($hsonucumveri=mysql_fetch_array($hresultveri)){ 
-$kac=mysql_num_rows($hresultveri);
+$hresultveri = @mysqli_query($dbhabe,"select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen') order by vayadi asc") ;
+while($hsonucumveri=mysqli_fetch_array($hresultveri)){ 
+$kac=mysqli_num_rows($hresultveri);
 $hsocadi=$hsonucumveri['vocadi'];
 $hayadi=$hsonucumveri['vayadi'];
 $hverim1=$hsonucumveri['v1'];
@@ -545,13 +546,13 @@ $mvhata="Evet";
 $mvhata="Hayır";
 }
 $ygtoplam=$hverim4+$hverim5+$hverim6+$hverim7+$hverim8+$hverim9+$hverim10+$hverim11+$hverim12+$hverim13+$hverim14+$hverim15+$hverim16+$hverim17+$hverim18+$hverim19+$hverim20+$hverim21;
-$iladi=@mysql_query("select * from il where(ilid='$ilim')");
+$iladi=@mysqli_query($dbh,"select * from il where(ilid='$ilim')");
 while($ilsonucum=mysql_fetch_array($iladi)){
 $ilinadi=$ilsonucum['ilad'];
 }
 
-$ilceadi=@mysql_query("select * from ilce where(ilinad='$ilim' and ilceid='$ilcem')");
-while($ilcesonucum=mysql_fetch_array($ilceadi)){
+$ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilim' and ilceid='$ilcem')");
+while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 $ilceninadi=$ilcesonucum['ilcead'];
 }
  $table->addRow($kac);
