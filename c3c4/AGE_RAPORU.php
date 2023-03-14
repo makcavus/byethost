@@ -807,7 +807,7 @@ $section->addText($duznoktatarih,$bilgi,
     array('space' => array('before' => 3000, 'after' => 480) , 'align' => 'center')
 );
 $section->addText(htmlspecialchars('Bulaşıcı Hastalıklar Kontrol Proğramları Birimi'),$bilgi, 
-    array('space' => array('before' => 3000, 'after' => 480) , 'align' => 'center')
+    array('space' => array('before' => 2500, 'after' => 480) , 'align' => 'center')
 );
 //$section->addPageBreak();
 $section = $phpWord->addSection(
