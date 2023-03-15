@@ -719,6 +719,77 @@ $durumbil="Durumu bildirir değerlendirme raporudur.";
 $section->addText('' ,$bilgi);
 $section->addText($paragraf.' '.$verideg.' '.$sonuctop.' '.$digerhast.' '.$verim22.' '.$verim3.' '.$verim35.' '.$hepsifir.' '.$kultur.' '.$parazit.' '.$viral.' '.$episonuc.' '.$verim109, $soru , $hiza,$noSpace);
 $section->addText($paragraf.' '.$durumbil.' '.$duznoktatarih, $soru , $hiza,$noSpace);
+
+
+
+
+$sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad LIKE '%TSM')order by dradi asc";
+  $sonucak=mysqli_query($dbh,$sql);
+    while($satir=mysqli_fetch_array($sonucak))
+{
+//@mysql_close($conn);
+$ahkod=$satir['socad'];
+$ahkodum=$satir['asmadi'];
+if(substr($ahkod,-3)=='TSM'){
+$ahno='Sorumlu Tabibi';
+}elseif(substr($ahkod,-3)=='HSM'){
+$ahno='Birim Sorumlusu';
+}elseif(substr($ahkod,-9)=='Hastanesi'){
+$ahno='Kurum Sorumlusu';
+}else{
+$ahno='Nolu Aile Hekimi';
+}
+$drad=$satir['dradi'];
+$asead=$satir['aseadi'];
+$aseunv=$satir['aseunvan'];
+
+
+          
+}
+// Ads styles
+$phpword->addParagraphStyle(
+    'multipleTab',
+    array(
+	'spaceAfter' => 20,
+        'tabs' => array(
+            new \PhpOffice\PhpWord\Style\Tab('left', 1),
+            //new \PhpOffice\PhpWord\Style\Tab('center', 3200),
+            new \PhpOffice\PhpWord\Style\Tab('right', 10000),
+			
+        )
+    )
+);
+$phpword->addParagraphStyle(
+    'leftTab',
+    array('tabs' => array(new \PhpOffice\PhpWord\Style\Tab('right', 0)))
+);
+$phpword->addParagraphStyle(
+    'rightTab',
+    array('tabs' => array(new \PhpOffice\PhpWord\Style\Tab('right', 5000)))
+);
+$phpword->addParagraphStyle(
+    'centerTab',
+    array('tabs' => array(new \PhpOffice\PhpWord\Style\Tab('center', 4680)))
+);
+
+// New portrait section
+//$section = $phpWord->addSection();
+$asead="\t".$asead;
+$drad="\t".$drad;
+$aseunv="\t".$aseunv;
+$ahkodum="\t".$ahkodum.' '.$ahno;
+
+$section->addText('' ,$bilgi);
+$section->addText('' ,$bilgi);
+//$section->addText('' ,$bilgi);
+//$section->addText('' ,$bilgi);
+//$section->addText('' ,$bilgi);
+
+// Add listitem elements
+$section->addText($asead."".$drad,$soru, 'multipleTab');
+$section->addText($aseunv."".$ahkodum,$soru, 'multipleTab');
+
+
 //$textrun3->addFootnote()->addText(htmlspecialchars('Colspan span'));
 //$phpword->save('vendor/phpoffice/phpword/samples/hello.docx', 'Word2007');
 }
