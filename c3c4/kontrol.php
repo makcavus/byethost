@@ -150,7 +150,7 @@ $aseunv=$satir['aseunvan'];
 }
 ?>
 <?php
-echo '<form action="AGE_RAPORU.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
+echo '<form action="test.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 ?>
 <table class="table table-responsive-sm table-sm tableahek">
 <thead class="bg-dark" align="center">
@@ -177,7 +177,7 @@ include('assets/c3c4_sablonlar/gizli_input_kontrol.php');
 echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
 //echo '<p>';
 echo '</form>';
-echo '<form action="AGE_RAPORU.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
+echo '<form action="test.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 echo '<th class="style6" width="42%"align="right" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onClick="deg();"><img src="../images/degistir.PNG"></a></th>';
 echo'&nbsp;&nbsp;&nbsp;&nbsp;';
 echo '<th class="style6" width="8%"align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onClick="git();"><img src="../images/goster.PNG"></a></th>';

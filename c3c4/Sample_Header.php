@@ -4,14 +4,15 @@
 require_once __DIR__ . '/vendor/autoload.php';
 //function trsuz($str){ $str=mb_convert_encoding($str, "utf-8","iso-8859-9");  return $str;   } 
 
-date_default_timezone_set('UTC');
+date_default_timezone_set('Europe/Istanbul');
 
 /**
  * Header file
  */
 use PhpOffice\PhpWord\Autoloader;
 use PhpOffice\PhpWord\Settings;
-
+//\PhpOffice\PhpWord\Settings::setPdfRendererPath($domPdfPath);
+//\PhpOffice\PhpWord\Settings::setPdfRendererName('DomPDF');
 error_reporting(E_ALL);
 define('CLI', (PHP_SAPI == 'cli') ? true : false);
 define('EOL', CLI ? PHP_EOL : '<br />');
