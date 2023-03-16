@@ -81,6 +81,7 @@ function write($phpWord, $filename, $writers)
         if (null !== $extension) {
             $targetFile = __DIR__ . "/results/AGE_RAPORU.{$extension}";
             $phpWord->save($targetFile, $format);
+            $phpWord->save($targetFile,  'Word2007', true);
         } else {
             $result .= ' ... HAYIR!';
         }

@@ -155,7 +155,7 @@ echo '<form action="test.php" method="get" name="gor" target="hoppa" onSubmit="h
 <table class="table table-responsive-sm table-sm tableahek">
 <thead class="bg-dark" align="center">
 <tr>
-<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success" href=# onClick="deg();" style="width: 100px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Değiştir</a></form></th>
+<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success" href=# onClick="deg();" style="width: 100px; margin-bottom: 3px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Değiştir</a></form></th>
 <th class="bg-warning text-center"><input class="btn btn-primary btn-sm mb-1" TYPE="SUBMIT" value="<?php echo $wordbaslik ; ?>" style="width: 100px">
 <th class="bg-primary text-center" width="50%" colspan="3"><h6 class="mb-2" style="color:#FFFF00;"><strong><?php echo $kayitgorbaslik;?></strong></h6></th>
 <th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-light" href=# onClick="listele();" style="width: 100px"><i class="fa fa-list-alt" aria-hidden="true"></i> Listele</a></form></th>	
