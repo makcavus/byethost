@@ -1,17 +1,16 @@
-<table class="table table-responsive-sm table-sm form013kayitustaralar" style="background-color:#CCFFFF">
+<table class="table table-responsive-sm table-sm form013kayitustaralar">
 <thead>
 <tr>
-<td width="100%"  class="border-0" colspan="20"><div align="center"><h5><?php echo $c3c4baslik; ?></h5></div></td>
+<td width="100%"  class="border-0" colspan="20" bgcolor="#CEF6EC"><div align="center"><h5><?php echo $c3c4baslik; ?></h5></div></td>
   </tr>
     <tr>
-    <th  width="30%" align="left" class="style5" bgcolor="#CEF6EC" class="border-0" colspan="10"><?php echo $ageartiskurum; ?></th>
-    <th  width="70%" align="left" class="border-0" colspan="10" class="style5"><?php echo '<font size="3" family="Arial">'.$ilinadi.'-'.$ilceninadi.' '.$kurum.' '.$xtoplam.' '.$hastayla.'</font>' ;?></th>
+    <th  width="30%" align="left" class="border-0" colspan="10" bgcolor="#CEF6EC"><?php echo $ageartiskurum; ?></th>
+    <th  width="70%" align="left" class="border-0" colspan="10" bgcolor="#CEF6EC"><?php echo '<font size="3" family="Arial">'.$ilinadi.'-'.$ilceninadi.' '.$kurum.' '.$xtoplam.' '.$hastayla.'</font>' ;?></th>
   </tr>
   <tr>
-    <th  width="30%" align="left" class="border-0" colspan="10" class="style5" bgcolor="#CEF6EC"><?php echo $ageartistarih; ?></th>
-    <th  width="70%" align="left" class="border-0" colspan="10" class="style5"><?php echo '<font size="3" family="Arial">'.$xaygelentam.'</font>' ;?></th>
+    <th  width="30%" align="left" class="border-0" colspan="10" bgcolor="#CEF6EC"><?php echo $ageartistarih; ?></th>
+    <th  width="70%" align="left" class="border-0" colspan="10" bgcolor="#CEF6EC"><?php echo '<font size="3" family="Arial">'.$xaygelentam.'</font>' ;?></th>
   </tr>
-
   <tr>
     <th  width="30%" align="left" colspan="10" rowspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $verihatasi; ?></th>
     <th  width="10%" align="left" colspan="2" class="border border-primary" bgcolor="orange">Mevcut:</th>

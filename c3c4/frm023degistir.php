@@ -171,7 +171,7 @@ include('assets/c3c4_sablonlar/gizli_input_degistir.php');
   <thead>  
   <tr>
     <th  width="24%" align="center" class="border border-primary" bgcolor="#CEF6EC" colspan="3"><?php echo $duzenleyen; ?></th>
-    <th  width="8%" bgcolor="white" colspan="1" rowspan="11">&nbsp;</th>
+    <th  width="8%" colspan="1" rowspan="11" bgcolor="#CEF6EC">&nbsp;</th>
     <th  width="8%" align="center" class="border border-primary" bgcolor="#CEF6EC" colspan="3">ONAYLAYAN</th>
   </tr>
   <tr>
