@@ -1,10 +1,8 @@
-<script language="JavaScript" src="degistir.js" type="text/javascript">
-</script>
-<script language="JavaScript" src="kaydet.js" type="text/javascript">
-</script>	
 <script type="text/javascript" src="jquery-latest.min.js"></script> 
-    <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
-    <script type="text/javascript" src="assets/js/mask_hightlight.js"></script>
+<script language="JavaScript" src="degistir.js" type="text/javascript"></script>
+<script language="JavaScript" src="kaydet.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
+<script type="text/javascript" src="assets/js/mask_hightlight.js"></script>
 <div id="sonuckay"><form name="girdiekleme" action="javascript:void(0)" method="get">
 <?php
 include('../con_abe.php');
@@ -32,7 +30,7 @@ $xaygelentarihyil=substr($aygelen,0,4);
 $noktatarih= $xaygelentarihgun.'.'.$xaygelentarihay.'.'.$xaygelentarihyil ;
 $resultvyil = @mysqli_query($dbhabe,"select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
 while($sonucum=mysqli_fetch_array($resultvyil)){
-  include('assets/c3c4_sablonlar/c3c4_veri_seti.php');
+  include('assets/c3c4_sablonlar/c3c4_veri_seti_degistir.php');
 }
 include('../con_023.php');
 $iladi=@mysqli_query($dbh,"select * from il where(ilid='$ilim')");
@@ -169,42 +167,43 @@ $aseunv=$satir['aseunvan'];
 }
 include('assets/c3c4_sablonlar/gizli_input_degistir.php');
 ?>
-  
-  
+  <table class="table table-responsive-sm table-sm">
+  <thead>  
   <tr>
-    <th  width="24%" align="center" class="style5" bgcolor="#CEF6EC" colspan="3"><?php echo $duzenleyen; ?></th>
+    <th  width="24%" align="center" class="border border-primary" bgcolor="#CEF6EC" colspan="3"><?php echo $duzenleyen; ?></th>
     <th  width="8%" bgcolor="white" colspan="1" rowspan="11">&nbsp;</th>
-    <th  width="8%" align="center" class="style5" bgcolor="#CEF6EC" colspan="3">ONAYLAYAN</th>
+    <th  width="8%" align="center" class="border border-primary" bgcolor="#CEF6EC" colspan="3">ONAYLAYAN</th>
   </tr>
   <tr>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $duzadbaslik; ?></th>
-    <th  width="16%"align="left" class="style5" bgcolor="#FFFFCC" colspan="2"><input class="style1" name="v173"  type="text" onkeyup="esitmigebedvit();" value="<?php echo $asead ; ?>" size="30" tabindex="173"/>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $duzadbaslik; ?></th>
+    <th  width="16%"align="left" class="border border-primary" bgcolor="#FFFFCC" colspan="2"><input class="form-control" style="font-weight:bold" name="v173"  type="text" onkeyup="esitmigebedvit();" value="<?php echo $asead ; ?>" size="30" tabindex="173"/>
       </th>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $onadbaslik; ?></th>
-    <th  width="16%"align="left" class="style5" bgcolor="#FFFFCC" colspan="2"><input class="style1" name="v176"  type="text" value="<?php echo $drad ; ?>" size="30" tabindex="176"/></th>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $onadbaslik; ?></th>
+    <th  width="16%"align="left" class="border border-primary" bgcolor="#FFFFCC" colspan="2"><input class="form-control" style="font-weight:bold" name="v176"  type="text" value="<?php echo $drad ; ?>" size="30" tabindex="176"/></th>
   </tr>
   <tr>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $duzunbaslik; ?></th>
-    <th  width="16%"align="left" class="style5" bgcolor="#FFFFCC" colspan="2"><input class="style1" name="v174"  type="text" value="<?php echo $aseunv ; ?>" size="30" tabindex="174"/></th>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $onunbaslik; ?></th>
-    <th  width="16%"align="left" class="style5" bgcolor="#FFFFCC" colspan="2"><input class="style1" name="v177"  type="text" value="<?php echo $ahkodum.' '.$ahno ;?>" size="30" tabindex="177"/></th>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $duzunbaslik; ?></th>
+    <th  width="16%"align="left" class="border border-primary" bgcolor="#FFFFCC" colspan="2"><input class="form-control" style="font-weight:bold" name="v174"  type="text" value="<?php echo $aseunv ; ?>" size="30" tabindex="174"/></th>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $onunbaslik; ?></th>
+    <th  width="16%"align="left" class="border border-primary" bgcolor="#FFFFCC" colspan="2"><input class="form-control" style="font-weight:bold" name="v177"  type="text" value="<?php echo $ahkodum.' '.$ahno ;?>" size="30" tabindex="177"/></th>
   </tr>
   <tr>
     <?php
    $a=Date("d/m/Y");
   
    ?>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;Tarih</th>
-    <th  width="16%"align="left" class="style5" bgcolor="#FFFFCC" colspan="2"><input id="masktest" class="style1" name="v175"  type="text" value=<?php echo $a; ?> size="30" tabindex="175"/></th>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;Tarih</th>
-    <th  width="16%"align="left" class="style5" bgcolor="#FFFFCC" colspan="2"><input id="masktest1" class="style1" name="v178"  type="text" value="<?php echo $a;?>" size="30" tabindex="178"/></th>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;Tarih</th>
+    <th  width="16%"align="left" class="border border-primary" bgcolor="#FFFFCC" colspan="2"><input id="masktest" class="form-control" style="font-weight:bold" name="v175"  type="text" value=<?php echo $a; ?> size="30" tabindex="175"/></th>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;Tarih</th>
+    <th  width="16%"align="left" class="border border-primary" bgcolor="#FFFFCC" colspan="2"><input id="masktest1" class="form-control" style="font-weight:bold" name="v178"  type="text" value="<?php echo $a;?>" size="30" tabindex="178"/></th>
   </tr>
   <tr>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $duzimzabaslik; ?></th>
-    <th  width="16%"align="center" class="style5" bgcolor="#FFFFCC" colspan="2">&nbsp;</th>
-    <th  width="8%" align="left" class="style5" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $onimzabaslik; ?></th>
-    <th  width="16%"align="center" class="style5" bgcolor="#FFFFCC" colspan="2">&nbsp;</th>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $duzimzabaslik; ?></th>
+    <th  width="16%"align="center" class="border border-primary" bgcolor="#FFFFCC" colspan="2">&nbsp;</th>
+    <th  width="8%" align="left" class="border border-primary" bgcolor="#CEF6EC" colspan="1">&nbsp;<?php echo $onimzabaslik; ?></th>
+    <th  width="16%"align="center" class="border border-primary" bgcolor="#FFFFCC" colspan="2">&nbsp;</th>
 	</tr>
+</thead>
 </table>
   </form>
 </body>

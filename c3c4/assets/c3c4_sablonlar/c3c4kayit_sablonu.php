@@ -175,7 +175,7 @@
 	<th  width="100%" align="center" bordercolor="black" colspan="20" class="border border-primary text-center" bgcolor="#CEF6EC"><?php echo $gaitatestbaslik; ?></th>
   </tr>
   <tr>
-  <th  width="10%" align="left"  colspan="8" class="border border-primary align-middle" bgcolor="#CEF6EC">Tahlilin Cinsi </th>
+  <th  width="13%" align="left"  colspan="8" class="border border-primary align-middle" bgcolor="#CEF6EC">Tahlilin Cinsi </th>
   <th  width="10%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC"><?php echo $gaitakultur; ?></th>
   <th  width="10%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC"><?php echo $gaitaparazit; ?></th>
   <th  width="10%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC"><?php echo $gaitaviral; ?></th>
@@ -183,29 +183,29 @@
   <tr>
   <th  width="5%" align="left"  colspan="8" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $sayi; ?></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v26" id="v26" type="text" value="<?php echo $verim7; ?>" style="font-weight:bold" size="8" tabindex="39"/></th>
+    <input class="form-control text-center" align="center" name="v26" id="v26" type="text" value="<?php echo $verim7; ?>" style="font-weight:bold"  tabindex="39"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v27" id="v27" type="text" value="<?php echo $verim13; ?>" style="font-weight:bold" size="8" tabindex="40" onchange="topla4();"/></th>
+    <input class="form-control text-center" align="center" name="v27" id="v27" type="text" value="<?php echo $verim13; ?>" style="font-weight:bold"  tabindex="40" onchange="topla4();"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v28" id="v28" type="text" value="<?php echo $verim16; ?>" style="font-weight:bold" size="8" tabindex="41" onchange="topla5();"/></th>
+    <input class="form-control text-center" align="center" name="v28" id="v28" type="text" value="<?php echo $verim16; ?>" style="font-weight:bold"  tabindex="41" onchange="topla5();"/></th>
   </tr>
   <tr>
   <th  width="5%" align="left"  colspan="8" class="border border-primary align-middle" bgcolor="#CEF6EC">Negatif</th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v29" id="v29" type="text" value="0" style="font-weight:bold" size="8" tabindex="42" onchange="topla9();"/></th>
+    <input class="form-control text-center" align="center" name="v29" id="v29" type="text" value="0" style="font-weight:bold"  tabindex="42" onchange="topla9();"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v30" id="v30" type="text" value="<?php echo $verim13; ?>" style="font-weight:bold" size="8" tabindex="43" onchange="topla7();"/></th>
+    <input class="form-control text-center" align="center" name="v30" id="v30" type="text" value="<?php echo $verim13; ?>" style="font-weight:bold"  tabindex="43" onchange="topla7();"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v31" id="v31" type="text" value="<?php echo $verim16; ?>" style="font-weight:bold" size="8" tabindex="44" onchange="topla8();"/></th>
+    <input class="form-control text-center" align="center" name="v31" id="v31" type="text" value="<?php echo $verim16; ?>" style="font-weight:bold"  tabindex="44" onchange="topla8();"/></th>
   </tr>
   <tr>
   <th  width="5%" align="left"  colspan="8" class="border border-primary align-middle" bgcolor="#CEF6EC">Pozitif</th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v32" id="v32" type="text" value="0" style="font-weight:bold" size="8" tabindex="45" onchange="topla6();"/></th>
+    <input class="form-control text-center" align="center" name="v32" id="v32" type="text" value="0" style="font-weight:bold"  tabindex="45" onchange="topla6();"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v33" id="v33" type="text" value="0" style="font-weight:bold" size="8" tabindex="46" readonly="true"/></th>
+    <input class="form-control text-center" align="center" name="v33" id="v33" type="text" value="0" style="font-weight:bold"  tabindex="46" readonly="true"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v34" id="v34" type="text" value="0" style="font-weight:bold" size="8" tabindex="47" readonly="true"/></th>
+    <input class="form-control text-center" align="center" name="v34" id="v34" type="text" value="0" style="font-weight:bold"  tabindex="47" readonly="true"/></th>
   </tr>
 </thead>
   </table>  
@@ -264,7 +264,7 @@ return true;
 <th  width="100%" align="center" bordercolor="black" colspan="20" class="border border-primary text-center" bgcolor="#CEF6EC"><?php echo $degraporbaslik; ?></th>  
 </tr>
 <tr>
-    <th  width="30%" align="left"colspan="10" rowspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $sinyalturu; ?></th>
+    <th  width="30%" align="left"colspan="9" rowspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $sinyalturu; ?></th>
 	<th  width="10%" align="left"colspan="3" class="border border-primary align-middle" bgcolor="orange">C3 Sinyali</th>
     <th  width="10%" align="left"  colspan="2" class="border border-primary align-middle"><input class="form-control" type="radio" name="sinyalsec" id="sinyalsecyes" value="<?php $ilcemiz="İlçesi"; $tarihinde="tarihinde"; $bildirilen="nden bildirilen"; $vaka="A09,R11,K52 ICD-10 kodu ile teşhis almış"; $meydan="vakadan dolayı  meydana gelen"; $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir."; echo $noktatarih.' '.$tarihinde.' '.$ilceninadine.' '.$ilcemiz.' '.$kurum.''.$bildirilen.' '.$vaka.' '.$toplamvaka.' '.$meydan.' '.$sinyaltur; ?>" checked="checked" onclick="sinyalmev(this.value);" tabindex="53"/></th>
     <th  width="10%" align="right"colspan="2" class="border border-primary align-middle" bgcolor="orange">C4 Sinyali</th>
@@ -276,13 +276,13 @@ return true;
 	<th  width="60%" align="left"  colspan="8" class="border border-primary" bgcolor="#CEF6EC"><textarea class="form-control"  style="font-weight:bold" align="left" name="v38" id="v38"  cols="108" rows="3" tabindex="55"><?php $ilcemiz="İlçesi"; $tarihinde="tarihinde"; $bildirilen="nden bildirilen"; $vaka="A09,R11,K52 ICD-10 kodu ile teşhis almış"; $meydan="vakadan dolayı  meydana gelen"; $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir."; echo $noktatarih.' '.$tarihinde.' '.$ilceninadine.' '.$ilcemiz.' '.$kurum.''.$bildirilen.' '.$vaka.' '.$toplamvaka.' '.$meydan.' '.$sinyaltur; ?></textarea></th>
   </tr>
 <tr>
-    <th  width="30%" align="left"  colspan="10" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $yabanciuyruk; ?></th>
-	<th  width="6%" align="left"  colspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $sayisi; ?></th>
-	<th  width="6%" align="left"  colspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v39" id="v39" type="text" value="0" style="font-weight:bold" size="5" tabindex="56" onchange="yabuyr();"/></th>
-	<th  width="8%" align="left"  colspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $aciklama; ?></th>
-	<th  width="50%" align="left"  colspan="4" class="border border-primary align-middle" bgcolor="#CEF6EC">
-    <input class="form-control" style="font-weight:bold" align="left" name="v40" id="v40" type="text" value="<?php echo $yabanciuyrukdurumu; ?>" size="73%" tabindex="60"/></th>
+    <th  width="10%" align="left"  colspan="9" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $yabanciuyruk; ?></th>
+	<th  width="10%" align="left"  colspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $sayisi; ?></th>
+	<th  width="10%" align="left"  colspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC">
+    <input class="form-control text-center" align="center" name="v39" id="v39" type="text" value="0" style="font-weight:bold" tabindex="56" onchange="yabuyr();"/></th>
+	<th  width="10%" align="left"  colspan="2" class="border border-primary align-middle" bgcolor="#CEF6EC"><?php echo $aciklama; ?></th>
+	<th  width="30%" align="left"  colspan="5" class="border border-primary align-middle" bgcolor="#CEF6EC">
+    <input class="form-control" style="font-weight:bold" align="left" name="v40" id="v40" type="text" value="<?php echo $yabanciuyrukdurumu; ?>" tabindex="60"/></th>
     </tr>	
 </thead>
 </table>

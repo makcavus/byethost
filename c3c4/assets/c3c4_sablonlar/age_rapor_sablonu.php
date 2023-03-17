@@ -11,14 +11,17 @@ if($verim26==0 and $verim27==0 and $verim28==0){
 $kultur="";
 $hepsifir="Gaita tahlili yapılmamıştır."; 
 }else if($verim26==0 and $verim29==0){
+  $hepsifir="";
 $kultur="";
 }else if($verim26>=1 and $verim32==0){
+  $hepsifir="";
 $gkdurum="gaita kültürü yapılmıştır.Sonucu henüz belli değildir.";
 $kultur=$verim26.' '.$gkdurum ;
 }else if($verim26>=1 and $verim32>=1){
+  $hepsifir="";
 $gkpozcik="kültür sonucu pozitif çıkmıştır.";
 $gkdurum="gaita kültürü yapılmıştır.";
-$kultur="$verim26.' '.$gkdurum.''.$verim32.' '.$gkpozcik ";
+$kultur=$verim26.' '.$gkdurum.' '.$verim32.' '.$gkpozcik;
 }
 if($verim27==0 and $verim30==0){
 $parazit="";
