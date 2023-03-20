@@ -99,6 +99,13 @@ $ocakyazi=$_GET['selectoc'];
 $resultvyil = @mysqli_query($dbhabe,"select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vayadi='$aygelen')") ;
 while($sonucum=mysqli_fetch_array($resultvyil)){
 include('assets/c3c4_sablonlar/c3c4_veri_seti.php');
+$sonuc = strpos($verim38,"C3");
+if ($sonuc === false)
+    {
+$sinyaltur="C4";
+    }else{
+      $sinyaltur="C3";
+            }
 }
 $iladi=@mysqli_query($dbh,"select * from il where(ilid='$ilim')");
 while($ilsonucum=mysqli_fetch_array($iladi)){
@@ -116,6 +123,24 @@ $btarih=mysqli_query($dbhabe,"SELECT date_format(v178, '%d.%m.%Y')  AS yeni_tari
 while($ontarih=mysqli_fetch_array($btarih)){
 $otarih=$ontarih['yeni_tarih'];
 }
+$xresultveri = @mysqli_query($dbhabe,"select sum(v1+v2) as a09, sum(v3+v4) as r11, sum(v5+v6) as k52 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
+while($xsonucumveri=mysqli_fetch_array($xresultveri)){ 
+$xverim1=$xsonucumveri['a09'];
+$xverim2=$xsonucumveri['r11'];
+$xverim3=$xsonucumveri['k52'];
+$xtoplam=$xverim1+$xverim2+$xverim3;  
+}	
+	
+	$tresultveri = @mysqli_query($dbh,"select sum(v1+v2) as a09, sum(v3+v4) as r11, sum(v5+v6) as k52 from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
+while($tsonucumveri=mysqli_fetch_array($tresultveri)){ 
+$tverim1=$tsonucumveri['a09'];
+$tverim2=$tsonucumveri['r11'];
+$tverim3=$tsonucumveri['k52'];
+$toplam=$tverim1+$tverim2+$tverim3;  
+}
+$parantezac="(";
+$hastayla="hasta ile";
+$sinyali="sinyali)";
  if($ilcegelen=="İlçe Seçiniz"){
 $ilkod=substr(trim($socadi),0,2);
 }elseif($ocgelen=="Aile Hekimini Seçiniz"){
@@ -153,11 +178,11 @@ $aseunv=$satir['aseunvan'];
 echo '<form action="test.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 ?>
 <table class="table table-responsive-sm table-sm tableahek">
-<thead class="bg-dark" align="center">
+<thead>
 <tr>
 <th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success" href=# onClick="deg();" style="width: 100px; margin-bottom: 3px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Değiştir</a></form></th>
 <th class="bg-warning text-center"><input class="btn btn-primary btn-sm mb-1" TYPE="SUBMIT" value="<?php echo $wordbaslik ; ?>" style="width: 100px">
-<th class="bg-primary text-center" width="50%" colspan="3"><h6 class="mb-2" style="color:#FFFF00;"><strong><?php echo $kayitgorbaslik;?></strong></h6></th>
+<th class="bg-primary text-center" colspan="3"><h6 class="mb-2" style="color:#FFFF00;"><strong><?php echo $kayitgorbaslik;?></strong></h6></th>
 <th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-light" href=# onClick="listele();" style="width: 100px"><i class="fa fa-list-alt" aria-hidden="true"></i> Listele</a></form></th>	
 <th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 100px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form></th>
 </tr>
@@ -166,35 +191,26 @@ echo '<form action="test.php" method="get" name="gor" target="hoppa" onSubmit="h
 	<?php
   include('assets/c3c4_sablonlar/age_rapor_sablonu.php');
 include('assets/c3c4_sablonlar/gizli_input_kontrol.php');
-
-
 ?>
 
   
     
 </form>
 <?php
-echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
-//echo '<p>';
-echo '</form>';
 echo '<form action="test.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
-echo '<th class="style6" width="42%"align="right" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onClick="deg();"><img src="../images/degistir.PNG"></a></th>';
-echo'&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<th class="style6" width="8%"align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onClick="git();"><img src="../images/goster.PNG"></a></th>';
-echo'&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<th class="style6" width="8%"align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onClick="onay();"><img src="../images/sil.PNG"></a></th>';
-echo'&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$countryId.'" />';
-echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$stateId.'" />';
-echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocak.'" />';
-echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ay.'" />';
 ?>
-<th class="style6" width="42%"align="left" bordercolor="#FFCC00" bgcolor="#FFCC00"><input TYPE="SUBMIT" value="<?php echo $wordbaslik; ?>"  style="color:#000000;font-weight:bold;background:#66FF00" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'"/><div id="sonuckay"><form name="girdiekleme" action="javascript:void(0)" method="get"></th>
+<table class="table table-responsive-sm table-sm form013kayitustaralar" style="background-color:#CCFFFF">
+<thead>
+<tr>
+<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success" href=# onClick="deg();" style="width: 100px; margin-bottom: 3px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Değiştir</a></form></th>
+<th class="bg-warning text-center"><input class="btn btn-primary btn-sm mb-1" TYPE="SUBMIT" value="<?php echo $wordbaslik ; ?>" style="width: 100px">
+<th class="bg-primary text-center" colspan="3"><h6 class="mb-2" style="color:#FFFF00;"><strong><?php echo $kayitgorbaslik;?></strong></h6></th>
+<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-light" href=# onClick="listele();" style="width: 100px"><i class="fa fa-list-alt" aria-hidden="true"></i> Listele</a></form></th>	
+<th class="bg-warning text-center"><form class="form-control-sm" action="#"><a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 100px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form></th>
+</tr>
+</thead>
 </table>
 <?php
-//echo '<BUTTON TYPE=SUBMIT><IMG SRC="images/yazdir.png"></BUTTON>';
-echo '</form>';
 }
 $kachast="select * from ocak where(ilinad='$countryId' and ilce='$stateId' and dradi like '%Dr.%' and asmadi like '%Hastane%')";
 $hastsorgula=mysqli_query($dbh,$kachast);
@@ -214,7 +230,7 @@ $boshast="Henüz Hastanelere ait veri girilmemiştir.";
 
 //echo "<br>";
 ?>
-<table width="100%" class="table table-responsive-sm table-sm table-bordered mt-2" style="background-color:#CCFFFF">
+<table width="100%" class="table table-responsive-sm table-sm table-bordered mt-1" style="background-color:#CCFFFF">
 <thead>
 <tr>
 <th width="100%" class="text-center text-danger"><h5><span class="badge badge-pill badge-danger"><?php echo $boshast;?></span></h5></th>
@@ -236,7 +252,7 @@ $bhast="Hastaneye ait veriler girilmemiştir.";
 $tamamhast="Bütün Hastanelere ait veri girişi yapılmıştır.";
 //echo "<br>";
 ?>
-<table width="100%" class="table table-responsive-sm table-sm table-bordered mt-2" style="background-color:#CCFFFF">
+<table width="100%" class="table table-responsive-sm table-sm table-bordered" style="background-color:#CCFFFF">
 <thead>
 <tr>
 <th width="100%" class="text-center text-danger" colspan="2"><h5><span class="badge badge-pill badge-danger mt-2"><?php echo $tamamhast;?></span></h5></th>
@@ -265,7 +281,7 @@ $bos="Henüz Aile Hekimlerine ait veri girilmemiştir.";
 
 //echo "<br>";
 ?>
-<table width="100%" class="table table-responsive-sm table-sm table-bordered mt-2" style="background-color:#CCFFFF">
+<table width="100%" class="table table-responsive-sm table-sm table-bordered" style="background-color:#CCFFFF">
   <thead>
 <th width="100%" class="text-center text-danger" colspan="2"><h5><span class="badge badge-pill badge-danger"><?php echo "$bos";?></span></h5></th>
 </tr>
@@ -315,7 +331,7 @@ $eksikdradi=$eahsonucum['dradi'];
 $tamam="Bütün Aile Hekimliği Birimlerine ait veri girişi yapılmıştır.";
 //echo "<br>";
 ?>
-<table width="100%" class="table table-responsive-sm table-sm table-bordered mt-2" style="background-color:#CCFFFF">
+<table width="100%" class="table table-responsive-sm table-sm table-bordered" style="background-color:#CCFFFF">
   <thead>
 <tr>
 <th width="100%"  class="text-center text-danger" colspan="2"><h5><span class="badge badge-pill badge-danger"><?php echo $tamam;?></span></h5></th>
@@ -327,8 +343,3 @@ $tamam="Bütün Aile Hekimliği Birimlerine ait veri girişi yapılmıştır.";
 include('assets/c3c4_sablonlar/silme_onay_modal.php');
 @mysqli_close($dbhabe) ;
 ?>
-<script src="../bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
-    <script src="../bootstrap-4/popper.js"></script>
-	<script src="../bootstrap-4/js/bootstrap.min.js"></script>
-</body>
-</html>

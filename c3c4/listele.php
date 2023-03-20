@@ -34,87 +34,24 @@ $ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$countryId' and il
 while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 $ilceninadi=$ilcesonucum['ilcead'];
 }
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-<style type="text/css">
-<!--
-.style1 {font-family: Arial, Helvetica, sans-serif;
-border-style: none;
-text-align: center; 
-    font-size : 13px;
-    color : #000000;
-border-top-width: 1px;
-	border-bottom-width: 1px;
-border-right-width: 1px;
-border-left-width: 1px;	
-	}
-.style3 {font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-size: 13px;
-	font-style:normal;}
-.style4 {color: #000000}
-.style5 {
-	font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-size: 13px;
-	font-style:normal;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-border-right-width: 1px;
-border-left-width: 1px;
-border-top-style: solid;
-border-right-style: solid;
-border-bottom-style: solid;
-border-left-style: solid;
-border-top-color: #0066CC;
-border-right-color: #0066CC;
-border-left-color: #0066CC;
-border-bottom-color: #0066CC;
-}
-.style6 {
-font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-size: 13px;
-	font-style:normal;	
-	border-style:none;
-	
-}
--->
-</style>
-<script language="JavaScript" src="degistir.js" type="text/javascript">
-</script>	
-</head>
-
-<body>
-<?php 
-echo '<form action="PHPWord/samples/Listeleword.php" method="get" name="gor">' ;
-?>
-<br>
-<table class="cizgi" align="center" cellpadding="0" cellspacing="0" width="100%">
-<th class="style6" width="12%"align="left" bordercolor="#FFCC00" bgcolor="#FFCC00">&nbsp;</th>
-
-<?php
+echo '<form action="listeleword.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$countryId.'" />';
 echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$stateId.'" />';
 echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocak.'" />';
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ay.'" />';
 ?>
-<th class="style6" width="12%" align="left" bordercolor="#FFCC00" bgcolor="#FFCC00"><input TYPE="SUBMIT" value="<?php echo $wordbaslik; ?>"  style="color:#000000;font-weight:bold;background:#66FF00" onMouseOver="this.style.color='orange'" onMouseOut="this.style.color='black'"/>
-</th> 
-<?
-echo '</form>';
-?>
-  <th class="style6" width="50%" align="center" bordercolor="#FFCC00" bgcolor="blue"><font size="4" color="#FFFFCC"><?php echo $kaylisbaslik;?></font></th>
-	<th class="style6" width="13%"align="right" bordercolor="yellow" bgcolor="#FFCC00" colspan="5"><a href=# onClick="kontrol();"><img src="images/iptal.PNG"></a></th>	
-	<th class="style6" width="12%"align="right" bordercolor="#FFCC00" bgcolor="#FFCC00">&nbsp;</th>
+<table class="table table-responsive-sm table-sm form013kayitustaralar" style="background-color:#CCFFFF;margin-top:-5px;">
+<thead>
+	<tr>
+<th width="25%" class="bg-warning text-center"><input class="btn btn-primary btn-sm" TYPE="SUBMIT" value="<?php echo $wordbaslik ; ?>" style="width: 100px">
+  <th class="bg-primary text-center" width="40%" colspan="3"><h6 style="color:#FFFF00;"><strong><?php echo $kaylisbaslik;?></strong></h6></th>
+  <th width="25%" class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-success" style="width:100px" href=# onclick="kontrol();" title="İptal">
+  <i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a></th>
+</tr>
+</thead>
 </table>
-<br>
+</form>
 <?php 
 include("../con_abe.php");
 $ilgelen=$_GET['selectil']; 
@@ -145,11 +82,29 @@ echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspac
 echo '</form>';*/
 ?>
 
-
+<table class="table table-responsive-sm table-bordered table-sm form013kayitustaralar" style="background-color:#CCFFFF;margin-top:-8px;">
+<thead>
+	<tr>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">Tarih</th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $il; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $ilce; ?></th>
+	<th width="15%" align="center" bordercolor="white" class="border-dark text-center align-middle">Kurum</th>
+	<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle">Sinyal Türü</th>
+	<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $topabe; ?></th>
+	<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $hastabe; ?></th>
+	<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $esasabe; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $verihat; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $mukkay; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $kumvar; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $topvar; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $aynaile; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">Meslek Grubu Belli mi ?</th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $yattedgor; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $duraghasta; ?></th>
+	<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle"><?php echo $munvakavar; ?></th>
+</tr>
+<tbody>	
 <?php
-echo '<table class="cizgi" align="center" cellpadding="0" cellspacing="0" width="100%">';
-echo '<th width="6%" align="center" bordercolor="white" class="style5">Tarih:</th><th width="6%" align="center" bordercolor="white" class="style5">'.$il.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$ilce.'</th><th width="15%" align="center" bordercolor="white" class="style5">Kurum</th><th width="4%" align="center" bordercolor="white" class="style5">Sinyal Türü</th><th width="4%" align="center" bordercolor="white" class="style5">'.$topabe.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$hastabe.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$esasabe.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$verihat.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$mukkay.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$kumvar.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$topvar.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$aynaile.'</th><th width="6%" align="center" bordercolor="white" class="style5">Meslek Grubu Belli mi ?</th><th width="6%" align="center" bordercolor="white" class="style5">'.$yattedgor.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$duraghasta.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$munvakavar.'</th>';
-echo '</table>';
 $resultvyil = @mysqli_query($dbhabe,"select * from veriage where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vyiladi='$xaygelentarihyil') order by vayadi desc") ;
 while($sonucum=mysqli_fetch_array($resultvyil)){
 $ilim=$sonucum['ilidi'];
@@ -377,7 +332,11 @@ if($verim105==0){$verim105=""; }else{$verim105=$verim105;}
 if($verim106==0){$verim106=""; }else{$verim106=$verim106;}
 if($verim107==0){$verim107=""; }else{$verim107=$verim107;}
 if($verim108==0){$verim108=""; }else{$verim108=$verim108;}
-
+$sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad='$socadi')order by dradi asc";
+  $sonucak=mysqli_query($dbh,$sql);
+    while($satir=mysqli_fetch_array($sonucak))
+{
+$xasmninadine=$satir['asmadi'];
 $xaygelentam=$ayim; 
 $xaygelentarih=substr($xaygelentam,0,10); 
 $xaygelentarihgun=substr($xaygelentarih,8,2);
@@ -446,14 +405,29 @@ if(strstr($verim38, "C3 Sinyali"))
  $sinyal="C4";
 }
 $ygtoplam=$verim4+$verim5+$verim6+$verim7+$verim8+$verim9+$verim10+$verim11+$verim12+$verim13+$verim14+$verim15+$verim16+$verim17+$verim18+$verim19+$verim20+$verim21;
-echo '<table class="cizgi" align="center" cellpadding="0" cellspacing="0" width="100%">';
-echo '<th width="6%" align="center" bordercolor="white" class="style5">'.$noktatarih.'</th><th width="6%" align="left" bordercolor="white" class="style5">'.$ilinadi.'</th><th width="6%" align="left" bordercolor="white" class="style5">'.$ilceninadi.'</th><th width="15%" align="left" bordercolor="white" class="style5">'.$socadi.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$sinyal.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$verim110.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$verim111.'</th><th width="4%" align="center" bordercolor="white" class="style5">'.$ygtoplam.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$vhata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$mhata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$khata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$tyhata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$aahata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$mghata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$yhhata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$dahata.'</th><th width="6%" align="center" bordercolor="white" class="style5">'.$mvhata.'</th>';
-echo '</table>';
+echo '<tr>';
+echo '<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$noktatarih.'</th>
+<th width="6%" align="left" bordercolor="white" class="border-dark text-center align-middle">'.$ilinadi.'</th>
+<th width="6%" align="left" bordercolor="white" class="border-dark text-center align-middle">'.$ilceninadi.'</th>
+<th width="15%" align="left" bordercolor="white" class="border-dark text-left align-middle">'.$xasmninadine.'</th>
+<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$sinyal.'</th>
+<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$verim110.'</th>
+<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$verim111.'</th>
+<th width="4%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$ygtoplam.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$vhata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$mhata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$khata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$tyhata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$aahata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$mghata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$yhhata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$dahata.'</th>
+<th width="6%" align="center" bordercolor="white" class="border-dark text-center align-middle">'.$mvhata.'</th>';
+echo '</tr>';
 }
-
-
+}
 @mysqli_close($dbhabe) ;
 ?>
-</body>
+</tbody>
+</thead>
 </form>
-</html>

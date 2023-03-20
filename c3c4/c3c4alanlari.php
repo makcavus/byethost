@@ -143,6 +143,7 @@ $klinikvaka="Münferit vakalar olduğu görüşü bildirilmiştir.";
 $sunumune="Son 2 Aylık Su Numune ve Bakiye Klor Sonuçları:";
 $sunumunesonuc="Su numune sonuçları Çevre Sağlığı Birimimiz tarafından Erken Uyarı Cevap Birimine gönderilmektedir.";
 $degraporbaslik="DEĞERLENDİRME RAPORU BÖLÜMÜ";
+$analizraporbaslik="VERİ ANALİZ BÖLÜMÜ";
 $sinyalturu="Sinyal Türü:";
 $yabanciuyruk="Yabancı Uyruklu Hasta Durumu:";
 $yabanciuyrukdurumu="Yabancı uyruklu hasta bulunmamaktadır.";

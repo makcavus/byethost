@@ -369,7 +369,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v41" id="v41" tabindex="61">
-    <option value=""><?php echo $verim41;?></option>
+    <option value="<?php echo $verim41;?>"><?php echo $verim41;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -378,7 +378,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v43" id="v43" tabindex="63">
-    <option value=""><?php echo $verim43;?></option>
+    <option value="<?php echo $verim43;?>"><?php echo $verim43;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -389,7 +389,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v45" id="v45" tabindex="65">
-    <option value=""><?php echo $verim45;?></option>
+    <option value="<?php echo $verim45;?>"><?php echo $verim45;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -398,7 +398,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v47" id="v47" tabindex="67">
-    <option value=""><?php echo $verim47;?></option>
+    <option value="<?php echo $verim47;?>"><?php echo $verim47;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -409,7 +409,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v49" id="v49" tabindex="69">
-    <option value=""><?php echo $verim49;?></option>
+    <option value="<?php echo $verim49;?>"><?php echo $verim49;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -418,7 +418,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v51" id="v51" tabindex="71">
-    <option value=""><?php echo $verim51;?></option>
+    <option value="<?php echo $verim51;?>"><?php echo $verim51;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -429,7 +429,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v53" id="v53" tabindex="73">
-    <option value=""><?php echo $verim53;?></option>
+    <option value="<?php echo $verim53;?>"><?php echo $verim53;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -438,7 +438,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v55" id="v55" tabindex="75">
-    <option value=""><?php echo $verim55;?></option>
+    <option value="<?php echo $verim55;?>"><?php echo $verim55;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -449,7 +449,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v57" id="v57" tabindex="77">
-    <option value=""><?php echo $verim57;?></option>
+    <option value="<?php echo $verim57;?>"><?php echo $verim57;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -458,7 +458,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v59" id="v59" tabindex="79">
-    <option value=""><?php echo $verim59;?></option>
+    <option value="<?php echo $verim59;?>"><?php echo $verim59;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -469,7 +469,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v61" id="v61" tabindex="81">
-    <option value=""><?php echo $verim61;?></option>
+    <option value="<?php echo $verim61;?>"><?php echo $verim61;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -478,7 +478,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v63" id="v63" tabindex="83">
-    <option value=""><?php echo $verim63;?></option>
+    <option value="<?php echo $verim63;?>"><?php echo $verim63;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -489,7 +489,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v65" id="v65" tabindex="85">
-    <option value=""><?php echo $verim65;?></option>
+    <option value="<?php echo $verim65;?>"><?php echo $verim65;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -498,7 +498,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v67" id="v67" tabindex="87">
-    <option value=""><?php echo $verim67;?></option>
+    <option value="<?php echo $verim67;?>"><?php echo $verim67;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -509,7 +509,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v69" id="v69" tabindex="89">
-    <option value=""><?php echo $verim69;?></option>
+    <option value="<?php echo $verim69;?>"><?php echo $verim69;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -518,7 +518,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v71" id="v71" tabindex="91">
-    <option value=""><?php echo $verim71;?></option>
+    <option value="<?php echo $verim71;?>"><?php echo $verim71;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -529,7 +529,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v73" id="v73" tabindex="93">
-    <option value=""><?php echo $verim73;?></option>
+    <option value="<?php echo $verim73;?>"><?php echo $verim73;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -538,7 +538,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v75" id="v75" tabindex="95">
-    <option value=""><?php echo $verim75;?></option>
+    <option value="<?php echo $verim75;?>"><?php echo $verim75;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -549,7 +549,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v77" id="v77" tabindex="97">
-    <option value=""><?php echo $verim77;?></option>
+    <option value="<?php echo $verim77;?>"><?php echo $verim77;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>
@@ -558,7 +558,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <?php $resultmah = @mysqli_query($dbhabe,"select mahid,mahadi from mahalleler order by mahadi asc"); ?>	 
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v79" id="v79" tabindex="99">
-    <option value=""><?php echo $verim79;?></option>
+    <option value="<?php echo $verim79;?>"><?php echo $verim79;?></option>
     <?php while($rowmah=mysqli_fetch_array($resultmah)) { ?>
       <option value="<?=$rowmah['mahadi']?>"><?=$rowmah['mahadi']?></option>
       <?php } ?></select></th>	
@@ -590,7 +590,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v82" id="v82" tabindex="102">
-    <option value=""><?php echo $verim82;?></option>
+    <option value="<?php echo $verim82;?>"><?php echo $verim82;?></option>
     <?php while($rowpol=mysqli_fetch_array($resultpol)) { ?>
       <option value="<?=$rowpol['poladi']?>"><?=$rowpol['poladi']?></option>
       <?php } ?></select></th>
@@ -605,7 +605,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v86" id="v86" tabindex="106">
-    <option value=""><?php echo $verim86;?></option>
+    <option value="<?php echo $verim86;?>"><?php echo $verim86;?></option>
     <?php while($rowpol=mysqli_fetch_array($resultpol)) { ?>
       <option value="<?=$rowpol['poladi']?>"><?=$rowpol['poladi']?></option>
       <?php } ?></select></th>
@@ -620,7 +620,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v90" id="v90" tabindex="110">
-    <option value=""><?php echo $verim90;?></option>
+    <option value="<?php echo $verim90;?>"><?php echo $verim90;?></option>
     <?php while($rowpol=mysqli_fetch_array($resultpol)) { ?>
       <option value="<?=$rowpol['poladi']?>"><?=$rowpol['poladi']?></option>
       <?php } ?></select></th>
@@ -635,7 +635,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v94" id="v94" tabindex="114">
-    <option value=""><?php echo $verim94;?></option>
+    <option value="<?php echo $verim94;?>"><?php echo $verim94;?></option>
     <?php while($rowpol=mysqli_fetch_array($resultpol)) { ?>
       <option value="<?=$rowpol['poladi']?>"><?=$rowpol['poladi']?></option>
       <?php } ?></select></th>
@@ -650,7 +650,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v98" id="v98" tabindex="118">
-    <option value=""><?php echo $verim98;?></option>
+    <option value="<?php echo $verim98;?>"><?php echo $verim98;?></option>
     <?php while($rowpol=mysqli_fetch_array($resultpol)) { ?>
       <option value="<?=$rowpol['poladi']?>"><?=$rowpol['poladi']?></option>
       <?php } ?></select></th>
@@ -665,7 +665,7 @@ $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir.";
 <tr>  
 <th width="25%" align="center"  colspan="5" class="border border-primary" bgcolor="#CEF6EC">
   <select class="form-control" name="v102" id="v102" tabindex="122">
-    <option value=""><?php echo $verim102;?></option>
+    <option value="<?php echo $verim102;?>"><?php echo $verim102;?></option>
     <?php while($rowpol=mysqli_fetch_array($resultpol)) { ?>
       <option value="<?=$rowpol['poladi']?>"><?=$rowpol['poladi']?></option>
       <?php } ?></select></th>
@@ -708,7 +708,7 @@ document.getElementById("v109").readOnly = false;
   <thead>
 <tr>
 <th  width="30%" align="left"  colspan="8" class="border border-primary align-middle" bgcolor="#CEF6EC"><label id="grafiksec" for="grafik"><?php echo $grafik;?></label>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="grafik" id="grafik" value=""
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="grafik" id="grafik" value="<?php echo $verim109;?>"
 <?php if($verim109=="Akut Bağırsak Enfeksiyonları vakalarının ilçe ve hastane bazında son bir yıllık seyrine ait grafik ektedir."){?> checked="checked" <?php } ?>
 onclick="grafikmev(this.value);"/></th>
 <th  width="30%" align="left"  colspan="12" class="border border-primary" bgcolor="#CEF6EC">
