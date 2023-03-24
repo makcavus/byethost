@@ -96,7 +96,7 @@ $muh1=str_replace("\n","<br />",$muh1);
 
 if($sonucum1['dosya']!=NULL){
 
-$link1='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum1['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi1.'</font></a>';
+$link1='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum1['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi1.'</font></a>';
 
 }else{
 
@@ -285,7 +285,7 @@ if($sonucum2['dosya']!=NULL){
 
 
 
-$link2='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum2['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi2.'</font></a>';
+$link2='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum2['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi2.'</font></a>';
 
 }else{
 
@@ -512,7 +512,7 @@ $muh3=str_replace("\n","<br />",$muh3);
 
 if($sonucum3['dosya']!=NULL){
 
-$link3='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum3['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi3.'</font></a>';
+$link3='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum3['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi3.'</font></a>';
 
 }else{
 
@@ -744,7 +744,7 @@ if($sonucum4['dosya']!=NULL){
 
 
 
-$link4='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum4['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi4.'</font></a>';
+$link4='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum4['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi4.'</font></a>';
 
 }else{
 
@@ -982,7 +982,7 @@ if($sonucum5['dosya']!=NULL){
 
 
 
-$link5='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum5['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi5.'</font></a>';
+$link5='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum5['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi5.'</font></a>';
 
 }else{
 
@@ -1220,7 +1220,7 @@ if($sonucum6['dosya']!=NULL){
 
 
 
-$link6='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum6['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi6.'</font></a>';
+$link6='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum6['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi6.'</font></a>';
 
 }else{
 
@@ -1458,7 +1458,7 @@ if($sonucum7['dosya']!=NULL){
 
 
 
-$link7='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum7['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi7.'</font></a>';
+$link7='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum7['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi7.'</font></a>';
 
 }else{
 
@@ -1696,7 +1696,7 @@ if($sonucum8['dosya']!=NULL){
 
 
 
-$link8='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum8['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi8.'</font></a>';
+$link8='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum8['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi8.'</font></a>';
 
 }else{
 
@@ -1934,7 +1934,7 @@ if($sonucum9['dosya']!=NULL){
 
 
 
-$link9='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum9['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi9.'</font></a>';
+$link9='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum9['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi9.'</font></a>';
 
 }else{
 
@@ -2190,7 +2190,7 @@ if($sonucum10['dosya']!=NULL){
 
 
 
-$link10='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="form013/admin/'.$sonucum10['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi10.'</font></a>';
+$link10='<br><font color="red" style="font-weight:bold"></font><a class="btn btn-warning btn-sm mt-1" href="'.$altduyururesimdizin.$sonucum10['dosya'].'">&nbsp;<font color="blue" style="font-weight:bold"><i class="fa fa-download" fa-lg aria-hidden="true"></i> '.$bilgisi10.'</font></a>';
 
 }else{
 

@@ -9,7 +9,7 @@
 <?php
 $anasayfa="Anasayfaya Dön";
 $yayintarihi="Yayınlandığı Tarih :";
-$altduyururesimdizin="/site-bs/form013/admin/";
+$altduyururesimdizin="/byethost/admin/";
 $konuresimbaslik="Konulu Yazı ile İlgili Resimler";
 $konuresimbaslikilkon="Duyuru ile ilgili Resimler";
 $form013="Aşı Sonuçları Çizelgesi";
