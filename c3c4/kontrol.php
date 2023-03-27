@@ -77,7 +77,7 @@ echo '<a class="btn btn-sm btn-primary mb-2" href="../abe/frm023kayit.php" style
 elseif($countryId !="" and $stateId != "İlçe Seçiniz" and $ocak != "Aile Hekimini Seçiniz" and $abesay>0 and $say<1){
 $uyar="";
 echo '<h5><span class="badge badge-pill badge-danger">'.$uyar.'</span></h5>' ;
-echo '<a class="btn btn-sm btn-primary mb-2" href=# onClick="ykay();" style="width: 140px"><i class="fa fa-file-text-o" aria-hidden="true"></i> Rapor Oluştur</a>';
+echo '<a class="btn btn-sm btn-primary mb-3" href=# onClick="ykay();" style="width: 140px"><i class="fa fa-file-text-o" aria-hidden="true"></i> Rapor Oluştur</a>';
 }else{
 $uyar="BU KAYIT YAPILMIŞ...";
 //echo '<font style="color:red"  size="2px" face="tahoma">'.$uyar.'</font>' ;
