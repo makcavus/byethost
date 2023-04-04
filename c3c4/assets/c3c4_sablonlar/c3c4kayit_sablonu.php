@@ -192,7 +192,7 @@
   <tr>
   <th  width="5%" align="left"  colspan="8" class="border border-primary align-middle" bgcolor="#CEF6EC">Negatif</th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
-    <input class="form-control text-center" align="center" name="v29" id="v29" type="text" value="0" style="font-weight:bold"  tabindex="42" onchange="topla9();"/></th>
+    <input class="form-control text-center" align="center" name="v29" id="v29" type="text" value="<?php echo $verim7; ?>" style="font-weight:bold"  tabindex="42" readonly="true"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
     <input class="form-control text-center" align="center" name="v30" id="v30" type="text" value="<?php echo $verim13; ?>" style="font-weight:bold"  tabindex="43" onchange="topla7();"/></th>
   <th  width="5%" align="center"  colspan="4" class="border border-primary text-center" bgcolor="#CEF6EC">
@@ -239,7 +239,7 @@
 //Sinyal Türü
 function sinyalnamev(sinyalno){
     document.getElementById("v38").value = "<?php $ilcemiz="İlçesi"; $tarihinde="tarihinde"; $bildirilen="nden bildirilen"; $vaka="A09,R11,K52 ICD-10 kodu ile teşhis almış"; $meydan="vakadan dolayı  meydana gelen"; $sinyaltur="C4 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir."; echo $noktatarih.' '.$tarihinde.' '.$ilceninadine.' '.$ilcemiz.' '.$kurum.''.$bildirilen.' '.$vaka.' '.$toplamvaka.' '.$meydan.' '.$sinyaltur; ?>";
-	document.getElementById("v38").readOnly = true;
+	document.getElementById("v38").readOnly = false;
 }
 function sinyalmev(sinyalyes){
     document.getElementById("v38").value = "<?php $ilcemiz="İlçesi"; $tarihinde="tarihinde"; $bildirilen="nden bildirilen"; $vaka="A09,R11,K52 ICD-10 kodu ile teşhis almış"; $meydan="vakadan dolayı  meydana gelen"; $sinyaltur="C3 Sinyali nedeniyle bu değerlendirme raporu düzenlenmiştir."; echo $noktatarih.' '.$tarihinde.' '.$ilceninadine.' '.$ilcemiz.' '.$kurum.''.$bildirilen.' '.$vaka.' '.$toplamvaka.' '.$meydan.' '.$sinyaltur; ?>";
