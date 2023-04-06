@@ -1,9 +1,9 @@
 <?php
 
 include("connect_config.php");
-$dbh_etf=new mysqli($host_name,$user_name,$password) or die($error_message.''.mysqli_error($dbh));
+$dbh_etf=new mysqli($host_name,$user_name,$password) or die($error_message.''.mysqli_error($dbh_etf));
 $dbh_etf->set_charset("utf8");
-mysqli_select_db($dbh,$etf_db_name);
+mysqli_select_db($dbh_etf,$etf_db_name);
 
 /*mysql_query("SET NAMES 'latin5'"); 
 

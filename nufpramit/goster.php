@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
 if(!isset($_SESSION["uye"])){
-echo "";//"Bu sayfayý görüntüleme yetkiniz yoktur.";
+echo "";//"Bu sayfayï¿½ gï¿½rï¿½ntï¿½leme yetkiniz yoktur.";
 }else{
 
 ?>
@@ -32,22 +32,19 @@ echo "";//"Bu sayfayý görüntüleme yetkiniz yoktur.";
 
 <?php 
 
-include('con_023.php');
+include('../con_023.php');
+include('../con_etf.php');
 include('piramitalanlari.php');
 
 $ahekgelen=$_GET['ahekkod'];
 
-$ilgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectil']); 
+$ilgelen=$_GET['selectil']; 
 
-$ilcegelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectilce']); 
+$ilcegelen=$_GET['selectilce']; 
 
-$ocgelen=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']); 
+$ocgelen=$_GET['selectoc']; 
 
 $yilgelen=$_GET['selectyil'];
-
-$ocakyazi=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']);
-
-include('devir.php');
 
 /*echo $ilgelen ;
 
@@ -67,9 +64,9 @@ echo $aygelen ;*/
 
 
 
-$resultvyil = @mysql_query("select * from yg where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen')") ;
+$resultvyil = @mysqli_query($dbh_etf,"select * from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen')") ;
 
-while($sonucum=mysql_fetch_array($resultvyil)){
+while($sonucum=mysqli_fetch_array($resultvyil)){
 
 $ilim=$sonucum['ilidi'];
 
@@ -439,7 +436,7 @@ $verim178=$sonucum['v178'];
 
 }
 
-// YAÞ GRUBU TOPLAMLARI
+// YAï¿½ GRUBU TOPLAMLARI
 $sifir=$verim1+$verim19 ;
 $bes=$verim2+$verim20 ;
 $on=$verim3+$verim21 ;
@@ -461,7 +458,7 @@ $seksenbes=$verim18+$verim36 ;
 $ygkt=$verim1+$verim2+$verim3+$verim4+$verim5+$verim6+$verim7+$verim8+$verim9+$verim10+$verim11+$verim12+$verim13+$verim14+$verim15+$verim16+$verim17+$verim18;
 $yget=$verim19+$verim20+$verim21+$verim22+$verim23+$verim24+$verim25+$verim26+$verim27+$verim28+$verim29+$verim30+$verim31+$verim32+$verim33+$verim34+$verim35+$verim36;
 $ygt=$verim1+$verim2+$verim3+$verim4+$verim5+$verim6+$verim7+$verim8+$verim9+$verim10+$verim11+$verim12+$verim13+$verim14+$verim15+$verim16+$verim17+$verim18+$verim19+$verim20+$verim21+$verim22+$verim23+$verim24+$verim25+$verim26+$verim27+$verim28+$verim29+$verim30+$verim31+$verim32+$verim33+$verim34+$verim35+$verim36;
-// MEDENÝ HAL TOPLAMLARI
+// MEDENï¿½ HAL TOPLAMLARI
 $cocuk=$verim37+$verim42 ;
 $bekar=$verim38+$verim43 ;
 $evli=$verim39+$verim44 ;
@@ -470,7 +467,7 @@ $esiolmus=$verim41+$verim46 ;
 $mhkt=$verim37+$verim38+$verim39+$verim40+$verim41;
 $mhet=$verim42+$verim43+$verim44+$verim45+$verim46;
 $mht=$verim37+$verim38+$verim39+$verim40+$verim41+$verim42+$verim43+$verim44+$verim45+$verim46;
-// ÖÐRENÝM DURUMU TOPLAMLARI
+// ï¿½ï¿½RENï¿½M DURUMU TOPLAMLARI
 $ocd=$verim47+$verim54;
 $oyd=$verim48+$verim55;
 $oy=$verim49+$verim56;
@@ -487,9 +484,9 @@ $odt=$verim47+$verim48+$verim49+$verim50+$verim51+$verim52+$verim53+$verim54+$ve
 
 <?php
 
-$iladi=@mysql_query("select * from il where(ilid='$ilim')");
+$iladi=@mysqli_query($dbh,"select * from il where(ilid='$ilim')");
 
-while($ilsonucum=mysql_fetch_array($iladi)){
+while($ilsonucum=mysqli_fetch_array($iladi)){
 
 $ilinadi=$ilsonucum['ilad'];
 
@@ -499,25 +496,25 @@ $ilinadi=$ilsonucum['ilad'];
 
 <?php
 
-$ilceadi=@mysql_query("select * from ilce where(ilinad='$ilim' and ilceid='$ilcem')");
+$ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$ilim' and ilceid='$ilcem')");
 
-while($ilcesonucum=mysql_fetch_array($ilceadi)){
+while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 
 $ilceninadi=$ilcesonucum['ilcead'];
 
 }
 
-$atarih=mysql_query("SELECT date_format(v175, '%d.%m.%Y')  AS yeni_tarih FROM yg where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
+$atarih=mysqli_query($dbh,"SELECT date_format(v175, '%d.%m.%Y')  AS yeni_tarih from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen')") ;
 
-while($duztarih=mysql_fetch_array($atarih)){
+while($duztarih=mysqli_fetch_array($atarih)){
 
 $dtarih=$duztarih['yeni_tarih'];
 
 }
 
-$btarih=mysql_query("SELECT date_format(v178, '%d.%m.%Y')  AS yeni_tarih FROM yg where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')") ;
+$btarih=mysqli_query($dbh,"SELECT date_format(v178, '%d.%m.%Y')  AS yeni_tarih from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and vocadi='$ocgelen' and vyiladi='$yilgelen')") ;
 
-while($ontarih=mysql_fetch_array($btarih)){
+while($ontarih=mysqli_fetch_array($btarih)){
 
 $otarih=$ontarih['yeni_tarih'];
 
@@ -543,16 +540,16 @@ echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspac
 
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
 
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+//echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
 
-?><th class="style6" width="13%"align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><input TYPE="SUBMIT" value="<?php echo trsuz($pdfbaslik) ; ?>"  style="color:#000000;font-weight:bold;background:#66FF00" onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'"/><div id="sonuckay"><form name="girdiekleme" action="javascript:void(0)" method="get">
+?><th class="style6" width="13%"align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><input TYPE="SUBMIT" value="<?php echo $pdfbaslik ; ?>"  style="color:#000000;font-weight:bold;background:#66FF00" onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'"/><div id="sonuckay"><form name="girdiekleme" action="javascript:void(0)" method="get">
 
-</th><?
+</th><?php
 
 echo '</form>';
 
 ?>
-	<th class="style6" width="50%" align="center" bordercolor="#FFCC00" bgcolor="blue"><font size="4" color="yellow"><?php echo trsuz($kayitgorbaslik) ; ?></font></th>
+	<th class="style6" width="50%" align="center" bordercolor="#FFCC00" bgcolor="blue"><font size="4" color="yellow"><?php echo $kayitgorbaslik ; ?></font></th>
 <?php
 
 echo '<form action="/excelmysql/npyilxls.php" method="get" name="gor">' ;
@@ -565,30 +562,30 @@ echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspac
 
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yilgelen.'" />';
 
-echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
+//echo '<input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$aygelen.'" />';
 
 ?>
 
-<th class="style6" width="50%"align="right" bordercolor="#FFCC00" bgcolor="#FFCC00"><input name="SUBMIT" type="SUBMIT"  style="color:#000000;font-weight:bold;background:#66FF00" onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" value="<?php echo trsuz($excelbaslik) ; ?>"/></th>
+<th class="style6" width="50%"align="right" bordercolor="#FFCC00" bgcolor="#FFCC00"><input name="SUBMIT" type="SUBMIT"  style="color:#000000;font-weight:bold;background:#66FF00" onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" value="<?php echo $excelbaslik ; ?>"/></th>
 
-<?
+<?php
 
 echo '</form>';
 
 ?>	
-	<?
+	<?php
 
 	$kim=$_SESSION["uye"];
-$resultx = @mysql_query("select uyekod from uyeler where(uyekim='$kim') order by uyekod asc");
-while($xkod=mysql_fetch_array($resultx)) {
+$resultx = @mysqli_query($dbh_etf,"select uyekod from uyeler where(uyekim='$kim') order by uyekod asc");
+while($xkod=mysqli_fetch_array($resultx)) {
 $kod=substr($xkod['uyekod'],0,5);
 $kodhsm=substr($xkod['uyekod'],0,2);
 
 //echo $kod;
 
 }
-$resultkod = @mysql_query("select socad from ocak where(select left(socad,5)='$kod') order by socad asc");
-while($rowkod=mysql_fetch_array($resultkod)) {
+$resultkod = @mysqli_query($dbh_etf,"select socad from ocak where(select left(socad,5)='$kod') order by socad asc");
+while($rowkod=mysqli_fetch_array($resultkod)) {
 $kodbu=substr($rowkod['socad'],0,5);
 //echo $kodbu;
 } 	
@@ -620,13 +617,13 @@ echo '<th class="style6" width="12%"align="right" bordercolor="#FFCC00" bgcolor=
 echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
 echo '<tr>';
 echo '<th height="50" class="style6"><strong><font size="3px" style="color:blue" face="tahoma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></strong></th>';
-echo '<th height="50" class="style6"><strong><font size="3px" style="color:blue" face="tahoma">Kayýt Silme Onayý</font></strong></th>';	
+echo '<th height="50" class="style6"><strong><font size="3px" style="color:blue" face="tahoma">Kayï¿½t Silme Onayï¿½</font></strong></th>';	
 echo '</tr>';
 echo '</table>';	
 echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
 echo '<tr>';
 echo '<th class="style6" rowspan="2" align="center"><img src="images/siluyar.jpg"></th>';
-echo '<th class="style6" align="center" height="30" colspan="2"><font size="2px" style="color:red" face="tahoma">Bu Kaydý Silmek Ýstediðinize Emin misiniz?</font></th>';
+echo '<th class="style6" align="center" height="30" colspan="2"><font size="2px" style="color:red" face="tahoma">Bu Kaydï¿½ Silmek ï¿½stediï¿½inize Emin misiniz?</font></th>';
 echo '</tr>';
 echo '<tr>';
 echo '<th class="style6" align="center"><a href="#" tabindex="1" title="hayir" onClick="git();"><img src="images/hayir.png"></a></th>';
@@ -645,122 +642,123 @@ echo '</tr>';
 
 	 <table class="cizgi" border="0" bordercolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr>
-    <th width="27%" align="center"bordercolor="#000000" bgcolor="white" class="style5" colspan="4"><? $top="KURUM/A.HEK.BÝRÝMÝ DEMOGRAFÝK VERÝLERÝ"; echo '<font size="3" family="Arial"><label>'.trsuz($ilinadi).'-'.trsuz($ilceninadi).'-'.trsuz($socadi).'-'.$yilgelen.' '.trsuz($top).'</label></font>' ; ?></th>
+    <th width="27%" align="center" bordercolor="#000000" bgcolor="white" class="style5" colspan="4">
+      <?php $top="KURUM/A.HEK.Bï¿½Rï¿½Mï¿½ DEMOGRAFï¿½K VERï¿½LERï¿½"; echo '<font size="3" family="Arial"><label>'.$ilinadi.'-'.$ilceninadi.'-'.$socadi.'-'.$yilgelen.' '.$top.'</label></font>' ; ?></th>
 </tr>
   <tr class="style5">
-	<th  width="100%" align="center" bordercolor="black" colspan="8" class="style5" bgcolor="#00FFCC"><?php echo trsuz($ygbaslik) ; ?></th>
+	<th  width="100%" align="center" bordercolor="black" colspan="8" class="style5" bgcolor="#00FFCC"><?php echo $ygbaslik ; ?></th>
   </tr>
   <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($yasgrubu) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $yasgrubu ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">KADIN</th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">ERKEK</th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">TOPLAM</th>
   </tr>
   <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($sifiryas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $sifiryas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim1  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim19  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $sifir  ; ?></th>
   </tr>
   
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($besyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $besyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim2  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim20  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $bes  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($onyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $onyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim3  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim21  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $on  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($onbesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $onbesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim4  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim22  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $onbes  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($yirmiyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $yirmiyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim5  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim23  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $yirmi  ; ?></th>
   </tr>  
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($yirmibesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $yirmibesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim6  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim24  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $yirmibes  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($otuzyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $otuzyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim7  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim25  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $otuz  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($otuzbesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $otuzbesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim8  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim26  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $otuzbes  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($kirkyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $kirkyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim9  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim27  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $kirk  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($kirkbesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $kirkbesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim10  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim28  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $kirkbes  ; ?></th>
   </tr>  
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($elliyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $elliyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim11  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim29  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $elli  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($ellibesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $ellibesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim12  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim30  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $ellibes  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($atmisyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $atmisyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim13  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim31  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $atmis  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($atmisbesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $atmisbesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim14  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim32  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $atmisbes  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($yetmisyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $yetmisyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim15  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim33  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $yetmis  ; ?></th>
   </tr>    
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($yetmisbesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $yetmisbesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim16  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim34  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $yetmisbes  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($seksenyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $seksenyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim17  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim35  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $seksen  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($seksenbesyas) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $seksenbesyas ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim18  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim36  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $seksenbes  ; ?></th>
@@ -775,16 +773,16 @@ echo '</tr>';
   <br />
 <table class="cizgi" border="0" bordercolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" width="100%">
   <tr class="style5">
-	<th  width="100%" align="center" bordercolor="black" colspan="8" class="style5" bgcolor="#00FFCC"><?php echo trsuz($mhalbaslik) ; ?></th>
+	<th  width="100%" align="center" bordercolor="black" colspan="8" class="style5" bgcolor="#00FFCC"><?php echo $mhalbaslik ; ?></th>
   </tr>
   <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($medenihali) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $medenihali ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">KADIN</th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">ERKEK</th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">TOPLAM</th>
   </tr>
   <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($mhcocuk) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $mhcocuk ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim37  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim42  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $cocuk  ; ?></th>
@@ -797,19 +795,19 @@ echo '</tr>';
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $bekar  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($mhevli) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $mhevli ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim39  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim44  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $evli  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($mhbosanmis) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $mhbosanmis ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim40  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim45  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $bosanmis  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($mhesiolmus) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $mhesiolmus ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim41  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim46  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $esiolmus  ; ?></th>
@@ -824,23 +822,23 @@ echo '</tr>';
 <BR />
 <table class="cizgi" border="0" bordercolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" width="100%">
   <tr class="style5">
-	<th  width="100%" align="center" bordercolor="black" colspan="8" class="style5" bgcolor="#00FFCC"><?php echo trsuz($odurbaslik) ; ?></th>
+	<th  width="100%" align="center" bordercolor="black" colspan="8" class="style5" bgcolor="#00FFCC"><?php echo $odurbaslik ; ?></th>
   </tr>
   <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($ogrenimdurumu) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $ogrenimdurumu ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">KADIN</th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">ERKEK</th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC">TOPLAM</th>
   </tr>
   <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($odocd) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $odocd ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim47  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim54  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $ocd  ; ?></th>
   </tr>
   
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($odoyd) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $odoyd ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim48  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim55  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $oyd  ; ?></th>
@@ -852,7 +850,7 @@ echo '</tr>';
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $oy  ; ?></th>
   </tr>
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($odilk) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $odilk ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim50  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim57  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $ilk  ; ?></th>
@@ -864,13 +862,13 @@ echo '</tr>';
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $orta  ; ?></th>
   </tr>  
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($odlise) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $odlise ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim52  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim59  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $lise  ; ?></th>
   </tr>    
 <tr class="style5">
-  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo trsuz($odyo) ; ?></th>
+  <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="#CEF6EC"><?php echo $odyo ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="pink"><?php echo $verim53  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="cyan"><?php echo $verim60  ; ?></th>
   <th  width="25%" align="center" bordercolor="white" class="style5" bgcolor="YELLOW"><?php echo $yo  ; ?></th>
@@ -885,40 +883,36 @@ echo '</tr>';
   <br />	
 <table width="100%" bgcolor="#FFFFFF" class="style5"  cellpadding="0" cellspacing="0" >
      <tr>
-       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo trsuz($duzadbaslik) ; ?></th>
-       <th class="style5" align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo trsuz($verim173) ; ?></th>
+       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo $duzadbaslik ; ?></th>
+       <th class="style5" align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo $verim173 ; ?></th>
        <th width="27%" rowspan="4" align="left"bordercolor="#000000" bgcolor="white" class="style5">&nbsp;</th>
-       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo trsuz($onadbaslik) ; ?></th>
-       <th class="style5" width="27%" align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo trsuz($verim176) ; ?></th>
+       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo $onadbaslik ; ?></th>
+       <th class="style5" width="27%" align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo $verim176 ; ?></th>
      </tr>
      <tr>
-       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo trsuz($duzunbaslik) ; ?></th>
-       <th class="style5" align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo trsuz($verim174) ; ?></th>
-       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo trsuz($onunbaslik) ; ?></th>
-       <th class="style5" width="27%"align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo trsuz($verim177) ; ?></th>
+       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo $duzunbaslik ; ?></th>
+       <th class="style5" align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo $verim174 ; ?></th>
+       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo $onunbaslik ; ?></th>
+       <th class="style5" width="27%"align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo $verim177 ; ?></th>
      </tr>
      <tr>
        <?php
    $a=Date("d/m/Y");
    ?>
        <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;Tarih</th>
-       <th class="style5"align="left" bordercolor="#000000" bgcolor="white" colspan="7"><? echo $a; ?></th>
+       <th class="style5"align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo $a; ?></th>
        <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;Tarih</th>
-       <th class="style5" width="27%"align="left" bordercolor="#000000" bgcolor="white" colspan="7"><? echo $a;?></th>
+       <th class="style5" width="27%"align="left" bordercolor="#000000" bgcolor="white" colspan="7"><?php echo $a;?></th>
      </tr>
      <tr>
-       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo trsuz($duzimzabaslik) ; ?></th>
+       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo $duzimzabaslik ; ?></th>
        <th class="style5"align="center" bordercolor="#000000" bgcolor="white" colspan="7">&nbsp;</th>
-       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo trsuz($onimzabaslik) ; ?></th>
+       <th class="style5" align="left"bordercolor="#000000" bgcolor="white" colspan="2">&nbsp;<?php echo $onimzabaslik ; ?></th>
        <th class="style5" width="27%"align="center" bordercolor="#000000" bgcolor="white" colspan="7">&nbsp;</th>
      </tr>
    </table> 
-</form>
-<?php
+   <?php
 }
 ?>
-
-</body>
-
-</html>
-
+   </form>
+  

@@ -1,15 +1,6 @@
 <?php header("Cache-Control: no-cache,no-store");
 //echo rand();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
-<title>Untitled Document</title>
-<link href="arkakara.css" rel="stylesheet" type="text/css"/>
-
-<script language="JavaScript" src="arkakara.js" type="text/javascript">
-</script>	
 <script language="JavaScript" type="text/javascript">
 function hoppa() {
 	if
@@ -23,11 +14,6 @@ window.open("","hoppa","width=1000,height=800,left=0,top=0,resizable=1,menubar=1
 }
  }
 </script>	
-</head>
-
-
-
-
 <?php
 //function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
 include("../con_023.php");
@@ -69,40 +55,39 @@ $ilceninadi=$ilcesonucum['ilcead'];
 }
 ?>
 <?php
-$vtsec="select * from yg where(ilidi='$countryId' and ilceidi='$stateId' and vocadi='$ocak' and vyiladi='$yil')";
+$vtsec="select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and vocadi='$ocak' and vyiladi='$yil')";
 $socsorgu=mysqli_query($dbh_etf,$vtsec);
 $say=mysqli_num_rows($socsorgu);
 echo '<p>';
 if($countryId == "" and $say<1){
-$uyar="�l Se�ilmedi";
+$uyar="İl Seçilmedi";
 echo '<font style="color:Red">'.$uyar.'</font>' ;
 }
-elseif($countryId !="" and $stateId == "�l�e Se�iniz" and $say<1){
-$uyar="�l�e Se�ilmedi.";
+elseif($countryId !="" and $stateId == "İlçe Seçiniz" and $say<1){
+$uyar="İlçe Seçilmedi.";
 echo '<font style="color:Red">'.$uyar.'</font>' ;
 }
-elseif($countryId !="" and $stateId != "�l�e Se�iniz" and $ocak == "Aile Hekimini Se�iniz" and $say<1){
-$uyar="Aile Hekimli�i Se�ilmedi.";
+elseif($countryId !="" and $stateId != "İlçe Seçiniz" and $ocak == "Aile Hekimini Seçiniz" and $say<1){
+$uyar="Aile Hekimliği Seçilmedi.";
 echo '<font style="color:Red">'.$uyar.'</font>' ;
 }
-elseif($countryId !="" and $stateId !="�l�e Se�iniz" and $ocak != "Aile Hekimini Se�iniz" and $yil=="" and $say<1){
-$uyar="Y�l� Bo� B�rakt�n�z.";
+elseif($countryId !="" and $stateId !="İlçe Seçiniz" and $ocak != "Aile Hekimini Seçiniz" and $yil=="" and $say<1){
+$uyar="Yılı Boş Bıraktınız.";
 echo '<font style="color:Red">'.$uyar.'</font>' ;
 }
-elseif($countryId != "" and $ilceninadi != "�l�e Se�iniz" and $ocak != "Aile Hekimini Se�iniz" and $yil!="" and $say<1){
+elseif($countryId != "" and $ilceninadi != "İlçe Seçiniz" and $ocak != "Aile Hekimini Seçiniz" and $yil!="" and $say<1){
 $uyar="";
 echo '<font style="color:Green">'.$uyar.'</font>' ;
-if($ilkod==$ilkodx and $ilhsm=="HSM" or $ilcekod==$ilcekodx and $ilcetsm=="TSM" or $ahekkodu==$ocak){
+if($ilkod==$ilkodx and $ilhsm=="LSM" or $ilcekod==$ilcekodx and $ilcetsm=="TSM" or $ahekkodu==$ocak){
 echo '<a href=# onClick="ykay();"><img src="images/kekle.PNG"></a>';
 }else{
-$sizmisiniz="Bu kayd� yapmaya yetkiniz yoktur.";
+$sizmisiniz="Bu kaydı yapmaya yetkiniz yoktur.";
 echo '<font style="color:Red">'.$sizmisiniz.'</font>' ;
 }
 }else{
-$uyar="BU KAYIT YAPILMI�...";
+$uyar="BU KAYIT YAPILMIŞ...";
 echo '<font style="color:red"  size="2px" face="tahoma">'.$uyar.'</font>' ;
-$ocakyazi=iconv("UTF-8", "ISO-8859-9", $_GET['selectoc']);
-echo '<label><font size="2px" face="tahoma">'.$ilinadi.'-'.$ilceninadi.'-<font style="color:blue">'.$ocakyazi.'</FONT>-'.$yil.'&nbsp;&nbsp;&nbsp;&nbsp;</font></label>';
+echo '<label><font size="2px" face="tahoma">'.$ilinadi.'-'.$ilceninadi.'-<font style="color:blue">'.$ocak.'</FONT>-'.$yil.'&nbsp;&nbsp;&nbsp;&nbsp;</font></label>';
 //$degsayfa="http://localhost/form023/frm023degistir.php?ilgelen=".$countryId."&ilcegelen=".$stateId."&ocgelen=".$ocak."&yilgelen=".$yil."&aygelen=".$ay."";
 //$baksayfa="http://localhost/form023/cerceve1.php?ilgelen=".$countryId."&ilcegelen=".$stateId."&ocgelen=".$ocak."&yilgelen=".$yil."&aygelen=".$ay."";
 //$silsayfa="http://localhost/form023/023sil.php?ilgelen=".$countryId."&ilcegelen=".$stateId."&ocgelen=".$ocak."&yilgelen=".$yil."&aygelen=".$ay."";
@@ -123,32 +108,7 @@ if($ilcetsm=="HSM" or $ilcekod==$ilcekodx and $ilcetsm=="TSM" or $ahekkodu==$oca
 <th class="style6" width="11%" align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href=# onClick="git();"><img src="images/goster.PNG"></a></th>
 <th class="style6" width="11%" align="center" bordercolor="#FFCC00" bgcolor="#FFCC00"><a href="javascript:goster();"><img src="images/sil.PNG"></a></th>
 <th class="style6" width="12%" align="center" bordercolor="#FFCC00" bgcolor="#FFCC00">
-		<div id="sifre" class="giris_zemin">
-	  <form action="onay.php" method="post" name="giris" id="giris">
-		    <table width="100" border="0">
-<?php 
-echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
-echo '<tr>';
-echo '<th height="50" class="style6"><strong><font size="3px" style="color:blue" face="tahoma">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></strong></th>';
-echo '<th height="50" class="style6"><strong><font size="3px" style="color:blue" face="tahoma">'.$silmeonay.'</font></strong></th>';	
-echo '</tr>';
-echo '</table>';	
-echo '<table class="style6" align="center" cellpadding="0" cellspacing="0" width="100%">';
-echo '<tr>';
-echo '<th class="style6" rowspan="2" align="center"><img src="images/siluyar.jpg"></th>';
-echo '<th class="style6" align="center" height="30" colspan="2"><font size="2px" style="color:red" face="tahoma">'.$silemin.'</font></th>';
-echo '</tr>';
-echo '<tr>';
-echo '<th class="style6" align="center"><a href="#" tabindex="1" title="hayir" onClick="kontrol();"><img src="images/hayir.PNG"></a></th>';
-echo '<th class="style6" align="center"><a href="#" tabindex="2" title="evet" onClick="sil();"><img src="images/evet.PNG"></a></th>';
-echo '</tr>';
-
-?>
-           </table>
-		  </form>
-		</div>
-	<div id="fon" class="arka_fon"></div>
-
+		
 
 <?php
 echo '<form action="form023pdf.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
@@ -203,7 +163,7 @@ echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspac
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 ?>
 <input name="SUBMIT" type="SUBMIT"  style="color:#000000;font-weight:bold;background:#66FF00" onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" value="<?php echo $buyuknpbuton; ?>"/></th>
-<?
+<?php
   echo '</form>';
   ?>
 <th class="style6" width="11%" align="center" bordercolor="#FFCC00" bgcolor="#FFCC00">
@@ -239,7 +199,7 @@ echo '</form>';
 ?>
 </table>
 <?php
-$resultvyil = @mysqli_query($dbh_etf,"select * from yg where(ilidi='$countryId' and ilceidi='$stateId' and vocadi='$ocak' and vyiladi='$yil')") ;
+$resultvyil = @mysqli_query($dbh_etf,"select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and vocadi='$ocak' and vyiladi='$yil')") ;
 while($sonucum=mysqli_fetch_array($resultvyil)){
 $ilim=$sonucum['ilidi'];
 $ilcem=$sonucum['ilceidi'];
@@ -470,7 +430,7 @@ $odt=$verim47+$verim48+$verim49+$verim50+$verim51+$verim52+$verim53+$verim54+$ve
 ?>
 <table class="cizgi" border="0" bordercolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr>
-    <th width="27%" align="center"bordercolor="#000000" bgcolor="white" class="style5" colspan="4"><?php //$top="KURUM/A.HEK.B�R�M� DEMOGRAF�K VER�LER�"; //echo '<font size="3" family="Arial"><label>'.$ilinadi.'-'.$ilceninadi.'-'.$socadi.'-'.$yilgelen.' '.$top.'</label></font>' ; ?></th>
+    <th width="27%" align="center"bordercolor="#000000" bgcolor="white" class="style5" colspan="4"><?php $top="KURUM/A.HEK.B�R�M� DEMOGRAF�K VER�LER�"; //echo '<font size="3" family="Arial"><label>'.$ilinadi.'-'.$ilceninadi.'-'.$socadi.'-'.$yilgelen.' '.$top.'</label></font>' ; ?></th>
 </tr>
   <tr class="style5">
 	<th  width="100%" align="center" bordercolor="black" colspan="8" class="style5" bgcolor="#00FFCC"><?php echo $ygbaslik ; ?></th>
@@ -733,7 +693,7 @@ $sorgula=mysqli_query($dbh,$kacahek);
 $kacaheksay=mysqli_num_rows($sorgula);
 //echo $kacaheksay;
 //echo '<br>';
-$kacveri="select * from yg where(ilidi='$countryId' and ilceidi='$stateId' and v176 like 'Dr.%' and v177 like '%Nolu A%' and vyiladi='$yil')";
+$kacveri="select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and v176 like 'Dr.%' and v177 like '%Nolu A%' and vyiladi='$yil')";
 $verisorgula=mysqli_query($dbh_etf,$kacveri);
 while($eksiksonucum=mysqli_fetch_array($verisorgula)){
 $eksikahek=$eksiksonucum['vocadi'];
@@ -765,11 +725,11 @@ $gelmeyenler="Verileri girilmeyen Aile Hekimli�i Birimleri";
 </table>
 
 <?php
-$eksiktablosu="SELECT ocak.*,yg.*
+$eksiktablosu="SELECT ocak.*,veri.*
 FROM ocak ocak
-LEFT OUTER JOIN yg yg ON ocak.ilinad=yg.ilidi and ocak.ilce=yg.ilceidi and ocak.socad = yg.vocadi and yg.v176 like 'Dr.%' and yg.v177 like '%Nolu A%' and yg.vyiladi='$yil'
-WHERE yg.vocadi IS NULL";
-$etablosu=mysqli_query($dbh_etf,$eksiktablosu);
+LEFT OUTER JOIN veri veri ON ocak.ilinad=veri.ilidi and ocak.ilce=veri.ilceidi and ocak.socad = veri.vocadi and veri.v176 like 'Dr.%' and veri.v177 like '%Nolu A%' and veri.vyiladi='$yil'
+WHERE veri.vocadi IS NULL";
+$etablosu=mysqli_query($dbh,$eksiktablosu);
 while($eahsonucum=mysqli_fetch_array($etablosu)){
 $eksikahadi=$eahsonucum['socad'];
 $eksikdradi=$eahsonucum['dradi'];
@@ -790,5 +750,3 @@ echo "<font size='2px' face='tahoma'>".$tamam."</font>";
 <?php
 @mysqli_close($dbh) ;
 ?>
-</body>
-</html>
