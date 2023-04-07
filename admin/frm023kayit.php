@@ -6,7 +6,7 @@ session_start();
 
 if(!isset($_SESSION["uye"])){
 
-echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
+echo "";//"Bu sayfayï¿½ gï¿½rï¿½ntï¿½leme yetkiniz yoktur.";
 
 }else{
 
@@ -21,7 +21,7 @@ $session_life = time() - $_SESSION['timeout'];
 if($session_life > $inactive)
 
 { 
-unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+unset($_SESSION['uye']); // oturumda olan deï¿½iï¿½kenimiz siliniyor
 
 session_destroy(); header("Location: cikis.php"); }
 
@@ -42,7 +42,7 @@ $_SESSION['timeout'] = time();
 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1254" />
 
-<title>Form 013 Kayıt Girişi</title>
+<title>Form 013 Kayï¿½t Giriï¿½i</title>
 
 <link href="Style.css" rel="stylesheet" type="text/css"/>
 
@@ -85,15 +85,15 @@ include("/admin/tanimveyetkiler.php");
 
 <?php
 
-$hosgeldin="Hoşgeldiniz Sayın  ";
+$hosgeldin="Hoï¿½geldiniz Sayï¿½n  ";
 
-$cikis=" çıkış yapmak için ";
+$cikis=" ï¿½ï¿½kï¿½ï¿½ yapmak iï¿½in ";
 
-$tikla="Tıklayınız";
+$tikla="Tï¿½klayï¿½nï¿½z";
 
-$sd='Şifre Değiştir';
+$sd='ï¿½ifre Deï¿½iï¿½tir';
 
-$kd='Kullanıcı Düzenle';
+$kd='Kullanï¿½cï¿½ Dï¿½zenle';
 
 $sagdanadmin=substr($_SESSION["uyekodu"],-3,3);
 
@@ -111,7 +111,7 @@ $result = @mysql_query("select ilid,ilad from il order by ilad asc");
 
  <? if($sagdanadmin==$kurumyetki or $sagdanadmin==$ilyetki){ ?>
 
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <? echo '</font><font color="yellow">';?><a href="admin/ilekle.php" style="color:#00FF00" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'" ><? echo $kd ; ?></a><? echo '</font></p></th>'; }?>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <? echo '</font><font color="yellow">';?><a href="admin/admin.php" style="color:#00FF00" onmouseover="this.style.color='orange'" onmouseout="this.style.color='#00FF00'" ><? echo $kd ; ?></a><? echo '</font></p></th>'; }?>
 
 <tr>
 
@@ -119,7 +119,7 @@ $result = @mysql_query("select ilid,ilad from il order by ilad asc");
 
 <input type="hidden" name="ahekkod" id="ahekkod" value="<? echo $_SESSION["uyekodu"]; ?>" />
 
-<label for="selectil" class="style3">İL:</label>
+<label for="selectil" class="style3">ï¿½L:</label>
 
 </th >
 
@@ -127,7 +127,7 @@ $result = @mysql_query("select ilid,ilad from il order by ilad asc");
 
  <select name="selectil" onChange="getState(this.value)">
 
-	<option value=""><?php echo "İli Seçiniz";?></option>
+	<option value=""><?php echo "ï¿½li Seï¿½iniz";?></option>
 
 <? while($row=mysql_fetch_array($result)) { ?>
 
@@ -141,7 +141,7 @@ $result = @mysql_query("select ilid,ilad from il order by ilad asc");
 
 <th  align="right" bordercolor="white" bgcolor="yellow">
 
-  <label for="selectilce" class="style3" >İLÇE:</label>
+  <label for="selectilce" class="style3" >ï¿½Lï¿½E:</label>
 
   </th>
 
@@ -149,7 +149,7 @@ $result = @mysql_query("select ilid,ilad from il order by ilad asc");
 
  <div id="statediv"><select name="selectilce" >
 
-	<option><?php echo "Önce İli Seçiniz";?></option>
+	<option><?php echo "ï¿½nce ï¿½li Seï¿½iniz";?></option>
 
         </select>&nbsp;&nbsp;</div>
 
@@ -159,7 +159,7 @@ $result = @mysql_query("select ilid,ilad from il order by ilad asc");
 
 <th align="right" bordercolor="white" bgcolor="yellow" >
 
-  <label for="selectoc" class="style3">AİLE HEKİMLİĞİ:</label>
+  <label for="selectoc" class="style3">Aï¿½LE HEKï¿½MLï¿½ï¿½ï¿½:</label>
 
   </th>
 
@@ -167,7 +167,7 @@ $result = @mysql_query("select ilid,ilad from il order by ilad asc");
 
  <div id="citydiv"><select id="selectoc" name="selectoc" >
 
-	<option><?php echo "Önce İlçeyi Seçiniz";?></option>
+	<option><?php echo "ï¿½nce ï¿½lï¿½eyi Seï¿½iniz";?></option>
 
         </select>&nbsp;&nbsp;</div>
 
@@ -291,9 +291,9 @@ echo '<option>'.$katay['ayadi'].'</option>';
 
 <?
 
-//unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
+//unset($_SESSION['uye']); // oturumda olan deï¿½iï¿½kenimiz siliniyor
 
-//session_destroy(); // oturumları siler
+//session_destroy(); // oturumlarï¿½ siler
 
 }
 

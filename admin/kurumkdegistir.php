@@ -57,7 +57,7 @@ echo '<table class="table table-striped table-primary table-sm table-responsive-
 echo '<thead align="center">';
 echo '<th>Durum</th>';
 echo '</tr>';
-echo '<th class="bg-light">'.$degkurumgelen.' '.$oncekikurum.' nda değişiklikler yapıldı.'/*.$oncekikurum.' '.$kurumgelen.' olarak '.$kurumsonraki.'*/ .'<a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table></div>';
+echo '<th class="bg-light">'.$degkurumgelen.' '.$oncekikurum.' nda değişiklikler yapıldı.'/*.$oncekikurum.' '.$kurumgelen.' olarak '.$kurumsonraki.'*/ .'<a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table></div>';
 }else{
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
 echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
@@ -65,7 +65,7 @@ echo '<thead align="center">';
 echo '<th>Durum</th>';
 echo '</tr>';
 echo '<th bordercolor="white" bgcolor="yellow" bgcolor="yellow">';
-echo '<th class="bg-light">'."Kurum Değiştirelemedi...".'<a href="ilekle.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table>';
+echo '<th class="bg-light">'."Kurum Değiştirelemedi...".'<a href="admin.php"  onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></thead></table>';
 echo '</div>';
 echo mysqli_error();
  }

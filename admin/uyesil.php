@@ -12,7 +12,7 @@ echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';
 echo '<table class="table table-striped table-primary table-sm table-responsive-lg">';
 echo '<thead align="center">';
 echo '<tr>';
-echo '<th>'.$uyekodu.' '.$silindi.' <a href="ilekle.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm">
+echo '<th>'.$uyekodu.' '.$silindi.' <a href="admin.php" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm">
 <i class="fa fa-reply-all fa-lg"></i> '.$geridon.'</a></th></tr></thead></table></div>';
 }else{
 echo '<div class="col-md-12 bg-warning text-dark mt-1" align="center">';

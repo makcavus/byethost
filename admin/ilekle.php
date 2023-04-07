@@ -43,9 +43,9 @@ function timedRefresh(timeoutPeriod) {
 
 
 <body style="background-color:#000000" onload="JavaScript:timedRefresh(10000000);">
-<form method="GET" name="form4" action="ilekle.php" class="form-group form-inline">
-<form method="GET" name="form0" action="ilekle.php" class="form-group form-inline">
-<form method="GET" name="form1" action="ilekle.php" class="form-group form-inline"> 
+<form method="GET" name="form4" action="admin.php" class="form-group form-inline">
+<form method="GET" name="form0" action="admin.php" class="form-group form-inline">
+<form method="GET" name="form1" action="admin.php" class="form-group form-inline"> 
 <form method="GET" name="form2" action="ilkaydet.php">
 <form method="GET" name="form3" action="ilkaydet.php">
 
@@ -296,7 +296,7 @@ $resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(soc
 $resultkod = @mysqli_query( $dbh , "select socad from ocak where(select left(socad,5)='$kod') order by socad asc");
 }else{
 echo '<div class="alert alert-info text-danger"><h6 class="alert-header">'.$yetkiuyar.'</h6></div>' ;
-echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
+echo '<a href="admin.php"  onclick="history.back();" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm"><i class="fa fa-times-circle fa-lg"></i> '.$iptal.'</a>';
 }
 
 ?>
@@ -309,7 +309,7 @@ echo '<a href="ilekle.php"  onclick="history.back();" onsubmit="javascript:reloa
 <div class="col-md-12 bg-primary text-dark mb-1" align="center">
 <select name="uyekodum" id="uyekodum" onchange="kontroluye();" onclick="kontroluye();" onselect="javascript:reloadPage(this)" class="form-control form-control-sm w-25 mb-1 mt-1" style="font-size:14px;">
 
-      <option value=""><?php echo "�ye Kodu Se�iniz";?></option>
+      <option value=""><?php echo "Üye Kodu Seçiniz";?></option>
 
       <?php while($rowkod=mysqli_fetch_array($resultkod)) { ?>
 
