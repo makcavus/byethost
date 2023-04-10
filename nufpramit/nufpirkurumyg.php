@@ -1,4 +1,4 @@
-<?
+<?php
 function trsil($q) { 
 $q = str_replace("Ç","C",$q);
 $q = str_replace ("ç","c",$q); 
@@ -21,15 +21,15 @@ $q = str_replace ("__","_",$q);
 }  
 
 ?>
-<?
+<?php
 require('sumocak.php');
 // create a blank image
 $baslik=$ocakad;
 $baslikfont=3 ;
-$graphname=$yilim;//$_GET["yil"];
+$graphname=$_GET["selectyil"];
 $boslukleft=(785-(($baslikfont+3)*strlen("$baslik")))/2;
 $bosluktop=(630+(5*strlen("$graphname")))/2;
-$yataygrid=17 ;
+$yataygrid=6 ;
 $leftm=(785*(3/100))/2; //de�eri 12
 $topm=(630*(9.52381/100))/2;//de�eri 30
 $sutungen=630*4.762/100; //de�eri 30
@@ -51,23 +51,25 @@ imagepolygon($image,
              ),
              4,
              $col_poly);
-imagepolygon($image,
+             imagepolygon($image,
              array (
-                    357, 10,
-                    357,560,
-                    775, 10,
-                    775,560
+                    358, 560,
+                    358,10,
+                    358,10,
+                    358,10
+                    
              ),
-             2,
+             4,
              $col_poly1);
-imagepolygon($image,
+             imagepolygon($image,
              array (
-                    429, 10,
                     429, 560,
-                    360, 10,
-                    270,280
+                    429,10,
+                    429,10,
+                    429,10
+                    
              ),
-             2,
+             4,
              $col_poly2);
 
 $Veri[0]     = $verim18;
@@ -236,8 +238,8 @@ imagestring($image,50,370,30,"85- +",$kirmizi);
 imagestring($image,50,20,570,trsil("KADIN NÜFUSU:"),$kirmizi);
 imagestring($image,50,580,570,trsil("ERKEK NÜFUSU:"),$kirmizi);
 imagestring($image,50,300,570,trsil("TOPLAM NÜFUS:"),$kirmizi);
-imagestring($image,5,150,600,trsil("$baslik"),$kirmizi);
-imagestring($image,5,500,600,"$graphname",$kirmizi);
+imagestring($image,50,160,600,trsil("$baslik"),$kirmizi);
+//imagestring($image,5,500,600,"$graphname",$kirmizi);
 imagestring($image,50,150,570,"$Top",$Kirmiz);
 imagestring($image,50,710,570,"$Top1",$Mavi);
 imagestring($image,50,430,570,"$GTop",$Yesil);

@@ -104,7 +104,7 @@ echo '<input class="form-control-sm" type="hidden" name="selectoc" width="0" hei
 echo '<input class="form-control-sm" type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 echo '<input class="form-control-sm" type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ay.'" />';
 ?>
-<button name="SUBMIT" type="SUBMIT" class="btn btn-sm btn-primaryform-control form-control-sm" style="width: 100px"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+<button name="SUBMIT" type="SUBMIT" class="btn btn-sm btn-primary form-control form-control-sm" style="width: 100px"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>
 	PDF</button>
 <?php
 echo '</form>';

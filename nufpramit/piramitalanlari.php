@@ -78,6 +78,7 @@ $ahgirbaslik="Aile Hekimliğine ait veriler girilmiştir.";
 $ahvgbaslik="Aile Hekimliğine ait veri girilmemiştir.";
 $gelmeyenbaslik="Verileri girilmeyen Aile Hekimliği Birimleri";
 $tamambaslik="Bütün Aile Hekimliği Birimlerine ait veri girişi yapılmıştır.";
+$kayitekle="Kayıt Ekle";
 //********************************************EKLEME/DE���T�RME/S�LME UYARILARI********************************************************
 $yilkayedilemedi="Yıl Kaydedilemedi...";
 $yiloncekaydedilmis="Bu Yıl Daha Önce Kaydedilmiş...";
