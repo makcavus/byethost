@@ -101,14 +101,17 @@ $result = @mysqli_query($dbh,"select ilid,ilad from il WHERE ilid='$ilkodu' orde
 <td>
 <?php
 //mysqli baglantisi
-$resultyil = @mysqli_query($dbh,"select distinct yiladi from yil order by yiladi asc");
+include('../con_etf.php');
+$resultyil = @mysqli_query($dbh_etf,"select distinct YIL from yil order by YIL desc");
 ?>
 <td>
 <select class="form-control form-control-sm" name="selectyil" id="selectyil" onclick="kontrol();"/>
 <option value="<?php echo date("Y"); ?>"><?php echo date("Y");?></option>
 <?php
 while ($katay=mysqli_fetch_assoc($resultyil) ) {
-echo '<option>'.$katay['yiladi'].'</option>';
+	if($katay['YIL']>0){
+echo '<option>'.$katay['YIL'].'</option>';
+	}
 }
 ?>
 </select>

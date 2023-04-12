@@ -56,6 +56,7 @@ $odoyd="OKUR YAZAR DEĞİL";
 $odilk="İLKOKUL";
 $odlise="LİSE";
 $odyo="YÜKSEKOKUL";
+$duzenleyen="DÜZENLEYEN";
 $duzadbaslik="Adı Soyadı:";
 $duzunbaslik="Ünvanı:";
 $duzimzabaslik="İmza:";

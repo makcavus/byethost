@@ -1,748 +1,256 @@
-<table class="table table-responsive-sm table-sm form013kayitustaralar" style="background-color:#CCFFFF">
-    <thead>
-    <tr>
-        <td class="border-0" width="18%"><div align="center">T.C.</div></td>
-        <td class="border-0" width="38%"><span></span></td>
-        <td class="border-0" width="31%"><div align="right">YIL:</div></td>
-        <td class="border-0" width="13%"><div align="left"><strong><?php echo $yilgelen ;?></strong></div></td>
-    </tr>
-    <tr>
-        <td class="border-0"><div align="center">SAĞLIK BAKANLIĞI </div></td>
-        <td class="border-0" rowspan="2"><div align="right"><h5>AŞI SONUÇLARI ÇİZELGESİ</h5></div></td>
-        <td class="border-0"><div align="right">AY:</div></td>
-        <td class="border-0"><div align="left"><strong><?php echo $aygelen ;?></strong></div></td>
-    </tr>
-    <tr>
-        <td class="border-0"><div align="center">Form No:013 </div></td>
-        <td class="border-0"><span></span></td>
-        <td class="border-0"><span></span></td>
-        <td class="border-0"><span></span></td>
-    </tr>
-    <tr>
-        <td class="border-0"><div align="left">İL:</div></td>
-        <td class="border-0"><div align="left"><strong><?php echo $ilinadine ;?></strong></div></td>
-        <td class="border-0"><div align="right">TOPLAM NÜFUS:</div></td>
-        <td class="border-0"><span>
-            <input autofocus class="form-control form-control-sm text-center border-0" name="v118"  type="text" value="0" tabindex="1">
-          </span></td>
-    </tr>
-    <tr>
-        <td class="border-0"><div align="left">İLÇE/TSM:</div></td>
-        <td class="border-0"><div align="left"><strong><?php echo $ilceninadine ;?></strong></div></td>
-        <td class="border-0"><div align="right">0-11 AY BEBEK NÜFUSU:</div></td>
-        <td class="border-0"><span>
-            <input class="form-control form-control-sm text-center border-0" name="v119"  type="text" value="0" tabindex="2">
-          </span></td>
-    </tr>
-    <tr>
-        <td class="border-0"><div align="left">KURUM/AH:</div></td>
-        <td class="border-0"><div align="left"><strong><?php echo $ocgelen ;?></div></td>
-        <td class="border-0"><div align="right">AYLIK 0-11 AY BEBEK NÜFUSU:</div></td>
-        <td class="border-0"><span>
-		  <input class="form-control form-control-sm text-center border-0" name="v135"  type="text" value="0" tabindex="3"></span></td>
-    </tr>
-    </thead>
-</table>
-<table class="table table-responsive-sm table-sm form013kayitustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-    <tbody>
-    <tr>
-        <th width="11%" rowspan="2" class="border border-primary align-middle"><div align="center">AŞI</div></th>
-        <th colspan="9" scope="col" class="border border-primary"><div align="center">YAŞ GRUPLARINA GÖRE YAPILAN AŞI DOZLARI</div></th>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center">Uygu-lama</div></td>
-        <td width="18%" class="border border-primary"><div align="center">0 YAŞ<br>(0-11 ay)</div></td>
-        <td width="10%" class="border border-primary"><div align="center">1 YAŞ<br>(12-23 ay)</div></td>
-        <td width="10%" class="border border-primary"><div align="center">2-4 YAŞ<br>(24-59 ay)</div></td>
-        <td width="10%" class="border border-primary align-middle"><div align="center">5-9 YAŞ</div></td>
-        <td width="10%" class="border border-primary align-middle"><div align="center">10-14 YAŞ</div></td>
-        <td width="10%" class="border border-primary align-middle"><div align="center">15 YAŞ ve Üzeri</div></td>
-        <td width="2%" class="border border-primary">&nbsp;</td>
-        <td width="11%" class="border border-primary align-middle"><div align="center">TOPLAM</div></td>
-    </tr>
-    <tr>
-        <th width="11%" rowspan="4" class="border border-primary align-middle" scope="row"><div align="center">DaBT-İPA-Hib AŞISI</div></th>
-        <td width="5%" class="border border-primary"><div align="center">I</div></td>
-        <td width="18%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" id="v1" name="v1"  type="text" value="0" size="15" tabindex="4" onchange="topla();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center"> <input class="form-control form-control-sm text-center border-0" id="v2" name="v2"  type="text" value="0" size="15" onchange="topla();" onkeydown="topla4();" onkeyup="topla4();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"> <input class="form-control form-control-sm text-center border-0" id="v3" name="v3"  type="text" value="0" size="15" onchange="topla();" onkeydown="topla4();" onkeyup="topla4();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"> <input class="form-control form-control-sm text-center border-0" id="v4" name="v4"  type="text" value="0" size="15" onchange="topla();" onkeydown="topla4();" onkeyup="topla4();"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input class="style1" name="button" type="button"  onclick="topla();" value=" = "></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonucu" name="sonucu" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">II</div></td>
-        <td width="18%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v5"  type="text" value="0" size="15" tabindex="5" id="v5" onchange="topla1();" onkeydown="topla4();" onkeyup="topla4();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v6"  type="text" value="0" size="15" id="v6" onchange="topla1();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v7"  type="text" value="0" size="15" id="v7" onchange="topla1();" onkeydown="topla4();" onkeyup="topla4();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
+<table class="table table-responsive-sm table-sm table-bordered table-light table-hover form013ustaralar" style="margin-top:-8px;">
+<thead>
+  <tr>
+  <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-success" style="width:100px" href=# onclick="kontrol();" title="İptal"><i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a></th>
+      <th class="bg-primary text-center" width="40%" colspan="3"><h6 style="color:#FFFF00;"><strong><?php echo $eklegorbaslik ; ?></strong></h6></th>
+      <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-info" style="width:100px" href="#" tabindex="1" title="Kaydet" onclick="girdiyiekle();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Kaydet</a></th>
+    <input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilgelen ;?>" />
+      <input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilcegelen ;?>" />
+      <input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ocgelen ;?>" />
+      <input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $yilgelen ;?>" />
+      <input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $aygelen ;?>" />
+</tr>
+</thead>
+  </table>
+<table class="table table-responsive-sm table-sm table-bordered table-light table-hover form013ustaralar" style="margin-top:-12px;">
+<thead>
+<tr>
+<th  width="100%" colspan="8" class="border-dark text-center" bgcolor="#00FFCC"><?php echo $ygbaslik ; ?></th>
+  </tr>
+  <tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF"><?php echo $yasgrubu ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">KADIN</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">ERKEK</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">TOPLAM</th>
+  </tr>
+  <tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $sifiryas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v1" id="v1" type="text" value="0"  align="center" size="8" tabindex="1" onchange="toplayg1();" onkeydown="toplayg1();" onmouseout="toplayg1();" autofocus/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v19" id="v19" type="text" value="0"  align="center" size="8" tabindex="19" onchange="toplayg19();" onkeydown="toplayg1();" onmouseout="toplayg1();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg1" id="sonucyg1" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+  
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $besyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v2" id="v2" type="text" value="0"  align="center" size="8" tabindex="2" onchange="toplayg2();" onkeydown="toplayg2();" onmouseout="toplayg2();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v20" id="v20" type="text" value="0"  align="center" size="8" tabindex="20" onchange="toplayg2();" onkeydown="toplayg2();" onmouseout="toplayg2();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg2" id="sonucyg2" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $onyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v3" id="v3" type="text" value="0"  align="center" size="8" tabindex="3" onchange="toplayg3();" onkeydown="toplayg3();" onmouseout="toplayg3();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v21" id="v21" type="text" value="0"  align="center" size="8" tabindex="21" onchange="toplayg3();" onkeydown="toplayg3();" onmouseout="toplayg3();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg3" id="sonucyg3" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $onbesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v4" id="v4" type="text" value="0"  align="center" size="8" tabindex="4" onchange="toplayg4();" onkeydown="toplayg4();" onmouseout="toplayg4();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v22" id="v22" type="text" value="0"  align="center" size="8" tabindex="22" onchange="toplayg4();" onkeydown="toplayg4();" onmouseout="toplayg4();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg4" id="sonucyg4" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $yirmiyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v5" id="v5" type="text" value="0"  align="center" size="8" tabindex="5" onchange="toplayg5();" onkeydown="toplayg5();" onmouseout="toplayg5();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v23" id="v23" type="text" value="0"  align="center" size="8" tabindex="23" onchange="toplayg5();" onkeydown="toplayg5();" onmouseout="toplayg5();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg5" id="sonucyg5" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>  
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $yirmibesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v6" id="v6" type="text" value="0"  align="center" size="8" tabindex="6" onchange="toplayg6();" onkeydown="toplayg6();" onmouseout="toplayg6();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v24" id="v24" type="text" value="0"  align="center" size="8" tabindex="24" onchange="toplayg6();" onkeydown="toplayg6();" onmouseout="toplayg6();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg6" id="sonucyg6" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $otuzyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v7" id="v7" type="text" value="0"  align="center" size="8" tabindex="7" onchange="toplayg7();" onkeydown="toplayg7();" onmouseout="toplayg7();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v25" id="v25" type="text" value="0"  align="center" size="8" tabindex="25" onchange="toplayg7();" onkeydown="toplayg7();" onmouseout="toplayg7();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg7" id="sonucyg7" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $otuzbesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v8" id="v8" type="text" value="0"  align="center" size="8" tabindex="8" onchange="toplayg8();" onkeydown="toplayg8();" onmouseout="toplayg8();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v26" id="v26" type="text" value="0"  align="center" size="8" tabindex="26" onchange="toplayg8();" onkeydown="toplayg8();" onmouseout="toplayg8();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg8" id="sonucyg8" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $kirkyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v9" id="v9" type="text" value="0"  align="center" size="8" tabindex="9" onchange="toplayg9();" onkeydown="toplayg9();" onmouseout="toplayg9();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v27" id="v27" type="text" value="0"  align="center" size="8" tabindex="27" onchange="toplayg9();" onkeydown="toplayg9();" onmouseout="toplayg9();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg9" id="sonucyg9" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $kirkbesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v10" id="v10" type="text" value="0"  align="center" size="8" tabindex="10" onchange="toplayg10();" onkeydown="toplayg10();" onmouseout="toplayg10();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v28" id="v28" type="text" value="0"  align="center" size="8" tabindex="28" onchange="toplayg10();" onkeydown="toplayg10();" onmouseout="toplayg10();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg10" id="sonucyg10" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>  
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $elliyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v11" id="v11" type="text" value="0"  align="center" size="8" tabindex="11" onchange="toplayg11();" onkeydown="toplayg11();" onmouseout="toplayg11();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v29" id="v29" type="text" value="0"  align="center" size="8" tabindex="29" onchange="toplayg11();" onkeydown="toplayg11();" onmouseout="toplayg11();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg11" id="sonucyg11" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $ellibesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v12" id="v12" type="text" value="0"  align="center" size="8" tabindex="12" onchange="toplayg12();" onkeydown="toplayg12();" onmouseout="toplayg12();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v30" id="v30" type="text" value="0"  align="center" size="8" tabindex="30" onchange="toplayg12();" onkeydown="toplayg12();" onmouseout="toplayg12();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg12" id="sonucyg12" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $atmisyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v13" id="v13" type="text" value="0"  align="center" size="8" tabindex="13" onchange="toplayg13();" onkeydown="toplayg13();" onmouseout="toplayg13();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v31" id="v31" type="text" value="0"  align="center" size="8" tabindex="31" onchange="toplayg13();" onkeydown="toplayg13();" onmouseout="toplayg13();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg13" id="sonucyg13" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $atmisbesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v14" id="v14" type="text" value="0"  align="center" size="8" tabindex="14" onchange="toplayg14();" onkeydown="toplayg14();" onmouseout="toplayg14();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v32" id="v32" type="text" value="0"  align="center" size="8" tabindex="32" onchange="toplayg14();" onkeydown="toplayg14();" onmouseout="toplayg14();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg14" id="sonucyg14" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $yetmisyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v15" id="v15" type="text" value="0"  align="center" size="8" tabindex="15" onchange="toplayg15();" onkeydown="toplayg15();" onmouseout="toplayg15();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v33" id="v33" type="text" value="0"  align="center" size="8" tabindex="33" onchange="toplayg15();" onkeydown="toplayg15();" onmouseout="toplayg15();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg15" id="sonucyg15" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>    
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $yetmisbesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v16" id="v16" type="text" value="0"  align="center" size="8" tabindex="16" onchange="toplayg16();" onkeydown="toplayg16();" onmouseout="toplayg16();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v34" id="v34" type="text" value="0"  align="center" size="8" tabindex="34" onchange="toplayg16();" onkeydown="toplayg16();" onmouseout="toplayg16();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg16" id="sonucyg16" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $seksenyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v17" id="v17" type="text" value="0"  align="center" size="8" tabindex="17" onchange="toplayg17();" onkeydown="toplayg17();" onmouseout="toplayg17();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v35" id="v35" type="text" value="0"  align="center" size="8" tabindex="35" onchange="toplayg17();" onkeydown="toplayg17();" onmouseout="toplayg17();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg17" id="sonucyg17" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $seksenbesyas ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v18" id="v18" type="text" value="0"  align="center" size="8" tabindex="18" onchange="toplayg18();" onkeydown="toplayg18();" onmouseout="toplayg18();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v36" id="v36" type="text" value="0"  align="center" size="8" tabindex="36" onchange="toplayg18();" onkeydown="toplayg18();" onmouseout="toplayg18();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucyg18" id="sonucyg18" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#FFE333">TOPLAM </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="ygkadin" id="ygkadin" type="text" value="0"  align="center" size="8" tabindex="" onchange="toplaygk();" onkeydown="toplaygk();" onmouseout="toplaygk();" onclick="toplayg();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="ygerkek" id="ygerkek" type="text" value="0"  align="center" size="8" tabindex="" onchange="toplayge();" onkeydown="toplayge();" onmouseout="toplayge();" onclick="toplayg();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="sonucyg" id="sonucyg" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>   
+</thead>                         
+  </table>
+ 
+  <table class="table table-responsive-sm table-sm table-bordered table-light table-hover form013ustaralar" style="margin-top:-12px;">
+<thead>
+  <tr>
+  <th  width="100%" colspan="8" class="border-dark text-center" bgcolor="#00FFCC"><?php echo $mhalbaslik ; ?></th>
+  </tr>
+  <tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF"><?php echo $medenihali ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">KADIN</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">ERKEK</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">TOPLAM</th>
+  </tr>
+  <tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $mhcocuk ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v37" id="v37" type="text" value="0"  align="center" size="8" tabindex="37" onchange="toplamh1();" onkeydown="toplamh1();" onmouseout="toplamh1();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v42" id="v42" type="text" value="0"  align="center" size="8" tabindex="42" onchange="toplamh1();" onkeydown="toplamh1();" onmouseout="toplamh1();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucmh1" id="sonucmh1" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+  
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">BEKAR </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v38" id="v38" type="text" value="0"  align="center" size="8" tabindex="38" onchange="toplamh2();" onkeydown="toplamh2();" onmouseout="toplamh2();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v43" id="v43" type="text" value="0"  align="center" size="8" tabindex="43" onchange="toplamh2();" onkeydown="toplamh2();" onmouseout="toplamh2();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucmh2" id="sonucmh2" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $mhevli ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v39" id="v39" type="text" value="0"  align="center" size="8" tabindex="39" onchange="toplamh3();" onkeydown="toplamh3();" onmouseout="toplamh3();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v44" id="v44" type="text" value="0"  align="center" size="8" tabindex="44" onchange="toplamh3();" onkeydown="toplamh3();" onmouseout="toplamh3();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucmh3" id="sonucmh3" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $mhbosanmis ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v40" id="v40" type="text" value="0"  align="center" size="8" tabindex="40" onchange="toplamh4();" onkeydown="toplamh4();" onmouseout="toplamh4();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v45" id="v45" type="text" value="0"  align="center" size="8" tabindex="45" onchange="toplamh4();" onkeydown="toplamh4();" onmouseout="toplamh4();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucmh4" id="sonucmh4" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $mhesiolmus ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v41" id="v41" type="text" value="0"  align="center" size="8" tabindex="41" onchange="toplamh5();" onkeydown="toplamh5();" onmouseout="toplamh5();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v46" id="v46" type="text" value="0"  align="center" size="8" tabindex="46" onchange="toplamh5();" onkeydown="toplamh5();" onmouseout="toplamh5();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucmh5" id="sonucmh5" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>  
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#FFE333">TOPLAM </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="mhkadin" id="mhkadin" type="text" value="0"  align="center" size="8" tabindex="" onchange="toplamhk();" onkeydown="toplamhk();" onmouseout="toplamhk();" onclick="toplamh();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="mherkek" id="mherkek" type="text" value="0"  align="center" size="8" tabindex="" onchange="toplamhe();" onkeydown="toplamhe();" onmouseout="toplamhe();" onclick="toplamh();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="sonucmh" id="sonucmh" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+</thead>                            
+  </table>
 
-                <input class="form-control form-control-sm text-center border-0" name="v8"  type="text" value="0" size="15" id="v8" onchange="topla1();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="10%"  bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input class="style1" name="button1" type="button"  onclick="topla1();" value=" = "></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc1" name="sonuc1" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">III</div></td>
-        <td width="18%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v9"  type="text" value="0" size="15" tabindex="6" id="v9" onchange="topla2();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v10"  type="text" value="0" size="15" id="v10" onchange="topla2();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v11"  type="text" value="0" size="15" id="v11" onchange="topla2();" onkeydown="topla4();" onkeyup="topla4();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v12"  type="text" value="0" size="15" id="v12" onchange="topla2();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="10%"  bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input class="style1" name="button2" type="button"  onclick="topla2();" value=" = "></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc2" name="sonuc2" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">R</div></td>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v13"  type="text" value="0" size="15" tabindex="7" id="v13" onchange="topla3();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v14"  type="text" value="0" size="15" id="v14" onchange="topla3();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v15"  type="text" value="0" size="15" id="v15" onchange="topla3();" onkeydown="topla4();" onkeyup="topla4();">
-            </div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%"  bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"></td>
-        <td width="2%" class="border border-primary"><input class="style1" name="button3" type="button"  onclick="topla3();" value=" = "></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc3" name="sonuc3" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <th colspan="2" class="border border-primary" scope="row"><div align="center">TOPLAM DaBT-IPA-Hib</div></th>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input name="button4" type="button" class="style1"  onclick="topla4();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc4" name="sonuc4" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    </tbody>
-</table>
-
-<table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-    <tbody>
-    <tr style="border:double;border-color:#0066FF">
-        <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center">DaBT-İPA AŞISI</div></th>
-        <td width="5%" class="border border-primary"><div align="center">&nbsp;</div></td>
-        <td width="18%" bgcolor="#999999" class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bgcolor="#999999" class="border border-primary gri"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v16"  type="hidden" value="0" size="15" tabindex="16" id="v16" onchange="topla5();">
-            </div></td>
-        <td width="11%" bgcolor="#999999" class="border border-primary gri"><div align="center">
-
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v17"  type="text" value="0" size="15" id="v17" onchange="topla5();">
-            </div></td>
-        <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v18"  type="text" value="0" size="15"  id="v18" onchange="topla5();"></div></td>
-        <td width="10%" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input name="button5" type="button" class="style1"  onclick="topla5();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc5" name="sonuc5" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    </tbody>
-</table>
-
-<table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-    <tbody>
-    <tr>
-        <th width="11%" rowspan="4" class="border border-primary align-middle" scope="row"><div align="center">KONJUGE PNOMOKOK AŞISI </div></th>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">I</div></td>
-        <td width="18%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v19"  type="text" value="0" size="15" tabindex="8" id="v19" onchange="topla6();" onkeydown="topla10();" onkeyup="topla10();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v20"  type="text" value="0" size="15" id="v20" onchange="topla6();" onkeydown="topla10();" onkeyup="topla10();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v21"  type="text" value="0" size="15" id="v21" onchange="topla6();" onkeydown="topla10();" onkeyup="topla10();">
-            </div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v142"  type="text" value="0" size="15" id="v142" onchange="topla6();" onkeydown="topla10();" onkeyup="topla10();">
-            </div></td>
-        <td width="2%" class="border border-primary"><input name="button6" type="button" class="style1"  onclick="topla6();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc6" name="sonuc6" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">II</div></td>
-        <td width="18%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v22"  type="text" value="0" size="15" tabindex="9" id="v22" onchange="topla7();" onkeydown="topla10();" onkeyup="topla10();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v23"  type="text" value="0" size="15" id="v23" onchange="topla7();" onkeydown="topla10();" onkeyup="topla10();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v24"  type="text" value="0" size="15" id="v24" onchange="topla7();" onkeydown="topla10();" onkeyup="topla10();">
-            </div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input name="button7" type="button" class="style1"  onclick="topla7();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc7" name="sonuc7" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">III</div></td>
-        <td width="18%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v25"  type="text" value="0" size="15" tabindex="10" id="v25" onchange="topla8();" onkeydown="topla10();" onkeyup="topla10();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v26"  type="text" value="0" size="15" id="v26" onchange="topla8();" onkeydown="topla10();" onkeyup="topla10();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v27"  type="text" value="0" size="15" id="v27" onchange="topla8();" onkeydown="topla10();" onkeyup="topla10();"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input name="button8" type="button" class="style1"  onclick="topla8();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" id="sonuc8" name="sonuc8" type="text" size="15" readonly="true" value="0">
-            </div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">R</div></td>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v28"  type="text" value="0" size="15" tabindex="11" id="v28" onchange="topla9();" onkeydown="topla10();" onkeyup="topla10();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v29"  type="text" value="0" size="15" id="v29" onchange="topla9();" onkeydown="topla10();" onkeyup="topla10();"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input name="button9" type="button" class="style1"  onclick="topla9();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" id="sonuc9" name="sonuc9" type="text" size="15" readonly="true" value="0">
-            </div></td>
-    </tr>
-    <tr>
-        <th colspan="2" class="border border-primary" scope="row"><div align="center">TOPLAM KPA </div></th>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input name="button10" type="button" class="style1"  onclick="topla10();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc10" name="sonuc10" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-</table>
-</tbody>
-
-<table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-    <tbody>
-    <tr>
-        <th width="11%" rowspan="4" class="border border-primary align-middle" scope="row"><div align="center">ORAL POLİO  AŞISI </div></th>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">I</div></td>
-        <td width="18%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v30"  type="text" value="0" size="15" tabindex="12" id="v30" onchange="topla11();" onkeydown="topla15();" onkeyup="topla15();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v31"  type="text" value="0" size="15" id="v31" onchange="topla11();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v32"  type="text" value="0" size="15" id="v32" onchange="topla11();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v33"  type="text" value="0" size="15" id="v33" onchange="topla11();" onkeydown="topla15();" onkeyup="topla15();">
-            </div></td>
-        <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v34"  type="text" value="0" size="15" id="v34" onchange="topla11();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v35"  type="text" value="0" size="15" id="v35" onchange="topla11();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="2%" class="border border-primary"><input name="button11" type="button" class="style1"  onclick="topla11();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc11" name="sonuc11" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">II</div></td>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v36"  type="hidden" value="0" size="15" tabindex="36" id="v36" onchange="topla12();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v37"  type="text" value="0" size="15" tabindex="13" id="v37" onchange="topla12();" onkeydown="topla15();" onkeyup="topla15();">
-            </div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v38"  type="text" value="0" size="15" id="v38" onchange="topla12();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v39"  type="text" value="0" size="15" id="v39" onchange="topla12();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v40"  type="text" value="0" size="15" id="v40" onchange="topla12();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v41"  type="text" value="0" size="15" id="v41" onchange="topla12();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="2%" class="border border-primary"><input name="button12" type="button" class="style1"  onclick="topla12();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" id="sonuc12" name="sonuc12" type="text" size="15" readonly="true" value="0">
-            </div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">III</div></td>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v42"  type="hidden" value="0" size="15" tabindex="42" id="v42" onchange="topla13();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v43"  type="hidden" value="0" size="15" tabindex="43" id="v43" onchange="topla13();" onkeydown="topla15();" onkeyup="topla15();">
-            </div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v44"  type="hidden" value="0" size="15" tabindex="44" id="v44" onchange="topla13();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="11%" bgcolor="#999999" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v45"  type="hidden" value="0" size="15" tabindex="45" id="v45" onchange="topla13();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="10%" bgcolor="#999999" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v46"  type="hidden" value="0" size="15" tabindex="46" id="v46" onchange="topla13();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="10%" bgcolor="#999999" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v47"  type="hidden" value="0" size="15" tabindex="47" id="v47" onchange="topla13();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="2%" class="border border-primary"><input name="button13" type="button" class="style1"  onclick="topla13();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc13" name="sonuc13" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">R</div></td>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v48"  type="hidden" value="0" size="15" tabindex="48" id="v48" onchange="topla14();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v49"  type="hidden" value="0" size="15" tabindex="49" id="v49" onchange="topla14();" onkeydown="topla15();" onkeyup="topla15();">
-            </div></td>
-        <td width="11%" bgcolor="#999999" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v50"  type="hidden" value="0" size="15" tabindex="50" id="v50" onchange="topla14();" onkeydown="topla15();" onkeyup="topla15();"></div></td>
-        <td width="10%" bgcolor="#999999" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v51"  type="hidden" value="0" size="15" tabindex="51" id="v51" onchange="topla14();" onkeydown="topla15();" onkeyup="topla15();">
-            </div></td>
-        <td width="10%" bgcolor="#999999" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v52"  type="hidden" value="0" size="15" tabindex="52" id="v52" onchange="topla14();" onkeydown="topla15();" onkeyup="topla15();">
-            </div></td>
-        <td width="2%" class="border border-primary"><input name="button14" type="button" class="style1"  onclick="topla14();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc14" name="sonuc14" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    <tr>
-        <th colspan="2" class="border border-primary" scope="row"><div align="center">TOPLAM ORAL POLİO </div></th>
-        <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-        <td width="2%" class="border border-primary"><input name="button15" type="button" class="style1"  onclick="topla15();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc15" name="sonuc15" type="text" size="15" readonly="true" value="0"></div></td>
-    </tr>
-    </tbody>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr>
-            <th width="11%" rowspan="2" class="border border-primary align-middle" scope="row"><div align="center">K.K.K AŞISI </div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">I</div></td>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v53"  type="text" value="0" size="15" tabindex="14" id="v53" onchange="topla16();" onkeydown="topla18();" onkeyup="topla18();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v54"  type="text" value="0" size="15" id="v54" onchange="topla16();" onkeydown="topla18();" onkeyup="topla18();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v55"  type="text" value="0" size="15" id="v55" onchange="topla16();" onkeydown="topla18();" onkeyup="topla18();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v56"  type="text" value="0" size="15" id="v56" onchange="topla16();" onkeydown="topla18();" onkeyup="topla18();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v57"  type="text" value="0" size="15"  id="v57" onchange="topla16();" onkeydown="topla18();" onkeyup="topla18();">
-                </div></td>
-            <td width="2%" class="border border-primary"><input name="button16" type="button" class="style1"  onclick="topla16();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc16" name="sonuc16" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">R</div></td>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v58"  type="text" value="0" size="15" id="v58" onchange="topla17();" onkeydown="topla18();" onkeyup="topla18();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v59"  type="text" value="0" size="15" id="v59" onchange="topla17();" onkeydown="topla18();" onkeyup="topla18();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v60"  type="text" value="0" size="15" id="v60" onchange="topla17();" onkeydown="topla18();" onkeyup="topla18();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v61"  type="text" value="0" size="15"  id="v61" onchange="topla17();" onkeydown="topla18();" onkeyup="topla18();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v62"  type="text" value="0" size="15" id="v62" onchange="topla17();" onkeydown="topla18();" onkeyup="topla18();"></div></td>
-            <td width="2%" class="border border-primary"><input name="button17" type="button" class="style1"  onclick="topla17();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc17" name="sonuc17" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <th colspan="2" class="border border-primary" scope="row"><div align="center">TOPLAM K.K.K. </div></th>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button18" type="button" class="style1"  onclick="topla18();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc18" name="sonuc18" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr style="border:double;border-color:#0066FF">
-            <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center">PPD</div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8"></div></td>
-            <td width="18%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v63"  type="text" value="0" size="15" id="v63" onchange="topla19();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v64"  type="text" value="0" size="15" id="v64" onchange="topla19();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v65"  type="text" value="0" size="15" id="v65" onchange="topla19();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v66"  type="text" value="0" size="15" id="v66" onchange="topla19();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v67"  type="text" value="0" size="15"  id="v67" onchange="topla19();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v68"  type="text" value="0" size="15" id="v68" onchange="topla19();"></div></td>
-            <td width="2%" class="border border-primary"><input name="button19" type="button" class="style1"  onclick="topla19();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" id="sonuc19" name="sonuc19" type="text" size="15" readonly="true" value="0">
-                </div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr style="border:double;border-color:#0066FF">
-            <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center">BCG AŞISI</div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">I</div></td>
-            <td width="18%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v69"  type="text" value="0" size="15" tabindex="15" id="v69" onchange="topla20();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v70"  type="text" value="0" size="15" id="v70" onchange="topla20();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v71"  type="text" value="0" size="15" id="v71" onchange="topla20();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v72"  type="text" value="0" size="15" id="v72" onchange="topla20();"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v73"  type="hidden" value="0" size="15" tabindex="73" id="v73" onchange="topla20();">
-                </div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button20" type="button" class="style1"  onclick="topla20();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" id="sonuc20" name="sonuc20" type="text" size="15" readonly="true" value="0">
-                </div></td>
-        </tr>
-        </tbody>
-    </table>
-
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <thead>
-        <tr>
-            <th width="16%" class="border border-primary" colspan="2">&nbsp;</th>
-            <th width="6%" class="border border-primary" scope="col"><div align="center">BD</div></th>
-            <th width="6%" class="border border-primary" scope="col"><div align="center">Bİ</div></th>
-            <th width="6%" class="border border-primary" scope="col"><div align="center">TOPLAM</div></th>
-            <th width="66%" class="border border-primary" colspan="6">&nbsp;</th>
-        </tr>
-
-        </thead>
-        <tbody>
-
-        <tr>
-            <th width="11%" rowspan="3" class="border border-primary align-middle" scope="row"><div align="center">HEPATİT-B AŞISI </div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">I</div></td>
-            <td width="6%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v74"  type="text" value="0" size="6" tabindex="16" id="v74" onchange="toplahep();" onmousedown="topla24();" onmouseup="topla24();">
-                </div></td>
-            <td width="6%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v75"  type="text" value="0" size="6" tabindex="17" id="v75" onchange="toplahep();" onmousedown="topla24();" onmouseup="topla24();">
-                </div></td>
-            <td width="6%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="v76" name="v76" type="text" size="6" readonly="true" value="0"></div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v77"  type="text" value="0" size="15" id="v77" onchange="topla21();" onkeydown="topla24();" onkeyup="topla24();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v78"  type="text" value="0" size="15" id="v78" onchange="topla21();" onkeydown="topla24();" onkeyup="topla24();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v79"  type="text" value="0" size="15" id="v79" onchange="topla21();" onkeydown="topla24();" onkeyup="topla24();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v80"  type="text" value="0" size="15" id="v80" onchange="topla21();" onkeydown="topla24();" onkeyup="topla24();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v81"  type="text" value="0" size="15" id="v81" onchange="topla21();" onkeydown="topla24();" onkeyup="topla24();">
-                </div></td>
-            <td width="2%" class="border border-primary"><input name="button21" type="button" class="style1"  onclick="topla21();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc21" name="sonuc21" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">II</div></td>
-            <td width="18%" colspan="3" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v82"  type="text" value="0" size="15" tabindex="18" id="v82" onchange="topla22();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v83"  type="text" value="0" size="15" id="v83" onchange="topla22();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v84"  type="text" value="0" size="15" id="v84" onchange="topla22();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v85"  type="text" value="0" size="15" id="v85" onchange="topla22();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v86"  type="text" value="0" size="15" id="v86" onchange="topla22();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v87"  type="text" value="0" size="15" id="v87" onchange="topla22();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-            <td width="2%" class="border border-primary"><input name="button22" type="button" class="style1"  onclick="topla22();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc22" name="sonuc22" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <td width="5%" class="border border-primary"><div align="center" class="style8">III</div></td>
-        <td cwidth="18%" colspan="3" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v88"  type="text" value="0" size="15" tabindex="19" id="v88" onchange="topla23();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v89"  type="text" value="0" size="15" id="v89" onchange="topla23();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v90"  type="text" value="0" size="15" id="v90" onchange="topla23();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v91"  type="text" value="0" size="15" id="v91" onchange="topla23();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-        <td width="10%" class="border border-primary"><div align="center">
-                <input class="form-control form-control-sm text-center border-0" name="v92"  type="text" value="0" size="15" id="v92" onchange="topla23();" onkeydown="topla24();" onkeyup="topla24();">
-            </div></td>
-        <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v93"  type="text" value="0" size="15" id="v93" onchange="topla23();" onkeydown="topla24();" onkeyup="topla24();"></div></td>
-        <td width="2%" class="border border-primary"><input name="button23" type="button" class="style1"  onclick="topla23();" value=" = " /></td>
-        <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc23" name="sonuc23" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <th width="16%" colspan="2" class="border border-primary" scope="row"><div align="center">TOPLAM HEPATİT-B </div></th>
-            <td width="18%" colspan="3" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button24" type="button" class="style1"  onclick="topla24();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc24" name="sonuc24" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr>
-            <th width="11%" rowspan="2" class="border border-primary align-middle" scope="row"><div align="center">HEPATİT-A AŞISI </div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">I</div></td>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v120"  type="text" value="0" size="15" tabindex="20" id="v120" onchange="topla36();" onkeydown="topla38();" onkeyup="topla38();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v121"  type="text" value="0" size="15" id="v121" onchange="topla36();" onkeydown="topla38();" onkeyup="topla38();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v122"  type="text" value="0" size="15" id="v122" onchange="topla36();" onkeydown="topla38();" onkeyup="topla38();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v123"  type="text" value="0" size="15" id="v123" onchange="topla36();" onkeydown="topla38();" onkeyup="topla38();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v124"  type="text" value="0" size="15" id="v124" onchange="topla36();" onkeydown="topla38();" onkeyup="topla38();">
-                </div></td>
-            <td width="2%" class="border border-primary"><input name="button36" type="button" class="style1"  onclick="topla36();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc36" name="sonuc36" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">R</div></td>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v125"  type="text" value="0" size="15" id="v125" onchange="topla37();" onkeydown="topla38();" onkeyup="topla38();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v126"  type="text" value="0" size="15" tabindex="21" id="v126" onchange="topla37();" onkeydown="topla38();" onkeyup="topla38();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v127"  type="text" value="0" size="15" id="v127" onchange="topla37();" onkeydown="topla38();" onkeyup="topla38();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v128"  type="text" value="0" size="15" id="v128" onchange="topla37();" onkeydown="topla38();" onkeyup="topla38();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v129"  type="text" value="0" size="15" id="v129" onchange="topla37();" onkeydown="topla38();" onkeyup="topla38();"></div></td>
-            <td width="2%" class="border border-primary"><input name="button37" type="button" class="style1"  onclick="topla37();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc37" name="sonuc37" type="text" size="15" readonly="true" value="0">
-                </div></td>
-        </tr>
-        <tr>
-            <th colspan="2" class="border border-primary" scope="row"><div align="center">TOPLAM HEPATİT-A </div></th>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button38" type="button" class="style1"  onclick="topla38();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc38" name="sonuc38" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        </tbody>
-    </table>
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr style="border:double;border-color:#0066FF">
-            <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center">SU ÇİÇEĞİ AŞISI</div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8"></div></td>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v130"  type="text" value="0" size="15" tabindex="22" id="v130" onchange="topla39();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v131"  type="text" value="0" size="15" id="v131" onchange="topla39();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v132"  type="text" value="0" size="15" id="v132" onchange="topla39();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v133"  type="text" value="0" size="15" id="v133" onchange="topla39();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v134"  type="text" value="0" size="15" id="v134" onchange="topla39();">
-                </div></td>
-            <td width="2%" class="border border-primary"><input name="button39" type="button" class="style1"  onclick="topla39();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" id="sonuc39" name="sonuc39" type="text" size="15" readonly="true" value="0">
-                </div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr style="border:double;border-color:#0066FF">
-            <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center" class="style22">KIZAMIKÇIK AŞISI </div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8"></div></td>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v94"  type="hidden" value="0" size="15" tabindex="94" id="v94" onchange="topla25();"></div></td>
-            <td width="10%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="border border-primary" name="v95"  type="hidden" value="0" size="15" tabindex="95" id="v95" onchange="topla25();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v96"  type="text" value="0" size="15" id="v96" onchange="topla25();">
-                </div></td>
-            <td width="2%" class="border border-primary"><input name="button25" type="button" class="style1"  onclick="topla25();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc25" name="sonuc25" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr style="border:double;border-color:#0066FF">
-            <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center" class="style19">OKUL Td AŞISI </div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8"></div></td>
-            <td width="18%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v97"  type="hidden" value="0" size="15" tabindex="97" id="v97" onchange="topla26();"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v98"  type="hidden" value="0" size="15" tabindex="98" id="v98" onchange="topla26();"></div></td>
-            <td width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v99"  type="hidden" value="0" size="15" tabindex="99" id="v99" onchange="topla26();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v100"  type="text" value="0" size="15"  id="v100" onchange="topla26();">
-                </div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v101"  type="text" value="0" size="15" id="v101" onchange="topla26();">
-                </div></td>
-            <td width="2%" class="border border-primary"><input name="button26" type="button" class="style1"  onclick="topla26();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc26" name="sonuc26" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr>
-            <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center">DİĞER Td</div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8"></div></td>
-            <td width="18%" bordercolor="#F0F0F0" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v102"  type="text" value="0" size="15" id="v102" onchange="topla27();">
-                </div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v103"  type="text" value="0" size="15" id="v103" onchange="topla27();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v104"  type="text" value="0" size="15" id="v104" onchange="topla27();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v105"  type="text" value="0" size="15" id="v105" onchange="topla27();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v106"  type="text" value="0" size="15" id="v106" onchange="topla27();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v107"  type="text" value="0" size="15" tabindex="23" id="v107" onchange="topla27();">
-                </div></td>
-            <td width="2%" class="border border-primary"><input name="button27" type="button" class="style1"  onclick="topla27();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc27" name="sonuc27" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013veritdaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr>
-            <th width="11%" class="border border-primary"><div align="center"></div></th>
-            <th width="5%" bordercolor="#000000" class="border border-primary" scope="col"><div align="center"></div></th>
-            <th width="36%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri text-center" scope="col">GEBE</th>
-            <th width="35%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri text-center" scope="col">GEBE DEĞİL </th>
-            <th width="2%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri" scope="col">&nbsp;</th>
-            <th width="11%" bordercolor="#000000" bgcolor="#999999"  class="border border-primary gri" scope="col">&nbsp;</th>
-        </tr>
-        <tr>
-            <th width="11%" rowspan="5" class="border border-primary align-middle"><div align="center">15-49 YAŞ KADIN Td AŞISI</div></th>
-            <td width="5%" class="border border-primary"><div align="center">Td1</div></td>
-            <td class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v108"  type="text" value="0" size="15" tabindex="24" id="v108" onchange="topla28();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>
-                <div align="center"></div>            <div align="center"></div></td>
-            <td class="border border-primary">
-                <div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v113"  type="text" value="0" size="15" tabindex="29" id="v113" onchange="topla29();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td width="2%" class="border border-primary"><div align="center"><input name="button30" type="button" class="style1"  onclick="topla30();" value=" = " /></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc30" name="sonuc30" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">Td2</div></td>
-            <td class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v109"  type="text" value="0" size="15" tabindex="25" id="v109" onchange="topla28();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v114"  type="text" value="0" size="15" tabindex="30" id="v114" onchange="topla29();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button31" type="button" class="style1"  onclick="topla31();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc31" name="sonuc31" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">Td3</div></td>
-            <td class="border border-primary">
-                <div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v110"  type="text" value="0" size="15" tabindex="26" id="v110" onchange="topla28();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td class="border border-primary">
-                <div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v115"  type="text" value="0" size="15" tabindex="31" id="v115" onchange="topla29();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button32" type="button" class="style1"  onclick="topla32();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc32" name="sonuc32" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">Td4</div></td>
-            <td class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v111"  type="text" value="0" size="15" tabindex="27" id="v111" onchange="topla28();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td class="border border-primary">
-                <div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v116"  type="text" value="0" size="15" tabindex="32" id="v116" onchange="topla29();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button33" type="button" class="style1"  onclick="topla33();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc33" name="sonuc33" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <td width="5%" class="border border-primary"><div align="center" class="style8">Td5</div></td>
-            <td class="border border-primary">
-                <div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v112"  type="text" value="0" size="15" tabindex="28" id="v112" onchange="topla28();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>
-                <div align="center"></div>            <div align="center"></div></td><td class="border border-primary">
-                <div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v117"  type="text" value="0" size="15" tabindex="33" id="v117" onchange="topla29();" onmousedown="topla35();" onmouseup="topla35();">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button34" type="button" class="style1"  onclick="topla34();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc34" name="sonuc34" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        <tr>
-            <th class="border border-primary" scope="row">&nbsp;</th>
-            <th width="5%" class="border border-primary" scope="row">&nbsp;</th>
-            <td align="center" class="border border-primary"><div align="center">
-                    <input name="button28" type="button" class="style1"  onclick="topla28();" value=" = " />
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td align="center" class="border border-primary"><div align="center">
-                    <input name="button29" type="button" class="style1"  onclick="topla29();" value=" = " />
-                </div>
-                <div align="center"></div>            <div align="center"></div></td>
-            <td width="2%" class="border border-primary">&nbsp;</td>
-            <td width="11%" class="border border-primary">&nbsp;</td>
-        </tr>
-        <tr>
-            <th colspan="2" class="border border-primary" scope="row"><div align="center">TOPLAM Td</div></th>
-            <td class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" id="sonuc28" name="sonuc28" type="text" size="15" readonly="true" value="0">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td class="border border-primary">
-                <div align="center">
-                    <input class="form-control form-control-sm text-center border-0" id="sonuc29" name="sonuc29" type="text" size="15" readonly="true" value="0">
-                </div>            <div align="center"></div>            <div align="center"></div></td>
-            <td width="2%" class="border border-primary"><input name="button35" type="button" class="style1"  onclick="topla35();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" id="sonuc35" name="sonuc35" type="text" size="15" readonly="true" value="0"></div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <table class="table table-responsive-sm table-sm form013ustaralar" style="border:double;border-color:#0066FF;background-color:#CCFFFF">
-        <tbody>
-        <tr style="border:double;border-color:#0066FF">
-            <th width="11%" rowspan="4" class="border border-primary" scope="row"><div align="center">KIZAMIK AŞISI</div></th>
-            <td width="5%" class="border border-primary"><div align="center" class="style8"></div></td>
-            <td width="18%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" name="v136" type="text" value="0" size="15" id="v136" tabindex="34" onchange="topla40();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v137" type="text" value="0" size="15" id="v137" onchange="topla40();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v138" type="text" value="0" size="15" id="v138" onchange="topla40();"></div></td>
-            <td width="11%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v139" type="text" value="0" size="15" id="v139" onchange="topla40();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v140" type="text" value="0" size="15"  id="v140" onchange="topla40();"></div></td>
-            <td width="10%" class="border border-primary"><div align="center"><input class="form-control form-control-sm text-center border-0" name="v141" type="text" value="0" size="15" id="v141" onchange="topla40();"></div></td>
-            <td width="2%" class="border border-primary"><input name="button40" type="button" class="style1"  onclick="topla40();" value=" = " /></td>
-            <td width="11%" class="border border-primary"><div align="center">
-                    <input class="form-control form-control-sm text-center border-0" id="sonuc40" name="sonuc40" type="text" size="15" readonly="true" value="0">
-                </div></td>
-        </tr>
-        </tbody>
-    </table>
+  <table class="table table-responsive-sm table-sm table-bordered table-light table-hover form013ustaralar" style="margin-top:-12px;">
+<thead>
+  <tr>
+  <th  width="100%" colspan="8" class="border-dark text-center" bgcolor="#00FFCC"><?php echo $odurbaslik ; ?></th>
+  </tr>
+  <tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF"><?php echo $ogrenimdurumu ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">KADIN</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">ERKEK</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">TOPLAM</th>
+  </tr>
+  <tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $odocd ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v47" id="v47" type="text" value="0"  align="center" size="8" tabindex="47" onchange="toplaod1();" onkeydown="toplaod1();" onmouseout="toplaod1();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v54" id="v54" type="text" value="0"  align="center" size="8" tabindex="54" onchange="toplaod1();" onkeydown="toplaod1();" onmouseout="toplaod1();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucod1" id="sonucod1" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+  
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $odoyd ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v48" id="v48" type="text" value="0"  align="center" size="8" tabindex="48" onchange="toplaod2();" onkeydown="toplaod2();" onmouseout="toplaod2();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v55" id="v55" type="text" value="0"  align="center" size="8" tabindex="55" onchange="toplaod2();" onkeydown="toplaod2();" onmouseout="toplaod2();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucod2" id="sonucod2" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">OKUR YAZAR</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v49" id="v49" type="text" value="0"  align="center" size="8" tabindex="49" onchange="toplaod3();" onkeydown="toplaod3();" onmouseout="toplaod3();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v56" id="v56" type="text" value="0"  align="center" size="8" tabindex="56" onchange="toplaod3();" onkeydown="toplaod3();" onmouseout="toplaod3();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucod3" id="sonucod3" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $odilk ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v50" id="v50" type="text" value="0"  align="center" size="8" tabindex="50" onchange="toplaod4();" onkeydown="toplaod4();" onmouseout="toplaod4();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v57" id="v57" type="text" value="0"  align="center" size="8" tabindex="57" onchange="toplaod4();" onkeydown="toplaod4();" onmouseout="toplaod4();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucod4" id="sonucod4" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">ORTAOKUL </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v51" id="v51" type="text" value="0"  align="center" size="8" tabindex="51" onchange="toplaod5();" onkeydown="toplaod5();" onmouseout="toplaod5();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v58" id="v58" type="text" value="0"  align="center" size="8" tabindex="58" onchange="toplaod5();" onkeydown="toplaod5();" onmouseout="toplaod5();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucod5" id="sonucod5" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>  
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $odlise ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v52" id="v52" type="text" value="0"  align="center" size="8" tabindex="52" onchange="toplaod6();" onkeydown="toplaod6();" onmouseout="toplaod6();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v59" id="v59" type="text" value="0"  align="center" size="8" tabindex="59" onchange="toplaod6();" onkeydown="toplaod6();" onmouseout="toplaod6();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucod6" id="sonucod6" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>    
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $odyo ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="pink"><input class="form-control text-center font-weight-bold" name="v53" id="v53" type="text" value="0"  align="center" size="8" tabindex="53" onchange="toplaod7();" onkeydown="toplaod7();" onmouseout="toplaod7();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><input class="form-control text-center font-weight-bold" name="v60" id="v60" type="text" value="0"  align="center" size="8" tabindex="60" onchange="toplaod7();" onkeydown="toplaod7();" onmouseout="toplaod7();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><input class="form-control text-center font-weight-bold" name="sonucod7" id="sonucod7" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>    
+<tr>
+  <th  width="25%" class="border-dark text-center" bgcolor="#FFE333">TOPLAM </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="odkadin" id="odkadin" type="text" value="0"  align="center" size="8" tabindex="" onchange="toplaodk();" onkeydown="toplaodk();" onmouseout="toplaodk();" onclick="toplaod();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="oderkek" id="oderkek" type="text" value="0"  align="center" size="8" tabindex="" onchange="toplaode();" onkeydown="toplaode();" onmouseout="toplaode();" onclick="toplaod();"/></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><input class="form-control text-center font-weight-bold" name="sonucod" id="sonucod" type="text" value="0"  align="center" size="8" tabindex="" readonly="true"/></th>
+  </tr>  
+</thead>                          
+  </table>  

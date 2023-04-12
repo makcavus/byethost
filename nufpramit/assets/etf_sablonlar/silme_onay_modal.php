@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h5 class="text-secondary bg-warning text-center"><?php echo '<div><h6>'.$ilinadi.'-'.$ilceninadi.'-<font style="color:blue">'.$ocgelen.'</FONT><br>'.$yilgelen.'-'.$aygelen.'</h6></div>'; ?></h5>
+                <h5 class="text-secondary bg-warning text-center"><?php echo '<div><h6>'.$ilinadi.'-'.$ilceninadi.'-<font style="color:blue">'.$ocak.'</FONT><br>'.$yil.'</h6></div>'; ?></h5>
                 <h5 class="text-danger">Bu Kaydı Silmek İstediğinize Emin misiniz?</h5>
             </div>
             <div class="modal-footer bg-success justify-content-center">

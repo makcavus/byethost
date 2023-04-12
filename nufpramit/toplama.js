@@ -1444,7 +1444,7 @@ return false;
 //Kayit Silme
 function sil(ilidi,ilceidi,vocadi,vyiladi,vayadi,komut) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
 {
-$('div#sonuc').html('<br><img src="../images/sil.bmp">');
+$('div#sonucsil').html('<br><img src="../images/sil.bmp">');
 $.ajax({ 
 
 type: 'GET',//verinin gnderilme yntemini belirliyoruz.
@@ -1455,7 +1455,7 @@ data: $('form').serialize(),//gnderilecek veri olarak formdan elamlarinin degerl
 
 success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
 {
-$('div#sonuc').html(cevap);
+$('div#sonucsil').html(cevap);
 }
 });}
 //Kayit Grme

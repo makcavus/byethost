@@ -7,10 +7,10 @@
 	<th  width="100%" colspan="8" class="border-dark text-center" bgcolor="#00FFCC"><?php echo $ygbaslik ; ?></th>
   </tr>
   <tr>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $yasgrubu ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">KADIN</th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">ERKEK</th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">TOPLAM</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF"><?php echo $yasgrubu ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">KADIN</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">ERKEK</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">TOPLAM</th>
   </tr>
   <tr>
   <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $sifiryas ; ?></th>
@@ -122,10 +122,10 @@
   <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><?php echo $seksenbes  ; ?></th>
   </tr>
 <tr>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">TOPLAM </th>
-  <th  width="25%" class="border-dark text-center" bgcolor="pink"><?php echo $ygkt  ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><?php echo $yget  ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><?php echo $ygt  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#FFE333">TOPLAM </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $ygkt  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $yget  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $ygt  ; ?></th>
   </tr>   
 </thead>                         
 </table>
@@ -135,10 +135,10 @@
 	<th  width="100%" colspan="8" class="border-dark text-center" bgcolor="#00FFCC"><?php echo $mhalbaslik ; ?></th>
   </tr>
   <tr>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $medenihali ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">KADIN</th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">ERKEK</th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">TOPLAM</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF"><?php echo $medenihali ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">KADIN</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">ERKEK</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">TOPLAM</th>
   </tr>
   <tr>
   <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $mhcocuk ; ?></th>
@@ -172,10 +172,10 @@
   <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><?php echo $esiolmus  ; ?></th>
   </tr>  
 <tr>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">TOPLAM </th>
-  <th  width="25%" class="border-dark text-center" bgcolor="pink"><?php echo $mhkt  ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><?php echo $mhet  ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><?php echo $mht  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#FFE333">TOPLAM </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $mhkt  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $mhet  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $mht  ; ?></th>
   </tr>    
 </thead>                       
 </table>
@@ -185,10 +185,10 @@
 	<th  width="100%" colspan="8" class="border-dark text-center" bgcolor="#00FFCC"><?php echo $odurbaslik ; ?></th>
   </tr>
   <tr>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $ogrenimdurumu ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">KADIN</th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">ERKEK</th>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">TOPLAM</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF"><?php echo $ogrenimdurumu ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">KADIN</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">ERKEK</th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#33A2FF">TOPLAM</th>
   </tr>
   <tr>
   <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC"><?php echo $odocd ; ?></th>
@@ -234,10 +234,10 @@
   <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><?php echo $yo  ; ?></th>
   </tr>    
 <tr>
-  <th  width="25%" class="border-dark text-center" bgcolor="#CEF6EC">TOPLAM </th>
-  <th  width="25%" class="border-dark text-center" bgcolor="pink"><?php echo $odkt  ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="cyan"><?php echo $odet  ; ?></th>
-  <th  width="25%" class="border-dark text-center" bgcolor="YELLOW"><?php echo $odt  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="#FFE333">TOPLAM </th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $odkt  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $odet  ; ?></th>
+  <th  width="25%" class="border-dark text-center" bgcolor="FFE333"><?php echo $odt  ; ?></th>
   </tr>   
 </thead>                         
 </table>  	

@@ -57,8 +57,10 @@ elseif($countryId != "" and $ilceninadi != "İlçe Seçiniz" and $ocak != "Aile 
 $uyar="";
 echo '<h5><span class="badge badge-pill badge-danger">'.$uyar.'</span></h5>' ;
 if($yetki==$bakanlikyetki or $yetki=$ilyetki and $ilkod==$ilkodx or $yetki==$ilceyetki and $ilcekod==$ilcekodx or $yetki==$kurumyetki and $ilcekod==$ilcekodx or $ahekkodu==$ocak){
+ 
   echo '<a class="btn btn-sm btn-primary" href=# onClick="ykay();" style="width: 100px"><i class="fa fa-floppy-o" aria-hidden="true"></i> '
   .$kayitekle.'</a>';
+  
 }else{
 $sizmisiniz="Bu kaydı yapmaya yetkiniz yoktur.";
 echo '<font style="color:Red">'.$sizmisiniz.'</span></h5>' ;
@@ -78,7 +80,7 @@ if($yetki==$bakanlikyetki or $yetki=$ilyetki and $ilkod==$ilkodx or $yetki==$ilc
 
 <th class="bg-warning text-center">
 <?php
-echo '<form class="form-control-sm" action="form023pdf.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
+echo '<form class="form-control-sm" action="../pdfmysqli/nppdf.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
 echo '<input type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
 echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$countryId.'" />';
 echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$stateId.'" />';
@@ -87,11 +89,8 @@ echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspa
 ?>
 <button name="SUBMIT" type="SUBMIT" class="btn btn-sm btn-primary form-control form-control-sm" style="width: 100px"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>
 	PDF</button>
-<?php
-echo '</form>';
-?>
+<?php echo '</form>'; ?>
 <th class="bg-warning text-center">
-
 <?php
 echo '<form class="form-control-sm" action="/excelmysqli/npyilxls.php" method="get" name="gor">' ;
 echo '<input type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
@@ -100,15 +99,11 @@ echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hsp
 echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocak.'" />';
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 ?>
-
 <button name="SUBMIT" type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-light" style="width: 100px"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
  Excel</button>
-<?php
-echo '</form>';
-?>
+<?php echo '</form>'; ?>
 <th class="bg-primary text-center" width="50%" colspan="3"><h6 class="mb-2" style="color:#FFFF00;"><strong><?php echo $kayitgorbaslik;?></strong></h6></th>
 <th class="bg-warning text-center">
-
 <?php
 echo '<form action="nufpirkurumyg.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 echo '<input type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
@@ -118,13 +113,9 @@ echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspac
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 ?>
 <button name="SUBMIT" type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-light mb-1" style="width: 136px"><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $npbuton ;?></button>
-
-<?php
-echo '</form>';
-?>
+<?php echo '</form>'; ?>
 <th class="bg-warning text-center">
-
-	<?php
+<?php
 echo '<form action="npbuyukyaz.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 echo '<input type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
 echo '<input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$countryId.'" />';
@@ -133,11 +124,8 @@ echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspac
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 ?>
 <button name="SUBMIT" type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-primary mb-1" style="width: 138px"><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $buyuknpbuton ;?></button>
-<?php  
-echo '</form>';
-  ?>
+<?php echo '</form>'; ?>
 <th class="bg-warning text-center">
-
 <?php
 echo '<form action="nufpirkurummh.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 echo '<input type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
@@ -146,14 +134,9 @@ echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hsp
 echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocak.'" />';
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 ?>
-
 <button name="SUBMIT" type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-danger mb-1" style="width: 130px"><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $mhbuton ;?></button>
-<?php
-echo '</form>';
-?>
-
+<?php echo '</form>'; ?>
 <th class="bg-warning text-center">
-
 <?php
 echo '<form action="nufpirkurumod.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">' ;
 echo '<input type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
@@ -162,11 +145,8 @@ echo '<input type="hidden" name="selectilce" width="0" height="0" vspace="0" hsp
 echo '<input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ocak.'" />';
 echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$yil.'" />';
 ?>
-
 <button name="SUBMIT" type="SUBMIT" class="form-control form-control-sm btn btn-sm btn-success mb-1" style="width: 160px"><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $odbuton ;?></button>
-<?php
-echo '</form>';
-?>
+<?php echo '</form>'; ?>
 </thead>
 </table>
 <?php
@@ -181,12 +161,10 @@ echo '<br>';
 echo '<a href=# onClick="git();"><img src="images/goster.PNG"></a>';
 }
 }
-if($yetki==$bakanlikyetki or $yetki=$ilyetki and $ilkod==$ilkodx or $yetki==$ilceyetki and $ilcekod==$ilcekodx or $yetki==$kurumyetki and $ilcekod==$ilcekodx or $ahekkodu==$ocak){
+if($say>0 and $yetki==$bakanlikyetki or $say>0 and $yetki=$ilyetki and $ilkod==$ilkodx or $say>0 and $yetki==$ilceyetki and $ilcekod==$ilcekodx or $say>0 and $yetki==$kurumyetki and $ilcekod==$ilcekodx or $say>0 and $ahekkodu==$ocak){
 $kacahek="select * from ocak where(ilinad='$countryId' and ilce='$stateId' and dradi like 'Dr.%' and asmadi like '%ASM')";
 $sorgula=mysqli_query($dbh,$kacahek);
 $kacaheksay=mysqli_num_rows($sorgula);
-//echo $kacaheksay;
-//echo '<br>';
 $kacveri="select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and v176 like 'Dr.%' and v177 like '%Nolu A%' and vyiladi='$yil')";
 $verisorgula=mysqli_query($dbh_etf,$kacveri);
 while($eksiksonucum=mysqli_fetch_array($verisorgula)){
@@ -199,13 +177,12 @@ if($kacverisay==0){
 $bos="Henüz hiçbir Aile Hekimliğine veri girilmemiştir.";
 echo "<br>";
 echo "<br>";
-
 echo '<h5><span class="badge badge-pill badge-danger">'.$bos.'</span></h5>';
 }elseif($kacaheksay!=$kacverisay){
-$a="Aile Hekimli�i Biriminden";
-$b="Aile Hekimli�ine ait veriler girilmi�tir.";
+$a="Aile Hekimliği Biriminden";
+$b="Aile Hekimliğine ait veriler girilmiştir.";
 $fark=$kacaheksay-$kacverisay;
-$c="Aile Hekimli�ine ait veri girilmemi�tir.";
+$c="Aile Hekimliğine ait veri girilmemiştir.";
 echo "<br>";
 ?>
 <table class="table table-responsive-sm table-sm table-bordered table-striped table-info table-hover  form013ustaralar" style="margin-top:-36px;">
@@ -215,21 +192,18 @@ echo "<br>";
 <td class="text-danger" align="center" colspan="2"><h6><?php echo $kacaheksay." ".$ahbirbaslik." ".$kacverisay." ".$ahgirbaslik."".$fark." ".$ahvgbaslik;?></h6></td>
 </tr>
 <?php
-$gelmeyenler="Verileri girilmeyen Aile Hekimli�i Birimleri";
+$gelmeyenler="Verileri girilen Aile Hekimliği Birimleri";
 ?>
 <tr>
-<th class="text-center" align="center" colspan="2"><font size='2px' face='tahoma' color='red'><?php echo $gelmeyenbaslik;?></font></th>
+<th class="text-center" align="center" colspan="2"><font size='2px' face='tahoma' color='red'><?php echo $gelmeyenler;?></font></th>
 </tr>
 <tr>
 <?php
-$eksiktablosu="SELECT ocak.*,veri.*
-FROM ocak ocak
-LEFT OUTER JOIN veri veri ON ocak.ilinad=veri.ilidi and ocak.ilce=veri.ilceidi and ocak.socad = veri.vocadi and veri.v176 like 'Dr.%' and veri.v177 like '%Nolu A%' and veri.vyiladi='$yil'
-WHERE veri.vocadi IS NULL";
-$etablosu=mysqli_query($dbh,$eksiktablosu);
+$eksiktablosu="select * from veri where (ilidi='$countryId' and ilceidi='$stateId' and v176 like 'Dr.%' and v177 like '%Nolu A%' and vyiladi='$yil') ORDER BY vocadi ASC";
+$etablosu=mysqli_query($dbh_etf,$eksiktablosu);
 while($eahsonucum=mysqli_fetch_array($etablosu)){
-$eksikahadi=$eahsonucum['socad'];
-$eksikdradi=$eahsonucum['dradi'];
+$eksikahadi=$eahsonucum['vocadi'];
+$eksikdradi=$eahsonucum['v176'];
 ?>
 <th class="text-right" width="50%" align="right" colspan="1"><font size='2px' face='tahoma'><?php echo $eksikahadi.'--'; ?></font></th>
 <th class="text-left" width="50%" align="left" colspan="1"><font size='2px' face='tahoma'><?php echo '--'.$eksikdradi; ?></font></th>
@@ -242,9 +216,10 @@ $eksikdradi=$eahsonucum['dradi'];
 }
 }
 ?>
-<?php
-@mysqli_close($dbh) ;
-?>
 </tr>
 <thead>
 </table>
+<?php
+include('assets/etf_sablonlar/silme_onay_modal.php');
+@mysqli_close($dbh) ;
+?>
