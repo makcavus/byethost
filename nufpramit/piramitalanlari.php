@@ -1,4 +1,5 @@
 <?php
+$siteadresi=$_SERVER['SERVER_NAME'];
 $ilsecim="İli Seçiniz";
 $onceilsecim="Önce İli Seçiniz";
 $ilcesecim="İlçe Seçiniz";

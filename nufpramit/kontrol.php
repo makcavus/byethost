@@ -1,3 +1,4 @@
+<a id="basadon"></a>
 <?php header("Cache-Control: no-cache,no-store"); ?>
 <script language="JavaScript" type="text/javascript">
 function hoppa() {
@@ -150,6 +151,7 @@ echo '<input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspa
 </thead>
 </table>
 <?php
+include('assets/etf_sablonlar/silme_onay_modal.php');
 $resultvyil = @mysqli_query($dbh_etf,"select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and vocadi='$ocak' and vyiladi='$yil')") ;
 while($sonucum=mysqli_fetch_array($resultvyil)){
 include('assets/etf_sablonlar/np_veri_seti.php');
@@ -199,14 +201,18 @@ $gelmeyenler="Verileri girilen Aile Hekimliği Birimleri";
 </tr>
 <tr>
 <?php
-$eksiktablosu="select * from veri where (ilidi='$countryId' and ilceidi='$stateId' and v176 like 'Dr.%' and v177 like '%Nolu A%' and vyiladi='$yil') ORDER BY vocadi ASC";
+$eksiktablosu="SELECT ocak.*,veri.*
+FROM ocak ocak
+LEFT OUTER JOIN veri veri ON ocak.ilinad=veri.ilidi and ocak.ilce=veri.ilceidi and ocak.socad = veri.vocadi and veri.vyiladi='$yil' or ocak.ilinad=veri.ilidi and ocak.ilce=veri.ilceidi and ocak.socad = veri.vocadi and veri.v176 like 'Uzm.Dr.%' and veri.v177 like '%Nolu A%' and veri.vyiladi='$yil'
+WHERE veri.vocadi IS NULL";
 $etablosu=mysqli_query($dbh_etf,$eksiktablosu);
 while($eahsonucum=mysqli_fetch_array($etablosu)){
-$eksikahadi=$eahsonucum['vocadi'];
-$eksikdradi=$eahsonucum['v176'];
+$eksikahadi=$eahsonucum['socad'];
+$eksikdradi=$eahsonucum['dradi'];
 ?>
-<th class="text-right" width="50%" align="right" colspan="1"><font size='2px' face='tahoma'><?php echo $eksikahadi.'--'; ?></font></th>
-<th class="text-left" width="50%" align="left" colspan="1"><font size='2px' face='tahoma'><?php echo '--'.$eksikdradi; ?></font></th>
+
+<th width="50%"><div class="text-right"><?php echo $eksikahadi.'--'; ?></div></th>
+<th width="50%"><?php echo '--'.$eksikdradi; ?></th>
 </tr>
 <?php
 }
@@ -215,11 +221,8 @@ $eksikdradi=$eahsonucum['v176'];
   echo '<span class="badge badge-pill badge-danger">'.$tamambaslik.'</span>';
 }
 }
+@mysqli_close($dbh) ;
 ?>
 </tr>
 <thead>
 </table>
-<?php
-include('assets/etf_sablonlar/silme_onay_modal.php');
-@mysqli_close($dbh) ;
-?>

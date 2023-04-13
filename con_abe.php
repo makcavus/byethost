@@ -1,7 +1,7 @@
 <?php
 
 include("connect_config.php");
-$dbhabe=new mysqli($host_name,$user_name,$password) or die($error_message.''.mysqli_error($dbh_abe));
+$dbhabe=new mysqli($host_name,$user_name,$password) or die($error_message.''.mysqli_error($dbhabe));
 $dbhabe->set_charset("utf8");
 mysqli_select_db($dbhabe,$abe_db_name);
 

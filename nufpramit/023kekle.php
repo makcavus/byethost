@@ -25,10 +25,10 @@ if(mysqli_query($dbh_etf,$kayit)){
 	}else{
 	echo '<div class="alert-light"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="kontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 		
-		echo'<meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/nufpiramit/index.php" /><a href="http://'.$siteadresi.'/byethost/nufpiramit/index.php" _fcksavedurl="http://'.$siteadresi.'/byethost/nufpiramit/index.php">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</a>';
+		echo'<meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/nufpramit/index.php" /><a href="http://'.$siteadresi.'/byethost/nufpramit/index.php" _fcksavedurl="http://'.$siteadresi.'/byethost/nufpramit/index.php">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</a>';
 	
 	 }
-	}else{ echo '<label><font style="color:Red">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</font></label><meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/nufpiramit/index.php" /><a href="http://'.$siteadresi.'/byethost/nufpiramit/index.php" _fcksavedurl="http://'.$siteadresi.'/byethost/nufpiramit/index.php"></a>';
+	}else{ echo '<label><font style="color:Red">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</font></label><meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/nufpramit/index.php" /><a href="http://'.$siteadresi.'/byethost/nufpramit/index.php" _fcksavedurl="http://'.$siteadresi.'/byethost/nufpramit/index.php"></a>';
 	echo'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 }
 @mysqli_close($dbh_etf);
