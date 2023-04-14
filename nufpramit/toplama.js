@@ -1400,6 +1400,24 @@ $('div#sonuc').html(ajaxCevap);
 });
 return false;
 }
+ //Yıl Kayit Kontrol yapma
+ $(document).ready(function(){
+	$(':submit').click( sonucAl );
+	});
+	function yilkontrol()
+	{
+	
+	$('div#sonuc').html('<br><br><img src="../images/loading.gif"><br>Kontrol ediliyor...');
+	$.ajax({
+	type: 'GET',
+	url: noCache('yilekle.php'),
+	data: $('form').serialize(),
+	success: function(ajaxCevap) {
+	$('div#sonuc').html(ajaxCevap);
+	}
+	});
+	return false;
+	}
 //Yeni Kayit Ekleme
 $(document).ready(function(){
 $(':submit').click( sonuckayit );

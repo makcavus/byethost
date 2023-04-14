@@ -117,9 +117,7 @@ echo '<option>'.$katay['YIL'].'</option>';
 </select>
 </td>
 <td>
-<a href="#" onclick="yilekle();" class="btn btn-success btn-sm">Yıl Ekle</a>
-&nbsp;
-<a href="#" onclick="yilsil();" class="btn btn-danger btn-sm">Yıl Sil</a>
+<a href="#" onclick="yilekle();" class="btn btn-warning btn-sm">Yıl Ekle - Sil</a>
 </td>
 </tr>
 </tbody>

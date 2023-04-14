@@ -1,40 +1,61 @@
-<?
+<?php
 function trsil($q) { 
-$q = str_replace("�","C",$q);
-$q = str_replace ("�","c",$q); 
-$q = str_replace ("g","g",$q); 
-$q = str_replace ("G","G",$q); 
-$q = str_replace ("I","I",$q); 
-$q = str_replace ("i","i",$q); 
-$q = str_replace ("s","s",$q); 
-$q = str_replace ("S","S",$q); 
-$q = str_replace ("�","o",$q); 
-$q = str_replace ("�","O",$q); 
-$q = str_replace ("u","u",$q); 
-$q = str_replace ("�","U",$q); 
-$q = str_replace (".",".",$q); 
-$q = str_replace (" "," ",$q); 
-$q = str_replace ("'","",$q); 
-$q = str_replace ("/","",$q); 
-$q = str_replace ("__","_",$q); 
- return $q; 
-}  
-
-?>
-<?
-function trsuz($str){ $str=mb_convert_encoding($str, "iso-8859-9","utf-8");  return $str;   } 
+       $q = str_replace("ç","c",$q);
+       $q = str_replace ("ç","c",$q); 
+       $q = str_replace ("ð","g",$q); 
+       $q = str_replace ("Ý","I",$q); 
+       $q = str_replace ("ý","i",$q); 
+       $q = str_replace ("þ","s",$q); 
+       $q = str_replace ("ö","o",$q); 
+       $q = str_replace ("ü","u",$q); 
+       $q = str_replace ("Ü","U",$q); 
+       $q = str_replace ("Ç","c",$q); 
+       $q = str_replace ("İ","I",$q);
+       $q = str_replace ("ı","i",$q); 
+       //$q = str_replace (".","",$q); 
+       $q = str_replace ("Ð","g",$q); 
+       $q = str_replace ("Þ","S",$q); 
+       $q = str_replace ("Ö","O",$q); 
+       //$q = str_replace (" ","_",$q); 
+       //$q = str_replace ("'","",$q); 
+       //$q = str_replace ("/","",$q); 
+       //$q = str_replace ("__","_",$q); 
+       $q = str_replace ("Ã‡","C",$q);
+       $q = str_replace ("Ã‡o","C",$q);
+       $q = str_replace ("Ä?","G",$q);
+       $q = str_replace ("Ä°","I",$q); 
+       $q = str_replace ("Ä±","i",$q);
+       $q = str_replace ("Ã–","O",$q);
+       $q = str_replace ("Å?","S",$q);
+       $q = str_replace ("Ãœ","U",$q);
+       $q = str_replace ("Ã§","c",$q);
+       $q = str_replace ("ÄŸ","g",$q);
+       $q = str_replace ("Ä±","i",$q);
+       $q = str_replace ("Ã¶","o",$q); 
+       $q = str_replace ("ÅŸ","s",$q);
+       $q = str_replace ("Ã¼","u",$q); 
+       $q = str_replace ("&","ve",$q);
+       $q = str_replace ("&","ve",$q); 
+       //$q = str_replace ("'","",$q); 
+       //$q = str_replace ("\n","",$q);
+       //$q = str_replace (":","_",$q);
+       //$q = str_replace ("?","_",$q);
+       //$q = str_replace (" ","-",$q);
+       //$q = str_replace ("!","_",$q); 
+        return $q; 
+       }
 require('sumay.php');
 //include 'npveri.php';
 // create a blank image
 $baslik=$ocakad;
 $baslikfont=3 ;
-$graphname=$yilim;
+$graphname=$_GET["selectyil"];
 $boslukleft=(1620-(($baslikfont+3)*strlen("$baslik")))/2;
 $bosluktop=(1080+(5*strlen("$graphname")))/2;
 $yataygrid=17 ;
-$leftm=(1620*(3/100))/2; //de�eri 12
-$topm=(1080*(9.52381/100))/2;//de�eri 30
-$sutungen=1080*4.762/100; //de�eri 30
+$leftm=(1620*(3/100))/2; //de�eri 12
+$topm=(1080*(9.52381/100))/2;//de�eri 30
+$sutungen=1080*4.762/100; //de�eri 30
 $sagm=810;
 $image = imagecreate(1620, 1080);
 // fill the background color
@@ -60,7 +81,7 @@ imagepolygon($image,
                     1620, 0,
                     1620,950
              ),
-             2,
+             4,
              $col_poly1);
 imagepolygon($image,
              array (
@@ -69,7 +90,7 @@ imagepolygon($image,
                     770, 0,
                     670,680
              ),
-             2,
+            4,
              $col_poly2);
 			 
 $Veri[0]     = $verim18;
@@ -127,7 +148,7 @@ $Yesil= imagecolorAllocate($image, 0, 150, 0);
 $Gri=imagecolorAllocate($image, 200, 200, 200);
 $kirmizi=imagecolorAllocate($image,255,255,255);
 $sari=imagecolorAllocate($image,255,255,0);
-//Gridleri �iziyoruz
+//Gridleri �iziyoruz
 $CAAM = (1080-($topm*3))/$yataygrid; // Cizgi Araligi Artis Miktari
 $Cizgi[0] = $topm*1.5; // En ustteki Grid icin top margin degeri
 $MaxTemp = Max($Max, $Max1); // Maximum degeri kova degiskene attik lazim olacak
@@ -162,9 +183,9 @@ case "6" ; $spacer = ""; break;
 }
 }
 //--- Aylari ve SUTUNLARI cizmeye basliyoruz --------------------------------
-$Sutun = (1080-($topm*3.2))/18;         // S�tunlarin cizilecegi alani 12 parcaya bol
+$Sutun = (1080-($topm*3.2))/18;         // S�tunlarin cizilecegi alani 12 parcaya bol
 $GrafikAlani = round($sagm-($topm*2.2)); // Grafigin toplam yuksekligi
-$Birim = $GrafikAlani/$MaxTemp;     //S�tunlar icin 1 birimin px degeri
+$Birim = $GrafikAlani/$MaxTemp;     //S�tunlar icin 1 birimin px degeri
 for($i=0; $i<18; $i++)
 {
 if($Veri[$i]==$Max) : $Renk = $Kirmiz;
@@ -190,9 +211,9 @@ imagestring($image,5,$y1-$xcarpan,$x1+20,number_format("$Veri[$i]",0,',','.'),$S
 }
 //--- End of Gunleri ve SUTUNLARI cizmeye basliyoruz -------------------------
 //--- Aylari ve SUTUNLARI cizmeye basliyoruz --------------------------------
-$Sutun1 = (1080-($topm*3.2))/18;         // S�tunlarin cizilecegi alani 12 parcaya bol
+$Sutun1 = (1080-($topm*3.2))/18;         // S�tunlarin cizilecegi alani 12 parcaya bol
 $GrafikAlani1 = round($sagm-($topm*2.2)); // Grafigin toplam yuksekligi
-$Birim1 = $GrafikAlani1/$MaxTemp;     //S�tunlar icin 1 birimin px degeri
+$Birim1 = $GrafikAlani1/$MaxTemp;     //S�tunlar icin 1 birimin px degeri
 for($i=0; $i<18; $i++)
 {
 if($Veri1[$i]==$Max1) : $Renk = $Kirmiz;
@@ -235,16 +256,16 @@ imagestring($image,50,790,201,"70-74",$Siyah);
 imagestring($image,50,790,150,"75-79",$Siyah);
 imagestring($image,50,790,99,"80-84",$Siyah);
 imagestring($image,50,790,48,"85- +",$Siyah);
-imagestring($image,50,20,960,trsil("KADIN N�FUSU:"),$Siyah);
-imagestring($image,50,1400,960,trsil("ERKEK N�FUSU:"),$Siyah);
-imagestring($image,50,720,960,trsil("TOPLAM N�FUS:"),$Siyah);
-imagestring($image,5,600,1020,trsil("$baslik"),$Siyah);
-imagestring($image,5,1000,1020,"$graphname",$Siyah);
+imagestring($image,50,20,960,trsil("KADIN NÜFUSU:"),$Siyah);
+imagestring($image,50,1400,960,trsil("ERKEK NÜFUSU:"),$Siyah);
+imagestring($image,50,720,960,trsil("TOPLAM NÜFUS:"),$Siyah);
+imagestring($image,5,600,1020,trsil($baslik),$Siyah);
+//imagestring($image,5,1000,1020,"$graphname",$Siyah);
 imagestring($image,50,150,960,number_format($Top,0,',','.'),$Siyah);
 imagestring($image,50,1530,960,number_format($Top1,0,',','.'),$Siyah);
 imagestring($image,50,850,960,number_format($GTop,0,',','.'),$Siyah);
 // output the picture
 header("Content-type: image/png");
 imagepng($image);
-imagedestroy($image ); // res�m yokediliyor
+imagedestroy($image ); // res�m yokediliyor
 ?>

@@ -1,89 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-9" />
-<title>Untitled Document</title>
-<style type="text/css">
-<!--
-.style1 {font-family: Arial, Helvetica, sans-serif;
-border-style: none;
-text-align: center; 
-    font-size : 13px;
-    color : #000000;
-border-top-width: 1px;
-	border-bottom-width: 1px;
-border-right-width: 1px;
-border-left-width: 1px;	
-	}
-.style3 {font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-size: 13px;
-	font-style:normal;}
-.style4 {color: #000000}
-.style5 {
-	font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-size: 13px;
-	font-style:normal;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-border-right-width: 1px;
-border-left-width: 1px;
-border-top-style: solid;
-border-right-style: solid;
-border-bottom-style: solid;
-border-left-style: solid;
-border-top-color: #0066CC;
-border-right-color: #0066CC;
-border-left-color: #0066CC;
-border-bottom-color: #0066CC;
-}
-.style6 {
-font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-size: 13px;
-	font-style:normal;	
-	border-style:none;
-	
-}
--->
-</style>
-<link href="Style.css" rel="stylesheet" type="text/css"/>
-<link href="arkakara.css" rel="stylesheet" type="text/css"/>
-</head>
-
-<body>
-<th class="style6" width="100%" align="center" bordercolor="white" bgcolor="white"><div align="center" style="font-family:Arial, Helvetica, sans-serif","font-size:14px,border-style:none" id="sonuc">
-
-<?
-include("con_023.php");
+<?php
+include("../con_etf.php");
 include('piramitalanlari.php');
-
 $yilsil=$_GET['yeniyil'];
-/*echo $ilgelen ;
-echo $ilcegelen ;
-echo $ocgelen ;
-echo $yilgelen ;
-echo $aygelen ;*/
-//echo $yilsil;
-$resultvyil= @mysql_query("select * from yil where(yiladi='$yeniyil')");
-while($yilsonucum=mysql_fetch_array($resultvyil)){
-$yiladi=$yilsonucum['yiladi'];
+$resultvyil= @mysqli_query($dbh_etf,"select * from yil where(YIL='$yilsil')");
+while($yilsonucum=mysqli_fetch_array($resultvyil)){
+$yiladi=$yilsonucum['YIL'];
 }
-$say=mysql_num_rows($resultvyil);
+$say=mysqli_num_rows($resultvyil);
 //echo $say;
-$resultvyil = "delete from yil where(yiladi='$yilsil')" ;
-if(@mysql_query($resultvyil)){
-echo '<label><font style="color:Red">'.$silindi.'</font></label><a href="frm023kayit.php"  onclick="kontrol();">'.$geridon.'</a>';
-
+if($say>0){
+$resultvyil = "delete from yil where(YIL='$yilsil')" ;
+if(@mysqli_query($dbh_etf,$resultvyil)){
+	echo '<div class="alert-light"><button type="button" class="btn btn-primary btn-sm mt-3 mb-2" data-dismiss="modal" onclick="yilkontrol();">Kayıt Silindi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 }else{
-echo '<label align="center"><font style="color:Red">'.$silinmedi.'</font>';
-//echo mysql_error();
-echo '<label><font style="color:Red">'.$oncesilinmis.'</font></label><meta http-equiv=refresh content="100; url=frm023kayit.php" /><a href="frm023kayit.php" _fcksavedurl="frm023kayit.php" onClick="kontrol();">'.$geridon.'</a>';
-
+echo '<div class="alert-light"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="yilkontrol();">Kayıt Silinemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 }
+}else{
+echo '<div class="alert-light"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="yilkontrol();">Kayıt Silinemedi... Bu kayıt Mevcut Değil <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+}
+@mysqli_close($dbh_etf);
 ?>
-</div></th>
-</body>
-
-</html>
