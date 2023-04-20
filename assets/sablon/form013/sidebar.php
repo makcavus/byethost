@@ -40,6 +40,11 @@
                       <ion-icon name="log-in-outline" class="nav__icon"></ion-icon>
                       <span class="nav__name">Yönetim Paneli</span>
                      </a>
+
+                     <a href="index.php" id="karekod" class="nav__link" data-toggle="tooltip" title="Karekod Okut" style="text-decoration:none;">
+                        <ion-icon name="qr-code-outline" class="nav__icon"></ion-icon>
+                        <span class="nav__name">Karekod</span>
+                        </a>
     <?php
 }
                         ?>
