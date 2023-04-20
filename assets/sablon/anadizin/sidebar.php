@@ -47,7 +47,16 @@
                         <a href="javascript:goster();" data-toggle="modal" data-target="#iletiyaz" id="ulasin" class="nav__link" data-toggle="tooltip" title="Bize Ulaşın" style="text-decoration:none;">
                         <ion-icon name="chatbubble-ellipses-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Bize Ulaşın</span>
-                        </a>         
+                        </a>      
+    <a href="barkod/index.php" id="karekod" class="nav__link" data-toggle="tooltip" title="Karekod Okut" style="text-decoration:none;">
+                        <ion-icon name="qr-code-outline" class="nav__icon"></ion-icon>
+                        <span class="nav__name">Karekod</span>
+                        </a>                   
+                        
+
+
+
+                        
                       <!--  <div  class="nav__link collapse">
                             <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Projects</span>
