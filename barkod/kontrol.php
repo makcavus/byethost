@@ -59,8 +59,14 @@ $ilcekodx=substr($ocaginadi,0,5);
 ?>
 <?php
 include("../con_barkod.php");
-$vtsec="select * from bilgiler where(ilidi='$countryId' and ilceidi='$stateId' and asmadi='$ocak' and vyiladi='$yil' and vayadi='$ay')";
+$vtsec="select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and asmadi='$ocak' and vyiladi='$yil' and vayadi='$ay')";
 $socsorgu=mysqli_query($dbh_barkod,$vtsec);
+$sorgu_sonucu=mysqli_fetch_array($socsorgu);
+if($sorgu_sonucu){
+$kurum_id=$sorgu_sonucu['id'];
+}else{
+  $kurum_id='';
+}
 $say=mysqli_num_rows($socsorgu);
 echo '<p>';
 if($countryId == "" and $say<1){
@@ -177,29 +183,33 @@ $kacahek="select * from ocak where(ilinad='$countryId' and ilce='$stateId') grou
   }
 $sorgula=mysqli_query($dbh,$kacahek);
 $kacaheksay=mysqli_num_rows($sorgula);
-echo "ASM sayısı: ".$kacaheksay;
+//echo "ASM sayısı: ".$kacaheksay;
 //echo '<br>';
-$kacveri="select * from bilgiler where(ilidi='$countryId' and ilceidi='$stateId' and asmadi='$ocak' and vyiladi='$yil' and vayadi='$ay') group by asmadi";
+if($sorgu_sonucu){
+$kacveri="select * from bilgiler where(kurum_id='$kurum_id') group by cins";
 $verisorgula=mysqli_query($dbh_barkod,$kacveri);
 while($eksiksonucum=mysqli_fetch_array($verisorgula)){
-$eksikahek=$eksiksonucum['asmadi'];
+$eksikahek=$eksiksonucum['kurum_id'];
 //echo $eksikahek;
 }
 $kacverisay=mysqli_num_rows($verisorgula);
+}else{
+  $kacverisay=0;
+}
 //echo $kacverisay;
 if($kacverisay==0){
 //echo '<br>';	
-//$bos="Hen�z hi�bir Aile Hekimli�ine veri girilmemi�tir.";
+$bosbaslik="Henüz hiçbir Aile Sağlığı Merkezine veri girilmemiştir.";
 //echo "<br>";
 //echo "<br>";
 
 echo '<span class="badge badge-pill badge-danger">'.$bosbaslik.'</span>';
 }elseif($kacaheksay!=$kacverisay){
 	
-//$a="Aile Hekimli�i Biriminden";
-//$b="Aile Hekimli�ine ait veriler girilmi�tir.";
+$ahbirbaslik="Kurumdan";
+$ahgirbaslik="Kuruma ait veriler girilmiştir.";
 $fark=$kacaheksay-$kacverisay;
-//$c="Aile Hekimli�ine ait veri girilmemi�tir.";
+$ahvgbaslik="Kuruma ait veri girilmemiştir.";
 //echo "<br>";
 ?>
 <table class="table table-responsive-sm table-sm table-bordered table-striped table-info table-hover tableahek">
@@ -224,7 +234,7 @@ $yuzdekac=ceil(($yuzdeyuz*$kacverisay)/$kacaheksay);
 </tr>
 
 <?php
-//$gelmeyenler="Verileri girilmeyen Aile Hekimli�i Birimleri";
+$gelmeyenbaslik="Verileri girilmeyen Aile Sağlığı Merkezleri";
 ?>
 
 <tr>
@@ -234,22 +244,30 @@ $yuzdekac=ceil(($yuzdeyuz*$kacverisay)/$kacaheksay);
 
 <?php
 $xeksiktablosu="SELECT ocak.*,bilgiler.* FROM ocak ocak
-LEFT OUTER JOIN bilgiler bilgiler ON ocak.ilinad=bilgiler.ilidi and ocak.ilce=bilgiler.ilceidi and ocak.asmadi=bilgiler.asmadi and bilgiler.vyiladi='$yil' and bilgiler.vayadi='$ay' 
-WHERE bilgiler.asmadi IS NULL group by ocak.asmadi";
+LEFT OUTER JOIN bilgiler bilgiler ON ocak.ilinad=bilgiler.ilidi and ocak.ilce=bilgiler.ilceidi and ocak.asmadi=bilgiler.asmadi and bilgiler.vyiladi='$yil' and bilgiler.vayadi='$ay'
+WHERE bilgiler.asmadi IS NULL GROUP BY ocak.asmadi,bilgiler.asmadi";
 $xetablosu=mysqli_query($dbh_barkod,$xeksiktablosu);
-echo "Kalan:".mysqli_num_rows($xetablosu);
+//echo "Kalan:".mysqli_num_rows($xetablosu);
 while($xeahsonucum=mysqli_fetch_array($xetablosu)){
-$xeksikahadi=$xeahsonucum['asmadi'];
+$xeksikahadi=$xeahsonucum['dradi'];
+$ocak_sorgu=mysqli_query($dbh,"SELECT asmadi from ocak where (ilinad='$countryId' and ilce='$stateId' and left(socad,5)='$kod' and dradi='$xeksikahadi') order by asmadi ASC");
+while($ocak_liste=mysqli_fetch_array($ocak_sorgu)){
 ?>
-<table width="100%" class="table table-responsive-sm table-sm table-bordered mt-2" style="background-color:#CCFFFF">
+<table width="100%" class="table table-responsive-sm table-sm table-bordered" style="background-color:#CCFFFF">
 <thead>
 <tr>
-<th width="50%"><div class="text-right"><?php echo $xeksikahadi.'--'; ?></div></th>
+<th width="100%" class="border-0">
+  <div class="row">
+  <div class="col-md-5 text-center"></div>
+  <div class="col-md-6 text-left"><?php echo $ocak_liste['asmadi']; ?></div>
+  <div class="col-md-2 text-center"></div>
+</div>
+</th>  
 </tr>
 </thead>
 </table>
 <?php
-}
+}}
 }else{
 //$tamam="B�t�n Aile Hekimli�i Birimlerine ait veri giri�i yap�lm��t�r.";
 //echo "<br>";

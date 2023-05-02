@@ -2780,7 +2780,7 @@ type: 'GET',//verinin gnderilme yntemini belirliyoruz.
 
 
 
-url :noCache('kayit.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
+url :noCache('karekod.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
 
 
 
