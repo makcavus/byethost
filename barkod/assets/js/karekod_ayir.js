@@ -74,7 +74,7 @@ function karekod_keypress(e)
 var currenttoken = '';
 var nextConsume = 0;
 var consumingGtin = false;
-var consumingSerial = false;
+var consumingSerino = false;
 var consumingExpDate = false;
 var consumingBatch = false;
 var consumingCins=false;
@@ -94,7 +94,7 @@ function processCurrentToken(keynum){
 	//document.testform.token.value = currenttoken;
 	if(!consumingAI && (nextConsume == 0)) {
 		consumingGtin = false;
-		consumingSerial = false;
+		consumingSerino = false;
 		consumingExpDate = false;
 		consumingBatch = false;
 		consumingCins = false;
@@ -124,7 +124,7 @@ if((currenttoken == '01') && consumingAI) { //Gtin
 	if((currenttoken == '21') && consumingAI) { //Serial
 		currenttoken  = '';
 		nextConsume = WAIT_FOR_FNC1; //Wait For Fnc1
-		consumingSerial = true;
+		consumingSerino = true;
 		consumingAI = false;
 		return;
 	}
@@ -164,8 +164,8 @@ if((currenttoken == '99') && consumingAI) { //Batch
 		document.testform.gtin.value = currenttoken;
 		nextConsume--;
 	}
-	if(consumingSerial) {
-		document.testform.serial.value =  currenttoken;
+	if(consumingSerino) {
+		document.testform.serino.value =  currenttoken;
 		nextConsume--;
 	}
 	if(consumingBatch) {
@@ -187,7 +187,7 @@ if((currenttoken == '99') && consumingAI) { //Batch
 }
 function resetConsume(){
 		consumingGtin = false;
-		consumingSerial = false;
+		consumingSerino = false;
 		consumingExpDate = false;
 		consumingBatch = false
 		consumingCins = false
@@ -198,7 +198,7 @@ function resetConsume(){
 		nextConsume = 0;
 		document.testform.token.value = '';
 		document.testform.gtin.value = '';
-		document.testform.serial.value = '';
+		document.testform.serino.value = '';
 		document.testform.batch.value = '';
 		document.testform.expdate.value = '';
 		document.testform.cins.value = '';

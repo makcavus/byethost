@@ -146,7 +146,201 @@ echo '</form>';
 </tr>
 </thead>
 </table>
+<table class="table table-responsive-sm table-sm table-bordered table-striped table-light table-hover form013ustaralar" style="margin-top:-8px;">
+  <thead>
+  <tr>
+  <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-success" style="width:100px" href=# onclick="kontrol();" title="İptal"><i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a></th>
+      <th class="bg-primary text-center" width="40%" colspan="3"><h6 style="color:#FFFF00;"><strong>Yeni Kayıt Ekleme Ekranı</strong></h6></th>
+    <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-info" style="width:100px" href="#" tabindex="1" title="Kaydet" onclick="girdiyiekle();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Kaydet</a></th>
+      <input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilgelen ;?>" />
+      <input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilcegelen ;?>" />
+      <input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ocgelen ;?>" />
+      <input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $yilgelen ;?>" />
+      <input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $aygelen;?>" />
+	  </tr>
+	  </thead>
+  </table>
+  </form>
+<div class="container">
+<form class="form-control mt-2" id="testform" name="testform" action="karekod_kaydet.php" method="post" onreset="resetConsume()">
+<div class="row">
+<div class="text-center col-md-12 mt-2">
+<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)"size="70" placeholder="Barkodu okutunuz" autofocus required/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<input type="hidden" name="kurumid" id="kurumid" value="<?php echo $kurum_id ;?>" />
+<!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="hidden" />
+</div>
+<div class="col-md-2">
+<!--<label for="serino">Seri No:</label>--><input class="form-control" id="serino" name="serino" type="hidden" />
+</div>
+<div class="col-md-2">
+<!--<label for="expdate">Son Kullanma Tarihi:</label>--><input class="form-control" id="expdate" name="expdate" type="hidden"/>
+</div>
+<div class="col-md-2">
+<!--<label for="batch">Parti No:</label>--><input class="form-control" id="batch" name="batch" type="hidden"/>
+</div>
+<div class="col-md-2">
+<!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="hidden"/>
+</div>
+<div class="col-md-2">
+<!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="hidden"/>
+</div>
+<div class="col-md-12 text-center mt-3 mb-3">
+<input class="btn btn-primary btn-sm" type="submit" name="kaydet" id="kaydet" value="Kaydet"/>
+<input class="btn btn-light btn-sm ml-5" type="button" onclick="resetConsume()" value="Temizle"/>
+<a href="asi_kodlari.php" class="btn btn-sm btn-secondary ml-5">Aşı Adı Ekle</a>
+</div>
+</div>
+</form>
+</div>
+<div class="container table-responsive mt-2">
+<table class="table table-sm table-striped table-bordered table-hover table-info">
+<thead>
+    <tr>
+<th class="border border-1 border-dark">GTIN No</th>
+<th class="border border-1 border-dark">Seri No</th>
+<th class="border border-1 border-dark">Parti No</th>
+<th class="border border-1 border-dark">Son Kullanma Tarihi</th>
+<th class="border border-1 border-dark">Aşının Adı</th>
+<th class="border border-1 border-dark">Doz Miktarı</th>
+<th class="border border-1 border-dark">Takdim Şekli</th>
+<th class="border border-1 border-dark">İşlem</th>
+</tr>
+</thead>
+<tbody>
 
+  <?php
+    $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$kurum_id' order by expdate,mesaj desc");
+while($list=mysqli_fetch_array($sql_sorgu)){
+
+
+	/*$sql=$dbh_barkod->prepare("select * from bilgiler order by expdate,mesaj desc");
+	$sql->execute(array());
+	while($list=$sql->fetch(PDO::FETCH_ASSOC)){		*/
+?>
+<tr>
+<td class="border border-1 border-dark"><?php echo $list['gtin'];?></td>
+<td class="border border-1 border-dark"><?php echo $list['serino'];?></td>
+<td class="border border-1 border-dark"><?php echo $list['batch'];?></td>
+<td class="border border-1 border-dark"><?php
+//echo isValidBarcode($list['gtin']);
+$tarih=$list['expdate'];
+$yil=substr($tarih, 0,2);
+$ay=substr($tarih, 2,2);
+$gun=substr($tarih, 4,2);
+$tarih=$yil."-".$ay."-".$gun;
+$date = new DateTime(''.$tarih.'');
+$tr_tarih=$date->format('d-m-Y');
+ echo $tr_tarih;?></td>
+<td class="border border-1 border-dark"><?php
+$asi_kodu=$list['cins'];
+$asi_gtin=$list['gtin'];
+$asi_gtin=substr($asi_gtin,1,12);
+$asi_sorgu=mysqli_query($dbh_barkod,"SELECT * from asi_tanim where (asi_kod=$asi_kodu and gtin=$asi_gtin)");
+while($listele=mysqli_fetch_array($asi_sorgu)){
+/*
+$asi=$db->prepare("SELECT * from asi_tanim where (asi_kod=$asi_kodu and gtin=$asi_gtin)");
+$asi->execute();
+while ($listele=$asi->fetch(PDO::FETCH_ASSOC)) {*/
+ echo $listele['asi_marka'];?></td>
+ <input class="form-control" id="asi_marka" name="asi_marka" type="hidden" value="<?php echo $listele['asi_marka'];?>"/>
+<?php
+}	
+?>
+<td class="border border-1 border-dark"><?php echo $list['mesaj'];?></td>
+<?php
+/* ARAŞTIRILACAK KISIM************************************************************
+$takdim=substr($list['gtin'],0,1);
+$takdim_sorgula=mysqli_query($dbh_barkod,"SELECT * from asi_takdim where takdim_no='$takdim'");
+while($takdim_listele=mysqli_fetch_array($takdim_sorgula)){
+
+/*$takdim=$db->prepare("SELECT * from asi_takdim where takdim_no=$takdim");
+$takdim->execute();
+while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
+?>
+<td class="border border-1 border-dark"><?php echo "Adet";?></td>
+<!--<td><?php echo $takdim_listele['takdim_tur'];?></td>-->
+<?php
+//ARAŞTIRILACAK KISIM SONU  ************************************************************ }	
+?>
+<input class="form-control" id="miktari" name="miktari" type="hidden" value="<?php echo $list['mesaj'];?>"/>
+<td class="border border-1 border-dark">
+<a class="btn btn-danger btn-sm delete-confirm" href="sil.php?id=<?= $list['id'] ?>">Sil</a>
+</td>
+</tr>
+<?php
+}
+	?>
+</tbody>
+</table>
+<table class="table table-sm table-striped table-bordered table-hover table-info">
+<thead>
+    <tr>
+<th class="border border-1 border-dark">Sıra</th>
+<th class="border border-1 border-dark">Aşı Kodu</th>
+<th class="border border-1 border-dark">Aşı Adı</th>
+<th class="border border-1 border-dark">Miktarı</th>
+</tr>
+</thead>
+	<tbody>
+<?php
+$sql_sorgusu=mysqli_query($dbh_barkod,"SELECT cins, SUM(mesaj) AS miktar from bilgiler where kurum_id='$kurum_id' GROUP BY cins");
+while($sonuc=mysqli_fetch_array($sql_sorgusu)){
+//echo $sonuc['cins'];
+
+$asi_dokumu_say=mysqli_num_rows($sql_sorgusu);
+//echo $asi_dokumu_say;
+   /* $sql = "SELECT cins, SUM(mesaj) AS miktar from bilgiler GROUP BY cins";
+    $query = $db -> prepare($sql);
+    $query->execute();
+    $results=$query->fetchAll(PDO::FETCH_OBJ);*/
+    $cnt=1;
+    if($asi_dokumu_say > 0){
+    //if($query->rowCount() > 0) {
+        
+            $asi_adi=$sonuc['cins'];
+            //$asi_adi=$result->cins;
+            //echo "Aşı Adı: ".$asi_adi;
+            
+            $asi_miktarim_sorgula=mysqli_query($dbh_barkod,"SELECT * from asi_kodlari where asi_kodu='$asi_adi'");
+            $asi_miktarim_say=mysqli_num_rows($asi_miktarim_sorgula);
+            while($asi=mysqli_fetch_array($asi_miktarim_sorgula)){
+            /*$asi_miktarim=$db->prepare("SELECT * from asi_kodlari where asi_kodu=$asi_adi");
+$asi_miktarim->execute();
+$asi_miktarim_say=$asi_miktarim->rowCount();
+
+while($asi=$asi_miktarim->fetch(PDO::FETCH_ASSOC)){*/
+
+
+            ?>  
+
+        <tr>
+            <td class="border border-1 border-dark"> <?php echo htmlentities($cnt);?></td>
+            <td class="border border-1 border-dark"><?php echo htmlentities($sonuc['cins']);?></td>
+<?php
+if($asi_miktarim_say>0){
+   // echo $asi['asi_adi'];
+?>
+
+
+
+<td class="border border-1 border-dark"><?php echo htmlentities ($asi['asi_adi']);?></td>
+            <td class="border border-1 border-dark"><?php echo htmlentities ($sonuc['miktar']);?></td>
+        </tr>
+
+<?php 
+}
+            $cnt++;
+        } 
+    }
+}
+
+?>
+</tbody>
+</table>		
 <!-- Modal -->
 <div class="modal fade bd-example-modal-sm" id="silmenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -212,10 +406,10 @@ $fark=$kacaheksay-$kacverisay;
 $ahvgbaslik="Kuruma ait veri girilmemiştir.";
 //echo "<br>";
 ?>
-<table class="table table-responsive-sm table-sm table-bordered table-striped table-info table-hover tableahek">
+<table class="table table-responsive-sm table-sm table-bordered table-striped table-warning table-hover">
 <thead>
 <tr>
-<td class="text-danger" align="center" colspan="2"><h6><?php echo $kacaheksay." ".$ahbirbaslik." ".$kacverisay." ".$ahgirbaslik."".$fark." ".$ahvgbaslik;?></h6>
+<td class="text-success text-center" colspan="2"><h6><?php echo $kacaheksay." ".$ahbirbaslik." ".$kacverisay." ".$ahgirbaslik."".$fark." ".$ahvgbaslik;?></h6>
 <?php
 
 $simgeyuzde="%";
@@ -243,9 +437,9 @@ $gelmeyenbaslik="Verileri girilmeyen Aile Sağlığı Merkezleri";
 <tr>
 
 <?php
-$xeksiktablosu="SELECT ocak.*,bilgiler.* FROM ocak ocak
-LEFT OUTER JOIN bilgiler bilgiler ON ocak.ilinad=bilgiler.ilidi and ocak.ilce=bilgiler.ilceidi and ocak.asmadi=bilgiler.asmadi and bilgiler.vyiladi='$yil' and bilgiler.vayadi='$ay'
-WHERE bilgiler.asmadi IS NULL GROUP BY ocak.asmadi,bilgiler.asmadi";
+$xeksiktablosu="SELECT ocak.*,veri.* FROM ocak ocak
+LEFT OUTER JOIN veri veri ON ocak.ilinad=veri.ilidi and ocak.ilce=veri.ilceidi and ocak.asmadi=veri.asmadi and veri.vyiladi='$yil' and veri.vayadi='$ay'
+WHERE veri.asmadi IS NULL GROUP BY ocak.asmadi,veri.asmadi";
 $xetablosu=mysqli_query($dbh_barkod,$xeksiktablosu);
 //echo "Kalan:".mysqli_num_rows($xetablosu);
 while($xeahsonucum=mysqli_fetch_array($xetablosu)){

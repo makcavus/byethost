@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2023 at 07:55 AM
+-- Generation Time: May 03, 2023 at 08:13 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -101,11 +101,7 @@ INSERT INTO `asi_tanim` (`id`, `asi_kod`, `gtin`, `asi_marka`) VALUES
 
 CREATE TABLE `bilgiler` (
   `id` int(11) NOT NULL,
-  `ilidi` int(8) NOT NULL,
-  `ilceidi` int(8) NOT NULL,
-  `asmadi` varchar(255) NOT NULL,
-  `vyiladi` int(8) NOT NULL,
-  `vayadi` varchar(20) NOT NULL,
+  `kurum_id` int(11) NOT NULL,
   `gtin` varchar(14) NOT NULL,
   `serial` varchar(50) NOT NULL,
   `expdate` varchar(10) NOT NULL,
@@ -120,15 +116,9 @@ CREATE TABLE `bilgiler` (
 -- Dumping data for table `bilgiler`
 --
 
-INSERT INTO `bilgiler` (`id`, `ilidi`, `ilceidi`, `asmadi`, `vyiladi`, `vayadi`, `gtin`, `serial`, `expdate`, `batch`, `cins`, `mesaj`, `miktar_kod`, `token`) VALUES
-(190, 1, 1, '1 Nolu ASM', 2023, 'OCAK', '08681308964144', 'N0000000657049P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657049P11725073110FX65099920497001'),
-(191, 1, 1, '1 Nolu ASM', 2023, 'ŞUBAT', '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657042P11725073110FX65099920497001'),
-(192, 1, 1, '1 Nolu ASM', 2023, 'MART', '08681308964144', 'N0000000657044P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657044P11725073110FX65099920497001'),
-(193, 1, 1, '1 Nolu ASM', 2023, 'NİSAN', '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657042P11725073110FX65099920497001'),
-(194, 1, 1, '1 Nolu ASM', 2023, 'MAYIS', '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657042P11725073110FX65099920497001'),
-(195, 1, 1, '1 Nolu ASM', 2023, 'HAZİRAN', '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657042P11725073110FX65099920497001'),
-(196, 1, 1, '1 Nolu ASM', 2023, 'TEMMUZ', '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657042P11725073110FX65099920497001'),
-(197, 1, 1, '1 Nolu ASM', 2023, 'AĞUSTOS', '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 0, '010868130896414421N0000000657042P11725073110FX65099920497001');
+INSERT INTO `bilgiler` (`id`, `kurum_id`, `gtin`, `serial`, `expdate`, `batch`, `cins`, `mesaj`, `miktar_kod`, `token`) VALUES
+(198, 1, '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 1, '010868130896414421N0000000657042P11725073110FX65099920497001'),
+(199, 1, '08681308964144', 'N0000000657042P1', '250731', 'FX6509', '204', '1', 1, '010868130896414421N0000000657042P11725073110FX65099920497001');
 
 -- --------------------------------------------------------
 
@@ -232,6 +222,28 @@ INSERT INTO `sb_asi_kodlari` (`id`, `yapilacak_islem`, `asi_adi`, `yeni_kod`, `y
 (1, 'Yeni eklenen aşı', 'BİVALAN OPA (ORAL POLİO AŞISI)', 1, '1', 1, '0', 'Hayır'),
 (2, 'Kodu aynı olup ismi değişecek aşı', 'TRİVALAN OPA (ORAL POLİO AŞISI)', 2, '1', 2, '1', 'Evet');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `veri`
+--
+
+CREATE TABLE `veri` (
+  `id` int(11) NOT NULL,
+  `ilidi` int(8) NOT NULL,
+  `ilceidi` int(8) NOT NULL,
+  `asmadi` varchar(100) NOT NULL,
+  `vyiladi` int(8) NOT NULL,
+  `vayadi` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `veri`
+--
+
+INSERT INTO `veri` (`id`, `ilidi`, `ilceidi`, `asmadi`, `vyiladi`, `vayadi`) VALUES
+(1, 1, 1, '1 Nolu ASM', 2023, 'OCAK');
+
 --
 -- Indexes for dumped tables
 --
@@ -262,7 +274,8 @@ ALTER TABLE `asi_tanim`
 --
 ALTER TABLE `bilgiler`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `token` (`token`) USING BTREE;
+  ADD KEY `token` (`token`) USING BTREE,
+  ADD KEY `kurum` (`kurum_id`);
 
 --
 -- Indexes for table `ocak`
@@ -277,6 +290,12 @@ ALTER TABLE `ocak`
 -- Indexes for table `sb_asi_kodlari`
 --
 ALTER TABLE `sb_asi_kodlari`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `veri`
+--
+ALTER TABLE `veri`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -305,7 +324,7 @@ ALTER TABLE `asi_tanim`
 -- AUTO_INCREMENT for table `bilgiler`
 --
 ALTER TABLE `bilgiler`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `ocak`
@@ -320,6 +339,12 @@ ALTER TABLE `sb_asi_kodlari`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `veri`
+--
+ALTER TABLE `veri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -328,6 +353,12 @@ ALTER TABLE `sb_asi_kodlari`
 --
 ALTER TABLE `asi_tanim`
   ADD CONSTRAINT `asi_tanim` FOREIGN KEY (`asi_kod`) REFERENCES `asi_kodlari` (`asi_kodu`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `bilgiler`
+--
+ALTER TABLE `bilgiler`
+  ADD CONSTRAINT `kurum` FOREIGN KEY (`kurum_id`) REFERENCES `veri` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
