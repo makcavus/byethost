@@ -1,4 +1,11 @@
 <a id="basadon"></a>
+<link rel="stylesheet" href="assets/css/form013style.css">
+<script type="text/javascript" src="jquery-1.3.2.js"></script> 
+<script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
+<script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
+<script language="JavaScript" src="kaydet.js" type="text/javascript"></script>	
+<script language="JavaScript" src="toplama.js" type="text/javascript"></script>	
+<script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
 <?php header("Cache-Control: no-cache,no-store");
 session_start();
 $inactive = 1300;
@@ -170,23 +177,23 @@ echo '</form>';
 </div>
 <div class="row">
 <div class="col-md-2">
-<input type="hidden" name="kurumid" id="kurumid" value="<?php echo $kurum_id ;?>" />
-<!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="hidden" />
+<input type="text" name="kurumid" id="kurumid" value="<?php echo $kurum_id ;?>" />
+<!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="text" />
 </div>
 <div class="col-md-2">
-<!--<label for="serino">Seri No:</label>--><input class="form-control" id="serino" name="serino" type="hidden" />
+<!--<label for="serino">Seri No:</label>--><input class="form-control" id="serino" name="serino" type="text" />
 </div>
 <div class="col-md-2">
-<!--<label for="expdate">Son Kullanma Tarihi:</label>--><input class="form-control" id="expdate" name="expdate" type="hidden"/>
+<!--<label for="expdate">Son Kullanma Tarihi:</label>--><input class="form-control" id="expdate" name="expdate" type="text"/>
 </div>
 <div class="col-md-2">
-<!--<label for="batch">Parti No:</label>--><input class="form-control" id="batch" name="batch" type="hidden"/>
+<!--<label for="batch">Parti No:</label>--><input class="form-control" id="batch" name="batch" type="text"/>
 </div>
 <div class="col-md-2">
-<!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="hidden"/>
+<!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="text"/>
 </div>
 <div class="col-md-2">
-<!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="hidden"/>
+<!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="text"/>
 </div>
 <div class="col-md-12 text-center mt-3 mb-3">
 <input class="btn btn-primary btn-sm" type="submit" name="kaydet" id="kaydet" value="Kaydet"/>
@@ -228,10 +235,10 @@ while($list=mysqli_fetch_array($sql_sorgu)){
 <td class="border border-1 border-dark"><?php
 //echo isValidBarcode($list['gtin']);
 $tarih=$list['expdate'];
-$yil=substr($tarih, 0,2);
-$ay=substr($tarih, 2,2);
+$yilx=substr($tarih, 0,2);
+$ayx=substr($tarih, 2,2);
 $gun=substr($tarih, 4,2);
-$tarih=$yil."-".$ay."-".$gun;
+$tarih=$yilx."-".$ayx."-".$gun;
 $date = new DateTime(''.$tarih.'');
 $tr_tarih=$date->format('d-m-Y');
  echo $tr_tarih;?></td>

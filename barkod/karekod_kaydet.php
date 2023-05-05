@@ -1,5 +1,5 @@
 ﻿<?php
-ob_start();
+//ob_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,14 +8,17 @@ ob_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Kayıt Sayfası</title>
 	<!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="bootstrap-4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bootstrap-4/sweetalert2/sweetalert2.min.css">
-  <link rel="stylesheet" href="bootstrap-4/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-4/sweetalert2/sweetalert2.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-4/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/form013style.css">
+  <script type="text/javascript" src="jquery-1.3.2.js"></script> 
+<script language="JavaScript" type="text/javascript" src="toplama.js"></script>
 </head>
-
 <body>
 <?php
 include('../con_barkod.php');
+include('frm013alanlari.php');
 $kurumid=$_POST['kurumid'];
 $gtin=$_POST['gtin'];
 $serino=$_POST['serino'];
@@ -25,13 +28,13 @@ $cins=$_POST['cins'];
 $mesaj=$_POST['mesaj'];
 $miktar_kod=substr($gtin,0,1);
 $token=$_POST['token'];
-echo $kurumid."<br>";
+/*echo $kurumid."<br>";
 echo $gtin."<br>";
 echo $serino."<br>";
 echo $expdate."<br>";
 echo $batch."<br>";
 echo $cins."<br>";
-echo $mesaj."<br>";
+echo $mesaj."<br>";*/
 
 //exit;
 /*Burası miktar ile ilgili deneme aşamasındadır*/
@@ -74,7 +77,7 @@ $barkod_say=mysqli_num_rows($barkod_kontrol);
 //echo $barkod_say;
 //exit;
 if($barkod_say==0){
-$asi=mysqli_query($dbh_barkod,"SELECT * from asi_kodlari where asi_kodu=$cins");
+$asi=mysqli_query($dbh_barkod,"SELECT * from asi_kodlari where asi_kodu='$cins'");
 while($listele=mysqli_fetch_array($asi)){
   //echo $listele['asi_kodu'];
   //exit;
@@ -86,17 +89,17 @@ VALUES('$kurumid','$gtin','$serino','$expdate','$batch','$cins','$mesaj','$mikta
  }
  }
 if ($sql){
-    echo "Bilgiler kaydedildi.";
-    header("refresh: 1; url=kontrol.php");
-    exit;
-  }else{
-    echo '<script>Swal.fire("Başarısız", "Bilgiler kaydedilmedi", "success"); </script>';
-    header("refresh: 1; url=kontrol.php");
-exit;
-    }
+    echo '<div class="alert-light"><button type="button" class="btn btn-primary btn-sm mt-3 mb-2" data-dismiss="modal" onclick="kontrol();">Kayıt Eklendi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+}else{
+echo '<div class="alert-light"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="kontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+	
+	echo'<meta http-equiv=refresh content="10; url=http://'.$siteadresi.'/byethost/barkod/index.php" /><a href="http://'.$siteadresi.'/byethost/barkod/index.php" _fcksavedurl="http://'.$siteadresi.'/byethost/barkod/index.php">Oturum Sonlandırıldı Tekrar Giriş Yapınız....</a>';
+
+ }
+    
   }
 mysqli_close($dbh_barkod);
-ob_end_flush();
+//ob_end_flush();
 
 
 

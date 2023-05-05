@@ -21,22 +21,24 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 	include('../con_barkod.php');
     include('../form013/tanimveyetkiler.php');
     $form_klasoru=basename(dirname(__FILE__));
-    $kurum_id=$_GET['kurumid']; 
-    echo $kurum_id;
+    //$kurum_id=$_GET['kurumid']; 
+    //echo $kurum_id;
     //exit;
     $ilgelen=$_GET['selectil']; 
 $ilcegelen=$_GET['selectilce']; 
 $ocgelen=$_GET['selectoc']; 
 $yilgelen=$_GET['selectyil'];
 $aygelen=$_GET['selectay']; 
-$son_kayit=mysqli_query($dbh_barkod,"select * from veri ORDER BY id DESC LIMIT 1");
-while($last_record=mysqli_fetch_assoc($son_kayit)){
-$son_kayit_goster=$last_record['id'];
-echo "Son Kayıt: ".$son_kayit_goster;
+$vtsec="select * from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and asmadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')";
+$socsorgu=mysqli_query($dbh_barkod,$vtsec);
+$sorgu_sonucu=mysqli_fetch_array($socsorgu);
+if($sorgu_sonucu){
+$kurum_id=$sorgu_sonucu['id'];
+}else{
+  $kurum_id='';
 }
-//exit;
-
-
+$say=mysqli_num_rows($socsorgu);
+echo "SAYI: ".$say;
 
 $iladine=@mysqli_query($dbh,"select * from il where(ilid='$ilgelen')");
 while($ilsonucumne=mysqli_fetch_array($iladine)){
@@ -208,6 +210,16 @@ $aseunv=$satir['aseunvan'];
 	  </thead>
   </table>
   </form>
+  <?php
+  if($say==0){
+    mysqli_query($dbh_barkod,"INSERT INTO veri(ilidi,ilceidi,asmadi,vyiladi,vayadi) VALUES('$ilgelen','$ilcegelen','$ocgelen','$yilgelen','$aygelen')");
+    $son_kayit=mysqli_query($dbh_barkod,"select * from veri ORDER BY id DESC LIMIT 1");
+    while($last_record=mysqli_fetch_assoc($son_kayit)){
+    $son_kayit_goster=$last_record['id'];
+    echo "Son Kayıt: ".$son_kayit_goster;
+    }
+    //exit;
+    ?>
 <div class="container">
 <form class="form-control mt-2" id="testform" name="testform" action="karekod_kaydet.php" method="post" onreset="resetConsume()">
 <div class="row">
@@ -217,7 +229,7 @@ $aseunv=$satir['aseunvan'];
 </div>
 <div class="row">
 <div class="col-md-2">
-<input type="hidden" name="kurumid" id="kurumid" value="<?php echo $son_kayit_goster ;?>" />
+<input type="text" name="kurumid" id="kurumid" value="<?php echo $son_kayit_goster ;?>" />
 <!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="hidden" />
 </div>
 <div class="col-md-2">
@@ -243,6 +255,9 @@ $aseunv=$satir['aseunvan'];
 </div>
 </form>
 </div>
+<?php
+}else if($say>0){    
+?>
 <div class="container table-responsive">
 <table class="table table-sm table-striped table-bordered table-hover table-info">
 <thead>
@@ -260,7 +275,7 @@ $aseunv=$satir['aseunvan'];
 <tbody>
 
   <?php
-    $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$son_kayit_goster' order by expdate,mesaj desc");
+  $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$son_kayit_goster' order by expdate,mesaj desc");
 while($list=mysqli_fetch_array($sql_sorgu)){
 
 
@@ -384,7 +399,7 @@ if($asi_miktarim_say>0){
         } 
     }
 }
-
+  }
 ?>
 </tbody>
 </table>		
