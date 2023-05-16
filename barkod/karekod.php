@@ -13,7 +13,6 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 <script type="text/javascript" src="jquery-1.3.2.js"></script> 
 <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
 <script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
-<script language="JavaScript" src="kaydet.js" type="text/javascript"></script>	
 <script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
 <?php
     include('kontrol_basamagi_kontrol_fonksiyonu.php');
@@ -194,22 +193,6 @@ $aseunv=$satir['aseunvan'];
 }
 
 ?>
-<div id="sonuckay"><form class="form" name="girdiekle" action="javascript:void(0)" method="get" onKeyUp="highlight(event)" onClick="highlight(event)">
-<table class="table table-responsive-sm table-sm table-bordered table-striped table-light table-hover form013ustaralar" style="margin-top:-8px;">
-  <thead>
-  <tr>
-  <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-success" style="width:100px" href=# onclick="kontrol();" title="İptal"><i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a></th>
-      <th class="bg-primary text-center" width="40%" colspan="3"><h6 style="color:#FFFF00;"><strong>Yeni Kayıt Ekleme Ekranı</strong></h6></th>
-    <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-info" style="width:100px" href="#" tabindex="1" title="Kaydet" onclick="girdiyiekle();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Kaydet</a></th>
-      <input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilgelen ;?>" />
-      <input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilcegelen ;?>" />
-      <input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ocgelen ;?>" />
-      <input type="hidden" name="selectyil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $yilgelen ;?>" />
-      <input type="hidden" name="selectay" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $aygelen;?>" />
-	  </tr>
-	  </thead>
-  </table>
-  </form>
   <?php
   if($say==0){
     mysqli_query($dbh_barkod,"INSERT INTO veri(ilidi,ilceidi,asmadi,vyiladi,vayadi) VALUES('$ilgelen','$ilcegelen','$ocgelen','$yilgelen','$aygelen')");

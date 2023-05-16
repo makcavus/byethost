@@ -71,6 +71,11 @@ $socsorgu=mysqli_query($dbh_barkod,$vtsec);
 $sorgu_sonucu=mysqli_fetch_array($socsorgu);
 if($sorgu_sonucu){
 $kurum_id=$sorgu_sonucu['id'];
+$barkod_sorgula=mysqli_query($dbh_barkod,"SELECT * from bilgiler where kurum_id='$kurum_id'");
+$barkod_sonucu=mysqli_fetch_array($barkod_sorgula);
+if(!$barkod_sonucu){
+  mysqli_query($dbh_barkod,"DELETE from veri where id='$kurum_id'");
+}
 }else{
   $kurum_id='';
 }
@@ -113,6 +118,14 @@ if($ilcetsm==$bakanlikyetki or $ilcetsm==$ilyetki or $ilcekod==$ilcekodx and $il
 <table class="table table-responsive-sm table-sm tableahekbtn">
 <thead class="bg-dark" align="center">
 <tr>
+  <?php
+if($say==0){
+  ?>
+<th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-primary" href=# onClick="ykay();" style="width: 100px"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+ <?php echo $kayitekle; ?></a></form></th>
+ <?php
+}
+ ?>
 <th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success mb-2" href=# onClick="deg();" style="width: 100px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $degistir;?></a></form></th>
 <th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-primary mb-2" href=# onClick="git();" style="width: 100px"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $goster;?></a></form></th>
 <th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-danger mb-2" href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 100px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form></th>
@@ -168,41 +181,16 @@ echo '</form>';
 	  </thead>
   </table>
   </form>
-<div class="container">
-<form class="form-control mt-2" id="testform" name="testform" action="karekod_kaydet.php" method="post" onreset="resetConsume()">
-<div class="row">
-<div class="text-center col-md-12 mt-2">
-<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)"size="70" placeholder="Barkodu okutunuz" autofocus required/>
-</div>
-</div>
-<div class="row">
-<div class="col-md-2">
-<input type="text" name="kurumid" id="kurumid" value="<?php echo $kurum_id ;?>" />
-<!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="text" />
-</div>
-<div class="col-md-2">
-<!--<label for="serino">Seri No:</label>--><input class="form-control" id="serino" name="serino" type="text" />
-</div>
-<div class="col-md-2">
-<!--<label for="expdate">Son Kullanma Tarihi:</label>--><input class="form-control" id="expdate" name="expdate" type="text"/>
-</div>
-<div class="col-md-2">
-<!--<label for="batch">Parti No:</label>--><input class="form-control" id="batch" name="batch" type="text"/>
-</div>
-<div class="col-md-2">
-<!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="text"/>
-</div>
-<div class="col-md-2">
-<!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="text"/>
-</div>
-<div class="col-md-12 text-center mt-3 mb-3">
-<input class="btn btn-primary btn-sm" type="submit" name="kaydet" id="kaydet" value="Kaydet"/>
-<input class="btn btn-light btn-sm ml-5" type="button" onclick="resetConsume()" value="Temizle"/>
-<a href="asi_kodlari.php" class="btn btn-sm btn-secondary ml-5">Aşı Adı Ekle</a>
-</div>
-</div>
-</form>
-</div>
+  <?php
+    $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$kurum_id' order by expdate,mesaj desc");
+    if(mysqli_num_rows($sql_sorgu)>0){
+while($list=mysqli_fetch_array($sql_sorgu)){
+
+
+	/*$sql=$dbh_barkod->prepare("select * from bilgiler order by expdate,mesaj desc");
+	$sql->execute(array());
+	while($list=$sql->fetch(PDO::FETCH_ASSOC)){		*/
+?>
 <div class="container table-responsive mt-2">
 <table class="table table-sm table-striped table-bordered table-hover table-info">
 <thead>
@@ -218,16 +206,7 @@ echo '</form>';
 </tr>
 </thead>
 <tbody>
-
-  <?php
-    $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$kurum_id' order by expdate,mesaj desc");
-while($list=mysqli_fetch_array($sql_sorgu)){
-
-
-	/*$sql=$dbh_barkod->prepare("select * from bilgiler order by expdate,mesaj desc");
-	$sql->execute(array());
-	while($list=$sql->fetch(PDO::FETCH_ASSOC)){		*/
-?>
+  
 <tr>
 <td class="border border-1 border-dark"><?php echo $list['gtin'];?></td>
 <td class="border border-1 border-dark"><?php echo $list['serino'];?></td>
@@ -348,6 +327,9 @@ if($asi_miktarim_say>0){
 ?>
 </tbody>
 </table>		
+<?php
+    }
+    ?>
 <!-- Modal -->
 <div class="modal fade bd-example-modal-sm" id="silmenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
