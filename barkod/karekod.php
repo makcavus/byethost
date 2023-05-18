@@ -11,6 +11,7 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 ?>
 <link rel="stylesheet" href="assets/css/form013style.css">
 <script type="text/javascript" src="jquery-1.3.2.js"></script> 
+<script type="text/javascript" src="kaydet.js"></script>
 <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
 <script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
 <script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
@@ -20,7 +21,7 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 	include('../con_barkod.php');
     include('../form013/tanimveyetkiler.php');
     $form_klasoru=basename(dirname(__FILE__));
-    //$kurum_id=$_GET['kurumid']; 
+    //$kurum_id=$_GET['kurum_id']; 
     //echo $kurum_id;
     //exit;
     $ilgelen=$_GET['selectil']; 
@@ -37,7 +38,7 @@ $kurum_id=$sorgu_sonucu['id'];
   $kurum_id='';
 }
 $say=mysqli_num_rows($socsorgu);
-echo "SAYI: ".$say;
+//echo "SAYI: ".$say;
 
 $iladine=@mysqli_query($dbh,"select * from il where(ilid='$ilgelen')");
 while($ilsonucumne=mysqli_fetch_array($iladine)){
@@ -199,20 +200,20 @@ $aseunv=$satir['aseunvan'];
     $son_kayit=mysqli_query($dbh_barkod,"select * from veri ORDER BY id DESC LIMIT 1");
     while($last_record=mysqli_fetch_assoc($son_kayit)){
     $son_kayit_goster=$last_record['id'];
-    echo "Son Kayıt: ".$son_kayit_goster;
+    //echo "Son Kayıt: ".$son_kayit_goster;
     }
     //exit;
     ?>
 <div class="container">
-<form class="form-control mt-2" id="testform" name="testform" action="karekod_kaydet.php" method="post" onreset="resetConsume()">
+<form class="form-control mt-2" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
 <div class="row">
 <div class="text-center col-md-12 mt-2">
-<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)"size="70" placeholder="Barkodu okutunuz" autofocus required/>
+<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
 </div>
 </div>
 <div class="row">
 <div class="col-md-2">
-<input type="text" name="kurumid" id="kurumid" value="<?php echo $son_kayit_goster ;?>" />
+<input type="hidden" name="kurum_id" id="kurum_id" value="<?php echo $son_kayit_goster ;?>" />
 <!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="hidden" />
 </div>
 <div class="col-md-2">
@@ -231,7 +232,7 @@ $aseunv=$satir['aseunvan'];
 <!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="hidden"/>
 </div>
 <div class="col-md-12 text-center mt-3 mb-3">
-<input class="btn btn-primary btn-sm" type="submit" name="kaydet" id="kaydet" value="Kaydet"/>
+<input class="btn btn-primary btn-sm" type="submit" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();"/>
 <input class="btn btn-light btn-sm ml-5" type="button" onclick="resetConsume()" value="Temizle"/>
 <a href="asi_kodlari.php" class="btn btn-sm btn-secondary ml-5">Aşı Adı Ekle</a>
 </div>
@@ -240,7 +241,45 @@ $aseunv=$satir['aseunvan'];
 </div>
 <?php
 }else if($say>0){    
+    $son_kayit_goster=$sorgu_sonucu['id'];
+    //echo "Son Kayıt: ".$son_kayit_goster;
 ?>
+<div class="container">
+<form class="form-control mt-2" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
+<div class="row">
+<div class="text-center col-md-12 mt-2">
+<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<input type="hidden" name="kurum_id" id="kurum_id" value="<?php echo $son_kayit_goster ;?>" />
+<!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="hidden" />
+</div>
+<div class="col-md-2">
+<!--<label for="serino">Seri No:</label>--><input class="form-control" id="serino" name="serino" type="hidden" />
+</div>
+<div class="col-md-2">
+<!--<label for="expdate">Son Kullanma Tarihi:</label>--><input class="form-control" id="expdate" name="expdate" type="hidden"/>
+</div>
+<div class="col-md-2">
+<!--<label for="batch">Parti No:</label>--><input class="form-control" id="batch" name="batch" type="hidden"/>
+</div>
+<div class="col-md-2">
+<!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="hidden"/>
+</div>
+<div class="col-md-2">
+<!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="hidden"/>
+</div>
+<div class="col-md-12 text-center mt-3 mb-3">
+<input class="btn btn-primary btn-sm" type="submit" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();"/>
+<input class="btn btn-light btn-sm ml-5" type="button" onclick="resetConsume()" value="Temizle"/>
+<a href="asi_kodlari.php" class="btn btn-sm btn-secondary ml-5">Aşı Adı Ekle</a>
+</div>
+</div>
+</form>
+</div>
+<div class="container table-responsive" id="listele">
 <div class="container table-responsive">
 <table class="table table-sm table-striped table-bordered table-hover table-info">
 <thead>
@@ -387,6 +426,7 @@ if($asi_miktarim_say>0){
 </tbody>
 </table>		
 </div>
+<div id="sonuckay"></div>
 <script>
 $('.delete-confirm').on('click', function (event) {
             event.preventDefault();

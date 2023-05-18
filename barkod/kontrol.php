@@ -126,7 +126,7 @@ if($say==0){
  <?php
 }
  ?>
-<th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success mb-2" href=# onClick="deg();" style="width: 100px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $degistir;?></a></form></th>
+<th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-success mb-2" href=# onClick="ykay();" style="width: 100px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $degistir;?></a></form></th>
 <th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-primary mb-2" href=# onClick="git();" style="width: 100px"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $goster;?></a></form></th>
 <th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-danger mb-2" href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 100px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form></th>
 <th>
@@ -171,7 +171,7 @@ echo '</form>';
   <tr>
   <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-success" style="width:100px" href=# onclick="kontrol();" title="İptal"><i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a></th>
       <th class="bg-primary text-center" width="40%" colspan="3"><h6 style="color:#FFFF00;"><strong>Yeni Kayıt Ekleme Ekranı</strong></h6></th>
-    <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-info" style="width:100px" href="#" tabindex="1" title="Kaydet" onclick="girdiyiekle();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Kaydet</a></th>
+    <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-info" style="width:136px" href="#" tabindex="1" title="Kaydet" onclick="ykayit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Barkod Kaydet</a></th>
       <input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilgelen ;?>" />
       <input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilcegelen ;?>" />
       <input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ocgelen ;?>" />
@@ -181,17 +181,8 @@ echo '</form>';
 	  </thead>
   </table>
   </form>
-  <?php
-    $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$kurum_id' order by expdate,mesaj desc");
-    if(mysqli_num_rows($sql_sorgu)>0){
-while($list=mysqli_fetch_array($sql_sorgu)){
-
-
-	/*$sql=$dbh_barkod->prepare("select * from bilgiler order by expdate,mesaj desc");
-	$sql->execute(array());
-	while($list=$sql->fetch(PDO::FETCH_ASSOC)){		*/
-?>
-<div class="container table-responsive mt-2">
+  <div class="col-md-12 divsecim" id="sonucx"></div>
+  <div class="container table-responsive mt-2">
 <table class="table table-sm table-striped table-bordered table-hover table-info">
 <thead>
     <tr>
@@ -206,7 +197,16 @@ while($list=mysqli_fetch_array($sql_sorgu)){
 </tr>
 </thead>
 <tbody>
-  
+  <?php
+    $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$kurum_id' order by expdate,mesaj desc");
+    if(mysqli_num_rows($sql_sorgu)>0){
+while($list=mysqli_fetch_array($sql_sorgu)){
+
+
+	/*$sql=$dbh_barkod->prepare("select * from bilgiler order by expdate,mesaj desc");
+	$sql->execute(array());
+	while($list=$sql->fetch(PDO::FETCH_ASSOC)){		*/
+?>
 <tr>
 <td class="border border-1 border-dark"><?php echo $list['gtin'];?></td>
 <td class="border border-1 border-dark"><?php echo $list['serino'];?></td>

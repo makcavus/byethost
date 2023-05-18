@@ -73,6 +73,7 @@ function karekod_keypress(e)
 
 var currenttoken = '';
 var nextConsume = 0;
+//var consumingKurum_id = false;
 var consumingGtin = false;
 var consumingSerino = false;
 var consumingExpDate = false;
@@ -93,6 +94,7 @@ function processCurrentToken(keynum){
 	
 	//document.testform.token.value = currenttoken;
 	if(!consumingAI && (nextConsume == 0)) {
+		//consumingKurum_id = false;
 		consumingGtin = false;
 		consumingSerino = false;
 		consumingExpDate = false;
@@ -160,6 +162,10 @@ if((currenttoken == '99') && consumingAI) { //Batch
 		return;
 	}
 		
+	/*if(consumingKurum_id) {
+		document.testform.kurum_id.value = currenttoken;
+		nextConsume--;
+	}*/
 	if(consumingGtin) {
 		document.testform.gtin.value = currenttoken;
 		nextConsume--;
@@ -186,6 +192,7 @@ if((currenttoken == '99') && consumingAI) { //Batch
 	}
 }
 function resetConsume(){
+	    //consumingKurum_id = false;
 		consumingGtin = false;
 		consumingSerino = false;
 		consumingExpDate = false;
@@ -196,6 +203,7 @@ function resetConsume(){
 		consumingAI = true;
 		currenttoken = '';
 		nextConsume = 0;
+		//document.testform.kurum_id.value = '';
 		document.testform.token.value = '';
 		document.testform.gtin.value = '';
 		document.testform.serino.value = '';

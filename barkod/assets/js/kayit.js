@@ -7,9 +7,8 @@ var serino = $("input[name=serino]").val();
 var expdate = $("input[name=expdate]").val();
 var batch = $("input[name=batch]").val();
 var cins = $("input[name=cins]").val();
-var mesaj = $("input[name=mesaj]").val();//formdan gönderilen değerleri çekip değişkenlere aktardık
-if (token=="")//değişkenler boş mu kontrol ettik
-{
+var mesaj = $("input[name=mesaj]").val();
+if(kurum_id=="" || token=="" || gtin=="" || serino=="" || expdate=="" || batch=="" || cins=="" || mesaj==""){
 $('#basarisiz').show(1);
 $('#kayit').hide(1);
 }else
