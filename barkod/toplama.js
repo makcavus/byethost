@@ -2626,6 +2626,41 @@ return false;
 
 }
 
+//Barkod Kayit Kontrol yapma
+
+$(document).ready(function(){
+
+	$(':submit').click( sonucAl );
+	
+	});
+	
+	function barkodkontrol()
+	
+	{
+	
+	
+	
+	$('div#sonuckay').html('<br><br><img src="./images/loading.gif"><br>Kontrol ediliyor...');
+	
+	$.ajax({
+	
+	type: 'GET',
+	
+	url: noCache('karekod.php'),
+	
+	data: $('form').serialize(),
+	
+	success: function(ajaxCevap) {
+	
+	$('div#sonuckay').html(ajaxCevap);
+	//$('div#listele').show();
+	}
+	
+	});
+	
+	return false;
+	
+	}
 //Yeni Kayit Ekleme
 
 $(document).ready(function(){
@@ -2826,7 +2861,7 @@ function ykayit() // islem  fonksiyomuzda id ve komut isimli iki degisken kullan
 		{
 
 			$('div#sonucx').html(cevap);
-			$('div#listele').hide();
+			//$('div#sonuckay').hide();
 		}
 
 	});

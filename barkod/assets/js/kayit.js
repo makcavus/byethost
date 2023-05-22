@@ -1,20 +1,20 @@
 function kayit()//fonksiyon adı
 {
-var token = $("input[name=token]").val();
 var kurumid = $("input[name=kurumid]").val();
+var token = $("input[name=token]").val();
 var gtin = $("input[name=gtin]").val();
 var serino = $("input[name=serino]").val();
 var expdate = $("input[name=expdate]").val();
 var batch = $("input[name=batch]").val();
 var cins = $("input[name=cins]").val();
 var mesaj = $("input[name=mesaj]").val();
-if(kurum_id=="" || token=="" || gtin=="" || serino=="" || expdate=="" || batch=="" || cins=="" || mesaj==""){
+if(token=="" || gtin=="" || serino=="" || expdate=="" || batch=="" || cins=="" || mesaj==""){
 $('#basarisiz').show(1);
 $('#kayit').hide(1);
 }else
 {
 $.ajax ({ //ajaxı oluşturduk
-type: "POST",
+type: "GET",
 url: "karekod_kaydet.php",
 data: $("#testform").serialize(),
 success: function (sonuc) {
@@ -33,6 +33,7 @@ $("input[name=batch]").val("");
 $("input[name=cins]").val("");
 $("input[name=mesaj]").val("");//input textlerin boşalttık
 }
+$('div#sonucx').html(sonuc);
 }
 }) }} 
 function noCache(uri){
