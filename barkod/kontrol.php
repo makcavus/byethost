@@ -3,7 +3,7 @@
 <script type="text/javascript" src="jquery-1.3.2.js"></script> 
 <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
 <script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
-<script language="JavaScript" src="kaydet.js" type="text/javascript"></script>	
+
 <script language="JavaScript" src="toplama.js" type="text/javascript"></script>	
 <script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
 <?php header("Cache-Control: no-cache,no-store");
@@ -171,7 +171,7 @@ echo '</form>';
   <tr>
   <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-success" style="width:100px" href=# onclick="kontrol();" title="İptal"><i class="fa fa-reply-all" aria-hidden="true"></i> İptal</a></th>
       <th class="bg-primary text-center" width="40%" colspan="3"><h6 style="color:#FFFF00;"><strong>Yeni Kayıt Ekleme Ekranı</strong></h6></th>
-    <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-info" style="width:136px" href="#" tabindex="1" title="Kaydet" onclick="ykayit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Barkod Kaydet</a></th>
+    <th class="bg-warning text-center" width="30%" colspan="3"><a class="btn btn-sm btn-info" style="width:120px" href="#" tabindex="1" title="Kaydet" onclick="ykayit();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Barkod Ekle</a></th>
       <input type="hidden" name="selectil" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilgelen ;?>" />
       <input type="hidden" name="selectilce" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ilcegelen ;?>" />
       <input type="hidden" name="selectoc" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="<?php echo $ocgelen ;?>" />
@@ -181,6 +181,7 @@ echo '</form>';
 	  </thead>
   </table>
   </form>
+  <div class="container table-responsive" id="barkodekle">
   <div class="col-md-12 divsecim" id="sonucx"></div>
   <div class="container table-responsive mt-2">
 <table class="table table-sm table-striped table-bordered table-hover table-info">

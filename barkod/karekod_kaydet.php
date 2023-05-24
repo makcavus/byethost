@@ -13,7 +13,7 @@ ob_start();
   <link rel="stylesheet" href="assets/bootstrap-4/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/form013style.css">
   <script type="text/javascript" src="jquery-1.3.2.js"></script> 
-  <script type="text/javascript" src="kaydet.js"></script> 
+ 
 <script language="JavaScript" type="text/javascript" src="toplama.js"></script>
 </head>
 <body>

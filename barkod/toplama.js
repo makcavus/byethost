@@ -2617,7 +2617,8 @@ data: $('form').serialize(),
 success: function(ajaxCevap) {
 
 $('div#sonuc').html(ajaxCevap);
-
+$('div#sonucx').hide();
+$('#token').focus();
 }
 
 });
@@ -2653,7 +2654,8 @@ $(document).ready(function(){
 	success: function(ajaxCevap) {
 	
 	$('div#sonuckay').html(ajaxCevap);
-	//$('div#listele').show();
+	$('div#sonuckay').hide();
+	ykay();
 	}
 	
 	});
@@ -2828,7 +2830,7 @@ success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi li
 {
 
 $('div#sonuc').html(cevap);
-
+$('#token').focus();
 }
 
 });}
@@ -2860,8 +2862,9 @@ function ykayit() // islem  fonksiyomuzda id ve komut isimli iki degisken kullan
 
 		{
 
-			$('div#sonucx').html(cevap);
+			$('div#barkodekle').html(cevap);
 			//$('div#sonuckay').hide();
+			$('#token').focus();
 		}
 
 	});
