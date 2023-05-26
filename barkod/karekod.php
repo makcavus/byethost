@@ -10,6 +10,9 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 }
 ?>
 <link rel="stylesheet" href="assets/css/form013style.css">
+<link rel="stylesheet" href="assets/bootstrap-4/sweetalert2/sweetalert2.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-4/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/bootstrap-4/font-awesome/css/font-awesome.min.css">
 <script type="text/javascript" src="jquery-1.3.2.js"></script> 
 
 <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
@@ -32,8 +35,11 @@ $aygelen=$_GET['selectay'];
 $vtsec="select * from veri where(ilidi='$ilgelen' and ilceidi='$ilcegelen' and asmadi='$ocgelen' and vyiladi='$yilgelen' and vayadi='$aygelen')";
 $socsorgu=mysqli_query($dbh_barkod,$vtsec);
 $sorgu_sonucu=mysqli_fetch_array($socsorgu);
+
 if($sorgu_sonucu){
 $kurum_id=$sorgu_sonucu['id'];
+$barkod_sorgula=mysqli_query($dbh_barkod,"SELECT * from bilgiler where kurum_id='$kurum_id'");
+$barkod_sonucu=mysqli_fetch_array($barkod_sorgula);
 }else{
   $kurum_id='';
 }
@@ -205,9 +211,9 @@ $aseunv=$satir['aseunvan'];
     //exit;
     ?>
 <div class="container">
-<form class="form-control mt-2" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
+<form class="form-control" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
 <div class="row">
-<div class="text-center col-md-12 mt-2">
+<div class="text-center col-md-12">
 <input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
 </div>
 </div>
@@ -246,9 +252,9 @@ $aseunv=$satir['aseunvan'];
     //echo "Son Kayıt: ".$son_kayit_goster;
 ?>
 <div class="container">
-<form class="form-control mt-2" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
+<form class="form-control mb-2 mt-3" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
 <div class="row">
-<div class="text-center col-md-12 mt-2">
+<div class="text-center col-md-12">
 <input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
 </div>
 </div>
@@ -283,6 +289,9 @@ $aseunv=$satir['aseunvan'];
 <div id="sonuckay"></div>
 <div class="container table-responsive" id="listele">
 <div class="container table-responsive">
+<?php
+if($barkod_sonucu){
+    ?>
 <table class="table table-sm table-striped table-bordered table-hover table-info">
 <thead>
     <tr>
@@ -354,7 +363,9 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 ?>
 <input class="form-control" id="miktari" name="miktari" type="hidden" value="<?php echo $list['mesaj'];?>"/>
 <td class="border border-1 border-dark">
-<a class="btn btn-danger btn-sm delete-confirm" href="sil.php?id=<?= $list['id'] ?>">Sil</a>
+<form class="form-control-sm" action="#">
+<input type="hidden" name="id" id="id" value="<?php echo $list['id']; ?>">
+<a class="btn btn-sm btn-danger mb-2" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
 </td>
 </tr>
 <?php
@@ -373,7 +384,7 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 </thead>
 	<tbody>
 <?php
-$sql_sorgusu=mysqli_query($dbh_barkod,"SELECT cins, SUM(mesaj) AS miktar from bilgiler where kurum_id='$son_kayit_goster' GROUP BY cins");
+$sql_sorgusu=mysqli_query($dbh_barkod,"SELECT serino,cins, SUM(mesaj) AS miktar from bilgiler where kurum_id='$son_kayit_goster' GROUP BY cins");
 while($sonuc=mysqli_fetch_array($sql_sorgusu)){
 //echo $sonuc['cins'];
 
@@ -416,7 +427,30 @@ if($asi_miktarim_say>0){
 <td class="border border-1 border-dark"><?php echo htmlentities ($asi['asi_adi']);?></td>
             <td class="border border-1 border-dark"><?php echo htmlentities ($sonuc['miktar']);?></td>
         </tr>
-
+<!-- Barkod Silme Modal -->
+<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
+  <div class="modal-dialog modal-sm-barkod">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabelbarkod"><?php echo $silmeonay;?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h5 class="text-secondary bg-warning text-center"><?php echo '<div><h6>
+       -<font style="color:blue">'.$sonuc['serino'].'</font> Seri Nolu-<font style="color:blue">'.$asi['asi_adi'].'</font></h6></div>'; ?></h5>
+       <h5 class="text-danger"><?php echo $silemin;?></h5>
+      </div>
+      <div class="modal-footer bg-success justify-content-center">
+        <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
+        <a href="#" tabindex="2" title="evet" onClick="barkodsil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>
+               
+      </div>
+      <div id="sonucsil" align="center"></div>
+    </div>
+  </div>
+</div>	
 <?php 
 }
             $cnt++;
@@ -427,10 +461,17 @@ if($asi_miktarim_say>0){
 ?>
 </tbody>
 </table>		
+<?php
+}
+    ?>
 </div>
-
+<script src="assets/bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
+<script src="assets/bootstrap-4/sweetalert2/sweetalert2.min.js"></script>
+<script src="assets/bootstrap-4/popper.js"></script>
+<script src="assets/bootstrap-4/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap-4/js/deleter.js"></script>
 <script>
-$('.delete-confirm').on('click', function (event) {
+/*$('.delete-confirm').on('click', function (event) {
             event.preventDefault();
             const url = $(this).attr('href');
             const asi_marka = $("#asi_marka").val();
@@ -463,7 +504,7 @@ $('.delete-confirm').on('click', function (event) {
                     event.preventDefault();
                 }
             })
-        });
+        });*/
 
 </script>
 

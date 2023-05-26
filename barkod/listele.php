@@ -81,8 +81,9 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 //ARAŞTIRILACAK KISIM SONU  ************************************************************ }	
 ?>
 <input class="form-control" id="miktari" name="miktari" type="hidden" value="<?php echo $list['mesaj'];?>"/>
+<input class="form-control" id="miktari" name="miktari" type="text" value="<?php echo $list['id'];?>"/>
 <td class="border border-1 border-dark">
-<a class="btn btn-danger btn-sm delete-confirm" href="sil.php?id=<?= $list['id'] ?>">Sil</a>
+<a class="btn btn-danger btn-sm delete-confirm" href="#" onClick="barkodsil();">Sil</a>
 </td>
 </tr>
 <?php

@@ -69,6 +69,7 @@ include("../con_barkod.php");
 $vtsec="select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and asmadi='$ocak' and vyiladi='$yil' and vayadi='$ay')";
 $socsorgu=mysqli_query($dbh_barkod,$vtsec);
 $sorgu_sonucu=mysqli_fetch_array($socsorgu);
+$barkodsec="select * from bilgiler where(ilidi='$countryId' and ilceidi='$stateId' and asmadi='$ocak' and vyiladi='$yil' and vayadi='$ay')";
 if($sorgu_sonucu){
 $kurum_id=$sorgu_sonucu['id'];
 $barkod_sorgula=mysqli_query($dbh_barkod,"SELECT * from bilgiler where kurum_id='$kurum_id'");
@@ -114,7 +115,8 @@ $ayyazi=$_GET['selectay'];
 echo '<div class="bg-success"><h6>'.$uyarbaslik.' '.$ilinadi.'-'.$ilceninadi.'-<font style="color:blue">'.$ocakyazi.'</FONT>-'.$yil.'-'.$ay.'</h6></div>';
 echo '</form>';
 if($ilcetsm==$bakanlikyetki or $ilcetsm==$ilyetki or $ilcekod==$ilcekodx and $ilcetsm==$kurumyetki or $ahekkodu==$ocak){
-?>
+if($barkod_sonucu){
+    ?>
 <table class="table table-responsive-sm table-sm tableahekbtn">
 <thead class="bg-dark" align="center">
 <tr>
@@ -166,6 +168,9 @@ echo '</form>';
 </tr>
 </thead>
 </table>
+<?php
+}
+?>
 <table class="table table-responsive-sm table-sm table-bordered table-striped table-light table-hover form013ustaralar" style="margin-top:-8px;">
   <thead>
   <tr>
@@ -183,7 +188,10 @@ echo '</form>';
   </form>
   <div class="container table-responsive" id="barkodekle">
   <div class="col-md-12 divsecim" id="sonucx"></div>
-  <div class="container table-responsive mt-2">
+  <div class="container table-responsive">
+    <?php
+if($barkod_sonucu){
+    ?>
 <table class="table table-sm table-striped table-bordered table-hover table-info">
 <thead>
     <tr>
@@ -255,7 +263,10 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 ?>
 <input class="form-control" id="miktari" name="miktari" type="hidden" value="<?php echo $list['mesaj'];?>"/>
 <td class="border border-1 border-dark">
-<a class="btn btn-danger btn-sm delete-confirm" href="sil.php?id=<?= $list['id'] ?>">Sil</a>
+
+<form class="form-control-sm" action="#">
+<input type="hidden" name="id" id="id" value="<?php echo $list['id']; ?>">
+<a class="btn btn-sm btn-danger mb-2" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
 </td>
 </tr>
 <?php
@@ -274,10 +285,11 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 </thead>
 	<tbody>
 <?php
-$sql_sorgusu=mysqli_query($dbh_barkod,"SELECT cins, SUM(mesaj) AS miktar from bilgiler where kurum_id='$kurum_id' GROUP BY cins");
+$sql_sorgusu=mysqli_query($dbh_barkod,"SELECT id,serino,cins, SUM(mesaj) AS miktar from bilgiler where kurum_id='$kurum_id' GROUP BY cins");
 while($sonuc=mysqli_fetch_array($sql_sorgusu)){
 //echo $sonuc['cins'];
-
+?>
+<?php
 $asi_dokumu_say=mysqli_num_rows($sql_sorgusu);
 //echo $asi_dokumu_say;
    /* $sql = "SELECT cins, SUM(mesaj) AS miktar from bilgiler GROUP BY cins";
@@ -317,7 +329,30 @@ if($asi_miktarim_say>0){
 <td class="border border-1 border-dark"><?php echo htmlentities ($asi['asi_adi']);?></td>
             <td class="border border-1 border-dark"><?php echo htmlentities ($sonuc['miktar']);?></td>
         </tr>
-
+<!-- Barkod Silme Modal -->
+<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
+  <div class="modal-dialog modal-sm-barkod">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabelbarkod"><?php echo $silmeonay;?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h5 class="text-secondary bg-warning text-center"><?php echo '<div><h6>'.$ilinadi.'-'.$ilceninadi.'-<font style="color:blue">'.$ocakyazi.'</FONT>-'.$yil.'-'.$ayyazi.
+       '-<font style="color:blue">'.$sonuc['serino'].'</font> Seri Nolu-<font style="color:blue">'.$asi['asi_adi'].'</font></h6></div>'; ?></h5>
+       <h5 class="text-danger"><?php echo $silemin;?></h5>
+      </div>
+      <div class="modal-footer bg-success justify-content-center">
+        <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
+        <a href="#" tabindex="2" title="evet" onClick="barkodsil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>
+               
+      </div>
+      <div id="sonucsil" align="center"></div>
+    </div>
+  </div>
+</div>	
 <?php 
 }
             $cnt++;
@@ -328,7 +363,9 @@ if($asi_miktarim_say>0){
 ?>
 </tbody>
 </table>		
+
 <?php
+    }
     }
     ?>
 <!-- Modal -->
@@ -354,6 +391,10 @@ if($asi_miktarim_say>0){
     </div>
   </div>
 </div>	
+
+
+
+
 <?php
 }else{
 echo '<th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-primary mb-2" href=# onClick="git();" style="width: 100px"><i class="fa fa-eye" aria-hidden="true"></i> '.$goster.'</a></form></th>';
