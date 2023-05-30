@@ -1,11 +1,5 @@
 <a id="basadon"></a>
 <link rel="stylesheet" href="assets/css/form013style.css">
-<script type="text/javascript" src="jquery-1.3.2.js"></script> 
-<script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
-<script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
-
-<script language="JavaScript" src="toplama.js" type="text/javascript"></script>	
-<script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
 <?php header("Cache-Control: no-cache,no-store");
 session_start();
 $inactive = 1300;
@@ -58,10 +52,12 @@ $ilceadi=@mysqli_query($dbh,"select * from ilce where(ilinad='$countryId' and il
 while($ilcesonucum=mysqli_fetch_array($ilceadi)){
 $ilceninadi=$ilcesonucum['ilcead'];
 }
+if($countryId!=='İli Seçiniz'){
 $ocakadi=@mysqli_query($dbh,"select * from ocak where(ilinad='$countryId' and ilce='$stateId')");
 while($ocaksonucum=mysqli_fetch_array($ocakadi)){
 $ocaginadi=$ocaksonucum['socad'];
 $ilcekodx=substr($ocaginadi,0,5);
+}
 }
 ?>
 <?php
@@ -399,13 +395,14 @@ if($asi_miktarim_say>0){
 }else{
 echo '<th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-primary mb-2" href=# onClick="git();" style="width: 100px"><i class="fa fa-eye" aria-hidden="true"></i> '.$goster.'</a></form></th>';
 }
-}
+}if($countryId!='' and $stateId!='İlçe Seçiniz'){
 if($ilcetsm==$bakanlikyetki or $ilcetsm==$ilyetki or $ilcekod==$ilcekodx and $ilcetsm==$kurumyetki){
   if($ilcetsm==$ilyetki){
 $kacahek="select * from ocak where(ilinad='$countryId' and ilce='$stateId') group by asmadi";
   }else{
     $kacahek="select * from ocak where(ilinad='$countryId' and ilce='$stateId' and left(socad,5)='$kod') group by asmadi"; 
   }
+}
 $sorgula=mysqli_query($dbh,$kacahek);
 $kacaheksay=mysqli_num_rows($sorgula);
 //echo "ASM sayısı: ".$kacaheksay;
@@ -507,3 +504,9 @@ echo '<span class="badge badge-pill badge-danger">'.$tamambaslik.'</span>';
 </tr>
 </thead>
 </table>
+<script type="text/javascript" src="jquery-1.3.2.js"></script> 
+<script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
+<script type="text/javascript" src="assets/js/mask_hightlight.js"></script>
+<script type="text/javascript" src="assets/js/sayfa_linkleri.js"></script>
+<script language="JavaScript" src="toplama.js" type="text/javascript"></script>	
+<script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>

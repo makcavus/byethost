@@ -48,7 +48,7 @@
                         <ion-icon name="chatbubble-ellipses-outline" class="nav__icon"></ion-icon>
                             <span class="nav__name">Bize Ulaşın</span>
                         </a>      
-    <a href="barkod/index.php" id="karekod" class="nav__link" data-toggle="tooltip" title="Karekod Okut" style="text-decoration:none;">
+    <a href="barkod/frm023kayit.php" id="karekod" class="nav__link" data-toggle="tooltip" title="Karekod Okut" style="text-decoration:none;">
                         <ion-icon name="qr-code-outline" class="nav__icon"></ion-icon>
                         <span class="nav__name">Karekod</span>
                         </a>                   

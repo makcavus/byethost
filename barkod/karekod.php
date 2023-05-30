@@ -7,17 +7,17 @@ return str_replace('i̇','i',ltrim(mb_convert_case(str_replace(array('i','I'),ar
 session_start();
 if(!isset($_SESSION["uye"])){
 echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
-}
+}else{
 ?>
 <link rel="stylesheet" href="assets/css/form013style.css">
 <link rel="stylesheet" href="assets/bootstrap-4/sweetalert2/sweetalert2.min.css">
-  <link rel="stylesheet" href="assets/bootstrap-4/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/bootstrap-4/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/bootstrap-4/font-awesome/css/font-awesome.min.css">
-<script type="text/javascript" src="jquery-1.3.2.js"></script> 
-
-<script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
-<script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
-<script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
+<link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/navbar_style.css">
+<?php
+  //include("../assets/sablon/form013/header.php");
+  ?>
 <?php
     include('kontrol_basamagi_kontrol_fonksiyonu.php');
     include('../con_023.php');
@@ -287,7 +287,7 @@ $aseunv=$satir['aseunvan'];
 </form>
 </div>
 <div id="sonuckay"></div>
-<div class="container table-responsive" id="listele">
+<div class="container table-responsive" id="listele"></div>
 <div class="container table-responsive">
 <?php
 if($barkod_sonucu){
@@ -463,6 +463,7 @@ if($asi_miktarim_say>0){
 </table>		
 <?php
 }
+}
     ?>
 </div>
 <script src="assets/bootstrap-4/js/jquery-3.2.1.slim.min.js"></script>
@@ -556,3 +557,8 @@ if($asi_miktarim_say>0){
 ?>
 <!--</tbody>
 </table>	-->
+
+<script type="text/javascript" src="jquery-1.3.2.js"></script> 
+<script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
+<script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
+<script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>

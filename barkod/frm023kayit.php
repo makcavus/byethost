@@ -132,13 +132,59 @@ echo $ilcekodu;
 </div>
 </div>
 </div>
-<!-- Optional JavaScript -->
-<?php
-include("../assets/sablon/form013/footer.php");
-?>
-<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>
 <?php
 //unset($_SESSION['uye']); // oturumda olan değişkenimiz siliniyor
 //session_destroy(); // oturumları siler
 }
 ?>
+<div class="modal fade" id="iletiyaz" tabindex="-1" role="dialog" aria-labelledby="iletiyazLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabel"><?php $labelulas="Formu doldurarak düşüncelerinizi bize iltebilirsiniz."; echo $labelulas; ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+<div class="form-group">
+ <form class="form" name="bizeulasin" id="bizeulasin" method="GET" action="javascript:void(0)" onKeyUp="highlight(event)" onClick="highlight(event)">
+
+<table class="table table-striped table-primary table-bordered table-sm table-responsive-lg table-hover">
+<thead class="thead-dark" align="center">
+<tbody>
+<tr>
+           <td><font class="Yazi">Ad Soyad:</font></td>
+           <td>
+             <input name="tarih" type="hidden" id="tarih" class="form-control form-control-sm" value="<?php $tarih=date("Y-m-d"); echo $tarih; ?>">
+             <input name="adsoyad" type="text" id="adsoyad" class="form-control form-control-sm w-100 sm" tabindex="1" required></td>
+           </tr>
+           <tr>
+             <td><font class="Yazi">Telefon:</font></td>
+             <td><input name="telefon" type="text" id="telefon" class="form-control form-control-sm w-100 sm" tabindex="2"></td>
+           </tr>
+           <tr>
+             <td><font class="Yazi">E-mail Adresi:</font></td>
+             <td><input name="emailadresi" type="text" id="emailadresi" class="form-control form-control-sm w-100 sm" tabindex="3" required></td>
+           </tr>
+           <tr>
+             <td><font class="Yazi"><?php $labeldusunce="Düşünceleriniz:"; echo $labeldusunce; ?></font></td>
+             <td><textarea name="dusunceniz" rows="5" id="dusunceniz" class="form-control w-100" tabindex="4" required></textarea></td>
+           </tr>
+  </thead>
+ </tbody>
+ </table>
+ </form>
+ </div>
+      </div>
+      <div class="modal-footer">
+      <a href="#" onsubmit="javascript:reloadPage(this)" class="btn btn-success btn-sm btn-close" data-dismiss="modal"><i class="fa fa-times-circle fa-lg"></i><?php $labeliptal=" İptal"; echo $labeliptal; ?></a>
+      <a href="#" onClick="iletiyiekle();" class="btn btn-primary btn-sm ml-3"><i class="fa fa-check fa-lg"></i><?php $labelgonder=" Gönder"; echo $labelgonder; ?></a>  
+      </div>
+      <div id="sonuciletiyaz"></div>
+<!-- Optional JavaScript -->
+<?php
+include("../assets/sablon/form013/footer.php");
+?>
+<script src="../assets/js/sayfa_linkleri_altdizin.js"></script>

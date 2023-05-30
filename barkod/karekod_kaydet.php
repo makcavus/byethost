@@ -1,22 +1,13 @@
 ﻿<?php
 ob_start();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Kayıt Sayfası</title>
 	<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="assets/bootstrap-4/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap-4/sweetalert2/sweetalert2.min.css">
   <link rel="stylesheet" href="assets/bootstrap-4/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/form013style.css">
   <script type="text/javascript" src="jquery-1.3.2.js"></script> 
- 
-<script language="JavaScript" type="text/javascript" src="toplama.js"></script>
-</head>
-<body>
+ <script language="JavaScript" type="text/javascript" src="toplama.js"></script>
 <?php
 include('../con_barkod.php');
 include('frm013alanlari.php');
@@ -89,14 +80,11 @@ VALUES('$kurum_id','$gtin','$serino','$expdate','$batch','$cins','$mesaj','$mikt
 
  }
  }
-if ($sql){
+if (@$sql){
     echo '<div class="alert-light"><button type="button" name="kodkaydet" id="kodkaydet" class="btn btn-primary btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklendi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 }else{
 echo '<div class="alert-light"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
-	
-
  }
-    
   }
 mysqli_close($dbh_barkod);
 ob_end_flush();
@@ -105,5 +93,3 @@ ob_end_flush();
 <script src="assets/bootstrap-4/popper.js"></script>
 <script src="assets/bootstrap-4/js/bootstrap.min.js"></script>
 <script src="assets/bootstrap-4/sweetalert2/sweetalert2.min.js"></script>
-</body>
-</html>
