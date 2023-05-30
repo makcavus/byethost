@@ -408,7 +408,7 @@ $kacaheksay=mysqli_num_rows($sorgula);
 //echo "ASM sayısı: ".$kacaheksay;
 //echo '<br>';
 if($sorgu_sonucu){
-$kacveri="select * from bilgiler where(kurum_id='$kurum_id') group by cins";
+$kacveri="select * from bilgiler group by kurum_id";
 $verisorgula=mysqli_query($dbh_barkod,$kacveri);
 while($eksiksonucum=mysqli_fetch_array($verisorgula)){
 $eksikahek=$eksiksonucum['kurum_id'];
