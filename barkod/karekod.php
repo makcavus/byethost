@@ -15,6 +15,9 @@ echo "";//"Bu sayfayı görüntüleme yetkiniz yoktur.";
 <link rel="stylesheet" href="assets/bootstrap-4/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/navbar_style.css">
+  <style>
+      body{margin:0 0px;cursor:default;background-color:#000000;}
+  </style>
 <?php
   //include("../assets/sablon/form013/header.php");
   ?>
@@ -211,7 +214,7 @@ $aseunv=$satir['aseunvan'];
     //exit;
     ?>
 <div class="container">
-<form class="form-control" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
+<form class="form-control mb-2 mt-4" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
 <div class="row">
 <div class="text-center col-md-12">
 <input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>

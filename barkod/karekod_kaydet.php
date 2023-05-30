@@ -8,6 +8,9 @@ ob_start();
   <link rel="stylesheet" href="assets/css/form013style.css">
   <script type="text/javascript" src="jquery-1.3.2.js"></script> 
  <script language="JavaScript" type="text/javascript" src="toplama.js"></script>
+ <style>
+      body{margin:0 0px;cursor:default;background-color:#000000;}
+  </style>
 <?php
 include('../con_barkod.php');
 include('frm013alanlari.php');
@@ -81,9 +84,9 @@ VALUES('$kurum_id','$gtin','$serino','$expdate','$batch','$cins','$mesaj','$mikt
  }
  }
 if (@$sql){
-    echo '<div class="alert-light"><button type="button" name="kodkaydet" id="kodkaydet" class="btn btn-primary btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklendi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+    echo '<div class="bg-dark"><button type="button" name="kodkaydet" id="kodkaydet" class="btn btn-primary btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklendi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 }else{
-echo '<div class="alert-light"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+echo '<div class="bg-dark"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
  }
   }
 mysqli_close($dbh_barkod);
