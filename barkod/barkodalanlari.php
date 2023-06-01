@@ -44,6 +44,7 @@ $kulsayfayon='Kullanıcı Sayfasına Yönlendiriliyorsunuz';
 // Form Buton Yazıları..........................................
 	
 $kayitekle="Kayıt Ekle";
+$asiadiekle="Aşı Adı Ekle";
 $degistir="Değiştir";
 $goster="Göster";
 $hayir="Hayır";	

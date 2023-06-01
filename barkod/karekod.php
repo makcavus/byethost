@@ -216,34 +216,31 @@ $aseunv=$satir['aseunvan'];
 <div class="container">
 <form class="form-control mb-2 mt-4" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
 <div class="row">
-<div class="text-center col-md-12">
+<div class="text-center col-md-10">
 <input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
 </div>
-</div>
-<div class="row">
-<div class="col-md-2">
+<div class="col-md-0">
 <input type="hidden" name="kurum_id" id="kurum_id" value="<?php echo $son_kayit_goster ;?>" />
 <!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="hidden" />
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="serino">Seri No:</label>--><input class="form-control" id="serino" name="serino" type="hidden" />
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="expdate">Son Kullanma Tarihi:</label>--><input class="form-control" id="expdate" name="expdate" type="hidden"/>
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="batch">Parti No:</label>--><input class="form-control" id="batch" name="batch" type="hidden"/>
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="hidden"/>
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="hidden"/>
 </div>
-<div class="col-md-12 text-center mt-3 mb-3">
-<input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();"/>
-<input class="btn btn-light btn-sm ml-5" type="button" onclick="resetConsume()" value="Temizle"/>
-<a href="asi_kodlari.php" class="btn btn-sm btn-secondary ml-5">Aşı Adı Ekle</a>
+<div class="col-md-2">
+<input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();" hidden/>
+<input class="btn btn-primary btn-xs" type="button" onclick="resetConsume()" value="Temizle"/>
 </div>
 </div>
 </form>
@@ -257,34 +254,31 @@ $aseunv=$satir['aseunvan'];
 <div class="container">
 <form class="form-control mb-2 mt-3" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsume()">
 <div class="row">
-<div class="text-center col-md-12">
+<div class="text-center col-md-10">
 <input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
 </div>
-</div>
-<div class="row">
-<div class="col-md-2">
+<div class="col-md-0">
 <input type="hidden" name="kurum_id" id="kurum_id" value="<?php echo $son_kayit_goster ;?>" />
 <!--<label for="gtin">GTIN:</label>--><input class="form-control" id="gtin" name="gtin" type="hidden" />
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="serino">Seri No:</label>--><input class="form-control" id="serino" name="serino" type="hidden" />
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="expdate">Son Kullanma Tarihi:</label>--><input class="form-control" id="expdate" name="expdate" type="hidden"/>
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="batch">Parti No:</label>--><input class="form-control" id="batch" name="batch" type="hidden"/>
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="hidden"/>
 </div>
-<div class="col-md-2">
+<div class="col-md-0">
 <!--<label for="mesaj">Takdim:</label>--><input class="form-control" id="mesaj" name="mesaj" type="hidden"/>
 </div>
-<div class="col-md-12 text-center mt-3 mb-3">
-<input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();"/>
-<input class="btn btn-light btn-sm ml-5" type="button" onclick="resetConsume()" value="Temizle"/>
-<a href="asi_kodlari.php" class="btn btn-sm btn-secondary ml-5">Aşı Adı Ekle</a>
+<div class="col-md-2">
+<input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();" hidden/>
+<input class="btn btn-primary btn-xs" type="button" onclick="resetConsume()" value="Temizle"/>
 </div>
 </div>
 </form>
@@ -368,7 +362,7 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 <td class="border border-1 border-dark">
 <form class="form-control-sm" action="#">
 <input type="hidden" name="id" id="id" value="<?php echo $list['id']; ?>">
-<a class="btn btn-sm btn-danger mb-2" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
+<a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
 </td>
 </tr>
 <?php

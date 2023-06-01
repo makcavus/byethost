@@ -27,7 +27,7 @@ $_SESSION['timeout'] = time();
 <?php
 include("../con_023.php");
 include("../form013/tanimveyetkiler.php");
-include('frm013alanlari.php');
+include('barkodalanlari.php');
 $ahekkodu=$_GET['ahekkod'];
 $countryId=$_GET['selectil']; 
 $stateId=$_GET['selectilce']; 
@@ -128,7 +128,6 @@ if($say==0){
 <th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-primary mb-2" href=# onClick="git();" style="width: 100px"><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $goster;?></a></form></th>
 <th><form class="form-control-sm" action="#"><a class="btn btn-sm btn-danger mb-2" href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="width: 100px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form></th>
 <th>
-
 <?php
 echo '<form action="form023pdf.php" method="get" name="gor" target="hoppa" onSubmit="hoppa()">';
 echo '<input class="form-control-sm" type="hidden" name="ahekkod" width="0" height="0" vspace="0" hspace="0" border="0" size="0" value="'.$ahekkodu.'" />';
@@ -262,7 +261,7 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 
 <form class="form-control-sm" action="#">
 <input type="hidden" name="id" id="id" value="<?php echo $list['id']; ?>">
-<a class="btn btn-sm btn-danger mb-2" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
+<a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
 </td>
 </tr>
 <?php

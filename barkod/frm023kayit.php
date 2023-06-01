@@ -1,5 +1,6 @@
 <?php
 include("index.php");
+include('barkodalanlari.php');
 error_reporting(0);
 session_start();
 if(!isset($_SESSION["uye"])){
@@ -121,6 +122,8 @@ echo $ilcekodu;
 ?>
 </select>
 </td>
+<td><form class="form-control-sm" action="#"><a href="#" onClick="asiekle();" style="width: 120px" class="btn btn-sm btn-secondary"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+ <?php echo $asiadiekle; ?></a></form></td>
 </tr>
 </tbody>
 </table>

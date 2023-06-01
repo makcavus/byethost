@@ -1,6 +1,6 @@
 <?php
 include('../con_barkod.php');
-include('frm013alanlari.php');
+include('barkodalanlari.php');
 $kurumid=$_POST['kurumid'];
 $gtin=$_POST['gtin'];
 $serino=$_POST['serino'];

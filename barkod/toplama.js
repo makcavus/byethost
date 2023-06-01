@@ -2663,6 +2663,78 @@ $(document).ready(function(){
 	return false;
 	
 	}
+	//Aşi Adı Kayit Kontrol yapma
+
+$(document).ready(function(){
+
+	$(':submit').click( sonucAl );
+	
+	});
+	
+	function asiadikontrol()
+	
+	{
+	
+	
+	
+	$('div#sonuckay').html('<br><br><img src="./images/loading.gif"><br>Kontrol ediliyor...');
+	
+	$.ajax({
+	
+	type: 'GET',
+	
+	url: noCache('asi_kodlari.php'),
+	
+	data: $('form').serialize(),
+	
+	success: function(ajaxCevap) {
+	
+	$('div#sonuckay').html(ajaxCevap);
+	$('div#sonuckay').hide();
+	asiadiekle();
+	}
+	
+	});
+	
+	return false;
+	
+	}
+
+	//Barkod Tanım Kayit Ekleme
+
+$(document).ready(function(){
+
+	$(':submit').click( sonucAl );
+	
+	});
+	
+	function tanimekle()
+	
+	{
+	
+	
+	
+	$('div#sonuckay').html('<br><br><img src="./images/loading.gif"><br>Kontrol ediliyor...');
+	
+	$.ajax({
+	
+	type: 'GET',
+	
+	url: noCache('asi_tanimlari.php'),
+	
+	data: $('testform').serialize(),
+	
+	success: function(ajaxCevap) {
+	
+	$('div#sonuc').html(ajaxCevap);
+	
+	}
+	
+	});
+	
+	return false;
+	
+	}
 //Yeni Kayit Ekleme
 
 $(document).ready(function(){
@@ -2864,6 +2936,40 @@ success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi li
 
 $('div#sonuc').html(cevap);
 
+}
+
+});}
+
+//Aşı Adı Ekleme Kayit Girisi
+
+function asiekle() // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
+
+{
+
+$('div#sonuc').html('<br><br><img src="./images/loading.gif"><br>Aşı Adı Ekleme');
+
+$.ajax({ 
+
+
+
+type: 'GET',//verinin gnderilme yntemini belirliyoruz.
+
+
+
+url :noCache('asi_kodlari.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
+
+
+
+data: $('form').serialize(),//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
+
+
+
+success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
+
+{
+
+$('div#sonuc').html(cevap);
+$('#asi_adi').focus();
 }
 
 });}

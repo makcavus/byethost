@@ -239,6 +239,27 @@ function cevapFonksiyonu() {
 		$('#token').focus();
  }
 }
+//AŞI ADI EKLE
+function asiadiekle() {
+	var token = document.testform.token.value;
+	var cins = document.testform.cins.value;
+	var asi_adi = document.testform.asi_adi.value;
+	 
+		http.open('GET', 'asi_kodu_kaydet.php?cins='+cins+'&asi_adi='+asi_adi);
+		http.onreadystatechange = cevapFonksiyonu;
+		http.send(null);
+	}
+	
+	function cevapFonksiyonu() {
+		console.log(http.readyState);
+		if(http.readyState == 4){
+			document.getElementById('sonuckay').innerHTML = http.responseText;
+			document.testform.token.value = '';
+		    document.testform.asi_adi.value = '';
+			document.getElementById('asiadikaydet').click();
+						$('#asi_adi').focus();
+	 }
+	}
 function resetConsume(){
 	    //consumingKurum_id = false;
 		consumingGtin = false;
@@ -260,4 +281,16 @@ function resetConsume(){
 		document.testform.cins.value = '';
 		document.testform.mesaj.value = '';
 		$('#token').focus();
+}
+function resetConsumeAsi(){
+	//consumingKurum_id = false;
+	consumingCins = false
+	consumingOther = false;
+	consumingAI = true;
+	currenttoken = '';
+	nextConsume = 0;
+	//document.testform.kurum_id.value = '';
+	document.testform.token.value = '';
+	document.testform.cins.value = '';
+	$('#asi_adi').focus();
 }

@@ -13,7 +13,7 @@ ob_start();
   </style>
 <?php
 include('../con_barkod.php');
-include('frm013alanlari.php');
+include('barkodalanlari.php');
 $kurum_id=$_GET['kurum_id'];
 $token=$_GET['token'];
 $gtin=$_GET['gtin'];
