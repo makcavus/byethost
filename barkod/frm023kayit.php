@@ -122,7 +122,7 @@ echo $ilcekodu;
 ?>
 </select>
 </td>
-<td><form class="form-control-sm" action="#"><a href="#" onClick="asiekle();" style="width: 120px" class="btn btn-sm btn-secondary"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+<td><form class="form-control-sm" action="#"><a href="#" onClick="asiadiekleme();" style="width: 120px" class="btn btn-sm btn-secondary"><i class="fa fa-floppy-o" aria-hidden="true"></i>
  <?php echo $asiadiekle; ?></a></form></td>
 </tr>
 </tbody>

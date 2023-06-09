@@ -12,6 +12,7 @@ function karekod_keydown(e)
 	{
 		keynum = e.keyCode;
 		document.getElementById('kaydet').click()
+		//alert("tıklandı");
 	}
 	else if(e.which) // Netscape/Firefox/Opera
 	{
@@ -241,25 +242,35 @@ function cevapFonksiyonu() {
 }
 //AŞI ADI EKLE
 function asiadiekle() {
-	var token = document.testform.token.value;
-	var cins = document.testform.cins.value;
-	var asi_adi = document.testform.asi_adi.value;
-	 
-		http.open('GET', 'asi_kodu_kaydet.php?cins='+cins+'&asi_adi='+asi_adi);
-		http.onreadystatechange = cevapFonksiyonu;
-		http.send(null);
-	}
-	
-	function cevapFonksiyonu() {
-		console.log(http.readyState);
-		if(http.readyState == 4){
-			document.getElementById('sonuckay').innerHTML = http.responseText;
-			document.testform.token.value = '';
-		    document.testform.asi_adi.value = '';
-			document.getElementById('asiadikaydet').click();
-						$('#asi_adi').focus();
-	 }
-	}
+var asi_adi = document.testform.asi_adi.value;
+/*var token = document.testform.token.value;
+var gtin = document.testform.gtin.value;
+var serino = document.testform.serino.value;
+var expdate = document.testform.expdate.value;
+var batch = document.testform.batch.value;*/
+var cins = document.testform.cins.value;
+//var mesaj = document.testform.mesaj.value;
+ /*console.log(asi_adi);
+ console.log(token);
+ console.log(gtin);
+ console.log(serino);
+ console.log(expdate);
+ console.log(batch);
+ console.log(cins);
+ console.log(mesaj);*/
+    http.open('GET', 'asi_kodu_kaydet.php?asi_adi='+asi_adi+'&cins='+cins);
+    http.onreadystatechange = cevapFonksiyonu;
+    http.send(null);
+}
+
+function cevapFonksiyonu() {
+    //console.log(http.readyState);
+    if(http.readyState == 4){
+        document.getElementById('sonuckay').innerHTML = http.responseText;
+		//document.getElementById('asiadikaydet').click()
+		//$('#token').focus();
+ }
+}
 function resetConsume(){
 	    //consumingKurum_id = false;
 		consumingGtin = false;
@@ -272,7 +283,7 @@ function resetConsume(){
 		consumingAI = true;
 		currenttoken = '';
 		nextConsume = 0;
-		//document.testform.kurum_id.value = '';
+		document.testform.asi_adi.value = '';
 		document.testform.token.value = '';
 		document.testform.gtin.value = '';
 		document.testform.serino.value = '';
@@ -281,16 +292,5 @@ function resetConsume(){
 		document.testform.cins.value = '';
 		document.testform.mesaj.value = '';
 		$('#token').focus();
-}
-function resetConsumeAsi(){
-	//consumingKurum_id = false;
-	consumingCins = false
-	consumingOther = false;
-	consumingAI = true;
-	currenttoken = '';
-	nextConsume = 0;
-	//document.testform.kurum_id.value = '';
-	document.testform.token.value = '';
-	document.testform.cins.value = '';
-	$('#asi_adi').focus();
+		$('#asi_adi').focus();
 }

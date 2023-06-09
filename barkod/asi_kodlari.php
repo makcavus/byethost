@@ -8,39 +8,56 @@
   <style>
       body{margin:0 0px;cursor:default;background-color:#000000;}
   </style>
+ 
 <?php
 include("../con_barkod.php");
+include("barkodalanlari.php");
 ?>
 <div class="container mt-4">
 	<div class="col-md-12">
-<form class="form-control" id="testform" name="testform" action="javascript.void(0);" method="GET" onKeyUp="highlight(event)" onClick="highlight(event)" onreset="resetConsumeAsi()">
-<div class="text-center col-md-12 mt-2">
-<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" 
-tabindex="2" placeholder="Barkodu okutunuz" required/>
- </div>
-	<h3 class="text-center">Aşı Kodu ve Adı Tanımlama</h3>
-  <div class="text-center col-md-12 mt-2">
-<input class="form-control" id="cins" name="cins" type="text"/>
-<input class="form-control" id="asi_adi" name="asi_adi" type="text" size="70" placeholder="Aşı adını giriniz" tabindex="1" autofocus required/>
- </div>
- <div class="text-center col-md-12 mt-2">
+	<form class="form-control mb-2 mt-4" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" 
+	onClick="highlight(event)" onreset="resetConsume()">
+	<div class="row bg-warning ml-1 mr-1">
+	<div class="col-md-12 ">
+<h5 class="text-center bg-warning"><strong>Aşı Kodu ve Adı Tanımlama</strong></h5>
 </div>
+</div>
+<div class="row mt-3">
+	<div class="col-md-12">
+<input class="form-control" id="asi_adi" name="asi_adi" type="text" size="70" placeholder="Aşı adını giriniz" tabindex="1" autofocus required/>
+</div>
+</div>
+<div class="row mt-3 mb-3">
+<div class="text-center col-md-10">
+<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
+</div>
+
+<div class="col-md-0">
+<!--<label for="cins">Cinsi:</label>--><input class="form-control" id="cins" name="cins" type="hidden"/>
+</div>
+<div class="col-md-2">
+<input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" hidden/>
+<input class="btn btn-primary btn-sm" type="button" name="asiadikaydet" id="asiadikaydet" value="Kaydet" onclick="asiadiekle();"/>
+<input class="btn btn-warning btn-sm" type="button" onclick="resetConsume()" value="Temizle"/>
+</div>
+</div>
+</form>
 <div class="row">
 	<!--<div class="col-md-4 text-center">
     <a href="karekod.php" class="btn btn-sm btn-primary">Barkod Girişi</a>
 </div>-->
-<div class="col-md-6 text-center">
+<div class="col-md-12 text-center">
     <a href="#" onClick="tanimekle()" class="btn btn-sm btn-warning">Ürün Marka Tanımı</a>
 </div>
-<div class="col-md-6 text-center">
-<input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" onclick="asiadiekle();" tabindex="3" hidden/>
-	</div>
-	</div>
-</form>
 </div>
-
-
-
+</div>
+<div id="sonuckay"></div>
+<div class="container table-responsive" id="listele_asi_adi"></div>
+<?php
+$asi_adi_sorgula=mysqli_query($dbh_barkod,"SELECT * from asi_kodlari");
+$asi_adi_say=mysqli_num_rows($asi_adi_sorgula);
+if($asi_adi_say>0){
+   ?>
 <div class="container table-responsive">
 <table class="table table-sm table-striped table-bordered table-hover table-info mt-2">
 <thead>
@@ -54,14 +71,41 @@ tabindex="2" placeholder="Barkodu okutunuz" required/>
 	while($list=mysqli_fetch_array($sql)){	
 ?>
 <tr>
-<td><?php echo $list['cins'];?></td>
+<td><?php echo $list['asi_kodu'];?></td>
 <td><?php echo $list['asi_adi'];?></td>
 
 <td class="text-center">
+<form class="form-control-sm" action="#">
+<input type="hidden" name="id" id="id" value="<?php echo $list['id']; ?>">
 <a class="btn btn-success btn-sm" href="asi_kodu_duzenle.php?id=<?= $list['id'] ?>">Düzenle</a>
-<a class="btn btn-danger btn-sm" href="asi_kodu_sil.php?id=<?= $list['id'] ?>">Sil</a>
+<a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" 
+style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
 </td>
 </tr>
+<!-- Barkod Silme Modal -->
+<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
+  <div class="modal-dialog modal-sm-barkod">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabelbarkod"><?php echo $silmeonay;?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h5 class="text-secondary bg-warning text-center"><?php echo '<div><h6>
+       <font style="color:blue">'.$list['asi_kodu'].'</font> Kodlu <font style="color:blue">'.$list['asi_adi'].'</font> adlı aşı</h6></div>'; ?></h5>
+       <h5 class="text-danger"><?php echo $silemin;?></h5>
+      </div>
+      <div class="modal-footer bg-success justify-content-center">
+        <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
+        <a href="#" tabindex="2" title="evet" onClick="asiadisil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>
+               
+      </div>
+      <div id="sonucsil" align="center"></div>
+    </div>
+  </div>
+</div>	
 <?php
 	}
 	
@@ -70,10 +114,11 @@ tabindex="2" placeholder="Barkodu okutunuz" required/>
 </table>
 </div>
 </div>
-<div id="sonuckay"></div>
 <?php
+}
 ?>
-<script type="text/javascript" src="jquery-1.3.2.js"></script> 
+
+ <script type="text/javascript" src="jquery-1.3.2.js"></script> 
 <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
 <script type="text/javascript" src="assets/js/mask_hightlight.js"></script>
 <script type="text/javascript" src="assets/js/sayfa_linkleri.js"></script>
