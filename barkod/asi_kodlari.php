@@ -42,22 +42,24 @@ include("barkodalanlari.php");
 </div>
 </div>
 </form>
-<div class="row">
-	<!--<div class="col-md-4 text-center">
-    <a href="karekod.php" class="btn btn-sm btn-primary">Barkod Girişi</a>
-</div>-->
-<div class="col-md-12 text-center">
-    <a href="#" onClick="tanimekle()" class="btn btn-sm btn-warning">Ürün Marka Tanımı</a>
-</div>
-</div>
-</div>
 <div id="sonuckay"></div>
-<div class="container table-responsive" id="listele_asi_adi"></div>
 <?php
 $asi_adi_sorgula=mysqli_query($dbh_barkod,"SELECT * from asi_kodlari");
 $asi_adi_say=mysqli_num_rows($asi_adi_sorgula);
 if($asi_adi_say>0){
    ?>
+<div class="row">
+	<!--<div class="col-md-4 text-center">
+    <a href="karekod.php" class="btn btn-sm btn-primary">Barkod Girişi</a>
+</div>-->
+<div class="col-md-12 text-center">
+    <a href="#" onClick="tanimekle()" class="btn btn-sm btn-warning"><i class="fa fa-floppy-o" aria-hidden="true"></i> Ürün Marka Adı Ekle</a>
+</div>
+</div>
+</div>
+
+<div class="container table-responsive" id="listele_asi_adi"></div>
+
 <div class="container table-responsive">
 <table class="table table-sm table-striped table-bordered table-hover table-info mt-2">
 <thead>
@@ -69,15 +71,16 @@ if($asi_adi_say>0){
 <?php
 	$sql=@mysqli_query($dbh_barkod,"select * from asi_kodlari order by asi_adi asc");
 	while($list=mysqli_fetch_array($sql)){	
+    $id=$list['id'];
 ?>
 <tr>
 <td><?php echo $list['asi_kodu'];?></td>
 <td><?php echo $list['asi_adi'];?></td>
 
 <td class="text-center">
-<form class="form-control-sm" action="#">
-<input type="hidden" name="id" id="id" value="<?php echo $list['id']; ?>">
-<a class="btn btn-success btn-sm" href="asi_kodu_duzenle.php?id=<?= $list['id'] ?>">Düzenle</a>
+<form class="form-control-sm" name="testformx" id="testformx" method="GET" action="javascript:void(0);">
+<input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
+<a class="btn btn-success btn-sm" href="#" onclick="asiadiduzenle(<?php echo $id; ?>);">Düzenle</a>
 <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" 
 style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
 </td>

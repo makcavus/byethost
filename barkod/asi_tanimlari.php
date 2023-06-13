@@ -1,5 +1,5 @@
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="assets/css/form013style.css">
+<link rel="stylesheet" href="assets/css/form013style.css">
 <link rel="stylesheet" href="assets/bootstrap-4/sweetalert2/sweetalert2.min.css">
 <link rel="stylesheet" href="assets/bootstrap-4/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/bootstrap-4/font-awesome/css/font-awesome.min.css">
@@ -12,33 +12,61 @@
 include("../con_barkod.php");
 include('barkodalanlari.php');
 ?>
+<!--Aşı adından alınan-->
 <div class="container mt-4">
 	<div class="col-md-12">
-<form class="form-control" id="testform" name="testform" action="asi_tanim_kaydet.php" method="post">
-<div class="text-center col-md-12 mt-2">
-<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" required/>
- </div>
-	<h3 class="text-center">Aşı Markası Tanımlama</h3>
-  <div class="text-center col-md-12 mt-2">
-<input class="form-control" id="cins" name="cins" type="hidden"/>
-<input class="form-control" id="gtin" name="gtin" type="hidden" />
-<input class="form-control" id="asi_marka" name="asi_marka" type="text" size="70" placeholder="Aşı markasını giriniz" autofocus/>
- </div>
- <div class="text-center col-md-12 mt-2">
+	<form class="form-control mb-2 mt-4" id="testform" name="testform" action="javascript:void(0)" method="GET" onKeyUp="highlight(event)" 
+	onClick="highlight(event)" onreset="resetConsume()">
+	<div class="row bg-warning ml-1 mr-1">
+	<div class="col-md-12 ">
+<h5 class="text-center bg-warning"><strong>Aşı Markası Tanımlama</strong></h5>
 </div>
-<div class="row">	
-<div class="col-md-6 text-center">
-    <a href="#" onClick="asiekle();" class="btn btn-sm btn-primary" style="width: 120px"><i class="fa fa-floppy-o" aria-hidden="true"></i>
- <?php echo $asiadiekle; ?></a>
 </div>
-<div class="col-md-6 text-center">
-	<input type="submit" id="kaydet" name="kaydet" class="btn btn-success btn-sm" value="Kaydet">
-	</div>
-	</div>
+<div class="row mt-3">
+	<div class="col-md-12">
+<input class="form-control" id="asi_marka" name="asi_marka" type="text" size="70" placeholder="Aşı Markası adını giriniz" tabindex="1" autofocus required/>
+</div>
+</div>
+<div class="row mt-3 mb-3">
+<div class="text-center col-md-10">
+<input class="form-control" id="token" name="token" type="text"  onkeydown="karekod_keydown(event)" onkeypress="karekod_keypress(event)" size="70" placeholder="Barkodu okutunuz" autofocus required/>
+</div>
+
+<div class="col-md-0">
+<input class="form-control" id="cins" name="cins" type="text"/>
+<input class="form-control" id="gtin" name="gtin" type="text" />
+</div>
+<div class="col-md-2">
+<input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" hidden/>
+<input class="btn btn-primary btn-sm" type="button" name="asitanimkaydet" id="asitanimkaydet" value="Kaydet" onclick="asimarkaekle();"/>
+<input class="btn btn-warning btn-sm" type="button" onclick="resetConsume()" value="Temizle"/>
+</div>
+</div>
 </form>
+<div id="sonuckay"></div>
+
+
+<!--Aşı adından alınan sonu-->
+
+
+<!--Aşı adı listeleme kontrol kısmı-->
+<?php
+$asi_adi_sorgula=mysqli_query($dbh_barkod,"SELECT * from asi_tanim");
+$asi_adi_say=mysqli_num_rows($asi_adi_sorgula);
+if($asi_adi_say>0){
+   ?>
+<div class="row">
+	<!--<div class="col-md-4 text-center">
+    <a href="karekod.php" class="btn btn-sm btn-primary">Barkod Girişi</a>
+</div>-->
+<div class="col-md-12 text-center">
+    <a href="#" onClick="asiekle();" class="btn btn-sm btn-warning"><i class="fa fa-floppy-o" aria-hidden="true"></i> Aşı Adı Kaydet</a>
+</div>
+</div>
 </div>
 
-
+<div class="container table-responsive" id="listele_asi_adi"></div>
+<!--Aşı adı listeleme kontrol kısmı sonu-->
 
 <div class="container table-responsive mt-1">
 <table class="table table-sm table-striped table-bordered table-hover table-info">
@@ -75,7 +103,7 @@ include('barkodalanlari.php');
 </tr>
 <?php
 	}
-	
+}
 	?>
 </tbody>
 </table>

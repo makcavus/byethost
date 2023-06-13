@@ -1230,6 +1230,26 @@ $(document).ready(function(){
 	});
 	return false;
 	}
+	//Aşi Adı Ekleme Sayfasını aç.............................................................................................................
+$(document).ready(function(){
+	$(':submit').click( sonucAl );
+	});
+	function asitanimekleme()
+	{
+	$('div#sonuc').html('<br><br><img src="./images/loading.gif"><br>Kontrol ediliyor...');
+	$.ajax({
+	type: 'GET',
+	url: noCache('asi_tanimlari.php'),
+	data: $('form').serialize(),
+	success: function(ajaxCevap) {
+	$('div#sonuc').html(ajaxCevap);
+	$('div#sonucx').hide();
+
+	$('#asi_marka').focus();
+		}
+	});
+	return false;
+	}
 	//Aşi Adı Kayit Kontrol yapma.............................................................................................................
 $(document).ready(function(){
 	$(':submit').click( sonucAl );
@@ -1255,13 +1275,15 @@ $(document).ready(function(){
 	});
 	function tanimekle()
 	{
-		$('div#sonuckay').html('<br><br><img src="./images/loading.gif"><br>Kontrol ediliyor...');
+		$('div#sonuckay').hide();
+		$('div#sonuc').html('<br><br><img src="./images/loading.gif"><br>Kontrol ediliyor...');
 		$.ajax({
 		type: 'GET',
 		url: noCache('asi_tanimlari.php'),
 		data: $('testform').serialize(),
 		success: function(ajaxCevap) {
 		$('div#sonuc').html(ajaxCevap);
+		$('#asi_marka').focus();
 		}
 		});
 		return false;
@@ -1361,10 +1383,23 @@ success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi li
 $('div#sonuc').html(cevap);
 }
 });}
+//Aşı Adı Kayit Degistirme.............................................................................................................................................
+function asiadiduzenle(id) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
+{
+$('div#sonuc').html('<br><br><img src="./images/loading.gif"><br>Kayit Duzenlenecek...');
+$.ajax({ 
+type: 'GET',//verinin gnderilme yntemini belirliyoruz.
+url :noCache('asi_kodu_duzenle.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
+data: {id: id},//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
+success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
+{	
+$('div#sonuc').html(cevap);
+}
+});}
 //Aşı Adı Ekleme Kayit Girisi.....................................................................................................................................
 function asiekle() // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
 {
-$('div#sonucx').html('<br><br><img src="./images/loading.gif"><br>Aşı Adı Ekleme');
+$('div#sonuc').html('<br><br><img src="./images/loading.gif"><br>Aşı Adı Ekleme');
 $.ajax({ 
 type: 'GET',//verinin gnderilme yntemini belirliyoruz.
 url :noCache('asi_kodlari.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.

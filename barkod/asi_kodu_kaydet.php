@@ -16,7 +16,7 @@ $asi_adi=$_GET['asi_adi'];
 $cins=$_GET['cins'];
 $barkod_kontrol=mysqli_query($dbh_barkod,"SELECT * from asi_kodlari where(asi_kodu='$cins')");
 $barkod_say=mysqli_num_rows($barkod_kontrol);
-if($asi_adi!="" and $barkod_say==0){ 
+if($asi_adi!="" and $cins!="" and $barkod_say==0){ 
 $sql=mysqli_query($dbh_barkod,"INSERT INTO asi_kodlari (asi_kodu,asi_adi) VALUES('$cins','$asi_adi')"); 
 }
 if (@$sql){
@@ -25,6 +25,7 @@ if (@$sql){
 }else{
   echo '<div class="bg-dark"><button type="button" name="asiadikaydet" id="asiadikaydet" class="btn btn-danger btn-sm mt-3 mb-2" 
   data-dismiss="modal" onclick="asiadiekleme();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+  
  }
    
    
