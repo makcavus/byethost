@@ -1344,6 +1344,19 @@ success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi li
 $('div#sonucsil').html(cevap);
 }
 });}
+//Aşı Marka Kayıdı Silme.................................................................................................................................
+function asitanimsil(ilidi,ilceidi,vocadi,vyiladi,vayadi,komut) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
+{
+$('div#sonucsil').html('<br><br><img src="./images/loading.gif"><br>Kayit Siliniyor...');
+$.ajax({ 
+type: 'GET',//verinin gnderilme yntemini belirliyoruz.
+url :noCache('asi_tanim_sil.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
+data: $('form').serialize(),//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
+success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
+{
+$('div#sonucsil').html(cevap);
+}
+});}
 //Barkod Kayıdı(Kayıt ekleme kısmından) Silme.............................................................................................................
 function barkodsil(ilidi,ilceidi,vocadi,vyiladi,vayadi,komut) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
 {
@@ -1395,6 +1408,20 @@ success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi li
 {	
 $('div#sonuc').html(cevap);
 $('#asi_adi').select();
+}
+});}
+//Aşı Marka Adı Kayit Degistirme.............................................................................................................................................
+function asitanimduzenle(id) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
+{
+$('div#sonuc').html('<br><br><img src="./images/loading.gif"><br>Kayit Duzenlenecek...');
+$.ajax({ 
+type: 'GET',//verinin gnderilme yntemini belirliyoruz.
+url :noCache('asi_tanim_duzenle.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
+data: {id: id},//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
+success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
+{	
+$('div#sonuc').html(cevap);
+$('#asi_marka').select();
 }
 });}
 //Aşı Adı Ekleme Kayit Girisi.....................................................................................................................................

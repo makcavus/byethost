@@ -81,6 +81,7 @@ if($asi_adi_say>0){
 <?php
 	$sql=mysqli_query($dbh_barkod,"select * from asi_tanim order by asi_marka asc");
 	while($liste=mysqli_fetch_array($sql)){	
+		$id=$liste['id'];
     $cins=$liste['asi_kod'];
     $sqlx=mysqli_query($dbh_barkod,"select * from asi_kodlari where asi_kodu='$cins'");
 	?>
@@ -97,10 +98,36 @@ if($asi_adi_say>0){
 <td><?php echo $liste['asi_marka'];?></td>
 
 <td class="text-center">
-<a class="btn btn-success btn-sm" href="asi_tanim_duzenle.php?id=<?= $liste['id'] ?>">Düzenle</a>
-<a class="btn btn-danger btn-sm" href="asi_tanim_sil.php?id=<?= $liste['id'] ?>">Sil</a>
+<form class="form-control-sm" name="testformx" id="testformx" method="GET" action="javascript:void(0);">
+<input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
+<a class="btn btn-success btn-sm" href="#" onclick="asitanimduzenle(<?php echo $id; ?>);">Düzenle</a>
+<a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" 
+style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
 </td>
 </tr>
+<!-- Barkod Silme Modal -->
+<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
+  <div class="modal-dialog modal-sm-barkod">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabelbarkod"><?php echo $silmeonay;?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h5 class="text-secondary bg-warning text-center"><?php echo '<div><h6>
+       <font style="color:blue">'.$liste['asi_marka'].'</font> markalı aşı</h6></div>'; ?></h5>
+       <h5 class="text-danger"><?php echo $silemin;?></h5>
+      </div>
+      <div class="modal-footer bg-success justify-content-center">
+        <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
+        <a href="#" tabindex="2" title="evet" onClick="asitanimsil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>               
+      </div>
+      <div id="sonucsil" align="center"></div>
+    </div>
+  </div>
+</div>	
 <?php
 	}
 }
