@@ -1394,6 +1394,7 @@ data: {id: id},//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
 success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
 {	
 $('div#sonuc').html(cevap);
+$('#asi_adi').select();
 }
 });}
 //Aşı Adı Ekleme Kayit Girisi.....................................................................................................................................

@@ -1,37 +1,6 @@
 // JavaScript Document
-function noCache(
-uri 
-
-){
-
-return uri.concat( 
-
-
-/\?/.test(uri) ?
-
-
-"&"
-
-:
-
-
-"?",
-
-
-"noCache=",
-
-
-(new Date).getTime(),
-
-
-".",
-
-
-Math.random()*1234567
-
-);
-
-
+function noCache(uri){
+	return uri.concat(/\?/.test(uri) ? "&" : "?", "noCache=", (new Date).getTime(), ".", Math.random()*1234567);
 };
 function nesneolustur() {
     var nesne;

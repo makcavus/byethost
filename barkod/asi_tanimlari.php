@@ -33,8 +33,8 @@ include('barkodalanlari.php');
 </div>
 
 <div class="col-md-0">
-<input class="form-control" id="cins" name="cins" type="text"/>
-<input class="form-control" id="gtin" name="gtin" type="text" />
+<input class="form-control" id="cins" name="cins" type="hidden"/>
+<input class="form-control" id="gtin" name="gtin" type="hidden" />
 </div>
 <div class="col-md-2">
 <input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" hidden/>

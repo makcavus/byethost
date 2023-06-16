@@ -243,64 +243,45 @@ function cevapFonksiyonu() {
 //AŞI ADI EKLE
 function asiadiekle() {
 var asi_adi = document.testform.asi_adi.value;
-/*var token = document.testform.token.value;
-var gtin = document.testform.gtin.value;
-var serino = document.testform.serino.value;
-var expdate = document.testform.expdate.value;
-var batch = document.testform.batch.value;*/
 var cins = document.testform.cins.value;
-//var mesaj = document.testform.mesaj.value;
- /*console.log(asi_adi);
- console.log(token);
- console.log(gtin);
- console.log(serino);
- console.log(expdate);
- console.log(batch);
- console.log(cins);
- console.log(mesaj);*/
     http.open('GET', 'asi_kodu_kaydet.php?asi_adi='+asi_adi+'&cins='+cins);
     http.onreadystatechange = cevapFonksiyonu;
     http.send(null);
 }
-
 function cevapFonksiyonu() {
-    //console.log(http.readyState);
-    if(http.readyState == 4){
+       if(http.readyState == 4){
         document.getElementById('sonuckay').innerHTML = http.responseText;
-		//document.getElementById('asiadikaydet').click()
-		//$('#token').focus();
- }
+		 }
 }
-//AŞI MARKA EKLE
-function asimarkaekle() {
-	var asi_marka = document.testform.asi_marka.value;
-	//var token = document.testform.token.value;
-	var gtin = document.testform.gtin.value;
-	/*var serino = document.testform.serino.value;
-	var expdate = document.testform.expdate.value;
-	var batch = document.testform.batch.value;*/
-	var cins = document.testform.cins.value;
-	//var mesaj = document.testform.mesaj.value;
-	 /*console.log(asi_adi);
-	 console.log(token);
-	 console.log(gtin);
-	 console.log(serino);
-	 console.log(expdate);
-	 console.log(batch);
-	 console.log(cins);
-	 console.log(mesaj);*/
-		http.open('GET', 'asi_tanim_kaydet.php?asi_marka='+asi_marka+'&gtin='+gtin+'&cins='+cins);
+//AŞI ADI DEĞİŞTİR
+function asiadidegistir() {
+	var id = document.testformup.id.value;
+	var asi_adi = document.testformup.asi_adi.value;
+	var cins = document.testformup.cins.value;
+		http.open('GET', 'asi_kodu_update.php?id='+id+'&asi_adi='+asi_adi+'&cins='+cins);
 		http.onreadystatechange = cevapFonksiyonu;
 		http.send(null);
 	}
 	
 	function cevapFonksiyonu() {
-		//console.log(http.readyState);
+		alert(http.readyState);
+			if(http.readyState == 4){
+			document.getElementById('sonuckay').innerHTML = http.responseText;
+			 }
+	}
+//AŞI MARKA EKLE
+function asimarkaekle() {
+	var asi_marka = document.testform.asi_marka.value;
+	var gtin = document.testform.gtin.value;
+	var cins = document.testform.cins.value;
+		http.open('GET', 'asi_tanim_kaydet.php?asi_marka='+asi_marka+'&gtin='+gtin+'&cins='+cins);
+		http.onreadystatechange = cevapFonksiyonu;
+		http.send(null);
+	}
+	function cevapFonksiyonu() {
 		if(http.readyState == 4){
 			document.getElementById('sonuckay').innerHTML = http.responseText;
-			//document.getElementById('asiadikaydet').click()
-			//$('#token').focus();
-	 }
+		 }
 	}
 function resetConsume(){
 	    //consumingKurum_id = false;
