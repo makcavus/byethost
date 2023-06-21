@@ -56,7 +56,7 @@ $asi_adi_bas=$asi_adi_yaz['asi_adi'];
 <a href="#" onclick="asitanimekleme();" class="btn btn-sm btn-danger" style="width: 100px;">İptal</a>
 	</div>
 <div class="col-md-6 text-center">
-<input class="btn btn-primary btn-sm" style="width: 100px;" type="button" name="guncelle" id="guncelle" value="Güncelle" onclick="asiadidegistir();"/>
+<input class="btn btn-primary btn-sm" style="width: 100px;" type="button" name="guncelle" id="guncelle" value="Güncelle" onclick="asitanimdegistir();"/>
 </div>
 	</div>
 </form>

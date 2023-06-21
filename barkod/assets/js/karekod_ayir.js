@@ -263,8 +263,7 @@ function asiadidegistir() {
 		http.send(null);
 	}
 	
-	function cevapFonksiyonu() {
-		alert(http.readyState);
+	function cevapFonksiyonu() {		
 			if(http.readyState == 4){
 			document.getElementById('sonuckay').innerHTML = http.responseText;
 			 }
@@ -282,6 +281,23 @@ function asimarkaekle() {
 		if(http.readyState == 4){
 			document.getElementById('sonuckay').innerHTML = http.responseText;
 		 }
+	}
+	//AŞI MARKA DEĞİŞTİR
+function asitanimdegistir() {
+	var id = document.testformup.id.value;
+	var asi_marka = document.testformup.asi_marka.value;
+	var gtin = document.testformup.gtin.value;
+	var cinsad = document.testformup.cinsad.value;
+		http.open('GET', 'asi_tanim_update.php?id='+id+'&asi_marka='+asi_marka+'&gtin='+gtin+'&cinsad='+cinsad);
+		http.onreadystatechange = cevapFonksiyonu;
+		http.send(null);
+	}
+	
+	function cevapFonksiyonu() {
+		//alert(http.readyState);
+			if(http.readyState == 4){
+			document.getElementById('sonuckay').innerHTML = http.responseText;
+			 }
 	}
 function resetConsume(){
 	    //consumingKurum_id = false;

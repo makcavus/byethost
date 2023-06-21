@@ -15,12 +15,16 @@ function ysYonlendir(ID, adres, saniye) {
 </script>
 <?php
 include("../con_barkod.php");
+if($_GET){ 
 $id=$_GET['id']; 
+echo $id;
+//exit;
 $resultvyil = "delete from asi_kodlari where(id='$id')" ;
 if(@mysqli_query($dbh_barkod,$resultvyil)){
 echo '<div class="alert-info"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="asiadiekleme();">Kayıt Silindi. <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
 }else{
 echo '<div class="alert-info"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="asiadiekleme();">Kayıt Silinemedi. <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+}
 }
 @mysqli_close($dbh_barkod);
 ?>

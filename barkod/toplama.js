@@ -1332,13 +1332,14 @@ $('div#sonucsil').html(cevap);
 }
 });}
 //Barkod Kayıdı Silme.................................................................................................................................
-function asiadisil(ilidi,ilceidi,vocadi,vyiladi,vayadi,komut) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
+function asiadisil(id) // islem  fonksiyomuzda id ve komut isimli iki degisken kullanacagiz.id degiskeni ile verileri id degerini tasimak iin, komut degiskenini ise gncelleme iin kullanicagiz.
 {
+	
 $('div#sonucsil').html('<br><br><img src="./images/loading.gif"><br>Kayit Siliniyor...');
 $.ajax({ 
 type: 'GET',//verinin gnderilme yntemini belirliyoruz.
 url :noCache('asi_kodu_sil.php'),//islem yapilacak dosyayi belirtiyoruz.fonksiyonumuzdan gelen degiskenleri islem.php sayfasina get methodu ile gnderiyoruz.
-data: $('form').serialize(),//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
+data: {"id":id},//gnderilecek veri olarak formdan elamlarinin degerleri aliyoruz.
 success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
 {
 $('div#sonucsil').html(cevap);
