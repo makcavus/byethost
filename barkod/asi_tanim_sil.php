@@ -17,7 +17,7 @@ function ysYonlendir(ID, adres, saniye) {
 include("../con_barkod.php");
 $id=$_GET['id']; 
 echo $id;
-exit;
+//exit;
 $resultvyil = "delete from asi_tanim where(id='$id')" ;
 if(@mysqli_query($dbh_barkod,$resultvyil)){
 echo '<div class="alert-info"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="asitanimekleme();">Kayıt Silindi. <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';

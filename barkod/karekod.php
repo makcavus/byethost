@@ -307,13 +307,13 @@ if($barkod_sonucu){
   <?php
   $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$son_kayit_goster' order by expdate,mesaj desc");
 while($list=mysqli_fetch_array($sql_sorgu)){
-
+  $id=$list['id'];
 
 	/*$sql=$dbh_barkod->prepare("select * from bilgiler order by expdate,mesaj desc");
 	$sql->execute(array());
 	while($list=$sql->fetch(PDO::FETCH_ASSOC)){		*/
 ?>
-<tr>
+<tr id="sat_<?php echo $id; ?>">
 <td class="border border-1 border-dark"><?php echo $list['gtin'];?></td>
 <td class="border border-1 border-dark"><?php echo $list['serino'];?></td>
 <td class="border border-1 border-dark"><?php echo $list['batch'];?></td>
@@ -339,9 +339,6 @@ $asi->execute();
 while ($listele=$asi->fetch(PDO::FETCH_ASSOC)) {*/
  echo $listele['asi_marka'];?></td>
  <input class="form-control" id="asi_marka" name="asi_marka" type="hidden" value="<?php echo $listele['asi_marka'];?>"/>
-<?php
-}	
-?>
 <td class="border border-1 border-dark"><?php echo $list['mesaj'];?></td>
 <?php
 /* ARAŞTIRILACAK KISIM************************************************************
@@ -360,12 +357,14 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 ?>
 <input class="form-control" id="miktari" name="miktari" type="hidden" value="<?php echo $list['mesaj'];?>"/>
 <td class="border border-1 border-dark">
-<form class="form-control-sm" action="#">
 <input type="hidden" name="id" id="id" value="<?php echo $list['id']; ?>">
-<a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
+<button class="btn btn-sm btn-danger" id="<?php echo $id; ?>" data-id="<?php echo $listele['asi_marka']; ?>" data-serino="<?php echo $list['serino']; ?>"
+data-kurum="<?php echo $ilinadi.'-'.$ilceninadi.'-'.$ocakyazi.'-'.$yil.'-'.$ayyazi; ?>"
+style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</button>
 </td>
 </tr>
 <?php
+}
 }
 	?>
 </tbody>
@@ -425,7 +424,7 @@ if($asi_miktarim_say>0){
             <td class="border border-1 border-dark"><?php echo htmlentities ($sonuc['miktar']);?></td>
         </tr>
 <!-- Barkod Silme Modal -->
-<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
+<!--<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
   <div class="modal-dialog modal-sm-barkod">
     <div class="modal-content">
       <div class="modal-header bg-success">
@@ -443,7 +442,7 @@ if($asi_miktarim_say>0){
         <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
         <a href="#" tabindex="2" title="evet" onClick="barkodsil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>
                
-      </div>
+      </div>-->
       <div id="sonucsil" align="center"></div>
     </div>
   </div>
@@ -559,3 +558,60 @@ if($asi_miktarim_say>0){
 <script type="text/javascript" src="jquery.maskedinput-1.2.1.pack.js"></script> 
 <script type="text/javascript" src="assets/js/mask_hightlight.js"></script> 
 <script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
+<script language="JavaScript" type="text/javascript" src="assets/bootstrap-4/sweetalert2/sweetalert2.min.js"></script>
+<script >
+ 
+var buttons = document.getElementsByTagName("button");
+var buttonsCount = buttons.length;
+for (var i = 0; i <= buttonsCount; i += 1) {
+buttons[i].onclick = function tiklama() {
+var id = this.id;
+var asi_adi = $(this).attr("data-id")
+//alert (asi_adi);
+ //alert(id);
+swal({
+title: 'Emin Misin?',
+html: "<p><b>"+asi_adi+"</b> adlı aşı <b>silinecek</b>.</p><p> Silinen veriler geri alınamaz!</p>",
+type: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+cancelButtonText: 'Hayır',
+confirmButtonText: 'Evet'
+}).then(function (result) {
+  //alert(result.value);
+  if(result.value){
+var data = 'id='+id;
+$.ajax({
+type: 'GET',
+url: "barkodsil.php",
+data: data,
+dataType: 'html',
+context: document.body,
+global: false,
+async:false,
+success: function(data) {
+return data;
+//$('div#sonucsil').html(data);
+}
+}).responseText;
+ 
+swal(
+'Başarılı!',
+'Silinen aşı: '+asi_adi,
+'success'
+)
+$("#sat_"+id).fadeOut("slow");
+}else{
+/*swal(
+'İptal edildi!',
+'Silmekten vazgeçildi.',
+'error'
+)*/
+exit;
+//asiadiekleme();
+}
+})
+};
+}
+</script>

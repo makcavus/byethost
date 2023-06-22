@@ -29,13 +29,13 @@ $token=$_POST['token'];
   <?php
     $sql_sorgu=mysqli_query($dbh_barkod ,"select * from bilgiler where kurum_id='$kurum_id' order by expdate,mesaj desc");
 while($list=mysqli_fetch_array($sql_sorgu)){
-
+    $id=$list['id'];
 
 	/*$sql=$dbh_barkod->prepare("select * from bilgiler order by expdate,mesaj desc");
 	$sql->execute(array());
 	while($list=$sql->fetch(PDO::FETCH_ASSOC)){		*/
 ?>
-<tr>
+<tr id="sat_<?php echo $id; ?>">
 <td class="border border-1 border-dark"><?php echo $list['gtin'];?></td>
 <td class="border border-1 border-dark"><?php echo $list['serino'];?></td>
 <td class="border border-1 border-dark"><?php echo $list['batch'];?></td>
@@ -61,9 +61,7 @@ $asi->execute();
 while ($listele=$asi->fetch(PDO::FETCH_ASSOC)) {*/
  echo $listele['asi_marka'];?></td>
  <input class="form-control" id="asi_marka" name="asi_marka" type="hidden" value="<?php echo $listele['asi_marka'];?>"/>
-<?php
-}	
-?>
+
 <td class="border border-1 border-dark"><?php echo $list['mesaj'];?></td>
 <?php
 /* ARAŞTIRILACAK KISIM************************************************************
@@ -83,10 +81,13 @@ while ($takdim_listele=$takdim->fetch(PDO::FETCH_ASSOC)) {*/
 <input class="form-control" id="miktari" name="miktari" type="hidden" value="<?php echo $list['mesaj'];?>"/>
 <input class="form-control" id="miktari" name="miktari" type="text" value="<?php echo $list['id'];?>"/>
 <td class="border border-1 border-dark">
-<a class="btn btn-danger btn-sm delete-confirm" href="#" onClick="barkodsil();">Sil</a>
+<button class="btn btn-sm btn-danger" id="<?php echo $id; ?>" data-id="<?php echo $listele['asi_marka']; ?>" data-serino="<?php echo $list['serino']; ?>"
+data-kurum="<?php echo $ilinadi.'-'.$ilceninadi.'-'.$ocakyazi.'-'.$yil.'-'.$ayyazi; ?>"
+style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</button>
 </td>
 </tr>
 <?php
+}
 }
 	?>
 </tbody>

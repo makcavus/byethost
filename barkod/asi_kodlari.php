@@ -81,7 +81,7 @@ if($asi_adi_say>0){
 <form class="form-control-sm" name="testformx" id="testformx" method="GET" action="javascript:void(0);">
 <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
 <a class="btn btn-success btn-sm" href="#" onclick="asiadiduzenle(<?php echo $id; ?>);">Düzenle</a>
-<button class="btn btn-sm btn-danger" href="#" id="<?php echo $id; ?>" data-id="<?php echo $list['asi_adi']; ?>"
+<button class="btn btn-sm btn-danger" id="<?php echo $id; ?>" data-id="<?php echo $list['asi_adi']; ?>"
 style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</button></form>
 </td>
 </tr>
@@ -121,7 +121,7 @@ var asi_adi = $(this).attr("data-id")
  //alert(id);
 swal({
 title: 'Emin Misin?',
-text: "Silinen veriler geri alınamaz!",
+html: "<p><b>"+asi_adi+"</b> adlı aşı <b>silinecek</b>.</p><p> Silinen veriler geri alınamaz!</p>",
 type: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#3085d6',

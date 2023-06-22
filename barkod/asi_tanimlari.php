@@ -85,28 +85,29 @@ if($asi_adi_say>0){
     $cins=$liste['asi_kod'];
     $sqlx=mysqli_query($dbh_barkod,"select * from asi_kodlari where asi_kodu='$cins'");
 	?>
-<tr>
+<tr id="sat_<?php echo $id; ?>">
 <td><?php echo $liste['asi_kod'];?></td>
 <td><?php echo $liste['gtin'];?></td>
 <?php	
 	while($list=mysqli_fetch_array($sqlx)){	
 ?>
 <td><?php echo $list['asi_adi'];?></td>
-<?php
-  }
-?>
+
 <td><?php echo $liste['asi_marka'];?></td>
 
 <td class="text-center">
 <form class="form-control-sm" name="testformx" id="testformx" method="GET" action="javascript:void(0);">
 <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
 <a class="btn btn-success btn-sm" href="#" onclick="asitanimduzenle(<?php echo $id; ?>);">Düzenle</a>
-<a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target=".bd-example-modal-sm-barkod" 
-style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></form>
+<button class="btn btn-sm btn-danger" id="<?php echo $id; ?>" data-id="<?php echo $liste['asi_marka']; ?>" data-asi="<?php echo $list['asi_adi']; ?>"
+style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</button></form>
 </td>
+<?php
+  }
+?>
 </tr>
 <!-- Barkod Silme Modal -->
-<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
+<!--<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
   <div class="modal-dialog modal-sm-barkod">
     <div class="modal-content">
       <div class="modal-header bg-success">
@@ -123,7 +124,7 @@ style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></fo
       <div class="modal-footer bg-success justify-content-center">
         <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
         <a href="#" tabindex="2" title="evet" onClick="asitanimsil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>               
-      </div>
+      </div>-->
       <div id="sonucsil" align="center"></div>
     </div>
   </div>
@@ -144,3 +145,60 @@ style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</a></fo
 <script type="text/javascript" src="assets/js/sayfa_linkleri.js"></script>
 <script language="JavaScript" src="toplama.js" type="text/javascript"></script>	
 <script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
+<script language="JavaScript" type="text/javascript" src="assets/bootstrap-4/sweetalert2/sweetalert2.min.js"></script>
+<script>
+var buttons = document.getElementsByTagName("button");
+	var buttonsCount = buttons.length;
+	for (var i = 0; i <= buttonsCount; i += 1) {
+	buttons[i].onclick = function tiklama1() {
+	var id = this.id;
+	var asi_marka = $(this).attr("data-id");
+	var asi_adi = $(this).attr("data-asi");
+	//alert (asi_adi);
+	 //alert(id);
+	swal({
+	title: 'Emin Misin?',
+	html: "<p><b>"+asi_marka+"</b> markalı <p>"+asi_adi+"</p> adlı aşı <b>silinecek</b>.</p><p> Silinen veriler geri alınamaz!</p>",
+	type: 'warning',
+	showCancelButton: true,
+	confirmButtonColor: '#3085d6',
+	cancelButtonColor: '#d33',
+	cancelButtonText: 'Hayır',
+	confirmButtonText: 'Evet'
+	}).then(function (result) {
+	  //alert(result.value);
+	  if(result.value){
+	var data = 'id='+id;
+	$.ajax({
+	type: 'GET',
+	url: "asi_tanim_sil.php",
+	data: data,
+	dataType: 'html',
+	context: document.body,
+	global: false,
+	async:false,
+	success: function(data) {
+	return data;
+	//$('div#sonucsil').html(data);
+	}
+	}).responseText;
+	 
+	swal(
+	'Başarılı!',
+	'Silinen aşı markası: '+asi_marka,
+	'success'
+	)
+	$("#sat_"+id).fadeOut("slow");
+	}else{
+	/*swal(
+	'İptal edildi!',
+	'Silmekten vazgeçildi.',
+	'error'
+	)*/
+	exit;
+	asitanimekleme();
+	}
+	})
+	};
+	}
+  </script>
