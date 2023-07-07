@@ -81,7 +81,24 @@ if(strlen($gtin)==14 && $serino!="" && strlen($expdate)==6 && $batch!="" && $cin
 $sql=mysqli_query($dbh_barkod,"INSERT INTO bilgiler(kurum_id,gtin,serino,expdate,batch,cins,mesaj,miktar_kod,token) 
 VALUES('$kurum_id','$gtin','$serino','$expdate','$batch','$cins','$mesaj','$miktar_kod','$token')");
 
+ }else{
+  echo '<div class="bg-dark"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
  }
+
+//BİRDEN FAZLA SERİ NO GİRİŞİNİ SİLME
+$kac_seri_sorgula=mysqli_query($dbh_barkod,"SELECT serino FROM bilgiler where(serino='$serino')");
+$seri_sayisi=mysqli_num_rows($kac_seri_sorgula);
+//echo "Seri Sayısı: ".$seri_sayisi;
+if($seri_sayisi>1){
+  $seri_sayisi=$seri_sayisi-1;
+  mysqli_query($dbh_barkod,"DELETE FROM bilgiler WHERE serino='$serino' LIMIT $seri_sayisi");
+}
+//exit;
+///////*****************SON */
+
+
+
+
  }
 if (@$sql){
     echo '<div class="bg-dark"><button type="button" name="kodkaydet" id="kodkaydet" class="btn btn-primary btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklendi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
