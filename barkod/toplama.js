@@ -1186,6 +1186,7 @@ data: $('form').serialize(),
 success: function(ajaxCevap) {
 $('div#sonuc').html(ajaxCevap);
 $('div#sonucx').hide();
+//resetConsume();
 $('#token').focus();
 }
 });

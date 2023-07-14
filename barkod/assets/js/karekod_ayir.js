@@ -300,6 +300,7 @@ function asitanimdegistir() {
 			 }
 	}
 function resetConsume(){
+	ykay();
 	    //consumingKurum_id = false;
 		consumingGtin = false;
 		consumingSerino = false;
@@ -322,4 +323,6 @@ function resetConsume(){
 		$('#token').focus();
 		$('#asi_adi').focus();
 		$('#asi_marka').focus();
+		
+
 }

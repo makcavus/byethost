@@ -166,6 +166,30 @@ echo '</form>';
 <?php
 }
 ?>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="silmenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabel"><?php echo $silmeonay;?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h5 class="text-secondary bg-warning text-center"><?php echo '<div><h6>'.$ilinadi.'-'.$ilceninadi.'-<font style="color:blue">'.$ocakyazi.'</FONT><br>'.$yil.'-'.$ayyazi.'</h6></div>'; ?></h5>
+       <h5 class="text-danger"><?php echo $silemin;?></h5>
+      </div>
+      <div class="modal-footer bg-success justify-content-center">
+        <a href="#" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></a>
+        <a href="#" tabindex="2" title="evet" onClick="sil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>
+               
+      </div>
+      <div id="sonucsil" align="center"></div>
+    </div>
+  </div>
+</div>	
+
 <table class="table table-responsive-sm table-sm table-bordered table-striped table-light table-hover form013ustaralar" style="margin-top:-8px;">
   <thead>
   <tr>
@@ -240,7 +264,7 @@ while ($listele=$asi->fetch(PDO::FETCH_ASSOC)) {*/
 
 <td class="border border-1 border-dark"><?php echo $list['mesaj'];?></td>
 <?php
-/* ARAŞTIRILACAK KISIM************************************************************
+/* ARAŞTIRILACAK KISIM************************************************************/
 $takdim=substr($list['gtin'],0,1);
 $takdim_sorgula=mysqli_query($dbh_barkod,"SELECT * from asi_takdim where takdim_no='$takdim'");
 while($takdim_listele=mysqli_fetch_array($takdim_sorgula)){
@@ -265,6 +289,7 @@ style="width: 50px"><i class="fa fa-trash-o" aria-hidden="true"></i> Sil</button
 </td>
 </tr>
 <?php
+}
 }
 }
 	?>
@@ -326,7 +351,7 @@ if($asi_miktarim_say>0){
             <td class="border border-1 border-dark"><?php echo htmlentities ($sonuc['miktar']);?></td>
         </tr>
 <!-- Barkod Silme Modal -->
-<!--<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm-barkod" id="silmenubarkod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelbarkod" aria-hidden="true">
   <div class="modal-dialog modal-sm-barkod">
     <div class="modal-content">
       <div class="modal-header bg-success">
@@ -344,7 +369,7 @@ if($asi_miktarim_say>0){
         <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
         <a href="#" tabindex="2" title="evet" onClick="barkodsil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>
                
-      </div>-->
+      </div>
       <div id="sonucsil" align="center"></div>
     </div>
   </div>
@@ -365,7 +390,7 @@ if($asi_miktarim_say>0){
     }
     ?>
 <!-- Modal -->
-<!--<div class="modal fade bd-example-modal-sm" id="silmenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm" id="silmenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header bg-success">
@@ -382,7 +407,7 @@ if($asi_miktarim_say>0){
         <button type="button" class="btn btn-primary btn-sm mr-5" data-dismiss="modal"><i class="fa fa-reply-all fa-lg"></i> <?php echo $hayir;?></button>
         <a href="#" tabindex="2" title="evet" onClick="sil();" class="btn btn-danger btn-sm"><i class="fa fa-check fa-lg"></i> Evet</a>
                
-      </div>-->
+      </div>
       <div id="sonucsil" align="center"></div>
     </div>
   </div>
@@ -512,7 +537,7 @@ echo '<span class="badge badge-pill badge-danger">'.$tamambaslik.'</span>';
 <script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
 <script language="JavaScript" type="text/javascript" src="assets/bootstrap-4/sweetalert2/sweetalert2.min.js"></script>
 <script >
- 
+ /*
 var buttons = document.getElementsByTagName("button");
 var buttonsCount = buttons.length;
 for (var i = 0; i <= buttonsCount; i += 1) {
@@ -561,7 +586,7 @@ $("#sat_"+id).fadeOut("slow");
 'İptal edildi!',
 'Silmekten vazgeçildi.',
 'error'
-)*/
+)
 exit;
 ykay();
 }
@@ -569,3 +594,8 @@ ykay();
 };
 }
 </script>
+<script>
+$( ".sonuckay" ).on( "blur", function() {
+  alert( "Handler for `blur` called." );
+} );
+  </script>

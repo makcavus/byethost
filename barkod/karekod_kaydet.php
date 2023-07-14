@@ -69,7 +69,10 @@ $mesaj=$takdim_paket*$doz;
 
 $barkod_kontrol=mysqli_query($dbh_barkod,"SELECT * from bilgiler where kurum_id='$kurum_id' and token='$token'");
 $barkod_say=mysqli_num_rows($barkod_kontrol);
-//echo $barkod_say;
+$gtin_12=substr($gtin,1,12);
+$gtin_kontrol=mysqli_query($dbh_barkod,"SELECT * from asi_tanim where(asi_kod='$cins' and gtin='$gtin_12')");
+$gtin_say=mysqli_num_rows($gtin_kontrol);
+//echo $gtin_say;
 //exit;
 if($barkod_say==0){
 $asi=mysqli_query($dbh_barkod,"SELECT * from asi_kodlari where asi_kodu='$cins'");
@@ -77,12 +80,14 @@ while($listele=mysqli_fetch_array($asi)){
   //echo $listele['asi_kodu'];
   //exit;
 
-if(strlen($gtin)==14 && $serino!="" && strlen($expdate)==6 && $batch!="" && $cins==$listele['asi_kodu'] && $mesaj>0){
+if(strlen($gtin)==14 && $serino!="" && strlen($expdate)==6 && $batch!="" && $cins==$listele['asi_kodu'] && $mesaj>0 && $gtin_say>0){
 $sql=mysqli_query($dbh_barkod,"INSERT INTO bilgiler(kurum_id,gtin,serino,expdate,batch,cins,mesaj,miktar_kod,token) 
 VALUES('$kurum_id','$gtin','$serino','$expdate','$batch','$cins','$mesaj','$miktar_kod','$token')");
 
  }else{
-  echo '<div class="bg-dark"><button type="button" class="btn btn-danger btn-sm mt-3 mb-2" data-dismiss="modal" onclick="barkodkontrol();">Kayıt Eklenemedi... <i class="fa fa-reply-all fa-lg"></i> Geri</button></div>';
+  echo '<div class="container">';
+  echo '<div class="alert bg-warning">Bir hata var. Aşı adı kayıtlı olmayabilir. Lütfen Kontrol ediniz</div>';
+  echo '</div>';
  }
 
 //BİRDEN FAZLA SERİ NO GİRİŞİNİ SİLME

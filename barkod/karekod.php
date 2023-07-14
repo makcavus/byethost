@@ -240,7 +240,7 @@ $aseunv=$satir['aseunvan'];
 </div>
 <div class="col-md-2">
 <input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();" hidden/>
-<input class="btn btn-primary btn-xs" type="button" onclick="resetConsume()" value="Temizle"/>
+<input class="btn btn-primary btn-xs" type="button" onclick="resetConsume();" value="Temizle"/>
 </div>
 </div>
 </form>
@@ -278,7 +278,7 @@ $aseunv=$satir['aseunvan'];
 </div>
 <div class="col-md-2">
 <input class="btn btn-primary btn-sm" type="button" name="kaydet" id="kaydet" value="Kaydet" onclick="girdiyiekle();" hidden/>
-<input class="btn btn-primary btn-xs" type="button" onclick="resetConsume()" value="Temizle"/>
+<input class="btn btn-primary btn-xs" type="button" onclick="resetConsume();" value="Temizle"/>
 </div>
 </div>
 </form>
