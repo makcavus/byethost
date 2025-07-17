@@ -131,7 +131,7 @@ $sql="SELECT * FROM ocak where(ilinad='$ilgelen' and ilce='$ilcegelen' and socad
   $sonucak=mysqli_query($dbh,$sql);
     while($satir=mysqli_fetch_array($sonucak))
 {
-//@mysql_close($conn);
+//@mysqli_close($conn);
 $ahkod=$satir['socad'];
 $asmadi=$satir['asmadi'];
 if(substr($ocgelen,-3)==$kurumyetki){

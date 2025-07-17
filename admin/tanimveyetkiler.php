@@ -26,19 +26,19 @@ $upload_dir_depo="Depo/";
 
 $upload_dir_foto="icerikfoto/";
 
-$yuklenen="Yüklenen Dosyanın Açıklaması...";
+$yuklenen="YÃ¼klenen DosyanÃ½n AÃ§Ã½klamasÃ½...";
 
-$kurumtipi="Kurum Tipini Seçiniz";
+$kurumtipi="Kurum Tipini SeÃ§iniz";
 
-$tumu="Tümü";
+$tumu="TÃ¼mÃ¼";
 
-$ilsec="İli Seçiniz";
+$ilsec="Ãli SeÃ§iniz";
 
-$onceilsec="Önce İli Seçiniz";
+$onceilsec="Ã–nce Ãli SeÃ§iniz";
 
-$birimsec="Birimi Seçiniz";
+$birimsec="Birimi SeÃ§iniz";
 
-$kulmevcut="--- Bu kullanıcı Adı Mevcut. Lütfen Yeni Kullanıcı Adı Belirleyiniz.";
+$kulmevcut="--- Bu kullanÃ½cÃ½ AdÃ½ Mevcut. LÃ¼tfen Yeni KullanÃ½cÃ½ AdÃ½ Belirleyiniz.";
 
 $virgul=",";
 
@@ -90,47 +90,47 @@ $kurumilkod=substr($rowocak['socad'],0,2);
 
 
 
-//KULLANICI YETKİ SEVİYELERİ.....................................................................
+//KULLANICI YETKÃ SEVÃYELERÃ.....................................................................
 
-$yetkiuyar="Bu kayda müdahale etmeye yetkiniz yoktur.";
+$yetkiuyar="Bu kayda mÃ¼dahale etmeye yetkiniz yoktur.";
 
-//Bakanlik Yetkili Kurum Kisaltmasi. Üyeler tablosundaki üyekod alaninin son üç harfi veya rakami
+//Bakanlik Yetkili Kurum Kisaltmasi. Ãœyeler tablosundaki Ã¼yekod alaninin son Ã¼Ã§ harfi veya rakami
 
 $bakanlikyetki="GMD";
 
-//Il Yetkili Kurum Kisaltmasi. Üyeler tablosundaki üyekod alaninin son üç harfi veya rakami
+//Il Yetkili Kurum Kisaltmasi. Ãœyeler tablosundaki Ã¼yekod alaninin son Ã¼Ã§ harfi veya rakami
 
 $ilyetki="LSM";
 
-//Ilçe Yetkili Kurum Kisaltmasi. Üyeler tablosundaki üyekod alaninin son üç harfi veya rakami
+//IlÃ§e Yetkili Kurum Kisaltmasi. Ãœyeler tablosundaki Ã¼yekod alaninin son Ã¼Ã§ harfi veya rakami
 
 $ilceyetki="ISM";
 
-//Kurum Yetkili Kurum Kisaltmasi. Üyeler tablosundaki üyekod alaninin son üç harfi veya rakami
+//Kurum Yetkili Kurum Kisaltmasi. Ãœyeler tablosundaki Ã¼yekod alaninin son Ã¼Ã§ harfi veya rakami
 
 $kurumyetki="TSM";
 
-//Kurum Yetkili Kurum Kisaltmasi. Üyeler tablosundaki üyekod alaninin son üç harfi veya rakami
+//Kurum Yetkili Kurum Kisaltmasi. Ãœyeler tablosundaki Ã¼yekod alaninin son Ã¼Ã§ harfi veya rakami
 
 $kulyetki=$koddokuz;
 
 
 
-//SİLME ONAYI ETKETLERİ...........................................................................
+//SÃLME ONAYI ETKETLERÃ...........................................................................
 
-$silmeonay="Kayıt Silme Onayı";
+$silmeonay="KayÃ½t Silme OnayÃ½";
 
-$silemin="Bu Kaydı Silmek İstediğinize Emin misiniz?";
+$silemin="Bu KaydÃ½ Silmek ÃstediÃ°inize Emin misiniz?";
 
 $evet="Evet";
 
-$hayir="Hayır";
+$hayir="HayÃ½r";
 
-//KONTROLLERE AİT ETKETLER
+//KONTROLLERE AÃT ETKETLER
 
-$iptal="İptal";
+$iptal="Ãptal";
 
-$degistir="Değiştir";
+$degistir="DeÃ°iÃ¾tir";
 
 $sil="Sil";
 
@@ -138,39 +138,39 @@ $kaydet="Kaydet";
 
 
 
-//KAYDET/DEĞİŞTİR VE SİLE AİT UYARILAR
+//KAYDET/DEÃÃÃTÃR VE SÃLE AÃT UYARILAR
 
 $kurumok='Kurumu Kaydedildi...';
 
-$uyekayitok='Kurumuna ait Kullanıcı Kaydedildi...';
+$uyekayitok='Kurumuna ait KullanÃ½cÃ½ Kaydedildi...';
 
 $oncekikurum="kurumu";
 
-$kurumsonraki="olarak değiştirildi...";
+$kurumsonraki="olarak deÃ°iÃ¾tirildi...";
 
-$geridon="Geri Dön";
+$geridon="Geri DÃ¶n";
 
-$oncekiuye="Kurumuna ait Kullanıcı Bilgileri";
+$oncekiuye="Kurumuna ait KullanÃ½cÃ½ Bilgileri";
 
-$sonraki="Değiştirildi...";
+$sonraki="DeÃ°iÃ¾tirildi...";
 
 $ait="ait";
 
-$kullanici="adlı kullanıcıyı";
+$kullanici="adlÃ½ kullanÃ½cÃ½yÃ½";
 
 $kim=$uyekodu;
 
-$silindi="Kurumuna ait Kullanıcı Kaydı Silindi...";
+$silindi="Kurumuna ait KullanÃ½cÃ½ KaydÃ½ Silindi...";
 
 
 
-//İLETİLEN MESAJLARA İLİŞKİN ETİKETLER
+//ÃLETÃLEN MESAJLARA ÃLÃÃKÃN ETÃKETLER
 
 $tarih='Tarih:';
 
 
 
-$adi='Gönderenin Adı Soyadı:';
+$adi='GÃ¶nderenin AdÃ½ SoyadÃ½:';
 
 
 
@@ -182,7 +182,7 @@ $email="E-mail Adresi:";
 
 
 
-$ileti="İletisi:";
+$ileti="Ãletisi:";
 
 
 

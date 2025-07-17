@@ -537,7 +537,7 @@ echo '<span class="badge badge-pill badge-danger">'.$tamambaslik.'</span>';
 <script language="JavaScript" type="text/javascript" src="assets/js/karekod_ayir.js"></script>
 <script language="JavaScript" type="text/javascript" src="assets/bootstrap-4/sweetalert2/sweetalert2.min.js"></script>
 <script >
- /*
+ 
 var buttons = document.getElementsByTagName("button");
 var buttonsCount = buttons.length;
 for (var i = 0; i <= buttonsCount; i += 1) {
@@ -582,7 +582,7 @@ swal(
 )
 $("#sat_"+id).fadeOut("slow");
 }else{
-/*swal(
+swal(
 'İptal edildi!',
 'Silmekten vazgeçildi.',
 'error'
@@ -595,7 +595,14 @@ ykay();
 }
 </script>
 <script>
-$( ".sonuckay" ).on( "blur", function() {
+/*$( ".sonuckay" ).on( "blur", function() {
   alert( "Handler for `blur` called." );
-} );
+} );*/
   </script>
+  <script>
+   // $("#").ready(function() {
+//var x= document.querySelector("#sonuc").childNodes[0];
+
+//alert("xxx"+x.textContent); //ÇIKTI: javascript dersi
+//});
+    </script>

@@ -55,6 +55,8 @@ $kachastsay=mysqli_num_rows($hastsorgula);
 //echo '<br>';
 //echo '<br>';
 $kacverihast="select * from veri where(ilidi='$countryId' and ilceidi='$stateId' and v177 like '%Hastane%' and vayadi='$ay')";
+//echo $kacverihast;
+//exit();
 $hastverisorgula=mysqli_query($dbhabe,$kacverihast);
 $hastkacverisay=mysqli_num_rows($hastverisorgula);
 //echo $hastkacverisay;
@@ -164,7 +166,7 @@ $sonucak=mysqli_query($dbh,$sql);
     while($satir=mysqli_fetch_array($sonucak))
 {
 $asmninadine=$satir['asmadi'];
-//@mysql_close($conn);
+//@mysqli_close($conn);
 }
 if($bakanlik==$bakanlikyetki or $ilhsm==$ilyetki or $ilcetsm==$ilceyetki or $ilcetsm==$kurumyetki or $ahekkodu==$ocak){
 ?>

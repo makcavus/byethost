@@ -52,7 +52,10 @@
                         <ion-icon name="qr-code-outline" class="nav__icon"></ion-icon>
                         <span class="nav__name">Karekod</span>
                         </a>                   
-                        
+    <a href="../byethost/talep/frm023kayit.php" id="talep" class="nav__link" data-toggle="tooltip" title="Aşı Talep" style="text-decoration:none;">
+                        <ion-icon name="qr-code-outline" class="nav__icon"></ion-icon>
+                        <span class="nav__name">Aşı Talepleri</span>
+                        </a>                    
 
 
 

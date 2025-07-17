@@ -615,3 +615,6 @@ exit;
 };
 }
 </script>
+<script>
+//document.querySelector("#sonuckay").style.backgroundColor = "red";
+</script>

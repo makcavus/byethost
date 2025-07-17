@@ -11,7 +11,7 @@ function karekod_keydown(e)
 	if(window.event) // IE
 	{
 		keynum = e.keyCode;
-		document.getElementById('kaydet').click()
+		document.getElementById('kaydet').click();
 		//alert("tıklandı");
 	}
 	else if(e.which) // Netscape/Firefox/Opera
@@ -219,14 +219,14 @@ var expdate = document.testform.expdate.value;
 var batch = document.testform.batch.value;
 var cins = document.testform.cins.value;
 var mesaj = document.testform.mesaj.value;
- console.log(kurum_id);
+ /*console.log(kurum_id);
  console.log(token);
  console.log(gtin);
  console.log(serino);
  console.log(expdate);
  console.log(batch);
  console.log(cins);
- console.log(mesaj);
+ console.log(mesaj);*/
     http.open('GET', 'karekod_kaydet.php?kurum_id='+kurum_id+'&token='+token+'&gtin='+gtin+'&serino='+serino+'&expdate='+expdate+'&batch='+batch+'&cins='+cins+'&mesaj='+mesaj);
     http.onreadystatechange = cevapFonksiyonu;
     http.send(null);
@@ -236,7 +236,7 @@ function cevapFonksiyonu() {
     console.log(http.readyState);
     if(http.readyState == 4){
         document.getElementById('sonuckay').innerHTML = http.responseText;
-		document.getElementById('kodkaydet').click()
+		document.getElementById('kodkaydet').click();
 		$('#token').focus();
  }
 }

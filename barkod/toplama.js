@@ -1465,7 +1465,9 @@ function ykayit() // islem  fonksiyomuzda id ve komut isimli iki degisken kullan
 		success: function(cevap) // islem.php sayfasindan gelen sonulari id zniteligi liste olan bir div'de grntlyouz.
 		{
 			$('div#barkodekle').html(cevap);
-			//$('div#sonuckay').hide();
+			$('div#sonuckay').hide();
+			//var x= document.querySelector("#barkodekle").childNodes[0];
+            //alert("xxx"+x.innerHTML); //ÇIKTI: javascript dersi
 			$('#token').focus();
 		}
 	});
